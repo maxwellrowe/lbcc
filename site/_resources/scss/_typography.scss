@@ -1,0 +1,48 @@
+body {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+h1,
+.h1 {
+  font-size: clamp(1.875rem, 1.625rem + 1.25vw, 2.75rem);
+}
+
+h2,
+.h2 {
+  font-size: clamp(1.5rem, 1.2857rem + 1.0714vw, 2.25rem);
+}
+
+h3,
+.h3 {
+  font-size: clamp(1.375rem, 1.2321rem + 0.7143vw, 1.875rem);
+}
+
+h4,
+.h4 {
+  font-size: clamp(1.25rem, 1.1786rem + 0.3571vw, 1.5rem);
+}
+
+h5,
+.h5 {
+  font-size: clamp(1.125rem, 1.0893rem + 0.1786vw, 1.25rem);
+}
+
+h6,
+.h6 {
+  font-size: clamp(0.875rem, 0.8393rem + 0.1786vw, 1rem);
+}
+
+.lead {
+  font-size: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+}
+
+.eyebrow {
+  font-family: $lbcc-font-family-heading;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: $color-interactive;
+}

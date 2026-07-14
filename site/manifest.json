@@ -1,0 +1,15 @@
+{
+  "name": "Long Beach City College",
+  "short_name": "LBCC",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FFFEFB",
+  "theme_color": "#DA2919",
+  "icons": [
+    {
+      "src": "/_resources/images/lb-icon.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    }
+  ]
+}

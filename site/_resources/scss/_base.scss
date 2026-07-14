@@ -1,0 +1,131 @@
+:root {
+  --lbcc-surface-base: #{$color-surface-base};
+  --lbcc-surface-subtle: #{$color-surface-subtle};
+  --lbcc-surface-raised: #{$color-surface-raised};
+  --lbcc-surface-water: #{$color-surface-water};
+  --lbcc-surface-sun-haze: #{$color-surface-sun-haze};
+  --lbcc-text-muted: #{$color-text-muted};
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html[data-reduced-motion="true"] {
+  scroll-behavior: auto;
+}
+
+body {
+  min-width: 20rem;
+  background: linear-gradient(180deg, $color-white 0%, $color-surface-subtle 18rem);
+}
+
+a {
+  text-underline-offset: 0.18em;
+}
+
+:focus-visible {
+  outline: 0.1875rem solid $color-focus;
+  outline-offset: 0.1875rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 1100;
+  padding: 0.75rem 1rem;
+  border-radius: $border-radius-sm;
+  background: $color-surface-inverse;
+  color: $color-inverse-text;
+}
+
+.skip-link:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.card,
+.breadcrumb,
+.accordion-item,
+.accordion-button,
+.alert,
+.form-control,
+.form-select,
+.modal-content,
+.dropdown-menu,
+.page-link,
+.badge {
+  @supports (corner-shape: squircle) {
+    corner-shape: squircle;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  border-radius: 999px;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.btn-sm {
+  min-height: 2rem;
+}
+
+.btn-secondary {
+  --bs-btn-color: #{$color-text};
+  --bs-btn-bg: #{$color-red-100};
+  --bs-btn-border-color: #{$color-red-100};
+  --bs-btn-hover-color: #{$color-text};
+  --bs-btn-hover-bg: #{mix($color-red-100, $color-white, 82%)};
+  --bs-btn-hover-border-color: #{$color-primary};
+  --bs-btn-active-color: #{$color-text};
+  --bs-btn-active-bg: #{$color-red-100};
+  --bs-btn-active-border-color: #{$color-primary};
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #{$color-text};
+  --bs-btn-border-color: #{$color-primary};
+  --bs-btn-hover-color: #{$color-text};
+  --bs-btn-hover-bg: #{$color-primary-soft};
+  --bs-btn-hover-border-color: #{$color-primary};
+  --bs-btn-active-color: #{$color-text};
+  --bs-btn-active-bg: #{$color-primary-soft};
+  --bs-btn-active-border-color: #{$color-primary};
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: #{$color-text};
+  --bs-btn-border-color: #{$color-primary};
+  --bs-btn-hover-color: #{$color-text};
+  --bs-btn-hover-bg: #{$color-primary-soft};
+  --bs-btn-hover-border-color: #{$color-primary};
+  --bs-btn-active-color: #{$color-text};
+  --bs-btn-active-bg: #{$color-primary-soft};
+  --bs-btn-active-border-color: #{$color-primary};
+}
+
+.btn-outline-light {
+  --bs-btn-color: #{$color-white};
+  --bs-btn-border-color: #{rgba($color-red-100, 0.92)};
+  --bs-btn-hover-color: #{$color-white};
+  --bs-btn-hover-bg: #{rgba($color-red-100, 0.12)};
+  --bs-btn-hover-border-color: #{$color-red-100};
+  --bs-btn-active-color: #{$color-white};
+  --bs-btn-active-bg: #{rgba($color-red-100, 0.18)};
+  --bs-btn-active-border-color: #{$color-red-100};
+}
+
+.modal-content {
+  box-shadow: $lbcc-shadow-modal;
+}

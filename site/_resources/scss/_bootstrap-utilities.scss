@@ -1,0 +1,19 @@
+$utilities: map-merge(
+  $utilities,
+  (
+    "font-size": map-merge(
+      map-get($utilities, "font-size"),
+      (
+        responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "font-size"), "values"),
+          (
+            7: clamp(0.75rem, 0.7143rem + 0.1786vw, 0.875rem),
+            8: clamp(0.75rem, 0.7321rem + 0.0893vw, 0.8125rem),
+            9: clamp(0.6875rem, 0.6696rem + 0.0893vw, 0.75rem)
+          )
+        )
+      )
+    )
+  )
+);

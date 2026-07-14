@@ -1,0 +1,363 @@
+.swatch-card {
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid $color-border-subtle;
+  border-radius: $border-radius-lg;
+  background: $color-surface-raised;
+  box-shadow: $lbcc-shadow-sm;
+}
+
+.swatch {
+  width: 100%;
+  height: 8rem;
+  margin-bottom: 1rem;
+  border-radius: $border-radius;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.section-shell {
+  padding-block: clamp(4rem, 3.2857rem + 3.5714vw, 6.5rem);
+}
+
+.section-shell-accent {
+  background:
+    radial-gradient(circle at top right, rgba($color-yellow-300, 0.45), transparent 28rem),
+    radial-gradient(circle at bottom left, rgba($color-interactive-light, 0.55), transparent 24rem),
+    $color-surface-subtle;
+}
+
+.section-shell-contrast {
+  background:
+    linear-gradient(135deg, rgba($color-sun-soft, 0.55), transparent 45%),
+    linear-gradient(225deg, rgba($color-interactive-subtle, 0.85), rgba($color-surface-base, 0.9));
+}
+
+.section-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.section-copy {
+  max-width: 38rem;
+  margin: 0;
+  color: $color-text-secondary;
+  font-size: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+}
+
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(4.5rem, 3.8571rem + 3.2143vw, 6.75rem);
+  background:
+    radial-gradient(circle at top right, rgba($color-yellow-300, 0.72), transparent 30rem),
+    radial-gradient(circle at bottom left, rgba($color-interactive-light, 0.8), transparent 26rem),
+    linear-gradient(180deg, $color-surface-base, $color-surface-subtle);
+}
+
+.home-hero-title {
+  max-width: 11ch;
+  margin-bottom: 1.25rem;
+  font-size: clamp(2.5rem, 1.8929rem + 3.0357vw, 4.625rem);
+  line-height: 0.96;
+  text-wrap: balance;
+}
+
+.home-hero-copy {
+  max-width: 36rem;
+  margin-bottom: 0;
+  color: $color-text-secondary;
+  font-size: clamp(1.0625rem, 1.0089rem + 0.2679vw, 1.25rem);
+}
+
+.hero-story,
+.program-search-card,
+.quote-panel,
+.feed-card,
+.program-card,
+.support-card,
+.audience-card,
+.quick-access-card,
+.resource-group-card,
+.stat-card,
+.cta-band {
+  border-radius: $border-radius-lg;
+  box-shadow: $lbcc-shadow-sm;
+}
+
+.hero-story {
+  padding: clamp(1.5rem, 1.2143rem + 1.4286vw, 2.5rem);
+  border: 1px solid rgba($color-border, 0.75);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.hero-marquee {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba($color-border, 0.7);
+  border-radius: $border-radius-pill;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.hero-marquee span,
+.hero-marquee a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.hero-marquee span {
+  color: $color-text;
+  font-family: $lbcc-font-family-heading;
+  font-weight: 700;
+}
+
+.hero-marquee a {
+  color: $color-text-secondary;
+  text-decoration: none;
+}
+
+.hero-marquee a::after {
+  content: "\f061";
+  font: var(--fa-font-sharp-regular);
+  color: $color-interactive;
+}
+
+.audience-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  padding: 1.4rem;
+  border: 1px solid rgba($color-border, 0.85);
+  background: rgba(255, 255, 255, 0.78);
+  color: $color-text;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.audience-card:hover,
+.audience-card:focus-visible {
+  transform: translateY(-0.25rem);
+  border-color: rgba($color-interactive, 0.35);
+  box-shadow: $lbcc-shadow;
+}
+
+.audience-card-icon,
+.support-card-icon,
+.quick-access-icon,
+.resource-group-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: $border-radius;
+  background: $color-interactive-subtle;
+  color: $color-interactive-hover;
+  font-size: 1.15rem;
+}
+
+.program-search-card,
+.program-card,
+.support-card,
+.quote-panel,
+.stat-card,
+.feed-card,
+.resource-group-card {
+  height: 100%;
+  padding: 1.5rem;
+  border: 1px solid rgba($color-border, 0.78);
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.program-card {
+  background: rgba($color-white, 0.92);
+}
+
+.support-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.quote-panel {
+  background: linear-gradient(180deg, rgba($color-white, 0.94), rgba($color-sand, 0.88));
+}
+
+.quote-panel blockquote {
+  margin: 0;
+  font-family: $lbcc-font-family-heading;
+  font-size: clamp(1.375rem, 1.1607rem + 1.0714vw, 2.125rem);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.stat-value {
+  font-family: $lbcc-font-family-heading;
+  font-size: clamp(2rem, 1.7143rem + 1.4286vw, 3rem);
+  font-weight: 700;
+  line-height: 1;
+  color: $color-primary;
+}
+
+.feed-card {
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.feed-card:hover,
+.feed-card:focus-within {
+  transform: translateY(-0.2rem);
+  box-shadow: $lbcc-shadow;
+}
+
+.cta-band {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.75rem, 1.3929rem + 1.7857vw, 3rem);
+  border: 1px solid rgba($color-border, 0.9);
+  background:
+    radial-gradient(circle at top right, rgba($color-yellow-300, 0.55), transparent 18rem),
+    rgba($color-white, 0.9);
+}
+
+.page-hero {
+  padding-block: clamp(3rem, 2.5rem + 2.5vw, 4.75rem);
+  background:
+    radial-gradient(circle at top right, rgba($color-interactive-light, 0.65), transparent 24rem),
+    linear-gradient(180deg, rgba($color-white, 0.95), rgba($color-surface-subtle, 0.95));
+}
+
+.page-hero-panel {
+  padding: 1.5rem;
+  border: 1px solid rgba($color-border, 0.85);
+  border-radius: $border-radius-lg;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.page-tab-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.page-tab-strip a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding-inline: 1rem;
+  border: 1px solid rgba($color-border, 0.85);
+  border-radius: $border-radius-pill;
+  background: rgba($color-white, 0.75);
+  color: $color-text;
+  font-family: $lbcc-font-family-heading;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.page-tab-strip a:hover,
+.page-tab-strip a:focus-visible {
+  border-color: rgba($color-interactive, 0.35);
+  background: $color-interactive-subtle;
+  color: $color-interactive-hover;
+}
+
+.quick-access-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid rgba($color-border, 0.85);
+  background: rgba($color-white, 0.86);
+  color: $color-text;
+  text-decoration: none;
+}
+
+.quick-access-card:hover,
+.quick-access-card:focus-visible {
+  border-color: rgba($color-interactive, 0.35);
+  box-shadow: $lbcc-shadow;
+}
+
+.quick-access-label {
+  font-family: $lbcc-font-family-heading;
+  font-weight: 700;
+}
+
+.resource-mini-list li + li {
+  margin-top: 0.85rem;
+}
+
+.resource-mini-list a {
+  color: $color-text;
+  text-decoration: none;
+}
+
+.resource-mini-list a:hover,
+.resource-mini-list a:focus-visible {
+  color: $color-interactive-hover;
+}
+
+.resource-group-card {
+  background: linear-gradient(180deg, rgba($color-white, 0.92), rgba($color-sand, 0.88));
+}
+
+.resource-link-list li + li {
+  margin-top: 0.75rem;
+}
+
+.resource-link-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba($color-border, 0.75);
+  border-radius: $border-radius;
+  background: rgba($color-white, 0.85);
+  color: $color-text;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.resource-link-list a:hover,
+.resource-link-list a:focus-visible {
+  border-color: rgba($color-interactive, 0.35);
+  color: $color-interactive-hover;
+}
+
+@include media-breakpoint-down(lg) {
+  .section-heading {
+    align-items: start;
+  }
+
+  .home-hero-title {
+    max-width: 13ch;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .hero-marquee {
+    border-radius: $border-radius;
+  }
+
+  .quick-access-card {
+    align-items: start;
+  }
+}

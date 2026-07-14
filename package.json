@@ -1,0 +1,32 @@
+{
+  "name": "lbcc",
+  "version": "0.1.0",
+  "private": true,
+  "description": "LBCC Omni CMS front-end foundation",
+  "engines": {
+    "node": ">=20.2.0",
+    "npm": ">=9.6.6"
+  },
+  "scripts": {
+    "build": "npm-run-all build:css build:js",
+    "build:css": "sass site/_resources/scss/main.scss site/_resources/css/main.css --style=expanded --no-source-map && postcss site/_resources/css/main.css --replace",
+    "build:js": "node esbuild.config.mjs",
+    "watch": "npm-run-all --parallel watch:css watch:js",
+    "watch:css": "npm-run-all --parallel watch:sass watch:postcss",
+    "watch:js": "node esbuild.config.mjs --watch",
+    "watch:postcss": "postcss site/_resources/css/main.css --replace --watch",
+    "watch:sass": "sass --watch site/_resources/scss/main.scss:site/_resources/css/main.css --style=expanded --no-source-map"
+  },
+  "dependencies": {
+    "@popperjs/core": "2.11.8",
+    "bootstrap": "5.3.8"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.21",
+    "esbuild": "0.28.1",
+    "npm-run-all": "4.1.5",
+    "postcss": "8.5.6",
+    "postcss-cli": "11.0.1",
+    "sass": "1.78.0"
+  }
+}

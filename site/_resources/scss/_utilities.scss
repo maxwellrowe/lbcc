@@ -1,0 +1,28 @@
+.bg-surface {
+  background: $color-surface-base;
+}
+
+.bg-surface-subtle {
+  background: $color-surface-subtle;
+}
+
+.bg-surface-raised {
+  background: $color-surface-raised;
+}
+
+.bg-surface-water {
+  background: $color-surface-water;
+}
+
+.bg-surface-sun-haze {
+  background: $color-surface-sun-haze;
+}
+
+.bg-surface-inverse {
+  background: $color-surface-inverse;
+  color: $color-inverse-text;
+}
+
+.shadow-modal {
+  box-shadow: $lbcc-shadow-modal;
+}

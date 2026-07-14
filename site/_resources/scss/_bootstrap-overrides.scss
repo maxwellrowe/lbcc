@@ -1,0 +1,130 @@
+$white: $color-white;
+$black: $color-gray-900;
+
+$gray-100: $color-gray-100;
+$gray-200: $color-gray-200;
+$gray-300: $color-gray-300;
+$gray-400: $color-gray-400;
+$gray-500: $color-gray-500;
+$gray-600: $color-gray-600;
+$gray-700: $color-gray-700;
+$gray-800: $color-gray-800;
+$gray-900: $color-gray-900;
+
+$primary: $color-primary;
+$secondary: $color-teal-600;
+$success: $color-success;
+$info: $color-info;
+$warning: $color-warning;
+$danger: $color-danger;
+$light: $color-gray-100;
+$dark: $color-gray-900;
+
+$color-contrast-dark: #000000;
+
+$body-bg: $color-surface-base;
+$body-color: $color-text;
+$headings-color: $color-text;
+$border-color: $color-border;
+$link-color: $color-primary;
+$link-hover-color: $color-primary-hover;
+
+$component-active-bg: $color-interactive;
+$component-active-color: $color-white;
+
+$font-family-sans-serif: $lbcc-font-family-body;
+$headings-font-family: $lbcc-font-family-heading;
+$headings-font-weight: 700;
+$headings-line-height: 1.1;
+
+$enable-negative-margins: true;
+
+$border-radius: 1rem;
+$border-radius-sm: 0.5rem;
+$border-radius-lg: 1.5rem;
+$border-radius-xl: 2rem;
+$border-radius-xxl: 2rem;
+
+$box-shadow-sm: $lbcc-shadow-sm;
+$box-shadow: $lbcc-shadow;
+$box-shadow-lg: $lbcc-shadow-lg;
+
+$focus-ring-color: rgba($color-focus, 0.4);
+$input-btn-focus-box-shadow: 0 0 0 0.25rem rgba($color-focus, 0.4);
+$input-btn-focus-color-opacity: 1;
+$btn-font-family: $lbcc-font-family-body;
+$btn-font-weight: 700;
+$btn-line-height: 1;
+$btn-padding-y: 1rem;
+$btn-padding-x: 1.5rem;
+$btn-font-size: 1rem;
+$btn-padding-y-sm: 0.5rem;
+$btn-padding-x-sm: 0.875rem;
+$btn-font-size-sm: 0.8125rem;
+$btn-padding-y-lg: 1rem;
+$btn-padding-x-lg: 1.5rem;
+$btn-font-size-lg: 1rem;
+$btn-border-width: 1.5px;
+$btn-border-radius: 999px;
+$btn-border-radius-sm: 999px;
+$btn-border-radius-lg: 999px;
+
+$input-bg: $color-white;
+$input-color: $color-text;
+$input-border-color: $color-border;
+$input-placeholder-color: $color-text-muted;
+$input-focus-border-color: $color-focus;
+
+$form-select-bg: $color-white;
+$form-select-color: $color-text;
+$form-select-border-color: $color-border;
+
+$form-check-input-checked-bg-color: $color-interactive;
+$form-check-input-checked-border-color: $color-interactive;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: $lbcc-shell-max-width
+);
+
+$theme-colors: (
+  "primary": $color-primary,
+  "secondary": $color-teal-600,
+  "success": $color-success,
+  "info": $color-info,
+  "warning": $color-warning,
+  "danger": $color-danger,
+  "light": $color-gray-100,
+  "dark": $color-gray-900
+);
+
+$card-bg: $color-surface-base;
+$card-color: $color-text;
+$card-border-color: $color-border-subtle;
+
+$dropdown-bg: $color-surface-base;
+$dropdown-color: $color-text;
+$dropdown-border-color: $color-border-subtle;
+$dropdown-link-color: $color-text;
+$dropdown-link-hover-color: $color-interactive-hover;
+$dropdown-link-hover-bg: $color-interactive-subtle;
+$dropdown-link-active-bg: $color-interactive;
+
+$modal-content-bg: $color-surface-base;
+$modal-content-color: $color-text;
+$modal-content-border-color: $color-border-subtle;
+
+$accordion-bg: $color-surface-base;
+$accordion-color: $color-text;
+$accordion-border-color: $color-border-subtle;
+$accordion-button-active-bg: $color-interactive-subtle;
+$accordion-button-active-color: $color-interactive-hover;
+
+$list-group-bg: $color-surface-base;
+$list-group-color: $color-text;
+$list-group-border-color: $color-border-subtle;
+$list-group-hover-bg: $color-surface-subtle;
+$list-group-active-bg: $color-interactive;
