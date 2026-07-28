@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . '/_resources/php/template-helpers.php';
 require_once __DIR__ . '/_resources/includes/head.php';
 
 $page = [
@@ -51,25 +50,25 @@ $events = [
 ];
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
 <body class="lbcc-page lbcc-homepage">
 <?php include __DIR__ . '/_resources/includes/header.php'; ?>
 <main id="main-content">
-    <section class="home-hero">
+    <section class="py-5 bg-surface-subtle">
         <div class="container">
             <div class="row g-5 align-items-end">
                 <div class="col-lg-7">
                     <p class="eyebrow mb-3">We Are Long Beach City College</p>
-                    <h1 class="home-hero-title">A place to start strong and go further than you thought possible.</h1>
-                    <p class="home-hero-copy">Rooted in Long Beach. Built for what comes next. This homepage shell is designed to feel energetic, direct, and genuinely student-centered without losing the structure an editor-friendly CMS needs.</p>
+                    <h1 class="display-3 mb-3">A place to start strong and go further than you thought possible.</h1>
+                    <p class="lead text-body-secondary mb-0">Rooted in Long Beach. Built for what comes next. This homepage shell is designed to feel energetic, direct, and genuinely student-centered without losing the structure an editor-friendly CMS needs.</p>
                     <div class="d-flex flex-wrap gap-3 mt-4">
                         <a class="btn btn-primary btn-lg" href="#get-started">Get Started</a>
                         <a class="btn btn-outline-secondary btn-lg" href="<?php echo lbcc_escape(lbcc_url('/current-students.php')); ?>">Current Students</a>
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <aside class="hero-story">
+                    <aside class="card h-100 border-0 bg-white p-4">
                         <p class="eyebrow mb-2">Featured Story</p>
                         <h2 class="h3 mb-3">Support isn’t extra. It’s expected.</h2>
                         <p class="mb-0 text-body-secondary">The first shell already leans into a warmer, more human tone, while keeping content blocks reusable and easy to reshape as real LBCC copy comes in.</p>
@@ -77,30 +76,44 @@ $events = [
                 </div>
             </div>
 
-            <div class="hero-marquee mt-5">
-                <span>Latest</span>
-                <a href="#news-events">Women’s History Month</a>
-                <a href="#news-events">Performing Arts Center Ceremony</a>
-                <a href="#programs">8-Week Classes</a>
-                <a href="#get-started">Viking Preview Day</a>
+            <div class="d-flex flex-wrap align-items-center gap-2 gap-lg-3 mt-4 p-3 rounded-pill bg-white border">
+                <span class="eyebrow-sm mb-0">Latest</span>
+                <a class="d-inline-flex align-items-center gap-2 text-decoration-none" href="#news-events">
+                    <span>Women’s History Month</span>
+                    <span class="fa-sharp fa-regular fa-arrow-right" aria-hidden="true"></span>
+                </a>
+                <a class="d-inline-flex align-items-center gap-2 text-decoration-none" href="#news-events">
+                    <span>Performing Arts Center Ceremony</span>
+                    <span class="fa-sharp fa-regular fa-arrow-right" aria-hidden="true"></span>
+                </a>
+                <a class="d-inline-flex align-items-center gap-2 text-decoration-none" href="#programs">
+                    <span>8-Week Classes</span>
+                    <span class="fa-sharp fa-regular fa-arrow-right" aria-hidden="true"></span>
+                </a>
+                <a class="d-inline-flex align-items-center gap-2 text-decoration-none" href="#get-started">
+                    <span>Viking Preview Day</span>
+                    <span class="fa-sharp fa-regular fa-arrow-right" aria-hidden="true"></span>
+                </a>
             </div>
         </div>
     </section>
 
-    <section id="audiences" class="section-shell">
+    <section id="audiences" class="py-5">
         <div class="container">
-            <div class="section-heading">
-                <div>
+            <div class="row g-4 justify-content-between align-items-end mb-4">
+                <div class="col-lg-7">
                     <p class="eyebrow mb-2">You Belong Here</p>
                     <h2>You don’t have to have it all figured out. Just take the first step.</h2>
                 </div>
-                <p class="section-copy">No matter where a student is coming from, the shell should suggest momentum, choice, and support rather than forcing everyone through the same narrow narrative.</p>
+                <div class="col-lg-5">
+                    <p class="text-body-secondary mb-0">No matter where a student is coming from, the shell should suggest momentum, choice, and support rather than forcing everyone through the same narrow narrative.</p>
+                </div>
             </div>
             <div class="row g-3">
                 <?php foreach ($audiences as $audience) { ?>
                     <div class="col-sm-6 col-xl-3">
-                        <a class="audience-card" href="<?php echo lbcc_escape(lbcc_url($audience['href'])); ?>">
-                            <span class="audience-card-icon fa-sharp fa-regular fa-arrow-right" aria-hidden="true"></span>
+                        <a class="card h-100 border-0 p-4 text-decoration-none text-reset" href="<?php echo lbcc_escape(lbcc_url($audience['href'])); ?>">
+                            <span class="d-inline-flex align-items-center justify-content-center rounded bg-surface-water text-info-emphasis p-3 mb-3 lh-1 fa-sharp fa-regular fa-arrow-right" aria-hidden="true"></span>
                             <h3 class="h5"><?php echo lbcc_escape($audience['title']); ?></h3>
                             <p class="mb-0 text-body-secondary"><?php echo lbcc_escape($audience['copy']); ?></p>
                         </a>
@@ -110,14 +123,14 @@ $events = [
         </div>
     </section>
 
-    <section id="programs" class="section-shell section-shell-accent">
+    <section id="programs" class="py-5 bg-surface-water">
         <div class="container">
             <div class="row g-4 align-items-start">
                 <div class="col-lg-5">
                     <p class="eyebrow mb-2">Explore Our Programs</p>
                     <h2>With more than 70 programs, this is where momentum starts.</h2>
-                    <p class="section-copy mb-4">The program area combines plain-language wayfinding, category grouping, and search affordances so it can scale without feeling bureaucratic.</p>
-                    <div class="program-search-card">
+                    <p class="text-body-secondary mb-4">The program area combines plain-language wayfinding, category grouping, and search affordances so it can scale without feeling bureaucratic.</p>
+                    <div class="card border-0 bg-white p-4">
                         <label class="form-label" for="program-search">Search programs at LBCC</label>
                         <div class="input-group input-group-lg">
                             <span class="input-group-text"><span class="fa-sharp fa-regular fa-magnifying-glass" aria-hidden="true"></span></span>
@@ -130,7 +143,7 @@ $events = [
                     <div class="row g-3">
                         <?php foreach ($programCategories as $category) { ?>
                             <div class="col-md-6">
-                                <article class="program-card">
+                                <article class="card h-100 border-0 bg-white p-4">
                                     <p class="eyebrow mb-2">Program Pathway</p>
                                     <h3 class="h4"><?php echo lbcc_escape($category['label']); ?></h3>
                                     <p class="mb-0 text-body-secondary"><?php echo lbcc_escape($category['description']); ?></p>
@@ -143,20 +156,22 @@ $events = [
         </div>
     </section>
 
-    <section id="support" class="section-shell">
+    <section id="support" class="py-5">
         <div class="container">
-            <div class="section-heading">
-                <div>
+            <div class="row g-4 justify-content-between align-items-end mb-4">
+                <div class="col-lg-7">
                     <p class="eyebrow mb-2">We Get You. We’ve Got You.</p>
                     <h2>Support should feel visible, human, and built into the experience.</h2>
                 </div>
-                <p class="section-copy">These blocks can later evolve into linked modules or CMS snippets, but the shared pattern already handles icons, varied copy lengths, and multiple instances.</p>
+                <div class="col-lg-5">
+                    <p class="text-body-secondary mb-0">These blocks can later evolve into linked modules or CMS snippets, but the shared pattern already handles icons, varied copy lengths, and multiple instances.</p>
+                </div>
             </div>
             <div class="row g-4">
                 <?php foreach ($supportAreas as $area) { ?>
                     <div class="col-md-6 col-xl-3">
-                        <article class="support-card h-100">
-                            <span class="support-card-icon <?php echo lbcc_escape($area['icon']); ?>" aria-hidden="true"></span>
+                        <article class="card h-100 border-0 p-4">
+                            <span class="d-inline-flex align-items-center justify-content-center rounded bg-surface-water text-info-emphasis p-3 mb-3 lh-1 <?php echo lbcc_escape($area['icon']); ?>" aria-hidden="true"></span>
                             <h3 class="h5"><?php echo lbcc_escape($area['title']); ?></h3>
                             <p class="mb-0 text-body-secondary"><?php echo lbcc_escape($area['copy']); ?></p>
                         </article>
@@ -166,13 +181,13 @@ $events = [
         </div>
     </section>
 
-    <section class="section-shell section-shell-contrast">
+    <section class="py-5 bg-surface-subtle">
         <div class="container">
             <div class="row g-4 align-items-stretch">
                 <div class="col-lg-6">
-                    <article class="quote-panel h-100">
+                    <article class="card h-100 border-0 bg-surface-raised p-4">
                         <p class="eyebrow mb-3">Why Study at LBCC</p>
-                        <blockquote class="mb-4">“As a non-English speaker, LBCC expanded my vision and helped me adapt, grow, and become a stronger student.”</blockquote>
+                        <blockquote class="fs-3 lh-sm mb-4">“As a non-English speaker, LBCC expanded my vision and helped me adapt, grow, and become a stronger student.”</blockquote>
                         <div class="d-flex flex-wrap gap-4 text-body-secondary">
                             <span>Hong Sodalis</span>
                             <span>Registered Nursing</span>
@@ -184,8 +199,8 @@ $events = [
                     <div class="row g-3">
                         <?php foreach ($stats as $stat) { ?>
                             <div class="col-md-4 col-lg-12 col-xl-4">
-                                <article class="stat-card h-100">
-                                    <div class="stat-value"><?php echo lbcc_escape($stat['value']); ?></div>
+                                <article class="card h-100 border-0 p-4">
+                                    <div class="display-6 text-primary mb-2"><?php echo lbcc_escape($stat['value']); ?></div>
                                     <p class="mb-0 text-body-secondary"><?php echo lbcc_escape($stat['label']); ?></p>
                                 </article>
                             </div>
@@ -196,19 +211,19 @@ $events = [
         </div>
     </section>
 
-    <section id="news-events" class="section-shell">
+    <section id="news-events" class="py-5">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-6">
-                    <div class="section-heading mb-4">
-                        <div>
+                    <div class="mb-4">
+                        <div class="mb-0">
                             <p class="eyebrow mb-2">News</p>
                             <h2>Stories that make the institution feel active and current.</h2>
                         </div>
                     </div>
                     <div class="vstack gap-3">
                         <?php foreach ($newsItems as $item) { ?>
-                            <article class="feed-card">
+                            <article class="card border-0 p-4">
                                 <p class="eyebrow mb-2"><?php echo lbcc_escape($item['type']); ?></p>
                                 <h3 class="h5 mb-2"><?php echo lbcc_escape($item['title']); ?></h3>
                                 <p class="mb-0 text-body-secondary"><?php echo lbcc_escape($item['meta']); ?></p>
@@ -217,15 +232,15 @@ $events = [
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="section-heading mb-4">
-                        <div>
+                    <div class="mb-4">
+                        <div class="mb-0">
                             <p class="eyebrow mb-2">Events</p>
                             <h2>Event cards stay compact, readable, and repeatable.</h2>
                         </div>
                     </div>
                     <div class="vstack gap-3">
                         <?php foreach ($events as $event) { ?>
-                            <article class="feed-card">
+                            <article class="card border-0 p-4">
                                 <h3 class="h5 mb-2"><?php echo lbcc_escape($event['title']); ?></h3>
                                 <p class="mb-0 text-body-secondary"><?php echo lbcc_escape($event['meta']); ?></p>
                             </article>
@@ -236,17 +251,21 @@ $events = [
         </div>
     </section>
 
-    <section id="get-started" class="section-shell">
+    <section id="get-started" class="py-5">
         <div class="container">
-            <div class="cta-band">
-                <div>
+            <div class="card border-0 bg-surface-subtle p-4 p-lg-5">
+                <div class="row g-4 align-items-lg-center justify-content-between">
+                    <div class="col-lg-7">
                     <p class="eyebrow mb-2">Get Started at LBCC</p>
                     <h2 class="mb-2">Use this shell to prove out hierarchy, pacing, and editorial flexibility.</h2>
                     <p class="mb-0 text-body-secondary">From here, we can swap in real content modules, connect live data, and extend patterns without rebuilding the foundation.</p>
-                </div>
-                <div class="d-flex flex-wrap gap-3">
-                    <a class="btn btn-primary btn-lg" href="<?php echo lbcc_escape(lbcc_url('/current-students.php')); ?>">Open Interior Hub</a>
-                    <a class="btn btn-outline-secondary btn-lg" href="<?php echo lbcc_escape(lbcc_url('/App_Code/styleguide.php')); ?>">Review Style Guide</a>
+                    </div>
+                    <div class="col-lg-auto">
+                        <div class="d-flex flex-wrap gap-3">
+                            <a class="btn btn-primary btn-lg" href="<?php echo lbcc_escape(lbcc_url('/current-students.php')); ?>">Open Interior Hub</a>
+                            <a class="btn btn-outline-secondary btn-lg" href="<?php echo lbcc_escape(lbcc_url('/App_Code/styleguide.php')); ?>">Review Style Guide</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -254,5 +273,6 @@ $events = [
 </main>
 <?php include __DIR__ . '/_resources/includes/footer.php'; ?>
 <?php include __DIR__ . '/_resources/includes/footer-scripts.php'; ?>
+<?php include __DIR__ . '/_resources/includes/offcanvas.php'; ?>
 </body>
 </html>

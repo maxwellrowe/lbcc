@@ -22,7 +22,7 @@ $dark: $color-gray-900;
 
 $color-contrast-dark: #000000;
 
-$body-bg: $color-surface-base;
+$body-bg: $color-white;
 $body-color: $color-text;
 $headings-color: $color-text;
 $border-color: $color-border;
@@ -36,8 +36,20 @@ $font-family-sans-serif: $lbcc-font-family-body;
 $headings-font-family: $lbcc-font-family-heading;
 $headings-font-weight: 700;
 $headings-line-height: 1.1;
+$small-font-size: 0.875rem;
+$lead-font-size: 1.25rem;
+$lead-font-weight: 400;
 
 $enable-negative-margins: true;
+
+$spacers: (
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 1rem,
+  4: 1.5rem,
+  5: 3rem
+);
 
 $border-radius: 1rem;
 $border-radius-sm: 0.5rem;
@@ -52,6 +64,7 @@ $box-shadow-lg: $lbcc-shadow-lg;
 $focus-ring-color: rgba($color-focus, 0.4);
 $input-btn-focus-box-shadow: 0 0 0 0.25rem rgba($color-focus, 0.4);
 $input-btn-focus-color-opacity: 1;
+$input-btn-border-width: 1.5px;
 $btn-font-family: $lbcc-font-family-body;
 $btn-font-weight: 700;
 $btn-line-height: 1;
@@ -64,7 +77,7 @@ $btn-font-size-sm: 0.8125rem;
 $btn-padding-y-lg: 1rem;
 $btn-padding-x-lg: 1.5rem;
 $btn-font-size-lg: 1rem;
-$btn-border-width: 1.5px;
+$btn-border-width: $input-btn-border-width;
 $btn-border-radius: 999px;
 $btn-border-radius-sm: 999px;
 $btn-border-radius-lg: 999px;
@@ -74,10 +87,27 @@ $input-color: $color-text;
 $input-border-color: $color-border;
 $input-placeholder-color: $color-text-muted;
 $input-focus-border-color: $color-focus;
+$input-border-width: $input-btn-border-width;
+$input-border-radius: 0.5rem;
+$input-padding-y: 1.25rem;
+$input-padding-x: 1rem;
+$input-line-height: 1;
+$input-font-size: 1rem;
+
+$form-label-font-size: 1rem;
+$form-label-font-weight: 600;
+$form-label-color: $color-text;
+$form-label-margin-bottom: 0.5rem;
 
 $form-select-bg: $color-white;
 $form-select-color: $color-text;
 $form-select-border-color: $color-border;
+$form-select-border-width: 1.5px;
+$form-select-border-radius: 0.5rem;
+$form-select-padding-y: 1.25rem;
+$form-select-padding-x: 1rem;
+$form-select-font-size: 1rem;
+$form-select-indicator-color: $color-gray-800;
 
 $form-check-input-checked-bg-color: $color-interactive;
 $form-check-input-checked-border-color: $color-interactive;
@@ -128,3 +158,26 @@ $list-group-color: $color-text;
 $list-group-border-color: $color-border-subtle;
 $list-group-hover-bg: $color-surface-subtle;
 $list-group-active-bg: $color-interactive;
+
+$pagination-padding-y: 0.25rem;
+$pagination-padding-x: 0.75rem;
+$pagination-font-size: 1.25rem;
+$pagination-line-height: 1;
+$pagination-color: $color-text;
+$pagination-bg: $color-red-100;
+$pagination-border-width: 1.5px;
+$pagination-border-color: $color-red-100;
+$pagination-border-radius: 0.5rem;
+$pagination-hover-color: $color-text;
+$pagination-hover-bg: $color-red-100;
+$pagination-hover-border-color: $color-primary;
+$pagination-focus-color: $color-text;
+$pagination-focus-bg: $color-red-100;
+$pagination-focus-box-shadow: 0 0 0 0.25rem rgba($color-focus, 0.3);
+$pagination-focus-outline: 0;
+$pagination-active-color: $color-white;
+$pagination-active-bg: $color-primary;
+$pagination-active-border-color: $color-primary;
+$pagination-disabled-color: $color-text-muted;
+$pagination-disabled-bg: $color-gray-200;
+$pagination-disabled-border-color: $color-gray-200;

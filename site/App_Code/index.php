@@ -1,5 +1,4 @@
 <?php
-require_once dirname(__DIR__) . '/_resources/php/template-helpers.php';
 require_once dirname(__DIR__) . '/_resources/includes/head.php';
 
 $page = [
@@ -9,7 +8,7 @@ $page = [
 ];
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
 <body class="lbcc-page">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
@@ -18,11 +17,12 @@ $page = [
         <p class="eyebrow">Development Area</p>
         <h1>App_Code</h1>
         <p class="lead text-body-secondary">Use this area for component documentation, test fixtures, and Omni-oriented implementation notes.</p>
-        <div class="surface-card p-4 mt-4">
+        <div class="card bg-surface-raised p-4 mt-4">
             <h2 class="h4">Available pages</h2>
             <ul class="mb-0">
                 <li><a href="<?php echo lbcc_escape(lbcc_url('/')); ?>">Homepage shell</a></li>
                 <li><a href="<?php echo lbcc_escape(lbcc_url('/current-students.php')); ?>">Current students shell</a></li>
+                <li><a href="<?php echo lbcc_escape(lbcc_url('/App_Code/components.php')); ?>">Components</a></li>
                 <li><a href="<?php echo lbcc_escape(lbcc_url('/App_Code/styleguide.php')); ?>">Style guide</a></li>
             </ul>
         </div>
@@ -30,5 +30,6 @@ $page = [
 </main>
 <?php include dirname(__DIR__) . '/_resources/includes/footer.php'; ?>
 <?php include dirname(__DIR__) . '/_resources/includes/footer-scripts.php'; ?>
+<?php include dirname(__DIR__) . '/_resources/includes/offcanvas.php'; ?>
 </body>
 </html>

@@ -1,0 +1,35 @@
+<?php
+require_once dirname(__DIR__) . '/_resources/includes/head.php';
+
+$page = [
+    'title' => 'Components',
+    'description' => 'LBCC component development and documentation area.',
+    'section' => 'App Code'
+];
+
+$componentIncludesDir = __DIR__ . '/includes/components';
+?>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<?php lbcc_head($page); ?>
+<body class="lbcc-page">
+<?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
+<main id="main-content" class="py-5">
+    <div class="container">
+        <header class="mb-5">
+            <p class="eyebrow">Component Library</p>
+            <h1>Components</h1>
+            <p class="lead text-body-secondary mb-0">This page is reserved for component builds, documentation, and test fixtures as we add them.</p>
+        </header>
+        <?php include $componentIncludesDir . '/utilities.php'; ?>
+        <?php include $componentIncludesDir . '/block-arrow-link.php'; ?>
+        <?php include $componentIncludesDir . '/buttons.php'; ?>
+        <?php include $componentIncludesDir . '/quicklinks.php'; ?>
+        <?php include $componentIncludesDir . '/spacer.php'; ?>
+    </div>
+</main>
+<?php include dirname(__DIR__) . '/_resources/includes/footer.php'; ?>
+<?php include dirname(__DIR__) . '/_resources/includes/footer-scripts.php'; ?>
+<?php include dirname(__DIR__) . '/_resources/includes/offcanvas.php'; ?>
+</body>
+</html>

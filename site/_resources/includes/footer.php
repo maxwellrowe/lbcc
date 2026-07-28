@@ -1,69 +1,87 @@
 <?php
-require __DIR__ . '/footer-navigation.php';
-
 $config = lbcc_site_config();
 $wordmark = lbcc_url($config['logo_wordmark']);
 ?>
-<footer class="site-footer mt-5">
+<footer class="site-footer mt-5 pt-5 text-white">
     <div class="container">
-        <div class="site-footer-top">
-            <a class="footer-wordmark" href="<?php echo lbcc_escape(lbcc_url('/')); ?>">
-                <img class="footer-wordmark-logo" src="<?php echo lbcc_escape($wordmark); ?>" alt="<?php echo lbcc_escape($config['site_name']); ?>">
+        <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-md-between gap-4 pb-4 border-bottom border-white border-opacity-10">
+            <a class="d-inline-flex align-items-center" href="<?php echo lbcc_escape(lbcc_url('/')); ?>">
+                <img class="footer-wordmark-logo img-fluid" src="<?php echo lbcc_escape($wordmark); ?>" alt="<?php echo lbcc_escape($config['site_name']); ?>">
             </a>
-            <div class="footer-love-lockup" aria-label="I love LB">
+            <p class="h1 mb-0 d-inline-flex align-items-center gap-1" aria-label="I love LB">
                 <span>I</span>
-                <span class="footer-love-heart">&hearts;</span>
+                <span class="text-primary">&hearts;</span>
                 <span>LB</span>
-            </div>
+            </p>
         </div>
 
-        <div class="footer-social-row">
-            <?php foreach ($socialLinks as $link) { ?>
-                <a class="footer-social-link" href="<?php echo lbcc_escape($link['href']); ?>" aria-label="<?php echo lbcc_escape($link['label']); ?>">
-                    <span class="<?php echo lbcc_escape($link['icon']); ?>" aria-hidden="true"></span>
-                </a>
-            <?php } ?>
+        <div class="d-flex flex-wrap gap-3 py-4">
+            <?php include __DIR__ . '/navigation/social-media.php'; ?>
         </div>
 
-        <div class="row g-4 g-xl-5 footer-main-grid">
+        <div class="row g-4 g-xl-5 pb-4">
             <div class="col-lg-5 col-xl-4">
-                <p class="footer-kicker">Our Campuses</p>
+                <p class="eyebrow-sm text-white-50 mb-3">Our Campuses</p>
                 <div class="vstack gap-3">
-                    <?php foreach ($campuses as $campus) { ?>
-                        <article class="footer-campus">
-                            <h3 class="h6 mb-2"><?php echo lbcc_escape($campus['name']); ?> <span>(<?php echo lbcc_escape($campus['short_name']); ?>)</span></h3>
-                            <p class="mb-1"><?php echo lbcc_escape($campus['address']); ?></p>
-                            <p class="mb-0"><a href="tel:<?php echo lbcc_escape(preg_replace('/[^0-9]/', '', $campus['phone'])); ?>"><?php echo lbcc_escape($campus['phone']); ?></a></p>
-                        </article>
-                    <?php } ?>
+                    <article>
+                        <h3 class="h6 mb-2 text-white">Trades, Technology, and Community Learning Campus <span class="text-white-50">(TTC)</span></h3>
+                        <p class="mb-1 text-white-50">1305 E. Pacific Coast Highway, Long Beach, CA 90806</p>
+                        <p class="mb-0"><a class="link-light text-decoration-none" href="tel:5629384111">(562) 938-4111</a></p>
+                    </article>
+                    <article>
+                        <h3 class="h6 mb-2 text-white">Liberal Arts Campus <span class="text-white-50">(LAC)</span></h3>
+                        <p class="mb-1 text-white-50">4901 East Carson St., Long Beach, CA 90808</p>
+                        <p class="mb-0"><a class="link-light text-decoration-none" href="tel:5629384111">(562) 938-4111</a></p>
+                    </article>
                 </div>
             </div>
 
-            <?php foreach ($footerGroups as $group) { ?>
-                <div class="col-6 col-lg-2">
-                    <p class="footer-kicker"><?php echo lbcc_escape($group['title']); ?></p>
-                    <ul class="list-unstyled footer-link-list mb-0">
-                        <?php foreach ($group['links'] as $link) { ?>
-                            <li><a href="<?php echo lbcc_escape(lbcc_url($link['href'])); ?>"><?php echo lbcc_escape($link['label']); ?></a></li>
-                        <?php } ?>
-                    </ul>
-                </div>
-            <?php } ?>
+            <div class="col-6 col-lg-2">
+                <p class="eyebrow-sm text-white-50 mb-3">College</p>
+                <ul class="list-unstyled vstack gap-2 mb-0">
+                    <li><a class="link-light text-decoration-none" href="#">Accreditation</a></li>
+                    <li><a class="link-light text-decoration-none" href="#">Office of the President</a></li>
+                    <li><a class="link-light text-decoration-none" href="#">Shared Governance</a></li>
+                    <li><a class="link-light text-decoration-none" href="#">Careers at LBCC</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-lg-2">
+                <p class="eyebrow-sm text-white-50 mb-3">Resources</p>
+                <ul class="list-unstyled vstack gap-2 mb-0">
+                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/#support')); ?>">Student Support</a></li>
+                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/current-students.php#upcoming-events')); ?>">Calendars &amp; Events</a></li>
+                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/current-students.php#plan-register')); ?>">Class Schedule</a></li>
+                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/current-students.php#get-in-touch')); ?>">Directory</a></li>
+                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/current-students.php#campus-life')); ?>">Campus Maps</a></li>
+                    <li><a class="link-light text-decoration-none" href="#">Campus Safety</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-lg-2">
+                <p class="eyebrow-sm text-white-50 mb-3">Community</p>
+                <ul class="list-unstyled vstack gap-2 mb-0">
+                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/current-students.php')); ?>">Current Students</a></li>
+                    <li><a class="link-light text-decoration-none" href="#">Faculty &amp; Staff</a></li>
+                    <li><a class="link-light text-decoration-none" href="#">Community</a></li>
+                    <li><a class="link-light text-decoration-none" href="#">Alumni</a></li>
+                </ul>
+            </div>
 
             <div class="col-12 col-lg-2">
-                <div class="footer-action-pills">
-                    <?php foreach ($footerActionLinks as $link) { ?>
-                        <a class="btn btn-outline-light footer-action-link" href="<?php echo lbcc_escape(lbcc_url($link['href'])); ?>"><?php echo lbcc_escape($link['label']); ?></a>
-                    <?php } ?>
+                <div class="d-grid gap-2">
+                    <a class="btn btn-outline-light w-100" href="#">Viking Portal</a>
+                    <a class="btn btn-outline-light w-100" href="#">Canvas</a>
                 </div>
             </div>
         </div>
 
-        <div class="site-footer-meta">
-            <div class="footer-legal-links">
-                <?php foreach ($footerLegalLinks as $link) { ?>
-                    <a href="<?php echo lbcc_escape(lbcc_url($link['href'])); ?>"><?php echo lbcc_escape($link['label']); ?></a>
-                <?php } ?>
+        <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center gap-3 pt-4 border-top border-white border-opacity-10 small text-white-50">
+            <div class="d-flex flex-wrap gap-3">
+                <a class="link-light text-decoration-none" href="#">Accessibility Statement</a>
+                <a class="link-light text-decoration-none" href="#">DSPS Grievance Process</a>
+                <a class="link-light text-decoration-none" href="#">Student Complaints &amp; Grievances</a>
+                <a class="link-light text-decoration-none" href="#">Unsubscribe/Opt-Out</a>
             </div>
             <p class="mb-0">&copy; <?php echo date('Y'); ?> Long Beach City College. All Rights Reserved.</p>
         </div>
