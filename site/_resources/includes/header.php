@@ -23,7 +23,7 @@ $logoMark = lbcc_url($config['logo_mark']);
                     <a href="#" class="btn btn-primary d-none d-sm-inline-block">Apply Now</a>
                     <button 
                         type="button" 
-                        class="site-mobile-utility-button d-flex align-items-center justify-content-start gap-2 btn btn-link ms-4" 
+                        class="site-mobile-utility-button d-flex align-items-center justify-content-start gap-2 btn btn-link ms-0 ms-md-4" 
                         aria-label="Toggle Utility Navigation"
                         data-bs-toggle="offcanvas" 
                         data-bs-target="#offcanvas-utility-nav" 
@@ -35,7 +35,7 @@ $logoMark = lbcc_url($config['logo_mark']);
                     </button>
                     <button 
                         type="button" 
-                        class="site-mobile-utility-button d-flex align-items-center justify-content-start text-start gap-0 btn btn-link ms-4" 
+                        class="site-mobile-utility-button d-flex align-items-center justify-content-start text-start gap-0 btn btn-link ms-0 ms-md-4" 
                         aria-label="Toggle Main Navigation"
                         data-bs-toggle="offcanvas" 
                         data-bs-target="#offcanvas-main-nav" 

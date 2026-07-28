@@ -1,4 +1,4 @@
-<div class="d-flex gap-2 mobile-utilities-nav__top-ctas">
+<div class="d-flex flex-wrap gap-2 mobile-utilities-nav__top-ctas">
     <a 
         href="https://myapps.microsoft.com/?tenant=lbcc.edu" 
         target="_blank" 
