@@ -48,6 +48,8 @@ jobs:
 
           mirror \
             --reverse \
+            --delete \
+            --delete-first \
             --verbose \
             --only-newer \
             --parallel=4 \
