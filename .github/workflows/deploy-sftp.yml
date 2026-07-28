@@ -40,6 +40,7 @@ jobs:
           set net:timeout 20
           set net:reconnect-interval-base 5
           set sftp:auto-confirm yes
+          set sftp:connect-program "ssh -a -x -o HostKeyAlgorithms=+ssh-rsa"
 
           open -u "$SFTP_USERNAME","$SFTP_PASSWORD" \
             -p "$SFTP_PORT" \
