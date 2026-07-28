@@ -1,15 +1,15 @@
-<div class="d-flex flex-wrap gap-2 mobile-utilities-nav__top-ctas">
+<div class="d-grid gap-2 mobile-utilities-nav__top-ctas">
     <a 
         href="https://myapps.microsoft.com/?tenant=lbcc.edu" 
         target="_blank" 
-        class="btn btn-outline-secondary d-flex justify-content-center align-items-center gap-1">
+        class="btn btn-outline-secondary d-flex justify-content-center align-items-center gap-1 w-100">
             <img src="<?php echo lbcc_escape(lbcc_url('_resources/images/viking-icon.svg')); ?>" alt="" />
             <span>Viking Portal</span>
     </a>
     <a 
         href="https://www.lbcc.edu/canvas-lms" 
         target="_blank" 
-        class="btn btn-outline-secondary d-flex justify-content-center align-items-center gap-1">
+        class="btn btn-outline-secondary d-flex justify-content-center align-items-center gap-1 w-100">
             <img src="<?php echo lbcc_escape(lbcc_url('_resources/images/canvas-icon.svg')); ?>" alt="" />
             <span>Canvas</span>
     </a>
