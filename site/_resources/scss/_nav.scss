@@ -160,9 +160,113 @@
   .site-header.site-header-sticky-hidden {
     transform: translateY(calc(-100% - 1rem));
     box-shadow: none;
+    overflow: hidden;
   }
 
   .site-header.site-header-sticky-visible {
     transform: translateY(0);
+  }
+}
+
+
+// Main Navigation
+#lbcc-main-nav {
+  .lbcc-main-nav__btn {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    border-bottom: 1px solid var(--bs-gray-200);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--bs-dark);
+    padding: 1.5rem 1rem;
+
+    @include media-breakpoint-up(xl) {
+      border-bottom-width: 3px;
+      border-bottom-color: transparent;
+      gap: 0.5rem;
+      padding: calc(2rem + 3px) 0 2rem 0;
+      width: fit-content;
+    }
+
+    &:hover {
+      color: var(--bs-primary);
+
+      @include media-breakpoint-up(xl) {
+        border-bottom-color: var(--bs-gray-200);
+      }
+    }
+
+    &::before {
+      content: "\2b";
+      font: var(--fa-font-sharp-regular);
+      line-height: 1;
+      color: var(--bs-primary);
+      transition: all .2s ease-in-out;
+
+      @include media-breakpoint-up(xl) {
+        display: none;
+      }
+    }
+    &::after {
+      @include media-breakpoint-up(xl) {
+        content: "\f107";
+        font: var(--fa-font-sharp-regular);
+        line-height: 1;
+        color: var(--bs-primary);
+        transition: all .2s ease-in-out;
+      }
+    }
+    &[aria-expanded="true"] {
+      background-color: $color-surface-sun-haze;
+      border-bottom-width: 0;
+
+      @include media-breakpoint-up(xl) {
+        border-bottom-width: 3px;
+        border-bottom-color: var(--bs-secondary);
+        background-color: transparent;
+
+        &:hover {
+          border-bottom-color: $color-teal-400;
+        }
+      }
+      
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+
+    &:first-child {
+      border-top: 1px solid var(--bs-gray-200);
+
+      @include media-breakpoint-up(xl) {
+        border-top-width: 0;
+      }
+    }
+  }
+
+  .lbcc-main-nav__item {
+    padding: 0rem 1rem 1rem 1rem;
+
+    @include media-breakpoint-up(xl) {
+      padding: 1rem 0;
+      position: absolute;
+      border-bottom-left-radius: var(--bs-border-radius-lg);
+      border-bottom-right-radius: var(--bs-border-radius-lg);
+      width: $lbcc-shell-max-width;
+      max-width: 100vw;
+      right: 0;
+      top: 100%;
+      z-index: 3;
+      box-shadow: $box-shadow-lg;
+    }
+
   }
 }

@@ -276,6 +276,83 @@ const syncOffcanvasTriggers = () => {
   });
 };
 
+const initDesktopMainNavCollapses = () => {
+  const nav = document.querySelector('[data-lbcc-nav-context="desktop"]');
+
+  if (!(nav instanceof HTMLElement)) {
+    return;
+  }
+
+  const desktopQuery = window.matchMedia("(min-width: 1200px)");
+  const collapseElements = Array.from(nav.querySelectorAll(".lbcc-main-nav__item"));
+
+  if (!collapseElements.length) {
+    return;
+  }
+
+  const getCollapseInstance = (element) => Collapse.getOrCreateInstance(element, { toggle: false });
+  const getTriggersForElement = (element) => Array.from(
+    nav.querySelectorAll(`.lbcc-main-nav__btn[data-bs-target="#${element.id}"]`)
+  );
+
+  const setExpandedState = (element, expanded) => {
+    getTriggersForElement(element).forEach((trigger) => {
+      trigger.setAttribute("aria-expanded", expanded ? "true" : "false");
+    });
+  };
+
+  const hideAll = (activeElement = null) => {
+    collapseElements.forEach((element) => {
+      if (element === activeElement || !element.classList.contains("show")) {
+        return;
+      }
+
+      getCollapseInstance(element).hide();
+    });
+  };
+
+  collapseElements.forEach((element) => {
+    element.addEventListener("show.bs.collapse", () => {
+      if (!desktopQuery.matches) {
+        return;
+      }
+
+      setExpandedState(element, true);
+      hideAll(element);
+    });
+
+    element.addEventListener("hidden.bs.collapse", () => {
+      setExpandedState(element, false);
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!desktopQuery.matches) {
+      return;
+    }
+
+    const target = event.target;
+
+    if (!(target instanceof Node) || nav.contains(target)) {
+      return;
+    }
+
+    hideAll();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!desktopQuery.matches || event.key !== "Escape") {
+      return;
+    }
+
+    hideAll();
+  });
+
+  desktopQuery.addEventListener("change", () => {
+    hideAll();
+  });
+};
+
 const syncReducedMotionPreference = () => {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const update = () => {
@@ -324,6 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initGoogleTranslateModal();
   initStickyHeader();
   syncOffcanvasTriggers();
+  initDesktopMainNavCollapses();
   initMatchHeightUtilities();
   LBCC.Animation.init();
 });

@@ -11,14 +11,8 @@ $logoMark = lbcc_url($config['logo_mark']);
             <a class="site-brand py-2 py-md-3" href="<?php echo lbcc_escape(lbcc_url('/')); ?>">
                 <img class="site-brand-mark d-md-none" src="<?php echo lbcc_escape($logoMark); ?>" alt="" aria-hidden="true">
                 <img class="site-brand-logo d-none d-md-block" src="<?php echo lbcc_escape($wordmark); ?>" alt="<?php echo lbcc_escape($config['site_name']); ?>">
-            </a>
-
-            <nav class="navbar navbar-expand-lg site-header-main px-0 py-3 py-lg-4" aria-label="Primary">
-                <div class="d-none d-xl-block">
-                    <?php include __DIR__ . '/navigation/utility-nav.php'; ?> 
-                    <?php include __DIR__ . '/navigation/main-nav.php'; ?>
-                </div>
-
+            </a> 
+            <nav class="navbar navbar-expand-lg site-header-main px-0 py-3 py-lg-4 py-xl-0 w-100 justify-content-end flex-wrap" aria-label="Primary">
                 <div class="site-mobile-actions d-flex align-items-center gap-4 d-xl-none">
                     <a href="#" class="btn btn-primary d-none d-sm-inline-block">Apply Now</a>
                     <button 
@@ -50,8 +44,19 @@ $logoMark = lbcc_url($config['logo_mark']);
                         <span class="fa-sharp fa-regular fa-search" aria-hidden="true"></span>
                     </button>
                 </div>
-
+                <div class="site-desktop-utility-nav d-none d-xl-block w-100">    
+                    <?php include __DIR__ . '/navigation/utility-nav.php'; ?>
+                </div>
                 <div class="site-desktop-actions d-none d-xl-flex align-items-center gap-4">
+                    <?php
+                    $lbccMainNavId = 'lbcc-main-nav-desktop';
+                    $lbccMainNavContext = 'desktop';
+                    $lbccMainNavItemPrefix = 'lbcc-main-nav-desktop-item';
+                    ?>
+                    <?php include __DIR__ . '/navigation/main-nav.php'; ?>
+                    <?php
+                    unset($lbccMainNavId, $lbccMainNavContext, $lbccMainNavItemPrefix);
+                    ?>
                     <button class="site-search-button" aria-label="Search">
                         <span class="fa-sharp fa-regular fa-magnifying-glass" aria-hidden="true"></span>
                     </button>
