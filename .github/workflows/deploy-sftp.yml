@@ -1,0 +1,74 @@
+name: Deploy via SFTP
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-sftp-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy to production
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes lftp
+
+      - name: Deploy files via SFTP
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_PORT: ${{ secrets.SFTP_PORT }}
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          lftp <<EOF
+          set cmd:fail-exit true
+          set net:max-retries 2
+          set net:timeout 20
+          set net:reconnect-interval-base 5
+          set sftp:auto-confirm yes
+
+          open -u "$SFTP_USERNAME","$SFTP_PASSWORD" \
+            -p "$SFTP_PORT" \
+            "sftp://$SFTP_HOST"
+
+          mirror \
+            --reverse \
+            --verbose \
+            --only-newer \
+            --parallel=4 \
+            --exclude-glob .git/ \
+            --exclude-glob .github/ \
+            --exclude-glob .gitattributes \
+            --exclude-glob .gitignore \
+            --exclude-glob .DS_Store \
+            --exclude-glob Thumbs.db \
+            --exclude-glob .idea/ \
+            --exclude-glob .vscode/ \
+            --exclude-glob docs/ \
+            --exclude-glob node_modules/ \
+            --exclude-glob references/ \
+            --exclude-glob esbuild.config.mjs \
+            --exclude-glob postcss.config.js \
+            --exclude-glob package.json \
+            --exclude-glob package-lock.json \
+            --exclude-glob site/_resources/js/src/ \
+            --exclude-glob site/_resources/scss/ \
+            ./ \
+            .
+
+          bye
+          EOF
