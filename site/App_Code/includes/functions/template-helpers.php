@@ -26,16 +26,77 @@ function lbcc_page_title(?string $title = null): string
     return $title . ' | ' . $site['short_name'];
 }
 
-function lbcc_url(string $path = ''): string
+function lbcc_site_root_dir(): string
 {
-    $basePath = rtrim(lbcc_site_config()['base_path'], '/');
-    $normalized = trim($path, '/');
+    return dirname(__DIR__, 3);
+}
 
-    if ($normalized === '') {
-        return $basePath !== '' ? $basePath . '/' : '/';
+function lbcc_runtime_base_path(): string
+{
+    $configuredBasePath = rtrim(lbcc_site_config()['base_path'], '/');
+    $scriptName = parse_url($_SERVER['SCRIPT_NAME'] ?? '', PHP_URL_PATH) ?: '';
+    $scriptFilename = $_SERVER['SCRIPT_FILENAME'] ?? '';
+    $siteRoot = str_replace('\\', '/', lbcc_site_root_dir());
+    $normalizedScriptFilename = str_replace('\\', '/', $scriptFilename);
+
+    if ($scriptName === '' || $scriptFilename === '') {
+        return $configuredBasePath;
     }
 
-    return ($basePath !== '' ? $basePath : '') . '/' . $normalized;
+    if (!str_starts_with($normalizedScriptFilename, $siteRoot)) {
+        return $configuredBasePath;
+    }
+
+    $relativeScript = ltrim(substr($normalizedScriptFilename, strlen($siteRoot)), '/');
+
+    if ($relativeScript === '') {
+        return $configuredBasePath;
+    }
+
+    $suffix = '/' . str_replace('\\', '/', $relativeScript);
+
+    if (str_ends_with($scriptName, $suffix)) {
+        return substr($scriptName, 0, -strlen($suffix));
+    }
+
+    return rtrim(dirname($scriptName), '/');
+}
+
+function lbcc_relative_root_prefix(): string
+{
+    $scriptFilename = $_SERVER['SCRIPT_FILENAME'] ?? '';
+    $siteRoot = str_replace('\\', '/', lbcc_site_root_dir());
+    $scriptDir = str_replace('\\', '/', dirname($scriptFilename !== '' ? $scriptFilename : $siteRoot));
+
+    if (!str_starts_with($scriptDir, $siteRoot)) {
+        return '';
+    }
+
+    $relativeDir = trim(substr($scriptDir, strlen($siteRoot)), '/');
+
+    if ($relativeDir === '') {
+        return '';
+    }
+
+    $segments = array_filter(explode('/', $relativeDir), static fn ($segment) => $segment !== '');
+
+    return str_repeat('../', count($segments));
+}
+
+function lbcc_url(string $path = ''): string
+{
+    $normalized = trim($path, '/');
+    $prefix = lbcc_relative_root_prefix();
+
+    if ($normalized === '') {
+        return $prefix !== '' ? $prefix : './';
+    }
+
+    if (str_starts_with($normalized, '#')) {
+        return ($prefix !== '' ? $prefix : './') . $normalized;
+    }
+
+    return $prefix . $normalized;
 }
 
 function lbcc_escape(string $value): string
@@ -46,7 +107,7 @@ function lbcc_escape(string $value): string
 function lbcc_request_path(): string
 {
     $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
-    $basePath = rtrim(lbcc_site_config()['base_path'], '/');
+    $basePath = lbcc_runtime_base_path();
 
     if ($basePath !== '' && str_starts_with($requestPath, $basePath)) {
         $requestPath = substr($requestPath, strlen($basePath)) ?: '/';

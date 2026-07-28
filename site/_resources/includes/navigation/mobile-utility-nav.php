@@ -3,14 +3,14 @@
         href="https://myapps.microsoft.com/?tenant=lbcc.edu" 
         target="_blank" 
         class="btn btn-outline-secondary d-flex justify-content-center align-items-center gap-1">
-            <img src="/_resources/images/viking-icon.svg" alt="" />
+            <img src="<?php echo lbcc_escape(lbcc_url('_resources/images/viking-icon.svg')); ?>" alt="" />
             <span>Viking Portal</span>
     </a>
     <a 
         href="https://www.lbcc.edu/canvas-lms" 
         target="_blank" 
         class="btn btn-outline-secondary d-flex justify-content-center align-items-center gap-1">
-            <img src="/_resources/images/canvas-icon.svg" alt="" />
+            <img src="<?php echo lbcc_escape(lbcc_url('_resources/images/canvas-icon.svg')); ?>" alt="" />
             <span>Canvas</span>
     </a>
 </div>
@@ -113,7 +113,7 @@
             target="_blank"
             class="btn btn-outline-secondary border-0 w-100 d-flex align-items-center justify-content center"    
         >
-            <img src="/_resources/images/viking-icon.svg" alt="" />
+            <img src="<?php echo lbcc_escape(lbcc_url('_resources/images/viking-icon.svg')); ?>" alt="" />
             <span>Viking Athletics</span>
         </a>
     </div>
