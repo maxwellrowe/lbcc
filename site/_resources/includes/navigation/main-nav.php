@@ -8,7 +8,7 @@ $classesProgramsId = $lbccMainNavItemPrefix . '-classes-programs';
 ?>
 <div
     id="<?php echo lbcc_escape($lbccMainNavId); ?>"
-    class="my-2 my-xl-0 d-xl-flex gap-xl-3 align-items-center justify-content-end"
+    class="lbcc-main-nav my-2 my-xl-0 d-xl-flex gap-xl-3 align-items-center justify-content-end"
     <?php if ($lbccMainNavContext !== '') { ?>data-lbcc-nav-context="<?php echo lbcc_escape($lbccMainNavContext); ?>"<?php } ?>
 >
     <button 
