@@ -37,17 +37,17 @@
   width: 3.1rem;
   height: 3.1rem;
   border-radius: 50%;
-  background: rgba($color-primary-soft, 1);
-  color: $color-text;
+  background: rgba($color-red-100, 1);
+  color: $body-color;
   text-decoration: none;
-  border: 1.5px solid rgba($color-primary-soft, 1);
+  border: 1.5px solid rgba($color-red-100, 1);
   transition: all 0.2s ease-in-out;
 }
 
 .site-search-button:hover,
 .site-search-button:focus-visible {
-  color: $color-primary;
-  border-color: $color-primary;
+  color: $primary;
+  border-color: $primary;
 }
 
 .site-mobile-actions {
@@ -58,7 +58,7 @@
 .site-mobile-utility-button {
   padding: 0;
   border: 0;
-  color: $color-text;
+  color: $body-color;
   font-family: var(--lbcc-font-family-body);
   font-weight: 700;
   line-height: 1.05;
@@ -67,17 +67,17 @@
 
 .site-mobile-utility-button:hover,
 .site-mobile-utility-button:focus-visible {
-  color: $color-text;
+  color: $body-color;
   text-decoration: none;
 }
 
 .site-mobile-utility-button .fa-sharp {
-  color: $color-primary;
+  color: $primary;
   flex: 0 0 auto;
 }
 
 .site-mobile-utility-label {
-  color: $color-text;
+  color: $body-color;
   font-weight: 700;
 }
 
@@ -88,7 +88,7 @@
   gap: 0.3125rem;
   width: 1.375rem;
   min-width: 1.375rem;
-  color: $color-primary;
+  color: $primary;
 }
 
 .menu-bars .bar {
@@ -186,10 +186,10 @@
     padding: 1.5rem 1rem;
 
     @include media-breakpoint-up(xl) {
-      border-bottom-width: 3px;
+      border-bottom-width: 4px;
       border-bottom-color: transparent;
       gap: 0.5rem;
-      padding: calc(2rem + 3px) 0 2rem 0;
+      padding: calc(2.25rem + 4px) 0 2.25rem 0;
       width: fit-content;
     }
 
@@ -197,7 +197,7 @@
       color: var(--bs-primary);
 
       @include media-breakpoint-up(xl) {
-        border-bottom-color: var(--bs-gray-200);
+        border-bottom-color: var(--color-teal-400);
       }
     }
 
@@ -222,7 +222,7 @@
       }
     }
     &[aria-expanded="true"] {
-      background-color: $color-surface-sun-haze;
+      background-color: $color-sun-haze;
       border-bottom-width: 0;
 
       @include media-breakpoint-up(xl) {
@@ -269,4 +269,52 @@
     }
 
   }
+}
+
+// Desktop Utility Nav
+.site-desktop-utility-nav {
+  a {
+    font-size: var(--lbcc-font-size-2xs);
+    font-weight: 600;
+    color: var(--bs-dark);
+    transition: all .2s ease-in-out;
+    text-decoration: none;
+
+    [class^="fa-"] {
+      color: var(--bs-primary);
+    }
+
+    &:not(btn) {
+      &:hover {
+        
+      }
+    }
+    &.btn {
+      &.btn-link {
+        background-color: $color-gray-200;
+        border-radius: 0;
+        padding: 0.75rem 1rem;
+        min-height: 0;
+
+        &.dropdown-toggle-end {
+          border-bottom-right-radius: var(--bs-border-radius-lg);
+        }
+
+        &.dropdown-toggle-start {
+          border-bottom-left-radius: var(--bs-border-radius-lg);
+        }
+
+      }
+    }
+  }
+
+  .dropdown {
+    .dropdown-menu {
+      a {
+        font-size: var(--lbcc-font-size-xs);
+      }
+    }
+  }
+
+
 }

@@ -1,45 +1,45 @@
 .bg-surface,
 .bg-surface-base {
-  background: $color-surface-base;
+  background: $color-surface;
 }
 
 .bg-surface-subtle {
-  background: $color-surface-subtle;
+  background: $color-gray-50;
 }
 
 .bg-surface-raised {
-  background: $color-surface-raised;
+  background: $color-sand;
 }
 
 .bg-water,
 .bg-surface-water {
-  background: $color-surface-water;
+  background: $color-teal-50;
 }
 
 .bg-sunhaze,
 .bg-surface-sun-haze {
-  background: $color-surface-sun-haze;
+  background: $color-sun-haze;
 }
 
 .bg-surface-inverse {
-  background: $color-surface-inverse;
-  color: $color-inverse-text;
+  background: $dark;
+  color: $color-gray-50;
 }
 
 .bg-trans-teal {
-  background: $color-overlay-teal;
+  background: rgba($color-teal-400, 0.48);
 }
 
 .bg-trans-dark-100 {
-  background: $color-overlay-dark-100;
+  background: rgba($gray-900, 0.24);
 }
 
 .bg-trans-dark-400 {
-  background: $color-overlay-dark-400;
+  background: rgba($gray-900, 0.48);
 }
 
 .bg-trans-dark-900 {
-  background: $color-overlay-dark-900;
+  background: rgba($gray-900, 0.62);
 }
 
 .bg-gradient-sunhaze {
@@ -176,8 +176,8 @@
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
   border-radius: 1rem;
-  background: $color-surface-sun-haze;
-  color: $color-text;
+  background: $color-sun-haze;
+  color: $body-color;
   font-family: var(--lbcc-font-family-heading);
   font-size: 1rem;
   font-weight: 800;
@@ -199,7 +199,7 @@
 }
 
 .pill-surface-raised {
-  background: $color-surface-raised;
+  background: $color-sand;
 }
 
 .pill-icon {
@@ -211,7 +211,7 @@
   border-radius: 999px;
   background: $color-red-100;
   border: 1.5px solid $color-red-100;
-  color: $color-text;
+  color: $body-color;
   font-size: 0.75rem;
   line-height: 1;
   flex: 0 0 auto;
@@ -227,8 +227,8 @@
 .pill-light-gray .pill-icon,
 .pill-surface-raised .pill-icon {
   background: transparent;
-  border-color: $color-primary;
-  color: $color-primary;
+  border-color: $primary;
+  color: $primary;
 }
 
 .arrow-link {
@@ -245,7 +245,7 @@
 .arrow-link::after {
   content: "\f061";
   font: var(--fa-font-sharp-regular);
-  color: $color-primary;
+  color: $primary;
   transition: transform 0.2s ease-in-out;
 }
 

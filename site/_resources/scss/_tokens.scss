@@ -1,6 +1,23 @@
+@use "sass:math";
+
+@function lbcc-fluid-size($min-px, $max-px, $min-vw: $lbcc-fluid-type-min-viewport, $max-vw: $lbcc-fluid-type-max-viewport) {
+  $min-rem: math.div($min-px, 16) * 1rem;
+  $max-rem: math.div($max-px, 16) * 1rem;
+  $min-vw-px: math.div($min-vw, 1px);
+  $max-vw-px: math.div($max-vw, 1px);
+  $slope: math.div(($max-px - $min-px), ($max-vw-px - $min-vw-px));
+  $slope-vw: $slope * 100;
+  $intercept-rem: math.div(($min-px - ($slope * $min-vw-px)), 16) * 1rem;
+
+  @return clamp(#{$min-rem}, calc(#{$intercept-rem} + #{$slope-vw}vw), #{$max-rem});
+}
+
 $lbcc-font-family-body: "DM Sans", "Segoe UI", sans-serif;
 $lbcc-font-family-heading: "Instrument Sans", "Segoe UI", sans-serif;
 $lbcc-font-family-label: "DM Mono", "SFMono-Regular", Consolas, monospace;
+
+$lbcc-fluid-type-min-viewport: 375px;
+$lbcc-fluid-type-max-viewport: 1280px;
 
 $lbcc-content-max-width: 760px;
 $lbcc-sidebar-max-width: 280px;

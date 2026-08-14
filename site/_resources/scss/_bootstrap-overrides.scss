@@ -11,25 +11,25 @@ $gray-700: $color-gray-700;
 $gray-800: $color-gray-800;
 $gray-900: $color-gray-900;
 
-$primary: $color-primary;
+$primary: $color-red;
 $secondary: $color-teal-600;
-$success: $color-success;
-$info: $color-info;
-$warning: $color-warning;
-$danger: $color-danger;
+$success: $color-green;
+$info: $color-teal-600;
+$warning: $color-yellow-600;
+$danger: $color-red;
 $light: $color-gray-100;
 $dark: $color-gray-900;
 
 $color-contrast-dark: #000000;
 
 $body-bg: $color-white;
-$body-color: $color-text;
-$headings-color: $color-text;
-$border-color: $color-border;
-$link-color: $color-primary;
-$link-hover-color: $color-primary-hover;
+$body-color: $gray-900;
+$headings-color: $gray-900;
+$border-color: $gray-300;
+$link-color: $primary;
+$link-hover-color: $color-red-700;
 
-$component-active-bg: $color-interactive;
+$component-active-bg: $secondary;
 $component-active-color: $color-white;
 
 $font-family-sans-serif: $lbcc-font-family-body;
@@ -61,8 +61,8 @@ $box-shadow-sm: $lbcc-shadow-sm;
 $box-shadow: $lbcc-shadow;
 $box-shadow-lg: $lbcc-shadow-lg;
 
-$focus-ring-color: rgba($color-focus, 0.4);
-$input-btn-focus-box-shadow: 0 0 0 0.25rem rgba($color-focus, 0.4);
+$focus-ring-color: rgba($color-teal-400, 0.4);
+$input-btn-focus-box-shadow: 0 0 0 0.25rem rgba($color-teal-400, 0.4);
 $input-btn-focus-color-opacity: 1;
 $input-btn-border-width: 1.5px;
 $btn-font-family: $lbcc-font-family-body;
@@ -83,10 +83,10 @@ $btn-border-radius-sm: 999px;
 $btn-border-radius-lg: 999px;
 
 $input-bg: $color-white;
-$input-color: $color-text;
-$input-border-color: $color-border;
-$input-placeholder-color: $color-text-muted;
-$input-focus-border-color: $color-focus;
+$input-color: $body-color;
+$input-border-color: $border-color;
+$input-placeholder-color: $gray-500;
+$input-focus-border-color: $color-teal-400;
 $input-border-width: $input-btn-border-width;
 $input-border-radius: 0.5rem;
 $input-padding-y: 1.25rem;
@@ -96,12 +96,12 @@ $input-font-size: 1rem;
 
 $form-label-font-size: 1rem;
 $form-label-font-weight: 600;
-$form-label-color: $color-text;
+$form-label-color: $body-color;
 $form-label-margin-bottom: 0.5rem;
 
 $form-select-bg: $color-white;
-$form-select-color: $color-text;
-$form-select-border-color: $color-border;
+$form-select-color: $body-color;
+$form-select-border-color: $border-color;
 $form-select-border-width: 1.5px;
 $form-select-border-radius: 0.5rem;
 $form-select-padding-y: 1.25rem;
@@ -109,8 +109,8 @@ $form-select-padding-x: 1rem;
 $form-select-font-size: 1rem;
 $form-select-indicator-color: $color-gray-800;
 
-$form-check-input-checked-bg-color: $color-interactive;
-$form-check-input-checked-border-color: $color-interactive;
+$form-check-input-checked-bg-color: $secondary;
+$form-check-input-checked-border-color: $secondary;
 
 $container-max-widths: (
   sm: 540px,
@@ -121,63 +121,63 @@ $container-max-widths: (
 );
 
 $theme-colors: (
-  "primary": $color-primary,
+  "primary": $primary,
   "secondary": $color-teal-600,
-  "success": $color-success,
-  "info": $color-info,
-  "warning": $color-warning,
-  "danger": $color-danger,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
   "light": $color-gray-100,
   "dark": $color-gray-900
 );
 
-$card-bg: $color-surface-base;
-$card-color: $color-text;
-$card-border-color: $color-border-subtle;
+$card-bg: $color-surface;
+$card-color: $body-color;
+$card-border-color: $gray-200;
 
-$dropdown-bg: $color-surface-base;
-$dropdown-color: $color-text;
-$dropdown-border-color: $color-border-subtle;
-$dropdown-link-color: $color-text;
-$dropdown-link-hover-color: $color-interactive-hover;
-$dropdown-link-hover-bg: $color-interactive-subtle;
-$dropdown-link-active-bg: $color-interactive;
+$dropdown-bg: $color-surface;
+$dropdown-color: $body-color;
+$dropdown-border-color: $gray-200;
+$dropdown-link-color: $body-color;
+$dropdown-link-hover-color: $color-teal-800;
+$dropdown-link-hover-bg: $color-teal-100;
+$dropdown-link-active-bg: $secondary;
 
-$modal-content-bg: $color-surface-base;
-$modal-content-color: $color-text;
-$modal-content-border-color: $color-border-subtle;
+$modal-content-bg: $color-surface;
+$modal-content-color: $body-color;
+$modal-content-border-color: $gray-200;
 
-$accordion-bg: $color-surface-base;
-$accordion-color: $color-text;
-$accordion-border-color: $color-border-subtle;
-$accordion-button-active-bg: $color-interactive-subtle;
-$accordion-button-active-color: $color-interactive-hover;
+$accordion-bg: $color-surface;
+$accordion-color: $body-color;
+$accordion-border-color: $gray-200;
+$accordion-button-active-bg: $color-teal-100;
+$accordion-button-active-color: $color-teal-800;
 
-$list-group-bg: $color-surface-base;
-$list-group-color: $color-text;
-$list-group-border-color: $color-border-subtle;
-$list-group-hover-bg: $color-surface-subtle;
-$list-group-active-bg: $color-interactive;
+$list-group-bg: $color-surface;
+$list-group-color: $body-color;
+$list-group-border-color: $gray-200;
+$list-group-hover-bg: $color-gray-50;
+$list-group-active-bg: $secondary;
 
 $pagination-padding-y: 0.25rem;
 $pagination-padding-x: 0.75rem;
 $pagination-font-size: 1.25rem;
 $pagination-line-height: 1;
-$pagination-color: $color-text;
+$pagination-color: $body-color;
 $pagination-bg: $color-red-100;
 $pagination-border-width: 1.5px;
 $pagination-border-color: $color-red-100;
 $pagination-border-radius: 0.5rem;
-$pagination-hover-color: $color-text;
+$pagination-hover-color: $body-color;
 $pagination-hover-bg: $color-red-100;
-$pagination-hover-border-color: $color-primary;
-$pagination-focus-color: $color-text;
+$pagination-hover-border-color: $primary;
+$pagination-focus-color: $body-color;
 $pagination-focus-bg: $color-red-100;
-$pagination-focus-box-shadow: 0 0 0 0.25rem rgba($color-focus, 0.3);
+$pagination-focus-box-shadow: 0 0 0 0.25rem rgba($color-teal-400, 0.3);
 $pagination-focus-outline: 0;
 $pagination-active-color: $color-white;
-$pagination-active-bg: $color-primary;
-$pagination-active-border-color: $color-primary;
-$pagination-disabled-color: $color-text-muted;
+$pagination-active-bg: $primary;
+$pagination-active-border-color: $primary;
+$pagination-disabled-color: $gray-500;
 $pagination-disabled-bg: $color-gray-200;
 $pagination-disabled-border-color: $color-gray-200;

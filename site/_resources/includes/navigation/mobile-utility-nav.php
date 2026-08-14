@@ -44,7 +44,7 @@
                     ],
                     [
                         'style' => 'btn-primary',
-                        'text' => 'Community',
+                        'text' => 'Alumni',
                         'url' => '#',
                         'size' => '',
                         'icon' => ''

@@ -9,97 +9,97 @@ $page = [
 
 $rawPaletteGroups = [
     'Base' => [
-        ['name' => 'Surface', 'sass' => '$color-surface', 'hex' => '#FFFEFB'],
-        ['name' => 'White', 'sass' => '$color-white', 'hex' => '#FFFFFF']
+        ['name' => 'Surface', 'sass' => '$color-surface', 'hex' => '#FFFEFB', 'css_var' => '--color-surface'],
+        ['name' => 'White', 'sass' => '$color-white', 'hex' => '#FFFFFF', 'css_var' => '--color-white', 'maps_to' => '--bs-white']
     ],
     'Reds' => [
-        ['name' => 'Red', 'sass' => '$color-red', 'hex' => '#DA2919'],
-        ['name' => 'Red 700', 'sass' => '$color-red-700', 'hex' => '#A21F13'],
-        ['name' => 'Red 100', 'sass' => '$color-red-100', 'hex' => '#FBE9E8']
+        ['name' => 'Red', 'sass' => '$color-red', 'hex' => '#DA2919', 'css_var' => '--color-red'],
+        ['name' => 'Red 700', 'sass' => '$color-red-700', 'hex' => '#A21F13', 'css_var' => '--color-red-700'],
+        ['name' => 'Red 100', 'sass' => '$color-red-100', 'hex' => '#FBE9E8', 'css_var' => '--color-red-100']
     ],
     'Grays' => [
-        ['name' => 'Gray 900', 'sass' => '$color-gray-900', 'hex' => '#1E1E1E'],
-        ['name' => 'Gray 800', 'sass' => '$color-gray-800', 'hex' => '#302E2D'],
-        ['name' => 'Gray 700', 'sass' => '$color-gray-700', 'hex' => '#625E5B'],
-        ['name' => 'Gray 600', 'sass' => '$color-gray-600', 'hex' => '#716F6C'],
-        ['name' => 'Gray 500', 'sass' => '$color-gray-500', 'hex' => '#898683'],
-        ['name' => 'Gray 400', 'sass' => '$color-gray-400', 'hex' => '#A5A19D'],
-        ['name' => 'Gray 300', 'sass' => '$color-gray-300', 'hex' => '#C1BCB7'],
-        ['name' => 'Gray 200', 'sass' => '$color-gray-200', 'hex' => '#E4E0DA'],
-        ['name' => 'Gray 100', 'sass' => '$color-gray-100', 'hex' => '#F1F0ED'],
-        ['name' => 'Gray 50', 'sass' => '$color-gray-50', 'hex' => '#F6F5F3']
+        ['name' => 'Gray 900', 'sass' => '$color-gray-900', 'hex' => '#1E1E1E', 'css_var' => '--color-gray-900', 'maps_to' => '--bs-gray-900'],
+        ['name' => 'Gray 800', 'sass' => '$color-gray-800', 'hex' => '#302E2D', 'css_var' => '--color-gray-800', 'maps_to' => '--bs-gray-800'],
+        ['name' => 'Gray 700', 'sass' => '$color-gray-700', 'hex' => '#625E5B', 'css_var' => '--color-gray-700', 'maps_to' => '--bs-gray-700'],
+        ['name' => 'Gray 600', 'sass' => '$color-gray-600', 'hex' => '#716F6C', 'css_var' => '--color-gray-600', 'maps_to' => '--bs-gray-600'],
+        ['name' => 'Gray 500', 'sass' => '$color-gray-500', 'hex' => '#898683', 'css_var' => '--color-gray-500', 'maps_to' => '--bs-gray-500'],
+        ['name' => 'Gray 400', 'sass' => '$color-gray-400', 'hex' => '#A5A19D', 'css_var' => '--color-gray-400', 'maps_to' => '--bs-gray-400'],
+        ['name' => 'Gray 300', 'sass' => '$color-gray-300', 'hex' => '#C1BCB7', 'css_var' => '--color-gray-300', 'maps_to' => '--bs-gray-300'],
+        ['name' => 'Gray 200', 'sass' => '$color-gray-200', 'hex' => '#E4E0DA', 'css_var' => '--color-gray-200', 'maps_to' => '--bs-gray-200'],
+        ['name' => 'Gray 100', 'sass' => '$color-gray-100', 'hex' => '#F1F0ED', 'css_var' => '--color-gray-100', 'maps_to' => '--bs-gray-100'],
+        ['name' => 'Gray 50', 'sass' => '$color-gray-50', 'hex' => '#F6F5F3', 'css_var' => '--color-gray-50']
     ],
     'Teals' => [
-        ['name' => 'Teal 800', 'sass' => '$color-teal-800', 'hex' => '#004E54'],
-        ['name' => 'Teal 600', 'sass' => '$color-teal-600', 'hex' => '#008A94'],
-        ['name' => 'Teal 400', 'sass' => '$color-teal-400', 'hex' => '#00CDDB'],
-        ['name' => 'Teal 200', 'sass' => '$color-teal-200', 'hex' => '#AEEAF0'],
-        ['name' => 'Teal 100', 'sass' => '$color-teal-100', 'hex' => '#E6FAFC'],
-        ['name' => 'Teal 50', 'sass' => '$color-teal-50', 'hex' => '#F1FBFC']
+        ['name' => 'Teal 800', 'sass' => '$color-teal-800', 'hex' => '#004E54', 'css_var' => '--color-teal-800'],
+        ['name' => 'Teal 600', 'sass' => '$color-teal-600', 'hex' => '#008A94', 'css_var' => '--color-teal-600'],
+        ['name' => 'Teal 400', 'sass' => '$color-teal-400', 'hex' => '#00CDDB', 'css_var' => '--color-teal-400'],
+        ['name' => 'Teal 200', 'sass' => '$color-teal-200', 'hex' => '#AEEAF0', 'css_var' => '--color-teal-200'],
+        ['name' => 'Teal 100', 'sass' => '$color-teal-100', 'hex' => '#E6FAFC', 'css_var' => '--color-teal-100'],
+        ['name' => 'Teal 50', 'sass' => '$color-teal-50', 'hex' => '#F1FBFC', 'css_var' => '--color-teal-50']
     ],
     'Yellows' => [
-        ['name' => 'Yellow 800', 'sass' => '$color-yellow-800', 'hex' => '#8A6A00'],
-        ['name' => 'Yellow 600', 'sass' => '$color-yellow-600', 'hex' => '#E6B800'],
-        ['name' => 'Yellow 400', 'sass' => '$color-yellow-400', 'hex' => '#FFDE75'],
-        ['name' => 'Yellow 300', 'sass' => '$color-yellow-300', 'hex' => '#FFE9A8'],
-        ['name' => 'Yellow 200', 'sass' => '$color-yellow-200', 'hex' => '#FFF7DB']
+        ['name' => 'Yellow 800', 'sass' => '$color-yellow-800', 'hex' => '#8A6A00', 'css_var' => '--color-yellow-800'],
+        ['name' => 'Yellow 600', 'sass' => '$color-yellow-600', 'hex' => '#E6B800', 'css_var' => '--color-yellow-600'],
+        ['name' => 'Yellow 400', 'sass' => '$color-yellow-400', 'hex' => '#FFDE75', 'css_var' => '--color-yellow-400'],
+        ['name' => 'Yellow 300', 'sass' => '$color-yellow-300', 'hex' => '#FFE9A8', 'css_var' => '--color-yellow-300'],
+        ['name' => 'Yellow 200', 'sass' => '$color-yellow-200', 'hex' => '#FFF7DB', 'css_var' => '--color-yellow-200']
     ],
     'Support & neutrals' => [
-        ['name' => 'Green', 'sass' => '$color-green', 'hex' => '#2E7D5B'],
-        ['name' => 'Sand', 'sass' => '$color-sand', 'hex' => '#F4F0EC'],
-        ['name' => 'Sand Wet', 'sass' => '$color-sand-wet', 'hex' => '#EFE9E3'],
-        ['name' => 'Sun Soft', 'sass' => '$color-sun-soft', 'hex' => '#FFE9C7'],
-        ['name' => 'Sun Haze', 'sass' => '$color-sun-haze', 'hex' => '#E6F3F2']
+        ['name' => 'Green', 'sass' => '$color-green', 'hex' => '#2E7D5B', 'css_var' => '--color-green'],
+        ['name' => 'Sand', 'sass' => '$color-sand', 'hex' => '#F4F0EC', 'css_var' => '--color-sand'],
+        ['name' => 'Sand Wet', 'sass' => '$color-sand-wet', 'hex' => '#EFE9E3', 'css_var' => '--color-sand-wet'],
+        ['name' => 'Sun Soft', 'sass' => '$color-sun-soft', 'hex' => '#FFE9C7', 'css_var' => '--color-sun-soft'],
+        ['name' => 'Sun Haze', 'sass' => '$color-sun-haze', 'hex' => '#E6F3F2', 'css_var' => '--color-sun-haze']
     ]
 ];
 
 $semanticColorGroups = [
     'Brand & text' => [
-        ['name' => 'Primary', 'sass' => '$color-primary', 'maps_to' => '$color-red', 'hex' => '#DA2919'],
-        ['name' => 'Primary Hover', 'sass' => '$color-primary-hover', 'maps_to' => '$color-red-700', 'hex' => '#A21F13'],
-        ['name' => 'Primary Soft', 'sass' => '$color-primary-soft', 'maps_to' => '$color-red-100', 'hex' => '#FBE9E8'],
-        ['name' => 'Text', 'sass' => '$color-text', 'maps_to' => '$color-gray-900', 'hex' => '#1E1E1E'],
-        ['name' => 'Text Secondary', 'sass' => '$color-text-secondary', 'maps_to' => '$color-gray-700', 'hex' => '#625E5B'],
-        ['name' => 'Text Muted', 'sass' => '$color-text-muted', 'maps_to' => '$color-gray-500', 'hex' => '#898683']
+        ['name' => 'Primary', 'implementation' => '$primary / --bs-primary', 'maps_to' => '$color-red', 'hex' => '#DA2919'],
+        ['name' => 'Primary Hover', 'implementation' => '$color-red-700', 'maps_to' => '$color-red-700', 'hex' => '#A21F13'],
+        ['name' => 'Primary Soft', 'implementation' => '$color-red-100', 'maps_to' => '$color-red-100', 'hex' => '#FBE9E8'],
+        ['name' => 'Text', 'implementation' => '$body-color / --bs-body-color', 'maps_to' => '$color-gray-900', 'hex' => '#1E1E1E'],
+        ['name' => 'Text Secondary', 'implementation' => '$gray-700 / --bs-gray-700', 'maps_to' => '$color-gray-700', 'hex' => '#625E5B'],
+        ['name' => 'Text Muted', 'implementation' => '$gray-500 / --bs-gray-500', 'maps_to' => '$color-gray-500', 'hex' => '#898683']
     ],
     'Border & interactive' => [
-        ['name' => 'Border', 'sass' => '$color-border', 'maps_to' => '$color-gray-300', 'hex' => '#C1BCB7'],
-        ['name' => 'Border Subtle', 'sass' => '$color-border-subtle', 'maps_to' => '$color-gray-200', 'hex' => '#E4E0DA'],
-        ['name' => 'Interactive', 'sass' => '$color-interactive', 'maps_to' => '$color-teal-600', 'hex' => '#008A94'],
-        ['name' => 'Interactive Hover', 'sass' => '$color-interactive-hover', 'maps_to' => '$color-teal-800', 'hex' => '#004E54'],
-        ['name' => 'Interactive Bright', 'sass' => '$color-interactive-bright', 'maps_to' => '$color-teal-400', 'hex' => '#00CDDB'],
-        ['name' => 'Interactive Light', 'sass' => '$color-interactive-light', 'maps_to' => '$color-teal-200', 'hex' => '#AEEAF0'],
-        ['name' => 'Interactive Subtle', 'sass' => '$color-interactive-subtle', 'maps_to' => '$color-teal-100', 'hex' => '#E6FAFC'],
-        ['name' => 'Focus', 'sass' => '$color-focus', 'maps_to' => '$color-teal-400', 'hex' => '#00CDDB']
+        ['name' => 'Border', 'implementation' => '$border-color / --bs-border-color', 'maps_to' => '$color-gray-300', 'hex' => '#C1BCB7'],
+        ['name' => 'Border Subtle', 'implementation' => '$gray-200 / --bs-gray-200', 'maps_to' => '$color-gray-200', 'hex' => '#E4E0DA'],
+        ['name' => 'Interactive', 'implementation' => '$secondary / --bs-secondary', 'maps_to' => '$color-teal-600', 'hex' => '#008A94'],
+        ['name' => 'Interactive Hover', 'implementation' => '$color-teal-800', 'maps_to' => '$color-teal-800', 'hex' => '#004E54'],
+        ['name' => 'Interactive Bright', 'implementation' => '$color-teal-400', 'maps_to' => '$color-teal-400', 'hex' => '#00CDDB'],
+        ['name' => 'Interactive Light', 'implementation' => '$color-teal-200', 'maps_to' => '$color-teal-200', 'hex' => '#AEEAF0'],
+        ['name' => 'Interactive Subtle', 'implementation' => '$color-teal-100', 'maps_to' => '$color-teal-100', 'hex' => '#E6FAFC'],
+        ['name' => 'Focus', 'implementation' => '$color-teal-400', 'maps_to' => '$color-teal-400', 'hex' => '#00CDDB']
     ],
     'Surfaces' => [
-        ['name' => 'Surface Base', 'sass' => '$color-surface-base', 'maps_to' => '$color-surface', 'hex' => '#FFFEFB'],
-        ['name' => 'Surface Subtle', 'sass' => '$color-surface-subtle', 'maps_to' => '$color-gray-50', 'hex' => '#F6F5F3'],
-        ['name' => 'Surface Raised', 'sass' => '$color-surface-raised', 'maps_to' => '$color-sand', 'hex' => '#F4F0EC'],
-        ['name' => 'Surface Water', 'sass' => '$color-surface-water', 'maps_to' => '$color-teal-50', 'hex' => '#F1FBFC'],
-        ['name' => 'Surface Sun Haze', 'sass' => '$color-surface-sun-haze', 'maps_to' => '$color-sun-haze', 'hex' => '#E6F3F2'],
-        ['name' => 'Surface Inverse', 'sass' => '$color-surface-inverse', 'maps_to' => '$color-gray-900', 'hex' => '#1E1E1E']
+        ['name' => 'Surface Base', 'implementation' => '$color-surface', 'maps_to' => '$color-surface', 'hex' => '#FFFEFB'],
+        ['name' => 'Surface Subtle', 'implementation' => '$color-gray-50', 'maps_to' => '$color-gray-50', 'hex' => '#F6F5F3'],
+        ['name' => 'Surface Raised', 'implementation' => '$color-sand', 'maps_to' => '$color-sand', 'hex' => '#F4F0EC'],
+        ['name' => 'Surface Water', 'implementation' => '$color-teal-50', 'maps_to' => '$color-teal-50', 'hex' => '#F1FBFC'],
+        ['name' => 'Surface Sun Haze', 'implementation' => '$color-sun-haze', 'maps_to' => '$color-sun-haze', 'hex' => '#E6F3F2'],
+        ['name' => 'Surface Inverse', 'implementation' => '$dark / --bs-dark', 'maps_to' => '$color-gray-900', 'hex' => '#1E1E1E']
     ],
     'Status & inverse' => [
-        ['name' => 'Success', 'sass' => '$color-success', 'maps_to' => '$color-green', 'hex' => '#2E7D5B'],
-        ['name' => 'Info', 'sass' => '$color-info', 'maps_to' => '$color-teal-600', 'hex' => '#008A94'],
-        ['name' => 'Warning', 'sass' => '$color-warning', 'maps_to' => '$color-yellow-600', 'hex' => '#E6B800'],
-        ['name' => 'Danger', 'sass' => '$color-danger', 'maps_to' => '$color-red', 'hex' => '#DA2919'],
-        ['name' => 'Inverse Text', 'sass' => '$color-inverse-text', 'maps_to' => '$color-gray-50', 'hex' => '#F6F5F3'],
-        ['name' => 'Inverse Muted', 'sass' => '$color-inverse-muted', 'maps_to' => '$color-gray-300', 'hex' => '#C1BCB7'],
-        ['name' => 'Inverse Border', 'sass' => '$color-inverse-border', 'maps_to' => '$color-gray-500', 'hex' => '#898683'],
-        ['name' => 'Inverse Hover', 'sass' => '$color-inverse-hover', 'maps_to' => '$color-gray-800', 'hex' => '#302E2D'],
-        ['name' => 'Inverse Link', 'sass' => '$color-inverse-link', 'maps_to' => '$color-teal-100', 'hex' => '#E6FAFC']
+        ['name' => 'Success', 'implementation' => '$success / --bs-success', 'maps_to' => '$color-green', 'hex' => '#2E7D5B'],
+        ['name' => 'Info', 'implementation' => '$info / --bs-info', 'maps_to' => '$color-teal-600', 'hex' => '#008A94'],
+        ['name' => 'Warning', 'implementation' => '$warning / --bs-warning', 'maps_to' => '$color-yellow-600', 'hex' => '#E6B800'],
+        ['name' => 'Danger', 'implementation' => '$danger / --bs-danger', 'maps_to' => '$color-red', 'hex' => '#DA2919'],
+        ['name' => 'Inverse Text', 'implementation' => '$color-gray-50', 'maps_to' => '$color-gray-50', 'hex' => '#F6F5F3'],
+        ['name' => 'Inverse Muted', 'implementation' => '$gray-300 / --bs-gray-300', 'maps_to' => '$color-gray-300', 'hex' => '#C1BCB7'],
+        ['name' => 'Inverse Border', 'implementation' => '$gray-500 / --bs-gray-500', 'maps_to' => '$color-gray-500', 'hex' => '#898683'],
+        ['name' => 'Inverse Hover', 'implementation' => '$gray-800 / --bs-gray-800', 'maps_to' => '$color-gray-800', 'hex' => '#302E2D'],
+        ['name' => 'Inverse Link', 'implementation' => '$color-teal-100', 'maps_to' => '$color-teal-100', 'hex' => '#E6FAFC']
     ]
 ];
 
 $surfaceUtilityClasses = [
-    ['class' => '.bg-surface-base', 'sass' => '$color-surface-base', 'hex' => '#FFFEFB', 'border' => true],
-    ['class' => '.bg-surface-subtle', 'sass' => '$color-surface-subtle', 'hex' => '#F6F5F3', 'border' => true],
-    ['class' => '.bg-surface-raised', 'sass' => '$color-surface-raised', 'hex' => '#F4F0EC', 'border' => true],
-    ['class' => '.bg-surface-water', 'sass' => '$color-surface-water', 'hex' => '#F1FBFC', 'border' => true],
-    ['class' => '.bg-surface-sun-haze', 'sass' => '$color-surface-sun-haze', 'hex' => '#E6F3F2', 'border' => true],
-    ['class' => '.bg-surface-inverse', 'sass' => '$color-surface-inverse', 'hex' => '#1E1E1E', 'text' => 'text-white']
+    ['class' => '.bg-surface-base', 'sass' => '$color-surface', 'hex' => '#FFFEFB', 'border' => true],
+    ['class' => '.bg-surface-subtle', 'sass' => '$color-gray-50', 'hex' => '#F6F5F3', 'border' => true],
+    ['class' => '.bg-surface-raised', 'sass' => '$color-sand', 'hex' => '#F4F0EC', 'border' => true],
+    ['class' => '.bg-surface-water', 'sass' => '$color-teal-50', 'hex' => '#F1FBFC', 'border' => true],
+    ['class' => '.bg-surface-sun-haze', 'sass' => '$color-sun-haze', 'hex' => '#E6F3F2', 'border' => true],
+    ['class' => '.bg-surface-inverse', 'sass' => '$dark / --bs-dark', 'hex' => '#1E1E1E', 'text' => 'text-white']
 ];
 ?>
 <!DOCTYPE html>
@@ -132,11 +132,11 @@ $surfaceUtilityClasses = [
     <section class="mb-5" aria-labelledby="color-heading">
         <div class="container">
             <h2 id="color-heading">Color</h2>
-            <p class="text-body-secondary">This section lists every raw palette token and every semantic color alias currently defined in Sass, but in a simpler reference layout.</p>
+            <p class="text-body-secondary">This section lists the raw palette we maintain in Sass and the recommended semantic usage roles for applying those colors through Bootstrap or direct palette values. The implementation has been simplified so there is no separate semantic token layer in SCSS.</p>
 
             <div class="mt-4">
                 <h3 class="h4 mb-3">Raw Palette</h3>
-                <p class="text-body-secondary">Foundational color values from <code>_palette.scss</code>. These are the direct source tokens the semantic system maps to.</p>
+                <p class="text-body-secondary">Foundational color values from <code>_palette.scss</code>. Every palette token is also exposed as a runtime CSS custom property for CMS usage, and some additionally map through to Bootstrap variables.</p>
 
                 <?php foreach ($rawPaletteGroups as $groupName => $swatches) { ?>
                     <div class="mt-4">
@@ -146,7 +146,18 @@ $surfaceUtilityClasses = [
                                 <div class="col">
                                     <div class="rounded border mb-2" style="height: 10rem; background-color: <?php echo lbcc_escape($swatch['hex']); ?>"></div>
                                     <p class="mb-1 fw-semibold"><?php echo lbcc_escape($swatch['name']); ?></p>
-                                    <p class="mb-1"><code><?php echo lbcc_escape($swatch['sass']); ?></code></p>
+                                    <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code><?php echo lbcc_escape($swatch['sass']); ?></code></p>
+                                    <p class="mb-1">
+                                        <small class="text-body-secondary">CSS Var:</small>
+                                        <?php if (!empty($swatch['css_var'])) { ?>
+                                            <code><?php echo lbcc_escape($swatch['css_var']); ?></code>
+                                        <?php } else { ?>
+                                            <span class="text-body-secondary">Not exposed</span>
+                                        <?php } ?>
+                                    </p>
+                                    <?php if (!empty($swatch['maps_to'])) { ?>
+                                        <p class="mb-1 text-body-secondary fs-7">Also maps to <code><?php echo lbcc_escape($swatch['maps_to']); ?></code></p>
+                                    <?php } ?>
                                     <p class="mb-0 text-body-secondary fs-7"><?php echo lbcc_escape($swatch['hex']); ?></p>
                                 </div>
                             <?php } ?>
@@ -156,8 +167,8 @@ $surfaceUtilityClasses = [
             </div>
 
             <div class="mt-5">
-                <h3 class="h4 mb-3">Semantic Color Tokens</h3>
-                <p class="text-body-secondary">Implementation-facing aliases from <code>_semantic-colors.scss</code>. These are the variables we should usually reference in components.</p>
+                <h3 class="h4 mb-3">Semantic Usage Guidance</h3>
+                <p class="text-body-secondary">These are presentation roles for the design system, not separate SCSS variables. When possible, use the Bootstrap token shown below. When there is no Bootstrap equivalent, use the palette variable directly.</p>
 
                 <?php foreach ($semanticColorGroups as $groupName => $swatches) { ?>
                     <div class="mt-4">
@@ -167,7 +178,7 @@ $surfaceUtilityClasses = [
                                 <div class="col">
                                     <div class="rounded border mb-2" style="height: 10rem; background-color: <?php echo lbcc_escape($swatch['hex']); ?>"></div>
                                     <p class="mb-1 fw-semibold"><?php echo lbcc_escape($swatch['name']); ?></p>
-                                    <p class="mb-1"><code><?php echo lbcc_escape($swatch['sass']); ?></code></p>
+                                    <p class="mb-1"><small class="text-body-secondary">Implementation:</small> <code><?php echo lbcc_escape($swatch['implementation']); ?></code></p>
                                     <p class="mb-1 text-body-secondary fs-7">Maps to <code><?php echo lbcc_escape($swatch['maps_to']); ?></code></p>
                                     <p class="mb-0 text-body-secondary fs-7"><?php echo lbcc_escape($swatch['hex']); ?></p>
                                 </div>
@@ -270,7 +281,7 @@ $surfaceUtilityClasses = [
     <section class="mb-5" aria-labelledby="utility-heading">
         <div class="container">
             <h2 id="utility-heading">Utilities</h2>
-            <p class="text-body-secondary">Backgrounds, overlays, pills, and action helpers should read like a toolkit, not separate mini-pages.</p>
+            <p class="text-body-secondary">Backgrounds, overlays, pills, and action helpers should read like a toolkit, not separate mini-pages. Utility references below show the backing SCSS token and, where available, the matching CSS variable.</p>
 
             <div class="mt-4">
                 <h3 class="h4 mb-3">Background Utilities</h3>
@@ -279,7 +290,8 @@ $surfaceUtilityClasses = [
                         <div class="col-sm-6 col-xl-4">
                             <div class="rounded p-4 <?php echo lbcc_escape(ltrim($utility['class'], '.')); ?> <?php echo !empty($utility['border']) ? 'border' : ''; ?> <?php echo !empty($utility['text']) ? lbcc_escape($utility['text']) : ''; ?>">
                                 <p class="mb-1 fw-semibold"><?php echo lbcc_escape($utility['class']); ?></p>
-                                <p class="mb-0"><code><?php echo lbcc_escape($utility['sass']); ?></code></p>
+                                <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code><?php echo lbcc_escape($utility['sass']); ?></code></p>
+                                <p class="mb-0"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
                             </div>
                         </div>
                     <?php } ?>
@@ -292,36 +304,46 @@ $surfaceUtilityClasses = [
                     <div class="col-sm-6 col-xl-4">
                         <div class="rounded p-4 bg-trans-teal border">
                             <p class="mb-1 fw-semibold">.bg-trans-teal</p>
+                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-overlay-teal</code></p>
+                            <p class="mb-1"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
                             <p class="mb-0"><code>rgba(#00CDDB, .48)</code></p>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-4">
                         <div class="rounded p-4 bg-trans-dark-100 text-white">
                             <p class="mb-1 fw-semibold">.bg-trans-dark-100</p>
+                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-overlay-dark-100</code></p>
+                            <p class="mb-1"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
                             <p class="mb-0"><code>rgba(#1E1E1E, .24)</code></p>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-4">
                         <div class="rounded p-4 bg-trans-dark-400 text-white">
                             <p class="mb-1 fw-semibold">.bg-trans-dark-400</p>
+                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-overlay-dark-400</code></p>
+                            <p class="mb-1"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
                             <p class="mb-0"><code>rgba(#1E1E1E, .48)</code></p>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-4">
                         <div class="rounded p-4 bg-trans-dark-900 text-white">
                             <p class="mb-1 fw-semibold">.bg-trans-dark-900</p>
+                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-overlay-dark-900</code></p>
+                            <p class="mb-1"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
                             <p class="mb-0"><code>rgba(#1E1E1E, .62)</code></p>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-4">
                         <div class="rounded p-4 bg-water border">
                             <p class="mb-1 fw-semibold">.bg-water</p>
-                            <p class="mb-0"><code>$color-teal-50</code></p>
+                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-teal-50</code></p>
+                            <p class="mb-0"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-4">
                         <div class="rounded p-4 bg-gradient-sunhaze border">
                             <p class="mb-1 fw-semibold">.bg-gradient-sunhaze</p>
+                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <span class="text-body-secondary">Gradient utility</span></p>
                             <p class="mb-0"><code>#E6F3F2 → #FFE9C7</code></p>
                         </div>
                     </div>

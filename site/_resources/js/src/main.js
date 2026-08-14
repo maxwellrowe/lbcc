@@ -278,13 +278,19 @@ const syncOffcanvasTriggers = () => {
 
 const initDesktopMainNavCollapses = () => {
   const nav = document.querySelector('[data-lbcc-nav-context="desktop"]');
+  const searchCollapse = document.getElementById("site-desktop-search");
 
   if (!(nav instanceof HTMLElement)) {
     return;
   }
 
   const desktopQuery = window.matchMedia("(min-width: 1200px)");
+  const desktopActionScope = nav.closest(".site-desktop-actions");
   const collapseElements = Array.from(nav.querySelectorAll(".lbcc-main-nav__item"));
+
+  if (searchCollapse instanceof HTMLElement) {
+    collapseElements.push(searchCollapse);
+  }
 
   if (!collapseElements.length) {
     return;
@@ -292,7 +298,7 @@ const initDesktopMainNavCollapses = () => {
 
   const getCollapseInstance = (element) => Collapse.getOrCreateInstance(element, { toggle: false });
   const getTriggersForElement = (element) => Array.from(
-    nav.querySelectorAll(`.lbcc-main-nav__btn[data-bs-target="#${element.id}"]`)
+    (desktopActionScope || nav).querySelectorAll(`[data-bs-target="#${element.id}"]`)
   );
 
   const setExpandedState = (element, expanded) => {
@@ -333,7 +339,14 @@ const initDesktopMainNavCollapses = () => {
 
     const target = event.target;
 
-    if (!(target instanceof Node) || nav.contains(target)) {
+    if (!(target instanceof Node)) {
+      return;
+    }
+
+    const isWithinDesktopControls = (desktopActionScope || nav).contains(target);
+    const isWithinOpenPanel = collapseElements.some((element) => element.contains(target));
+
+    if (isWithinDesktopControls || isWithinOpenPanel) {
       return;
     }
 
@@ -350,6 +363,26 @@ const initDesktopMainNavCollapses = () => {
 
   desktopQuery.addEventListener("change", () => {
     hideAll();
+  });
+};
+
+const initDesktopSearchCollapseFocus = () => {
+  const searchCollapse = document.getElementById("site-desktop-search");
+
+  if (!(searchCollapse instanceof HTMLElement)) {
+    return;
+  }
+
+  searchCollapse.addEventListener("shown.bs.collapse", () => {
+    const searchInput = searchCollapse.querySelector('input[type="search"]');
+
+    if (!(searchInput instanceof HTMLInputElement)) {
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      searchInput.focus({ preventScroll: true });
+    });
   });
 };
 
@@ -402,6 +435,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initStickyHeader();
   syncOffcanvasTriggers();
   initDesktopMainNavCollapses();
+  initDesktopSearchCollapseFocus();
   initMatchHeightUtilities();
   LBCC.Animation.init();
 });

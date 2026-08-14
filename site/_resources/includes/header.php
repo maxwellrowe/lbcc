@@ -57,12 +57,27 @@ $logoMark = lbcc_url($config['logo_mark']);
                     <?php
                     unset($lbccMainNavId, $lbccMainNavContext, $lbccMainNavItemPrefix);
                     ?>
-                    <button class="site-search-button" aria-label="Search">
+                    <button 
+                        class="lbcc-main-nav__btn site-search-button" 
+                        aria-label="Search"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#site-desktop-search"
+                        aria-expanded="false"
+                        aria-controls="site-desktop-search"
+                    >
                         <span class="fa-sharp fa-regular fa-magnifying-glass" aria-hidden="true"></span>
                     </button>
                     <a class="btn btn-primary" href="<?php echo lbcc_escape(lbcc_url('/')); ?>">Apply Now</a>
                 </div>
             </nav>
+        </div>
+    </div>
+    <div class="collapse" id="site-desktop-search">
+        <div class="d-none d-xl-block bg-surface-sun-haze py-3">
+            <div class="container-xxl">
+                <?php include __DIR__ . '/search.php'; ?>
+            </div>
         </div>
     </div>
 </header>

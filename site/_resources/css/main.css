@@ -12186,38 +12186,38 @@ textarea.form-control-lg {
   }
 }
 body {
-  font-size: 1rem;
+  font-size: var(--lbcc-font-size-md);
   line-height: 1.6;
 }
 
 h1,
 .h1 {
-  font-size: clamp(1.875rem, 1.625rem + 1.25vw, 2.75rem);
+  font-size: var(--lbcc-font-size-5xl);
 }
 
 h2,
 .h2 {
-  font-size: clamp(1.5rem, 1.2857rem + 1.0714vw, 2.25rem);
+  font-size: var(--lbcc-font-size-4xl);
 }
 
 h3,
 .h3 {
-  font-size: clamp(1.375rem, 1.2321rem + 0.7143vw, 1.875rem);
+  font-size: var(--lbcc-font-size-3xl);
 }
 
 h4,
 .h4 {
-  font-size: clamp(1.25rem, 1.1786rem + 0.3571vw, 1.5rem);
+  font-size: var(--lbcc-font-size-2xl);
 }
 
 h5,
 .h5 {
-  font-size: clamp(1.125rem, 1.0893rem + 0.1786vw, 1.25rem);
+  font-size: var(--lbcc-font-size-xl);
 }
 
 h6,
 .h6 {
-  font-size: clamp(0.875rem, 0.8393rem + 0.1786vw, 1rem);
+  font-size: var(--lbcc-font-size-lg);
 }
 
 .lead {
@@ -12244,27 +12244,27 @@ code {
 }
 
 .eyebrow {
-  font-size: 0.875rem;
+  font-size: var(--lbcc-font-size-sm);
 }
 
 .eyebrow-lg {
-  font-size: 1.25rem;
+  font-size: var(--lbcc-font-size-xl);
 }
 
 .eyebrow-sm {
-  font-size: 0.75rem;
+  font-size: var(--lbcc-font-size-2xs);
 }
 
 .form-label {
   font-family: var(--lbcc-font-family-body);
-  font-size: 1rem;
+  font-size: var(--lbcc-font-size-md);
   font-weight: 600;
   line-height: 1;
 }
 
 .form-check-label {
   font-family: var(--lbcc-font-family-body);
-  font-size: 1rem;
+  font-size: var(--lbcc-font-size-md);
   font-weight: 500;
   line-height: 1.3;
 }
@@ -12276,23 +12276,57 @@ code {
 }
 
 .badge {
-  font-size: 0.75rem;
+  font-size: var(--lbcc-font-size-2xs);
 }
 
 :root {
+  --color-surface: #FFFEFB;
+  --color-white: #FFFFFF;
+  --color-red: #DA2919;
+  --color-red-700: #A21F13;
+  --color-red-100: #FBE9E8;
+  --color-gray-900: #1E1E1E;
+  --color-gray-800: #302E2D;
+  --color-gray-700: #625E5B;
+  --color-gray-600: #716F6C;
+  --color-gray-500: #898683;
+  --color-gray-400: #A5A19D;
+  --color-gray-300: #C1BCB7;
+  --color-gray-200: #E4E0DA;
+  --color-gray-100: #F1F0ED;
+  --color-gray-50: #F6F5F3;
+  --color-teal-800: #004E54;
+  --color-teal-600: #008A94;
+  --color-teal-400: #00CDDB;
+  --color-teal-200: #AEEAF0;
+  --color-teal-100: #E6FAFC;
+  --color-teal-50: #F1FBFC;
+  --color-yellow-800: #8A6A00;
+  --color-yellow-600: #E6B800;
+  --color-yellow-400: #FFDE75;
+  --color-yellow-300: #FFE9A8;
+  --color-yellow-200: #FFF7DB;
+  --color-green: #2E7D5B;
+  --color-sand: #F4F0EC;
+  --color-sand-wet: #EFE9E3;
+  --color-sun-soft: #FFE9C7;
+  --color-sun-haze: #E6F3F2;
   --lbcc-font-family-body: DM Sans, Segoe UI, sans-serif;
   --lbcc-font-family-heading: Instrument Sans, Segoe UI, sans-serif;
   --lbcc-font-family-label: DM Mono, SFMono-Regular, Consolas, monospace;
-  --lbcc-surface-base: #FFFEFB;
-  --lbcc-surface-subtle: #F6F5F3;
-  --lbcc-surface-raised: #F4F0EC;
-  --lbcc-surface-water: #F1FBFC;
-  --lbcc-surface-sun-haze: #E6F3F2;
-  --lbcc-text-muted: #898683;
-  --lbcc-overlay-teal: rgba(0, 205, 219, 0.48);
-  --lbcc-overlay-dark-100: rgba(30, 30, 30, 0.24);
-  --lbcc-overlay-dark-400: rgba(30, 30, 30, 0.48);
-  --lbcc-overlay-dark-900: rgba(30, 30, 30, 0.62);
+  --lbcc-font-size-2xs: clamp(0.6875rem, 0.6616022099rem + 0.1104972376vw, 0.75rem);
+  --lbcc-font-size-xs: clamp(0.75rem, 0.7241022099rem + 0.1104972376vw, 0.8125rem);
+  --lbcc-font-size-sm: clamp(0.75rem, 0.6982044199rem + 0.2209944751vw, 0.875rem);
+  --lbcc-font-size-md: clamp(0.875rem, 0.8232044199rem + 0.2209944751vw, 1rem);
+  --lbcc-font-size-lg: clamp(1rem, 0.9482044199rem + 0.2209944751vw, 1.125rem);
+  --lbcc-font-size-xl: clamp(1.125rem, 1.0732044199rem + 0.2209944751vw, 1.25rem);
+  --lbcc-font-size-2xl: clamp(1.25rem, 1.1464088398rem + 0.4419889503vw, 1.5rem);
+  --lbcc-font-size-3xl: clamp(1.375rem, 1.1678176796rem + 0.8839779006vw, 1.875rem);
+  --lbcc-font-size-4xl: clamp(1.5rem, 1.1892265193rem + 1.3259668508vw, 2.25rem);
+  --lbcc-font-size-5xl: clamp(1.875rem, 1.5124309392rem + 1.546961326vw, 2.75rem);
+  --lbcc-font-size-6xl: clamp(2.25rem, 1.7320441989rem + 2.2099447514vw, 3.5rem);
+  --lbcc-font-size-7xl: clamp(2.625rem, 2.0552486188rem + 2.4309392265vw, 4rem);
+  --lbcc-font-size-8xl: clamp(3.5rem, 3.0856353591rem + 1.7679558011vw, 4.5rem);
 }
 
 html {
@@ -12378,7 +12412,7 @@ a.btn[target=_blank]::after {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
   min-height: 3rem;
   border-radius: 999px;
   letter-spacing: -0.01em;
@@ -12433,6 +12467,26 @@ a.btn[target=_blank]::after {
   --bs-btn-active-color: #FFFFFF;
   --bs-btn-active-bg: rgba(251, 233, 232, 0.18);
   --bs-btn-active-border-color: #FBE9E8;
+}
+
+.dropdown-toggle::after {
+  content: "\f107";
+  display: inline-block;
+  vertical-align: middle;
+  border: 0;
+  font: var(--fa-font-sharp-regular);
+  font-size: 0.85rem;
+  line-height: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.dropdown-toggle.show::after {
+  transform: rotate(180deg);
+}
+
+.dropdown-item img {
+  max-height: 1rem;
+  width: auto;
 }
 
 .modal-content {
@@ -12718,10 +12772,10 @@ textarea.form-control {
 }
 @media (min-width: 1200px) {
   .lbcc-main-nav .lbcc-main-nav__btn {
-    border-bottom-width: 3px;
+    border-bottom-width: 4px;
     border-bottom-color: transparent;
     gap: 0.5rem;
-    padding: calc(2rem + 3px) 0 2rem 0;
+    padding: calc(2.25rem + 4px) 0 2.25rem 0;
     width: -moz-fit-content;
     width: fit-content;
   }
@@ -12731,7 +12785,7 @@ textarea.form-control {
 }
 @media (min-width: 1200px) {
   .lbcc-main-nav .lbcc-main-nav__btn:hover {
-    border-bottom-color: var(--bs-gray-200);
+    border-bottom-color: var(--color-teal-400);
   }
 }
 .lbcc-main-nav .lbcc-main-nav__btn::before {
@@ -12799,6 +12853,32 @@ textarea.form-control {
     z-index: 3;
     box-shadow: 0 8px 24px 0 rgba(42, 53, 60, 0.08);
   }
+}
+
+.site-desktop-utility-nav a {
+  font-size: var(--lbcc-font-size-2xs);
+  font-weight: 600;
+  color: var(--bs-dark);
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+.site-desktop-utility-nav a [class^=fa-] {
+  color: var(--bs-primary);
+}
+.site-desktop-utility-nav a.btn.btn-link {
+  background-color: #E4E0DA;
+  border-radius: 0;
+  padding: 0.75rem 1rem;
+  min-height: 0;
+}
+.site-desktop-utility-nav a.btn.btn-link.dropdown-toggle-end {
+  border-bottom-right-radius: var(--bs-border-radius-lg);
+}
+.site-desktop-utility-nav a.btn.btn-link.dropdown-toggle-start {
+  border-bottom-left-radius: var(--bs-border-radius-lg);
+}
+.site-desktop-utility-nav .dropdown .dropdown-menu a {
+  font-size: var(--lbcc-font-size-xs);
 }
 
 .bg-surface,

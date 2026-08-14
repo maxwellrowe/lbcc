@@ -1,17 +1,51 @@
 :root {
+  --color-surface: #{$color-surface};
+  --color-white: #{$color-white};
+  --color-red: #{$color-red};
+  --color-red-700: #{$color-red-700};
+  --color-red-100: #{$color-red-100};
+  --color-gray-900: #{$color-gray-900};
+  --color-gray-800: #{$color-gray-800};
+  --color-gray-700: #{$color-gray-700};
+  --color-gray-600: #{$color-gray-600};
+  --color-gray-500: #{$color-gray-500};
+  --color-gray-400: #{$color-gray-400};
+  --color-gray-300: #{$color-gray-300};
+  --color-gray-200: #{$color-gray-200};
+  --color-gray-100: #{$color-gray-100};
+  --color-gray-50: #{$color-gray-50};
+  --color-teal-800: #{$color-teal-800};
+  --color-teal-600: #{$color-teal-600};
+  --color-teal-400: #{$color-teal-400};
+  --color-teal-200: #{$color-teal-200};
+  --color-teal-100: #{$color-teal-100};
+  --color-teal-50: #{$color-teal-50};
+  --color-yellow-800: #{$color-yellow-800};
+  --color-yellow-600: #{$color-yellow-600};
+  --color-yellow-400: #{$color-yellow-400};
+  --color-yellow-300: #{$color-yellow-300};
+  --color-yellow-200: #{$color-yellow-200};
+  --color-green: #{$color-green};
+  --color-sand: #{$color-sand};
+  --color-sand-wet: #{$color-sand-wet};
+  --color-sun-soft: #{$color-sun-soft};
+  --color-sun-haze: #{$color-sun-haze};
   --lbcc-font-family-body: #{$lbcc-font-family-body};
   --lbcc-font-family-heading: #{$lbcc-font-family-heading};
   --lbcc-font-family-label: #{$lbcc-font-family-label};
-  --lbcc-surface-base: #{$color-surface-base};
-  --lbcc-surface-subtle: #{$color-surface-subtle};
-  --lbcc-surface-raised: #{$color-surface-raised};
-  --lbcc-surface-water: #{$color-surface-water};
-  --lbcc-surface-sun-haze: #{$color-surface-sun-haze};
-  --lbcc-text-muted: #{$color-text-muted};
-  --lbcc-overlay-teal: #{$color-overlay-teal};
-  --lbcc-overlay-dark-100: #{$color-overlay-dark-100};
-  --lbcc-overlay-dark-400: #{$color-overlay-dark-400};
-  --lbcc-overlay-dark-900: #{$color-overlay-dark-900};
+  --lbcc-font-size-2xs: #{lbcc-fluid-size(11, 12)};
+  --lbcc-font-size-xs: #{lbcc-fluid-size(12, 13)};
+  --lbcc-font-size-sm: #{lbcc-fluid-size(12, 14)};
+  --lbcc-font-size-md: #{lbcc-fluid-size(14, 16)};
+  --lbcc-font-size-lg: #{lbcc-fluid-size(16, 18)};
+  --lbcc-font-size-xl: #{lbcc-fluid-size(18, 20)};
+  --lbcc-font-size-2xl: #{lbcc-fluid-size(20, 24)};
+  --lbcc-font-size-3xl: #{lbcc-fluid-size(22, 30)};
+  --lbcc-font-size-4xl: #{lbcc-fluid-size(24, 36)};
+  --lbcc-font-size-5xl: #{lbcc-fluid-size(30, 44)};
+  --lbcc-font-size-6xl: #{lbcc-fluid-size(36, 56)};
+  --lbcc-font-size-7xl: #{lbcc-fluid-size(42, 64)};
+  --lbcc-font-size-8xl: #{lbcc-fluid-size(56, 72)};
 }
 
 html {
@@ -46,7 +80,7 @@ a.btn[target="_blank"]::after {
 }
 
 :focus-visible {
-  outline: 0.1875rem solid $color-focus;
+  outline: 0.1875rem solid $color-teal-400;
   outline-offset: 0.1875rem;
   border-radius: 0.5rem;
 }
@@ -58,8 +92,8 @@ a.btn[target="_blank"]::after {
   z-index: 1100;
   padding: 0.75rem 1rem;
   border-radius: $border-radius-sm;
-  background: $color-surface-inverse;
-  color: $color-inverse-text;
+  background: $dark;
+  color: $color-gray-50;
 }
 
 .skip-link:not(:focus) {
@@ -97,7 +131,7 @@ a.btn[target="_blank"]::after {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
   min-height: 3rem;
   border-radius: 999px;
   letter-spacing: -0.01em;
@@ -109,38 +143,38 @@ a.btn[target="_blank"]::after {
 }
 
 .btn-secondary {
-  --bs-btn-color: #{$color-text};
+  --bs-btn-color: #{$body-color};
   --bs-btn-bg: #{$color-red-100};
   --bs-btn-border-color: #{$color-red-100};
-  --bs-btn-hover-color: #{$color-text};
+  --bs-btn-hover-color: #{$body-color};
   --bs-btn-hover-bg: #{mix($color-red-100, $color-white, 82%)};
-  --bs-btn-hover-border-color: #{$color-primary};
-  --bs-btn-active-color: #{$color-text};
+  --bs-btn-hover-border-color: #{$primary};
+  --bs-btn-active-color: #{$body-color};
   --bs-btn-active-bg: #{$color-red-100};
-  --bs-btn-active-border-color: #{$color-primary};
+  --bs-btn-active-border-color: #{$primary};
 }
 
 .btn-outline-primary {
-  --bs-btn-color: #{$color-text};
-  --bs-btn-border-color: #{$color-primary};
-  --bs-btn-hover-color: #{$color-text};
-  --bs-btn-hover-bg: #{$color-primary-soft};
-  --bs-btn-hover-border-color: #{$color-primary};
-  --bs-btn-active-color: #{$color-text};
-  --bs-btn-active-bg: #{$color-primary-soft};
-  --bs-btn-active-border-color: #{$color-primary};
+  --bs-btn-color: #{$body-color};
+  --bs-btn-border-color: #{$primary};
+  --bs-btn-hover-color: #{$body-color};
+  --bs-btn-hover-bg: #{$color-red-100};
+  --bs-btn-hover-border-color: #{$primary};
+  --bs-btn-active-color: #{$body-color};
+  --bs-btn-active-bg: #{$color-red-100};
+  --bs-btn-active-border-color: #{$primary};
 }
 
 .btn-outline-secondary {
-  --bs-btn-color: #{$color-text};
+  --bs-btn-color: #{$body-color};
   --bs-btn-bg: #{$white};
-  --bs-btn-border-color: #{$color-primary};
-  --bs-btn-hover-color: #{$color-text};
-  --bs-btn-hover-bg: #{$color-primary-soft};
-  --bs-btn-hover-border-color: #{$color-primary};
-  --bs-btn-active-color: #{$color-text};
-  --bs-btn-active-bg: #{$color-primary-soft};
-  --bs-btn-active-border-color: #{$color-primary};
+  --bs-btn-border-color: #{$primary};
+  --bs-btn-hover-color: #{$body-color};
+  --bs-btn-hover-bg: #{$color-red-100};
+  --bs-btn-hover-border-color: #{$primary};
+  --bs-btn-active-color: #{$body-color};
+  --bs-btn-active-bg: #{$color-red-100};
+  --bs-btn-active-border-color: #{$primary};
 }
 
 .btn-outline-light {
@@ -152,6 +186,26 @@ a.btn[target="_blank"]::after {
   --bs-btn-active-color: #{$color-white};
   --bs-btn-active-bg: #{rgba($color-red-100, 0.18)};
   --bs-btn-active-border-color: #{$color-red-100};
+}
+
+.dropdown-toggle::after {
+  content: "\f107";
+  display: inline-block;
+  vertical-align: middle;
+  border: 0;
+  font: var(--fa-font-sharp-regular);
+  font-size: 0.85rem;
+  line-height: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.dropdown-toggle.show::after {
+  transform: rotate(180deg);
+}
+
+.dropdown-item img {
+  max-height: 1rem;
+  width: auto;
 }
 
 .modal-content {
@@ -171,12 +225,12 @@ textarea.form-control {
 
 .form-control::placeholder,
 .form-select::placeholder {
-  color: $color-text-muted;
+  color: $gray-500;
 }
 
 .form-text {
   margin-top: 0.5rem;
-  color: $color-text;
+  color: $body-color;
   font-family: $lbcc-font-family-body;
   font-size: 0.75rem;
   font-style: italic;
