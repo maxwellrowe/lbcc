@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . '/_resources/includes/head.php';
 
-$page = [
+$page = lbcc_resolve_page([
     'title' => 'Home',
     'description' => 'LBCC homepage shell demo built on the shared front-end foundation.'
-];
+]);
 
 $audiences = [
     ['title' => 'New to College', 'copy' => 'Start with advising, admissions, and a clear first-semester path.', 'href' => '#get-started'],

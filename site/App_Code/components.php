@@ -1,11 +1,15 @@
 <?php
 require_once dirname(__DIR__) . '/_resources/includes/head.php';
 
-$page = [
+$page = lbcc_resolve_page([
     'title' => 'Components',
     'description' => 'LBCC component development and documentation area.',
-    'section' => 'App Code'
-];
+    'section_nav' => true,
+    'section_nav_include' => __DIR__ . '/navs/section-nav-default.php',
+    'sidebar' => false,
+    'sidebar_include' => '',
+    'custom_hero' => true
+]);
 
 $componentIncludesDir = __DIR__ . '/includes/components';
 ?>

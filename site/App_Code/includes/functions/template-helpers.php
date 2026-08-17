@@ -26,6 +26,38 @@ function lbcc_page_title(?string $title = null): string
     return $title . ' | ' . $site['short_name'];
 }
 
+function lbcc_page_defaults(): array
+{
+    return [
+        'title' => null,
+        'description' => '',
+        'canonical' => null,
+        'section_nav' => false,
+        'section_nav_include' => null,
+        'sidebar' => false,
+        'sidebar_include' => null,
+        'custom_hero' => false
+    ];
+}
+
+function lbcc_resolve_page(array $page = []): array
+{
+    return array_merge(lbcc_page_defaults(), $page);
+}
+
+function lbcc_page_partial_path(?string $includePath): ?string
+{
+    if ($includePath === null || $includePath === '') {
+        return null;
+    }
+
+    if (str_starts_with($includePath, '/')) {
+        return $includePath;
+    }
+
+    return lbcc_site_root_dir() . '/' . ltrim($includePath, '/');
+}
+
 function lbcc_site_root_dir(): string
 {
     return dirname(__DIR__, 3);

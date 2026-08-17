@@ -1,11 +1,10 @@
 <?php
 require_once dirname(__DIR__) . '/_resources/includes/head.php';
 
-$page = [
+$page = lbcc_resolve_page([
     'title' => 'Style Guide',
-    'description' => 'Starter LBCC style guide for the front-end foundation pass.',
-    'section' => 'App Code'
-];
+    'description' => 'Starter LBCC style guide for the front-end foundation pass.'
+]);
 
 $rawPaletteGroups = [
     'Base' => [

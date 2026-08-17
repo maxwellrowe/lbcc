@@ -386,6 +386,128 @@ const initDesktopSearchCollapseFocus = () => {
   });
 };
 
+const syncCollapseMenuTriggers = () => {
+  const triggers = Array.from(document.querySelectorAll('.collapse-menu-trigger[data-bs-toggle="collapse"]'));
+
+  triggers.forEach((trigger) => {
+    if (!(trigger instanceof HTMLElement)) {
+      return;
+    }
+
+    const targetSelector = trigger.getAttribute("data-bs-target");
+
+    if (!targetSelector || !targetSelector.startsWith("#")) {
+      return;
+    }
+
+    const collapseElement = document.querySelector(targetSelector);
+
+    if (!(collapseElement instanceof HTMLElement)) {
+      return;
+    }
+
+    const sectionNav = collapseElement.id === "section-nav__menu"
+      ? collapseElement.closest(".section-nav")
+      : null;
+
+    const setExpandedState = (expanded) => {
+      trigger.classList.toggle("is-open", expanded);
+      trigger.setAttribute("aria-expanded", expanded ? "true" : "false");
+
+      if (sectionNav instanceof HTMLElement) {
+        sectionNav.classList.toggle("section-nav__active", expanded);
+      }
+    };
+
+    setExpandedState(collapseElement.classList.contains("show"));
+    collapseElement.addEventListener("show.bs.collapse", () => {
+      setExpandedState(true);
+    });
+    collapseElement.addEventListener("hidden.bs.collapse", () => {
+      setExpandedState(false);
+    });
+  });
+};
+
+const initSectionNavMenu = () => {
+  const sectionNavMenu = document.getElementById("section-nav__menu");
+
+  if (!(sectionNavMenu instanceof HTMLElement)) {
+    return;
+  }
+
+  const topLevelList = sectionNavMenu.querySelector(":scope > ul");
+
+  sectionNavMenu.querySelectorAll("li").forEach((item) => {
+    if (!(item instanceof HTMLLIElement)) {
+      return;
+    }
+
+    const hasChildList = Array.from(item.children).some(
+      (child) => child instanceof HTMLUListElement
+    );
+
+    item.classList.toggle("section-nav__menu__has-children", hasChildList);
+
+    if (hasChildList) {
+      const directLink = Array.from(item.children).find((child) => child instanceof HTMLAnchorElement);
+
+      if (directLink instanceof HTMLAnchorElement) {
+        directLink.setAttribute("aria-expanded", item.classList.contains("section-nav__menu__has-children-open") ? "true" : "false");
+      }
+    }
+  });
+
+  sectionNavMenu.addEventListener("click", (event) => {
+    const target = event.target;
+
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+
+    const link = target.closest("a");
+
+    if (!(link instanceof HTMLAnchorElement)) {
+      return;
+    }
+
+    const item = link.parentElement;
+
+    if (!(item instanceof HTMLLIElement) || !item.classList.contains("section-nav__menu__has-children")) {
+      return;
+    }
+
+    const isDirectChildLink = Array.from(item.children).includes(link);
+
+    if (!isDirectChildLink) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const willOpen = !item.classList.contains("section-nav__menu__has-children-open");
+
+    if (topLevelList instanceof HTMLUListElement && item.parentElement === topLevelList && willOpen) {
+      Array.from(topLevelList.children).forEach((sibling) => {
+        if (!(sibling instanceof HTMLLIElement) || sibling === item) {
+          return;
+        }
+
+        sibling.classList.remove("section-nav__menu__has-children-open");
+
+        const siblingLink = Array.from(sibling.children).find((child) => child instanceof HTMLAnchorElement);
+
+        if (siblingLink instanceof HTMLAnchorElement) {
+          siblingLink.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    item.classList.toggle("section-nav__menu__has-children-open", willOpen);
+    link.setAttribute("aria-expanded", willOpen ? "true" : "false");
+  });
+};
+
 const syncReducedMotionPreference = () => {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const update = () => {
@@ -436,6 +558,8 @@ document.addEventListener("DOMContentLoaded", () => {
   syncOffcanvasTriggers();
   initDesktopMainNavCollapses();
   initDesktopSearchCollapseFocus();
+  syncCollapseMenuTriggers();
+  initSectionNavMenu();
   initMatchHeightUtilities();
   LBCC.Animation.init();
 });

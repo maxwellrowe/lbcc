@@ -107,7 +107,7 @@
 
     .component-quicklink:hover,
     .component-quicklink:focus-visible {
-        border-color: $primary !important;
+        border-color: var(--bs-primary) !important;
     }
 
     .component-quicklink:hover::after,

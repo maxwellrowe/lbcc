@@ -3,10 +3,11 @@ require_once dirname(__DIR__, 2) . '/App_Code/includes/functions/template-functi
 
 function lbcc_head(array $page = []): void
 {
+    $page = lbcc_resolve_page($page);
     $config = lbcc_site_config();
-    $title = lbcc_page_title($page['title'] ?? null);
-    $description = $page['description'] ?? '';
-    $canonical = $page['canonical'] ?? null;
+    $title = lbcc_page_title($page['title']);
+    $description = $page['description'];
+    $canonical = $page['canonical'];
     $faviconSvg = lbcc_url($config['app_icon_svg']);
     $faviconPng = lbcc_url($config['app_icon_png']);
     ?>

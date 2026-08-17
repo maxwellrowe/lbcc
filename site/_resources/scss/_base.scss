@@ -1,35 +1,66 @@
 :root {
   --color-surface: #{$color-surface};
+  --color-surface-rgb: 255, 254, 251;
   --color-white: #{$color-white};
+  --color-white-rgb: 255, 255, 255;
   --color-red: #{$color-red};
+  --color-red-rgb: 218, 41, 25;
   --color-red-700: #{$color-red-700};
+  --color-red-700-rgb: 162, 31, 19;
   --color-red-100: #{$color-red-100};
+  --color-red-100-rgb: 251, 233, 232;
   --color-gray-900: #{$color-gray-900};
+  --color-gray-900-rgb: 30, 30, 30;
   --color-gray-800: #{$color-gray-800};
+  --color-gray-800-rgb: 48, 46, 45;
   --color-gray-700: #{$color-gray-700};
+  --color-gray-700-rgb: 98, 94, 91;
   --color-gray-600: #{$color-gray-600};
+  --color-gray-600-rgb: 113, 111, 108;
   --color-gray-500: #{$color-gray-500};
+  --color-gray-500-rgb: 137, 134, 131;
   --color-gray-400: #{$color-gray-400};
+  --color-gray-400-rgb: 165, 161, 157;
   --color-gray-300: #{$color-gray-300};
+  --color-gray-300-rgb: 193, 188, 183;
   --color-gray-200: #{$color-gray-200};
+  --color-gray-200-rgb: 228, 224, 218;
   --color-gray-100: #{$color-gray-100};
+  --color-gray-100-rgb: 241, 240, 237;
   --color-gray-50: #{$color-gray-50};
+  --color-gray-50-rgb: 246, 245, 243;
   --color-teal-800: #{$color-teal-800};
+  --color-teal-800-rgb: 0, 78, 84;
   --color-teal-600: #{$color-teal-600};
+  --color-teal-600-rgb: 0, 138, 148;
   --color-teal-400: #{$color-teal-400};
+  --color-teal-400-rgb: 0, 205, 219;
   --color-teal-200: #{$color-teal-200};
+  --color-teal-200-rgb: 174, 234, 240;
   --color-teal-100: #{$color-teal-100};
+  --color-teal-100-rgb: 230, 250, 252;
   --color-teal-50: #{$color-teal-50};
+  --color-teal-50-rgb: 241, 251, 252;
   --color-yellow-800: #{$color-yellow-800};
+  --color-yellow-800-rgb: 138, 106, 0;
   --color-yellow-600: #{$color-yellow-600};
+  --color-yellow-600-rgb: 230, 184, 0;
   --color-yellow-400: #{$color-yellow-400};
+  --color-yellow-400-rgb: 255, 222, 117;
   --color-yellow-300: #{$color-yellow-300};
+  --color-yellow-300-rgb: 255, 233, 168;
   --color-yellow-200: #{$color-yellow-200};
+  --color-yellow-200-rgb: 255, 247, 219;
   --color-green: #{$color-green};
+  --color-green-rgb: 46, 125, 91;
   --color-sand: #{$color-sand};
+  --color-sand-rgb: 244, 240, 236;
   --color-sand-wet: #{$color-sand-wet};
+  --color-sand-wet-rgb: 239, 233, 227;
   --color-sun-soft: #{$color-sun-soft};
+  --color-sun-soft-rgb: 255, 233, 199;
   --color-sun-haze: #{$color-sun-haze};
+  --color-sun-haze-rgb: 230, 243, 242;
   --lbcc-font-family-body: #{$lbcc-font-family-body};
   --lbcc-font-family-heading: #{$lbcc-font-family-heading};
   --lbcc-font-family-label: #{$lbcc-font-family-label};
@@ -80,7 +111,7 @@ a.btn[target="_blank"]::after {
 }
 
 :focus-visible {
-  outline: 0.1875rem solid $color-teal-400;
+  outline: 0.1875rem solid var(--color-teal-400);
   outline-offset: 0.1875rem;
   border-radius: 0.5rem;
 }
@@ -92,8 +123,8 @@ a.btn[target="_blank"]::after {
   z-index: 1100;
   padding: 0.75rem 1rem;
   border-radius: $border-radius-sm;
-  background: $dark;
-  color: $color-gray-50;
+  background: var(--bs-dark);
+  color: var(--color-gray-50);
 }
 
 .skip-link:not(:focus) {
@@ -143,49 +174,49 @@ a.btn[target="_blank"]::after {
 }
 
 .btn-secondary {
-  --bs-btn-color: #{$body-color};
-  --bs-btn-bg: #{$color-red-100};
-  --bs-btn-border-color: #{$color-red-100};
-  --bs-btn-hover-color: #{$body-color};
-  --bs-btn-hover-bg: #{mix($color-red-100, $color-white, 82%)};
-  --bs-btn-hover-border-color: #{$primary};
-  --bs-btn-active-color: #{$body-color};
-  --bs-btn-active-bg: #{$color-red-100};
-  --bs-btn-active-border-color: #{$primary};
+  --bs-btn-color: var(--bs-body-color);
+  --bs-btn-bg: var(--color-red-100);
+  --bs-btn-border-color: var(--color-red-100);
+  --bs-btn-hover-color: var(--bs-body-color);
+  --bs-btn-hover-bg: color-mix(in srgb, var(--color-red-100) 82%, var(--color-white));
+  --bs-btn-hover-border-color: var(--bs-primary);
+  --bs-btn-active-color: var(--bs-body-color);
+  --bs-btn-active-bg: var(--color-red-100);
+  --bs-btn-active-border-color: var(--bs-primary);
 }
 
 .btn-outline-primary {
-  --bs-btn-color: #{$body-color};
-  --bs-btn-border-color: #{$primary};
-  --bs-btn-hover-color: #{$body-color};
-  --bs-btn-hover-bg: #{$color-red-100};
-  --bs-btn-hover-border-color: #{$primary};
-  --bs-btn-active-color: #{$body-color};
-  --bs-btn-active-bg: #{$color-red-100};
-  --bs-btn-active-border-color: #{$primary};
+  --bs-btn-color: var(--bs-body-color);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-color: var(--bs-body-color);
+  --bs-btn-hover-bg: var(--color-red-100);
+  --bs-btn-hover-border-color: var(--bs-primary);
+  --bs-btn-active-color: var(--bs-body-color);
+  --bs-btn-active-bg: var(--color-red-100);
+  --bs-btn-active-border-color: var(--bs-primary);
 }
 
 .btn-outline-secondary {
-  --bs-btn-color: #{$body-color};
-  --bs-btn-bg: #{$white};
-  --bs-btn-border-color: #{$primary};
-  --bs-btn-hover-color: #{$body-color};
-  --bs-btn-hover-bg: #{$color-red-100};
-  --bs-btn-hover-border-color: #{$primary};
-  --bs-btn-active-color: #{$body-color};
-  --bs-btn-active-bg: #{$color-red-100};
-  --bs-btn-active-border-color: #{$primary};
+  --bs-btn-color: var(--bs-body-color);
+  --bs-btn-bg: var(--color-white);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-color: var(--bs-body-color);
+  --bs-btn-hover-bg: var(--color-red-100);
+  --bs-btn-hover-border-color: var(--bs-primary);
+  --bs-btn-active-color: var(--bs-body-color);
+  --bs-btn-active-bg: var(--color-red-100);
+  --bs-btn-active-border-color: var(--bs-primary);
 }
 
 .btn-outline-light {
-  --bs-btn-color: #{$color-white};
-  --bs-btn-border-color: #{rgba($color-red-100, 0.92)};
-  --bs-btn-hover-color: #{$color-white};
-  --bs-btn-hover-bg: #{rgba($color-red-100, 0.12)};
-  --bs-btn-hover-border-color: #{$color-red-100};
-  --bs-btn-active-color: #{$color-white};
-  --bs-btn-active-bg: #{rgba($color-red-100, 0.18)};
-  --bs-btn-active-border-color: #{$color-red-100};
+  --bs-btn-color: var(--color-white);
+  --bs-btn-border-color: rgba(var(--color-red-100-rgb), 0.92);
+  --bs-btn-hover-color: var(--color-white);
+  --bs-btn-hover-bg: rgba(var(--color-red-100-rgb), 0.12);
+  --bs-btn-hover-border-color: var(--color-red-100);
+  --bs-btn-active-color: var(--color-white);
+  --bs-btn-active-bg: rgba(var(--color-red-100-rgb), 0.18);
+  --bs-btn-active-border-color: var(--color-red-100);
 }
 
 .dropdown-toggle::after {
@@ -225,12 +256,12 @@ textarea.form-control {
 
 .form-control::placeholder,
 .form-select::placeholder {
-  color: $gray-500;
+  color: var(--bs-gray-500);
 }
 
 .form-text {
   margin-top: 0.5rem;
-  color: $body-color;
+  color: var(--bs-body-color);
   font-family: $lbcc-font-family-body;
   font-size: 0.75rem;
   font-style: italic;

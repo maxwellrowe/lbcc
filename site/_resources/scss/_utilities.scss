@@ -1,49 +1,49 @@
 .bg-surface,
 .bg-surface-base {
-  background: $color-surface;
+  background: var(--color-surface);
 }
 
 .bg-surface-subtle {
-  background: $color-gray-50;
+  background: var(--color-gray-50);
 }
 
 .bg-surface-raised {
-  background: $color-sand;
+  background: var(--color-sand);
 }
 
 .bg-water,
 .bg-surface-water {
-  background: $color-teal-50;
+  background: var(--color-teal-50);
 }
 
 .bg-sunhaze,
 .bg-surface-sun-haze {
-  background: $color-sun-haze;
+  background: var(--color-sun-haze);
 }
 
 .bg-surface-inverse {
-  background: $dark;
-  color: $color-gray-50;
+  background: var(--bs-dark);
+  color: var(--color-gray-50);
 }
 
 .bg-trans-teal {
-  background: rgba($color-teal-400, 0.48);
+  background: rgba(var(--color-teal-400-rgb), 0.48);
 }
 
 .bg-trans-dark-100 {
-  background: rgba($gray-900, 0.24);
+  background: rgba(var(--color-gray-900-rgb), 0.24);
 }
 
 .bg-trans-dark-400 {
-  background: rgba($gray-900, 0.48);
+  background: rgba(var(--color-gray-900-rgb), 0.48);
 }
 
 .bg-trans-dark-900 {
-  background: rgba($gray-900, 0.62);
+  background: rgba(var(--color-gray-900-rgb), 0.62);
 }
 
 .bg-gradient-sunhaze {
-  background: linear-gradient(180deg, $color-sun-haze 0%, $color-sun-soft 100%);
+  background: linear-gradient(180deg, var(--color-sun-haze) 0%, var(--color-sun-soft) 100%);
 }
 
 .match-height-all,
@@ -176,8 +176,8 @@
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
   border-radius: 1rem;
-  background: $color-sun-haze;
-  color: $body-color;
+  background: var(--color-sun-haze);
+  color: var(--bs-body-color);
   font-family: var(--lbcc-font-family-heading);
   font-size: 1rem;
   font-weight: 800;
@@ -191,15 +191,15 @@
 }
 
 .pill-light-red {
-  background: $color-red-100;
+  background: var(--color-red-100);
 }
 
 .pill-light-gray {
-  background: $color-gray-100;
+  background: var(--color-gray-100);
 }
 
 .pill-surface-raised {
-  background: $color-sand;
+  background: var(--color-sand);
 }
 
 .pill-icon {
@@ -209,9 +209,9 @@
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 999px;
-  background: $color-red-100;
-  border: 1.5px solid $color-red-100;
-  color: $body-color;
+  background: var(--color-red-100);
+  border: 1.5px solid var(--color-red-100);
+  color: var(--bs-body-color);
   font-size: 0.75rem;
   line-height: 1;
   flex: 0 0 auto;
@@ -227,8 +227,8 @@
 .pill-light-gray .pill-icon,
 .pill-surface-raised .pill-icon {
   background: transparent;
-  border-color: $primary;
-  color: $primary;
+  border-color: var(--bs-primary);
+  color: var(--bs-primary);
 }
 
 .arrow-link {
@@ -245,7 +245,7 @@
 .arrow-link::after {
   content: "\f061";
   font: var(--fa-font-sharp-regular);
-  color: $primary;
+  color: var(--bs-primary);
   transition: transform 0.2s ease-in-out;
 }
 

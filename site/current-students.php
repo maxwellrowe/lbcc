@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . '/_resources/includes/head.php';
 
-$page = [
+$page = lbcc_resolve_page([
     'title' => 'Current Students',
     'description' => 'LBCC interior hub shell demo for current students.'
-];
+]);
 
 $quickAccess = [
     ['label' => 'Viking Portal', 'icon' => 'fa-sharp fa-solid fa-compass', 'href' => '#plan-register'],

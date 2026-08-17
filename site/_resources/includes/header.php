@@ -68,16 +68,26 @@ $logoMark = lbcc_url($config['logo_mark']);
                     >
                         <span class="fa-sharp fa-regular fa-magnifying-glass" aria-hidden="true"></span>
                     </button>
+                    <div class="lbcc-main-nav__item collapse bg-surface-sun-haze" id="site-desktop-search">
+                        <div class="container-xxl">
+                            <div class="row">
+                                <div class="col-12">
+                                    <?php include __DIR__ . '/search.php'; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <a class="btn btn-primary" href="<?php echo lbcc_escape(lbcc_url('/')); ?>">Apply Now</a>
                 </div>
             </nav>
         </div>
     </div>
-    <div class="collapse" id="site-desktop-search">
-        <div class="d-none d-xl-block bg-surface-sun-haze py-3">
-            <div class="container-xxl">
-                <?php include __DIR__ . '/search.php'; ?>
-            </div>
-        </div>
-    </div>
 </header>
+
+<?php // Section Nav Include
+    include __DIR__ . '/navigation/section-nav.php'; 
+?>
+
+<?php // Hero Include
+    include __DIR__ . '/hero.php'; 
+?>

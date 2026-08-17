@@ -1,11 +1,10 @@
 <?php
 require_once dirname(__DIR__) . '/_resources/includes/head.php';
 
-$page = [
+$page = lbcc_resolve_page([
     'title' => 'App Code',
-    'description' => 'LBCC development and documentation area.',
-    'section' => 'App Code'
-];
+    'description' => 'LBCC development and documentation area.'
+]);
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
