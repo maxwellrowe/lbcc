@@ -395,7 +395,15 @@
     @include media-breakpoint-up(xl) {
       display: flex;
       align-items: center;
+      justify-content: end;
       margin: 0 1rem;
+      position: relative;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      box-shadow: none;
+      background: transparent;
+      overflow: visible;
+      
       &.collapse:not(.show) {
         display: flex;
         align-items: center;
@@ -410,6 +418,7 @@
       align-items: start;
       margin: -1px 0 0 0;
       padding: 0;
+      transition: all .2s ease-in-out;
 
       @include media-breakpoint-up(xl) {
         flex-direction: row;
@@ -423,6 +432,11 @@
         margin: 0;
         padding: 0;
         width: 100%;
+        border: 1px solid transparent;
+
+        @include media-breakpoint-up(xl) {
+          width: fit-content;
+        } 
 
         a {
           padding: 1rem;
@@ -436,6 +450,10 @@
           transition: all .2s ease-in-out;
           font-size: var(--lbcc-font-size-sm);
           border-top: 1px solid var(--bs-gray-200);
+
+          @include media-breakpoint-up(xl) {
+            border-top-width: 0;
+          }
 
           &:after {
             content: "\f061";
@@ -476,6 +494,14 @@
           border-radius: var(--bs-border-radius);
           background-color: var(--bs-white);
 
+          @include media-breakpoint-up(xl) {
+            border-width: 0;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            background: var(--bs-gray-200);
+            position: relative;
+          }
+
           > a {
             color: var(--bs-primary);
             border-top-width: 0;
@@ -501,24 +527,49 @@
 
           @include media-breakpoint-up(xl) {
             flex-direction: column;
+            align-items: start;
+            position: absolute;
+            background: var(--bs-gray-100);
+            width: 100%;
+            min-width: 15rem;
+            right: 0;
+            border-bottom-left-radius: var(--bs-border-radius);
+            border-bottom-right-radius: var(--bs-border-radius);
           }
 
           li {
+
+            @include media-breakpoint-up(xl) {
+              width: 100%;
+            } 
             &.section-nav__menu__has-children-open {
               border: none;
               border-radius: 0;
+              
             }
             a {
               padding-left: 2rem;
+
+              @include media-breakpoint-up(xl) {
+                padding-left: 1rem;
+              }
             }
 
             ul {
               border-width: 0;
               border-radius: 0;
 
+              @include media-breakpoint-up(xl) {
+                border-bottom-left-radius: var(--bs-border-radius);
+                border-bottom-right-radius: var(--bs-border-radius);
+              }
+
               li {
                 a {
                   padding-left: 3rem;
+                  @include media-breakpoint-up(xl) {
+                    padding-left: 2rem;
+                  }
                 }
               }
 
