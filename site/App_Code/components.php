@@ -8,7 +8,7 @@ $page = lbcc_resolve_page([
     'section_nav_include' => __DIR__ . '/navs/section-nav-default.php',
     'sidebar' => false,
     'sidebar_include' => '',
-    'custom_hero' => true
+    'custom_hero' => false
 ]);
 
 $componentIncludesDir = __DIR__ . '/includes/components';
@@ -18,16 +18,24 @@ $componentIncludesDir = __DIR__ . '/includes/components';
 <?php lbcc_head($page); ?>
 <body class="lbcc-page">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
+<?php if ($page['custom_hero']) { ?>
+<?php // Include Custom Hero Component here... ?>
+<?php } ?>
 <main id="main-content" class="py-5">
+    <header class="container mb-5">
+        <p class="eyebrow">Component Library</p>
+        <h1>Components</h1>
+        <p class="lead text-body-secondary mb-0">This page is reserved for component builds, documentation, and test fixtures as we add them.</p>
+    </header>
+
+    <?php include $componentIncludesDir . '/hero.php'; ?>
+
     <div class="container">
-        <header class="mb-5">
-            <p class="eyebrow">Component Library</p>
-            <h1>Components</h1>
-            <p class="lead text-body-secondary mb-0">This page is reserved for component builds, documentation, and test fixtures as we add them.</p>
-        </header>
         <?php include $componentIncludesDir . '/utilities.php'; ?>
         <?php include $componentIncludesDir . '/block-arrow-link.php'; ?>
         <?php include $componentIncludesDir . '/buttons.php'; ?>
+        <?php include $componentIncludesDir . '/badge.php'; ?>
+        <?php include $componentIncludesDir . '/footer-i-heart-lb.php'; ?>
         <?php include $componentIncludesDir . '/quicklinks.php'; ?>
         <?php include $componentIncludesDir . '/spacer.php'; ?>
     </div>

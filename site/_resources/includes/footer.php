@@ -8,11 +8,7 @@ $wordmark = lbcc_url($config['logo_wordmark']);
             <a class="d-inline-flex align-items-center" href="<?php echo lbcc_escape(lbcc_url('/')); ?>">
                 <img class="footer-wordmark-logo img-fluid" src="<?php echo lbcc_escape($wordmark); ?>" alt="<?php echo lbcc_escape($config['site_name']); ?>">
             </a>
-            <p class="h1 mb-0 d-inline-flex align-items-center gap-1" aria-label="I love LB">
-                <span>I</span>
-                <span class="text-primary">&hearts;</span>
-                <span>LB</span>
-            </p>
+            <?php component_footer_i_heart_lb(); ?>
         </div>
 
         <div class="d-flex flex-wrap gap-3 py-4">

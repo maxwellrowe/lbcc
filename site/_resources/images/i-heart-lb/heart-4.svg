@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 117.06 106.09">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #2c58a4;
+      }
+
+      .cls-3 {
+        fill: #945516;
+      }
+
+      .cls-4 {
+        fill: #f28917;
+      }
+
+      .cls-5 {
+        fill: #7bcce5;
+      }
+
+      .cls-6 {
+        fill: #f4aec8;
+      }
+
+      .cls-7 {
+        fill: #fff;
+      }
+
+      .cls-8 {
+        fill: #efe524;
+      }
+
+      .cls-9 {
+        fill: #78b82a;
+      }
+
+      .cls-10 {
+        fill: #e22016;
+      }
+
+      .cls-11 {
+        fill: #6d2380;
+      }
+
+      .cls-12 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <path class="cls-1" d="M30.41,0c9.83,0,18.98,4.8,24.69,12.58l3.43,4.8,3.43-4.8c5.72-7.77,14.86-12.58,24.69-12.58,16.69,0,30.41,13.72,30.41,30.41,0,31.32-34.98,59.45-58.53,75.68C35.21,89.85,0,61.73,0,30.41,0,13.72,13.72,0,30.41,0Z"/>
+    </clipPath>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g class="cls-12">
+      <g>
+        <rect class="cls-3" x="107.76" y="-89.04" width="10.75" height="236.53"/>
+        <rect x="97.01" y="-89.04" width="10.75" height="236.53"/>
+        <rect class="cls-6" x="86.26" y="-89.04" width="10.75" height="236.53"/>
+        <rect class="cls-7" x="75.51" y="-89.04" width="10.75" height="236.53"/>
+        <rect class="cls-11" x="54" y="-89.04" width="10.75" height="236.53"/>
+        <rect class="cls-2" x="43.25" y="-89.04" width="10.75" height="236.53"/>
+        <rect class="cls-9" x="32.5" y="-89.04" width="10.75" height="236.53"/>
+        <rect class="cls-8" x="21.75" y="-89.04" width="10.75" height="236.53"/>
+        <rect class="cls-4" x="11" y="-89.04" width="10.75" height="236.53"/>
+        <rect class="cls-10" x=".25" y="-89.04" width="10.75" height="236.53"/>
+        <rect class="cls-5" x="64.75" y="-89.04" width="10.75" height="236.53"/>
+      </g>
+    </g>
+  </g>
+</svg>

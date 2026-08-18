@@ -1,5 +1,62 @@
 // Components
 
+.component-footer-i-heart-lb {
+    --footer-heart-artwork-size: clamp(3.75rem, 3.2069rem + 2.316vw, 5.0625rem);
+    --footer-heart-toggle-size: 1.875rem;
+    gap: 0.75rem;
+    line-height: 1;
+    padding-right: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.component-footer-i-heart-lb__mark {
+    display: block;
+    width: auto;
+    height: var(--footer-heart-artwork-size);
+    flex: 0 0 auto;
+}
+
+.component-footer-i-heart-lb__hearts {
+    width: var(--footer-heart-artwork-size);
+    min-width: var(--footer-heart-artwork-size);
+    flex: 0 0 auto;
+}
+
+.component-footer-i-heart-lb__swiper {
+    width: 100%;
+}
+
+.component-footer-i-heart-lb__swiper .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.component-footer-i-heart-lb__heart {
+    display: block;
+    width: var(--footer-heart-artwork-size);
+    height: var(--footer-heart-artwork-size);
+    object-fit: contain;
+}
+
+.component-footer-i-heart-lb__toggle {
+    --lbcc-btn-circle-size: var(--footer-heart-toggle-size);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: var(--bs-dark);
+    border-color: var(--bs-dark);
+    color: var(--bs-white);
+}
+
+.component-footer-i-heart-lb__toggle:hover,
+.component-footer-i-heart-lb__toggle:focus-visible {
+    background-color: var(--bs-dark);
+    border-color: var(--bs-primary);
+    color: var(--bs-white);
+}
+
 // Block Arrow Link
 .component-block-arrow-link {
     .component-block-arrow-link__image {

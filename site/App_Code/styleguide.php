@@ -106,6 +106,9 @@ $surfaceUtilityClasses = [
 <?php lbcc_head($page); ?>
 <body class="lbcc-page">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
+<?php if ($page['custom_hero']) { ?>
+<?php // Include Custom Hero Component here... ?>
+<?php } ?>
 <main id="main-content" class="flex-grow-1 py-5">
     <div class="container">
         <header id="page-header" class="mb-5">
@@ -243,17 +246,24 @@ $surfaceUtilityClasses = [
                     </div>
                 </div>
 
-                <h3 class="h4 mb-3">Special Font Size Classes</h3>
-                <p class="mb-3">These classes can be added to any element. They range from <code>fs-1</code> to <code>fs-9</code>, with the higher number being the smaller size.</p>
-                <p class="fs-1 mb-1">Font Size 1</p>
-                <p class="fs-2 mb-1">Font Size 2</p>
-                <p class="fs-3 mb-1">Font Size 3</p>
-                <p class="fs-4 mb-1">Font Size 4</p>
-                <p class="fs-5 mb-1">Font Size 5</p>
-                <p class="fs-6 mb-1">Font Size 6</p>
-                <p class="fs-7 mb-1">Font Size 7</p>
-                <p class="fs-8 mb-1">Font Size 8</p>
-                <p class="fs-9 mb-0">Font Size 9</p>
+                <h3 class="h4 mb-3">Font Size Utilities</h3>
+                <p class="mb-3">Use the LBCC token-based classes when you want direct access to the project font scale in markup. Bootstrap numeric classes like <code>fs-1</code> through <code>fs-9</code> still exist, but these are the preferred utilities for the design system.</p>
+                <div class="d-grid gap-2 mb-3">
+                    <p class="fs-8xl mb-0">.fs-8xl</p>
+                    <p class="fs-7xl mb-0">.fs-7xl</p>
+                    <p class="fs-6xl mb-0">.fs-6xl</p>
+                    <p class="fs-5xl mb-0">.fs-5xl</p>
+                    <p class="fs-4xl mb-0">.fs-4xl</p>
+                    <p class="fs-3xl mb-0">.fs-3xl</p>
+                    <p class="fs-2xl mb-0">.fs-2xl</p>
+                    <p class="fs-xl mb-0">.fs-xl</p>
+                    <p class="fs-lg mb-0">.fs-lg</p>
+                    <p class="fs-md mb-0">.fs-md</p>
+                    <p class="fs-sm mb-0">.fs-sm</p>
+                    <p class="fs-xs mb-0">.fs-xs</p>
+                    <p class="fs-2xs mb-0">.fs-2xs</p>
+                </div>
+                <p class="mb-0 text-body-secondary">Backed by CSS variables like <code>--lbcc-font-size-6xl</code> and available anywhere in the CMS.</p>
 
                 <hr class="my-5">
 

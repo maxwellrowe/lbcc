@@ -11,6 +11,9 @@ $page = lbcc_resolve_page([
 <?php lbcc_head($page); ?>
 <body class="lbcc-page">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
+<?php if ($page['custom_hero']) { ?>
+<?php // Include Custom Hero Component here... ?>
+<?php } ?>
 <main id="main-content" class="py-5">
     <div class="container">
         <p class="eyebrow">Development Area</p>

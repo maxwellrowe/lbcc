@@ -518,6 +518,73 @@ const syncReducedMotionPreference = () => {
   reducedMotion.addEventListener("change", update);
 };
 
+const initFooterIHeartLb = () => {
+  document.querySelectorAll("[data-lbcc-i-heart-lb]").forEach((component) => {
+    if (!(component instanceof HTMLElement) || isInitialized(component)) {
+      return;
+    }
+
+    const swiperElement = component.querySelector("[data-lbcc-i-heart-lb-swiper]");
+    const toggleButton = component.querySelector("[data-lbcc-i-heart-lb-toggle]");
+    const pauseIcon = component.querySelector('[data-lbcc-i-heart-lb-icon="pause"]');
+    const playIcon = component.querySelector('[data-lbcc-i-heart-lb-icon="play"]');
+
+    if (!(swiperElement instanceof HTMLElement) || !(toggleButton instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const reducedMotionEnabled = document.documentElement.dataset.reducedMotion === "true";
+    const swiper = new Swiper(swiperElement, {
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true
+      },
+      loop: true,
+      speed: 600,
+      allowTouchMove: false,
+      autoplay: reducedMotionEnabled ? false : {
+        delay: 1350,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: false
+      }
+    });
+
+    let isPaused = reducedMotionEnabled || !swiper.autoplay;
+
+    const setToggleState = (paused) => {
+      toggleButton.setAttribute("aria-pressed", paused ? "true" : "false");
+      toggleButton.setAttribute("aria-label", paused ? "Play heart animation" : "Pause heart animation");
+
+      if (pauseIcon instanceof HTMLElement) {
+        pauseIcon.classList.toggle("d-none", paused);
+      }
+
+      if (playIcon instanceof HTMLElement) {
+        playIcon.classList.toggle("d-none", !paused);
+      }
+    };
+
+    setToggleState(isPaused);
+
+    toggleButton.addEventListener("click", () => {
+      if (!swiper.autoplay) {
+        return;
+      }
+
+      if (isPaused) {
+        swiper.autoplay.start();
+      } else {
+        swiper.autoplay.stop();
+      }
+
+      isPaused = !isPaused;
+      setToggleState(isPaused);
+    });
+
+    markInitialized(component);
+  });
+};
+
 const initMatchHeightUtilities = () => {
   if (typeof $.fn.matchHeight !== "function") {
     return;
@@ -560,6 +627,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initDesktopSearchCollapseFocus();
   syncCollapseMenuTriggers();
   initSectionNavMenu();
+  initFooterIHeartLb();
   initMatchHeightUtilities();
   LBCC.Animation.init();
 });

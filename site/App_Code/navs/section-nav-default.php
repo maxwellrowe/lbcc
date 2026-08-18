@@ -37,9 +37,9 @@
                 <li>
                     <a href="#">Styleguide</a>
                     <ul>
-                        <li><a href="#">Templates</a></li>
-                        <li><a href="#">Styleguide</a></li>
-                        <li><a href="#">Components</a></li>
+                        <li><a href="#">Tertiary Item</a></li>
+                        <li><a href="#">Tertiary Item</a></li>
+                        <li><a href="#">Tertiary Item</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Components</a></li>

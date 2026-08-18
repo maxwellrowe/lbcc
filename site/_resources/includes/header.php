@@ -88,6 +88,6 @@ $logoMark = lbcc_url($config['logo_mark']);
     include __DIR__ . '/navigation/section-nav.php'; 
 ?>
 
-<?php // Hero Include
-    include __DIR__ . '/hero.php'; 
+<?php // Page Title Include
+    include __DIR__ . '/page-title.php'; 
 ?>

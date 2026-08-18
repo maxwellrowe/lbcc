@@ -124,6 +124,249 @@ function component_buttons(
     </div>
 <?php }
 
+// Badge
+// $style options: light, dark, yellow, or water
+// $icon is a Font Awesome icon class
+function component_badge(
+    $text = '',
+    $style = 'light',
+    $icon = ''
+) {
+    if ($text === '') {
+        return;
+    }
+
+    $style = in_array($style, ['light', 'dark', 'yellow', 'water'], true) ? $style : 'light';
+
+    $badgeClasses = [
+        'badge',
+        'rounded-pill',
+        'd-inline-flex',
+        'align-items-center',
+        'gap-2'
+    ];
+
+    if ($style === 'dark') {
+        $badgeClasses[] = 'bg-dark';
+        $badgeClasses[] = 'text-light';
+    } elseif ($style === 'yellow') {
+        $badgeClasses[] = 'bg-yellow-300';
+        $badgeClasses[] = 'text-dark';
+    } elseif ($style === 'water') {
+        $badgeClasses[] = 'bg-surface-water';
+        $badgeClasses[] = 'text-dark';
+    } else {
+        $badgeClasses[] = 'bg-white';
+        $badgeClasses[] = 'text-dark';
+    }
+    ?>
+    <span class="<?php echo lbcc_escape(implode(' ', $badgeClasses)); ?>">
+        <?php if (!empty($icon)) { ?>
+            <span class="fa-sharp fa-regular <?php echo lbcc_escape($icon); ?>" aria-hidden="true"></span>
+        <?php } ?>
+        <span><?php echo lbcc_escape($text); ?></span>
+    </span>
+<?php }
+
+// Footer "I Heart LB"
+// $hearts accepts an array of SVG paths or item arrays with src and alt
+function component_footer_i_heart_lb($hearts = [])
+{
+    $defaultHearts = [
+        '_resources/images/i-heart-lb/heart-1.svg',
+        '_resources/images/i-heart-lb/heart-2.svg',
+        '_resources/images/i-heart-lb/heart-3.svg',
+        '_resources/images/i-heart-lb/heart-4.svg',
+        '_resources/images/i-heart-lb/heart-5.svg',
+        '_resources/images/i-heart-lb/heart-6.svg'
+    ];
+
+    $hearts = is_array($hearts) && !empty($hearts) ? array_values($hearts) : $defaultHearts;
+    $iMark = '_resources/images/i-heart-lb/i.svg';
+    $lbMark = '_resources/images/i-heart-lb/lb.svg';
+    ?>
+    <div
+        class="component-footer-i-heart-lb position-relative d-inline-flex align-items-center"
+        data-lbcc-i-heart-lb
+        role="img"
+        aria-label="I Heart LB"
+    >
+        <img
+            class="component-footer-i-heart-lb__mark component-footer-i-heart-lb__mark--i"
+            src="<?php echo lbcc_escape(lbcc_url($iMark)); ?>"
+            alt=""
+            aria-hidden="true"
+        >
+
+        <div class="component-footer-i-heart-lb__hearts">
+            <div class="swiper component-footer-i-heart-lb__swiper" data-lbcc-i-heart-lb-swiper>
+                <div class="swiper-wrapper">
+                    <?php foreach ($hearts as $heart) {
+                        $heartSrc = '';
+                        $heartAlt = 'Heart';
+
+                        if (is_array($heart)) {
+                            $heartSrc = !empty($heart['src']) ? (string) $heart['src'] : '';
+                            $heartAlt = !empty($heart['alt']) ? (string) $heart['alt'] : $heartAlt;
+                        } else {
+                            $heartSrc = (string) $heart;
+                        }
+
+                        if ($heartSrc === '') {
+                            continue;
+                        }
+                        ?>
+                        <div class="swiper-slide">
+                            <img
+                                class="component-footer-i-heart-lb__heart"
+                                src="<?php echo lbcc_escape(lbcc_url($heartSrc)); ?>"
+                                alt=""
+                                aria-hidden="true"
+                            >
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+
+            <button
+                class="component-footer-i-heart-lb__toggle btn btn-dark btn-sm btn-circle"
+                type="button"
+                aria-label="Pause heart animation"
+                aria-pressed="false"
+                data-lbcc-i-heart-lb-toggle
+            >
+                <span class="fa-sharp fa-regular fa-pause" aria-hidden="true" data-lbcc-i-heart-lb-icon="pause"></span>
+                <span class="fa-sharp fa-regular fa-play d-none" aria-hidden="true" data-lbcc-i-heart-lb-icon="play"></span>
+            </button>
+        </div>
+
+        <img
+            class="component-footer-i-heart-lb__mark component-footer-i-heart-lb__mark--lb"
+            src="<?php echo lbcc_escape(lbcc_url($lbMark)); ?>"
+            alt=""
+            aria-hidden="true"
+        >
+    </div>
+<?php }
+
+// Hero
+// $type options: split or full
+// $mediaSlotOne and $mediaSlotTwo accept arrays of media items with:
+// type (image or video), src, alt, poster
+// $supplementalContent and $breadcrumbsHtml accept trusted HTML content
+function component_hero(
+    $type = 'split',
+    $title = '',
+    $supplementalContent = '',
+    $mediaSlotOne = [],
+    $mediaSlotTwo = [],
+    $showBreadcrumbs = true,
+    $breadcrumbsHtml = ''
+) {
+    $type = in_array($type, ['split', 'full'], true) ? $type : 'split';
+
+    $componentClasses = [
+        'component-hero',
+        'component-hero--' . $type
+    ];
+    ?>
+    <section class="<?php echo lbcc_escape(implode(' ', $componentClasses)); ?>">
+        <div class="component-hero__inner">
+            <div class="component-hero__content">
+                <?php if ($showBreadcrumbs) { ?>
+                    <div class="component-hero__breadcrumbs">
+                        <?php if (!empty($breadcrumbsHtml)) { ?>
+                            <?php echo $breadcrumbsHtml; ?>
+                        <?php } else { ?>
+                            <nav aria-label="Breadcrumb">
+                                <ol class="breadcrumb mb-0">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Section</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"><?php echo lbcc_escape($title ?: 'Current Page'); ?></li>
+                                </ol>
+                            </nav>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
+
+                <?php if (!empty($title)) { ?>
+                    <h2 class="component-hero__title"><?php echo lbcc_escape($title); ?></h2>
+                <?php } ?>
+
+                <?php if (!empty($supplementalContent)) { ?>
+                    <div class="component-hero__supplemental-content">
+                        <?php echo $supplementalContent; ?>
+                    </div>
+                <?php } ?>
+            </div>
+
+            <div class="component-hero__media">
+                <?php component_hero_media_slot($mediaSlotOne, '1'); ?>
+                <?php if ($type === 'full') { ?>
+                    <?php component_hero_media_slot($mediaSlotTwo, '2'); ?>
+                <?php } ?>
+            </div>
+        </div>
+    </section>
+<?php }
+
+function component_hero_media_slot($mediaItems = [], $slotLabel = '1')
+{
+    $mediaItems = is_array($mediaItems) ? array_values($mediaItems) : [];
+    $hasMultipleItems = count($mediaItems) > 1;
+    ?>
+    <div class="component-hero__media-slot component-hero__media-slot--<?php echo lbcc_escape((string) $slotLabel); ?>">
+        <div class="component-hero__media-slot-meta d-flex align-items-center justify-content-between gap-3 mb-3">
+            <p class="eyebrow-sm mb-0">Media Slot <?php echo lbcc_escape((string) $slotLabel); ?></p>
+            <p class="mb-0 text-body-secondary fs-xs"><?php echo $hasMultipleItems ? 'Swiper-ready multi-item media set' : 'Single background media item'; ?></p>
+        </div>
+
+        <?php if (empty($mediaItems)) { ?>
+            <div class="component-hero__media-placeholder bg-surface-subtle border rounded p-4">
+                <p class="mb-0 text-body-secondary">No media selected for slot <?php echo lbcc_escape((string) $slotLabel); ?>.</p>
+            </div>
+        <?php } elseif ($hasMultipleItems) { ?>
+            <div class="swiper component-hero__media-swiper" data-lbcc-hero-media-swiper>
+                <div class="swiper-wrapper">
+                    <?php foreach ($mediaItems as $mediaItem) { ?>
+                        <div class="swiper-slide">
+                            <?php component_hero_media_item($mediaItem); ?>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        <?php } else { ?>
+            <?php component_hero_media_item($mediaItems[0]); ?>
+        <?php } ?>
+    </div>
+<?php }
+
+function component_hero_media_item($mediaItem = [])
+{
+    if (!is_array($mediaItem) || empty($mediaItem['src'])) {
+        return;
+    }
+
+    $mediaType = !empty($mediaItem['type']) && $mediaItem['type'] === 'video' ? 'video' : 'image';
+    $src = (string) $mediaItem['src'];
+    $alt = !empty($mediaItem['alt']) ? (string) $mediaItem['alt'] : '';
+    $poster = !empty($mediaItem['poster']) ? (string) $mediaItem['poster'] : '';
+    ?>
+    <div class="component-hero__media-item border rounded overflow-hidden">
+        <?php if ($mediaType === 'video') { ?>
+            <video class="component-hero__video w-100" autoplay muted loop playsinline preload="metadata"<?php if (!empty($poster)) { ?> poster="<?php echo lbcc_escape(lbcc_url($poster)); ?>"<?php } ?>>
+                <source src="<?php echo lbcc_escape(lbcc_url($src)); ?>">
+            </video>
+        <?php } else { ?>
+            <img class="component-hero__image w-100" src="<?php echo lbcc_escape(lbcc_url($src)); ?>" alt="<?php echo lbcc_escape($alt); ?>">
+        <?php } ?>
+        <div class="component-hero__media-item-meta p-3 bg-white border-top">
+            <p class="mb-1 fw-semibold"><?php echo $mediaType === 'video' ? 'Video Background' : 'Image Background'; ?></p>
+            <p class="mb-0 text-body-secondary fs-xs"><?php echo lbcc_escape($src); ?></p>
+        </div>
+    </div>
+<?php }
+
 // Quicklinks
 // $variation options: card, icon, or icon-circled
 // $size options: xl, lg, default, or sm
