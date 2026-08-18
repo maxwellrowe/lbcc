@@ -249,17 +249,13 @@ function component_footer_i_heart_lb($hearts = [])
     </div>
 <?php }
 
-// Hero
-// $type options: split or full
-// $mediaSlotOne and $mediaSlotTwo accept arrays of media items with:
-// type (image or video), src, alt, poster
-// $supplementalContent and $breadcrumbsHtml accept trusted HTML content
 function component_hero(
     $type = 'split',
     $title = '',
     $supplementalContent = '',
-    $mediaSlotOne = [],
-    $mediaSlotTwo = [],
+    $contentMedia = [],
+    $backgroundMediaRight = [],
+    $backgroundMediaLeft = [],
     $showBreadcrumbs = true,
     $breadcrumbsHtml = ''
 ) {
@@ -271,60 +267,56 @@ function component_hero(
     ];
     ?>
     <section class="<?php echo lbcc_escape(implode(' ', $componentClasses)); ?>">
-        <div class="component-hero__inner">
+        <?php if ($type === 'full') { ?>
+            <?php component_hero_media_slot($backgroundMediaLeft, 'Background Media Left'); ?>
+        <?php } ?>
+        <div class="component-hero__inner container-xxl">
             <div class="component-hero__content">
                 <?php if ($showBreadcrumbs) { ?>
                     <div class="component-hero__breadcrumbs">
                         <?php if (!empty($breadcrumbsHtml)) { ?>
                             <?php echo $breadcrumbsHtml; ?>
                         <?php } else { ?>
-                            <nav aria-label="Breadcrumb">
-                                <ol class="breadcrumb mb-0">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Section</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"><?php echo lbcc_escape($title ?: 'Current Page'); ?></li>
-                                </ol>
-                            </nav>
+                            <?php
+                            $page = [
+                                'title' => $title ?: 'Current Page'
+                            ];
+                            include dirname(__DIR__, 3) . '/_resources/includes/breadcrumbs.php';
+                            ?>
                         <?php } ?>
                     </div>
                 <?php } ?>
 
-                <?php if (!empty($title)) { ?>
-                    <h2 class="component-hero__title"><?php echo lbcc_escape($title); ?></h2>
-                <?php } ?>
+                <div class="component-hero__message">
+                    <?php if (!empty($title)) { ?>
+                        <h1 class="component-hero__title fs-6xl"><?php echo lbcc_escape($title); ?></h1>
+                    <?php } ?>
 
-                <?php if (!empty($supplementalContent)) { ?>
-                    <div class="component-hero__supplemental-content">
-                        <?php echo $supplementalContent; ?>
-                    </div>
-                <?php } ?>
+                    <?php if (!empty($supplementalContent)) { ?>
+                        <div class="component-hero__supplemental-content">
+                            <?php echo $supplementalContent; ?>
+                        </div>
+                    <?php } ?>
+                </div>
             </div>
-
-            <div class="component-hero__media">
-                <?php component_hero_media_slot($mediaSlotOne, '1'); ?>
-                <?php if ($type === 'full') { ?>
-                    <?php component_hero_media_slot($mediaSlotTwo, '2'); ?>
-                <?php } ?>
-            </div>
+            <?php component_hero_media_slot($contentMedia, 'Main Content Media'); ?>
         </div>
+
+        <?php component_hero_media_slot($backgroundMediaRight, 'Background Media Right'); ?>
     </section>
 <?php }
 
-function component_hero_media_slot($mediaItems = [], $slotLabel = '1')
+function component_hero_media_slot($mediaItems = [], $slotLabel = 'Media Slot')
 {
     $mediaItems = is_array($mediaItems) ? array_values($mediaItems) : [];
     $hasMultipleItems = count($mediaItems) > 1;
+    $slotSlug = strtolower((string) $slotLabel);
+    $slotSlug = preg_replace('/[^a-z0-9]+/', '-', $slotSlug);
+    $slotSlug = trim((string) $slotSlug, '-');
     ?>
-    <div class="component-hero__media-slot component-hero__media-slot--<?php echo lbcc_escape((string) $slotLabel); ?>">
-        <div class="component-hero__media-slot-meta d-flex align-items-center justify-content-between gap-3 mb-3">
-            <p class="eyebrow-sm mb-0">Media Slot <?php echo lbcc_escape((string) $slotLabel); ?></p>
-            <p class="mb-0 text-body-secondary fs-xs"><?php echo $hasMultipleItems ? 'Swiper-ready multi-item media set' : 'Single background media item'; ?></p>
-        </div>
-
+    <div class="component-hero__media-slot component-hero__media-slot--<?php echo lbcc_escape($slotSlug); ?>">
         <?php if (empty($mediaItems)) { ?>
-            <div class="component-hero__media-placeholder bg-surface-subtle border rounded p-4">
-                <p class="mb-0 text-body-secondary">No media selected for slot <?php echo lbcc_escape((string) $slotLabel); ?>.</p>
-            </div>
+            <div class="component-hero__media-placeholder"></div>
         <?php } elseif ($hasMultipleItems) { ?>
             <div class="swiper component-hero__media-swiper" data-lbcc-hero-media-swiper>
                 <div class="swiper-wrapper">
@@ -352,7 +344,7 @@ function component_hero_media_item($mediaItem = [])
     $alt = !empty($mediaItem['alt']) ? (string) $mediaItem['alt'] : '';
     $poster = !empty($mediaItem['poster']) ? (string) $mediaItem['poster'] : '';
     ?>
-    <div class="component-hero__media-item border rounded overflow-hidden">
+    <div class="component-hero__media-item">
         <?php if ($mediaType === 'video') { ?>
             <video class="component-hero__video w-100" autoplay muted loop playsinline preload="metadata"<?php if (!empty($poster)) { ?> poster="<?php echo lbcc_escape(lbcc_url($poster)); ?>"<?php } ?>>
                 <source src="<?php echo lbcc_escape(lbcc_url($src)); ?>">
@@ -360,10 +352,6 @@ function component_hero_media_item($mediaItem = [])
         <?php } else { ?>
             <img class="component-hero__image w-100" src="<?php echo lbcc_escape(lbcc_url($src)); ?>" alt="<?php echo lbcc_escape($alt); ?>">
         <?php } ?>
-        <div class="component-hero__media-item-meta p-3 bg-white border-top">
-            <p class="mb-1 fw-semibold"><?php echo $mediaType === 'video' ? 'Video Background' : 'Image Background'; ?></p>
-            <p class="mb-0 text-body-secondary fs-xs"><?php echo lbcc_escape($src); ?></p>
-        </div>
     </div>
 <?php }
 

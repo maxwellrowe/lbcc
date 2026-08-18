@@ -98,12 +98,12 @@
   background: var(--color-yellow-300);
 }
 
-.bg-gradient-sunhaze {
-  background: linear-gradient(180deg, var(--color-sun-haze) 0%, var(--color-sun-soft) 100%);
+.bg-sunhaze-gradient {
+  background: var(--color-sunhaze-gradient);
 }
 
 .bg-water-gradient {
-  background: linear-gradient(180deg, var(--color-sun-haze) 0%, var(--color-sun-haze) 50%, var(--color-teal-100) 100%);
+  background: var(--color-water-gradient);
 }
 
 .match-height-all,

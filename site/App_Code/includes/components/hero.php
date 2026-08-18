@@ -45,7 +45,7 @@
         <div class="container-fluid px-0">
             <div class="mb-5">
                 <div class="container">
-                    <p class="eyebrow-sm mb-2">Split Variant</p>
+                    <p class="eyebrow-sm mb-2">Split Variant / Breadcrumbs On</p>
                 </div>
                 <?php
                 component_hero(
@@ -64,15 +64,22 @@
                             'alt' => 'Campus placeholder image second slide'
                         ]
                     ],
+                    [
+                        [
+                            'type' => 'image',
+                            'src' => '_resources/images/lac-thumb.jpg',
+                            'alt' => 'Right background split hero placeholder image'
+                        ]
+                    ],
                     [],
                     true
                 );
                 ?>
             </div>
 
-            <div>
+            <div class="mb-5">
                 <div class="container">
-                    <p class="eyebrow-sm mb-2">Full Variant</p>
+                    <p class="eyebrow-sm mb-2">Full Variant / Breadcrumbs On</p>
                 </div>
                 <?php
                 component_hero(
@@ -87,13 +94,49 @@
                         ]
                     ],
                     [
-                    [
+                        [
                             'type' => 'image',
                             'src' => '_resources/images/lac-thumb.jpg',
-                            'alt' => 'Secondary full hero placeholder image'
+                            'alt' => 'Right background full hero placeholder image'
+                        ]
+                    ],
+                    [
+                        [
+                            'type' => 'image',
+                            'src' => '_resources/images/lac-thumb.jpg',
+                            'alt' => 'Left background full hero placeholder image'
                         ]
                     ],
                     true
+                );
+                ?>
+            </div>
+
+            <div>
+                <div class="container">
+                    <p class="eyebrow-sm mb-2">Split Variant / Breadcrumbs Off</p>
+                </div>
+                <?php
+                component_hero(
+                    'split',
+                    'Split Hero Without Breadcrumbs',
+                    $heroSupplementalContent,
+                    [
+                        [
+                            'type' => 'image',
+                            'src' => '_resources/images/lac-thumb.jpg',
+                            'alt' => 'Split hero without breadcrumbs main media image'
+                        ]
+                    ],
+                    [
+                        [
+                            'type' => 'image',
+                            'src' => '_resources/images/lac-thumb.jpg',
+                            'alt' => 'Split hero without breadcrumbs right background image'
+                        ]
+                    ],
+                    [],
+                    false
                 );
                 ?>
             </div>
@@ -132,16 +175,22 @@
                         <td>Trusted rich content area for editor-authored text and nested components such as buttons.</td>
                     </tr>
                     <tr>
-                        <td>Media Slot 1</td>
+                        <td>Main Content Media</td>
                         <td>array</td>
                         <td>empty</td>
-                        <td>Accepts one or more media items. Multiple items automatically output Swiper-ready markup.</td>
+                        <td>Accepts one or more media items for the main hero content area. Multiple items automatically output Swiper-ready markup.</td>
                     </tr>
                     <tr>
-                        <td>Media Slot 2</td>
+                        <td>Background Media Right</td>
                         <td>array</td>
                         <td>empty</td>
-                        <td>Optional second media/background slot intended for the <code>full</code> variant.</td>
+                        <td>Background image or video slot on the right side. Used by both variants, and especially the single background slot for <code>split</code>.</td>
+                    </tr>
+                    <tr>
+                        <td>Background Media Left</td>
+                        <td>array</td>
+                        <td>empty</td>
+                        <td>Optional second background image or video slot on the left side for the <code>full</code> variant.</td>
                     </tr>
                     <tr>
                         <td>Media Item</td>
@@ -159,7 +208,7 @@
                         <td>Breadcrumb HTML</td>
                         <td>HTML string</td>
                         <td>empty</td>
-                        <td>Optional trusted breadcrumb markup. If omitted, the component outputs a simple placeholder breadcrumb trail.</td>
+                        <td>Optional trusted breadcrumb markup. If omitted and Breadcrumbs is enabled, the component falls back to the shared <code>/_resources/includes/breadcrumbs.php</code> include.</td>
                     </tr>
                 </tbody>
             </table>

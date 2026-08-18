@@ -12342,6 +12342,8 @@ code {
   --color-sun-soft-rgb: 255, 233, 199;
   --color-sun-haze: #E6F3F2;
   --color-sun-haze-rgb: 230, 243, 242;
+  --color-sunhaze-gradient: linear-gradient(180deg, var(--color-sun-haze) 0%, var(--color-sun-soft) 100%);
+  --color-water-gradient: linear-gradient(180deg, var(--color-sun-haze) 0%, var(--color-sun-haze) 50%, var(--color-teal-100) 100%);
   --lbcc-font-family-body: DM Sans, Segoe UI, sans-serif;
   --lbcc-font-family-heading: Instrument Sans, Segoe UI, sans-serif;
   --lbcc-font-family-label: DM Mono, SFMono-Regular, Consolas, monospace;
@@ -13301,12 +13303,12 @@ textarea.form-control {
   background: var(--color-yellow-300);
 }
 
-.bg-gradient-sunhaze {
-  background: linear-gradient(180deg, var(--color-sun-haze) 0%, var(--color-sun-soft) 100%);
+.bg-sunhaze-gradient {
+  background: var(--color-sunhaze-gradient);
 }
 
 .bg-water-gradient {
-  background: linear-gradient(180deg, var(--color-sun-haze) 0%, var(--color-sun-haze) 50%, var(--color-teal-100) 100%);
+  background: var(--color-water-gradient);
 }
 
 .match-height-all,
@@ -13841,4 +13843,20 @@ textarea.form-control {
 .component-spacer.cs-10,
 .cs-10 {
   height: 10rem;
+}
+
+.component-hero.component-hero--split {
+  background: var(--color-water-gradient);
+}
+.component-hero .component-hero__inner {
+  position: relative;
+}
+.component-hero .component-hero__media-slot {
+  position: absolute;
+}
+.component-hero .component-hero__media-slot.component-hero__media-slot--main-content-media {
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }

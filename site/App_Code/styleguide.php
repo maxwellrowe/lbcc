@@ -350,8 +350,8 @@ $surfaceUtilityClasses = [
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-4">
-                        <div class="rounded p-4 bg-gradient-sunhaze border">
-                            <p class="mb-1 fw-semibold">.bg-gradient-sunhaze</p>
+                        <div class="rounded p-4 bg-sunhaze-gradient border">
+                            <p class="mb-1 fw-semibold">.bg-sunhaze-gradient</p>
                             <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <span class="text-body-secondary">Gradient utility</span></p>
                             <p class="mb-0"><code>#E6F3F2 → #FFE9C7</code></p>
                         </div>

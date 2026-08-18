@@ -195,3 +195,27 @@
         height: #{$i}rem;
     }
 }
+
+
+// Hero
+.component-hero {
+
+    &.component-hero--split {
+        background: var(--color-water-gradient);
+    }
+
+    .component-hero__inner {
+        position: relative;
+    }
+
+    .component-hero__media-slot {
+        position: absolute;
+
+        &.component-hero__media-slot--main-content-media {
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+        }
+    }
+}

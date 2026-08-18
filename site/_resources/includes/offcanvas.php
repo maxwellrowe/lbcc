@@ -1,4 +1,4 @@
-<div class="offcanvas offcanvas-end bg-gradient-sunhaze" tabindex="-1" id="offcanvas-utility-nav" aria-labelledby="offcanvas-utility-nav-label">
+<div class="offcanvas offcanvas-end bg-sunhaze-gradient" tabindex="-1" id="offcanvas-utility-nav" aria-labelledby="offcanvas-utility-nav-label">
     <div class="offcanvas-header align-items-center bg-white border-bottom">
         <h2 class="eyebrow m-0 lh-1">My LBCC</h2>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
