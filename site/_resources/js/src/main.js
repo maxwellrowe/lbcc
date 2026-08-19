@@ -585,6 +585,188 @@ const initFooterIHeartLb = () => {
   });
 };
 
+const initHeroMediaSwipers = () => {
+  document.querySelectorAll("[data-lbcc-hero-media-swiper]").forEach((swiperElement) => {
+    if (!(swiperElement instanceof HTMLElement) || isInitialized(swiperElement)) {
+      return;
+    }
+
+    const reducedMotionEnabled = document.documentElement.dataset.reducedMotion === "true";
+
+    const swiper = new Swiper(swiperElement, {
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true
+      },
+      loop: true,
+      speed: 700,
+      slidesPerView: 1,
+      allowTouchMove: true,
+      autoHeight: false,
+      autoplay: reducedMotionEnabled ? false : {
+        delay: 4000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      }
+    });
+
+    if (reducedMotionEnabled && swiper.autoplay) {
+      swiper.autoplay.stop();
+    }
+
+    markInitialized(swiperElement);
+  });
+};
+
+const initHeroMediaControls = () => {
+  document.querySelectorAll("[data-lbcc-hero-media-control]").forEach((control) => {
+    if (!(control instanceof HTMLButtonElement) || isInitialized(control)) {
+      return;
+    }
+
+    const hero = control.closest(".component-hero");
+
+    if (!(hero instanceof HTMLElement)) {
+      return;
+    }
+
+    const pauseIcon = control.querySelector('[data-lbcc-hero-media-icon="pause"]');
+    const playIcon = control.querySelector('[data-lbcc-hero-media-icon="play"]');
+    const videoElements = Array.from(hero.querySelectorAll(".component-hero__media video")).filter(
+      (video) => video instanceof HTMLVideoElement
+    );
+    const swiperElements = Array.from(hero.querySelectorAll("[data-lbcc-hero-media-swiper]")).filter(
+      (swiperElement) => swiperElement instanceof HTMLElement
+    );
+
+    const getSwiperInstances = () => swiperElements
+      .map((swiperElement) => swiperElement.swiper)
+      .filter((swiperInstance) => swiperInstance && swiperInstance.autoplay);
+
+    let isPaused = document.documentElement.dataset.reducedMotion === "true";
+
+    const setToggleState = (paused) => {
+      control.setAttribute("aria-pressed", paused ? "true" : "false");
+      control.setAttribute("aria-label", paused ? "Play hero media" : "Pause hero media");
+
+      if (pauseIcon instanceof HTMLElement) {
+        pauseIcon.classList.toggle("d-none", paused);
+      }
+
+      if (playIcon instanceof HTMLElement) {
+        playIcon.classList.toggle("d-none", !paused);
+      }
+    };
+
+    const pauseMedia = () => {
+      getSwiperInstances().forEach((swiperInstance) => {
+        swiperInstance.autoplay.stop();
+      });
+
+      videoElements.forEach((videoElement) => {
+        videoElement.pause();
+      });
+    };
+
+    const playMedia = () => {
+      getSwiperInstances().forEach((swiperInstance) => {
+        swiperInstance.autoplay.start();
+      });
+
+      videoElements.forEach((videoElement) => {
+        videoElement.play().catch(() => {});
+      });
+    };
+
+    if (isPaused) {
+      pauseMedia();
+    }
+
+    setToggleState(isPaused);
+
+    control.addEventListener("click", () => {
+      if (isPaused) {
+        playMedia();
+      } else {
+        pauseMedia();
+      }
+
+      isPaused = !isPaused;
+      setToggleState(isPaused);
+    });
+
+    markInitialized(control);
+  });
+};
+
+const initHeroBackgroundParallax = () => {
+  const mediaLayers = Array.from(document.querySelectorAll(
+    ".component-hero__media-slot--background-media-right .component-hero__image, " +
+    ".component-hero__media-slot--background-media-right .component-hero__video, " +
+    ".component-hero__media-slot--background-media-left .component-hero__image, " +
+    ".component-hero__media-slot--background-media-left .component-hero__video"
+  )).filter((element) => element instanceof HTMLElement);
+
+  if (!mediaLayers.length) {
+    return;
+  }
+
+  const desktopQuery = window.matchMedia("(min-width: 992px)");
+  const baseScale = 1.08;
+  const maxOffset = 36;
+  let ticking = false;
+
+  const resetTransforms = () => {
+    mediaLayers.forEach((layer) => {
+      layer.style.transform = `translate3d(0, 0, 0) scale(${baseScale})`;
+    });
+  };
+
+  const updateParallax = () => {
+    ticking = false;
+
+    if (document.documentElement.dataset.reducedMotion === "true" || !desktopQuery.matches) {
+      resetTransforms();
+      return;
+    }
+
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const viewportCenter = viewportHeight / 2;
+
+    mediaLayers.forEach((layer) => {
+      const rect = layer.getBoundingClientRect();
+
+      if (rect.bottom < 0 || rect.top > viewportHeight) {
+        layer.style.transform = `translate3d(0, 0, 0) scale(${baseScale})`;
+        return;
+      }
+
+      const elementCenter = rect.top + (rect.height / 2);
+      const progress = (viewportCenter - elementCenter) / (viewportHeight / 2);
+      const clampedProgress = Math.max(-1, Math.min(1, progress));
+      const offset = clampedProgress * maxOffset;
+
+      layer.style.transform = `translate3d(0, ${offset}px, 0) scale(${baseScale})`;
+    });
+  };
+
+  const queueParallaxUpdate = () => {
+    if (ticking) {
+      return;
+    }
+
+    ticking = true;
+    window.requestAnimationFrame(updateParallax);
+  };
+
+  resetTransforms();
+  updateParallax();
+  window.addEventListener("scroll", queueParallaxUpdate, { passive: true });
+  window.addEventListener("resize", queueParallaxUpdate);
+  window.addEventListener("load", queueParallaxUpdate);
+  desktopQuery.addEventListener("change", queueParallaxUpdate);
+};
+
 const initMatchHeightUtilities = () => {
   if (typeof $.fn.matchHeight !== "function") {
     return;
@@ -628,6 +810,9 @@ document.addEventListener("DOMContentLoaded", () => {
   syncCollapseMenuTriggers();
   initSectionNavMenu();
   initFooterIHeartLb();
+  initHeroMediaSwipers();
+  initHeroMediaControls();
+  initHeroBackgroundParallax();
   initMatchHeightUtilities();
   LBCC.Animation.init();
 });

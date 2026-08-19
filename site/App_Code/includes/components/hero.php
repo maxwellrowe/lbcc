@@ -45,7 +45,7 @@
         <div class="container-fluid px-0">
             <div class="mb-5">
                 <div class="container">
-                    <p class="eyebrow-sm mb-2">Split Variant / Breadcrumbs On</p>
+                    <p class="eyebrow-sm mb-2">Split Variant / Right Background Video / Breadcrumbs On</p>
                 </div>
                 <?php
                 component_hero(
@@ -55,20 +55,20 @@
                     [
                         [
                             'type' => 'image',
-                            'src' => '_resources/images/lac-thumb.jpg',
-                            'alt' => 'Campus placeholder image'
+                            'src' => '_resources/images/hero-backgrounds/hero-bg-4.jpg',
+                            'alt' => 'Split hero main image one'
                         ],
                         [
                             'type' => 'image',
-                            'src' => '_resources/images/lac-thumb.jpg',
-                            'alt' => 'Campus placeholder image second slide'
+                            'src' => '_resources/images/hero-backgrounds/hero-bg-11.jpg',
+                            'alt' => 'Split hero main image two'
                         ]
                     ],
                     [
                         [
-                            'type' => 'image',
-                            'src' => '_resources/images/lac-thumb.jpg',
-                            'alt' => 'Right background split hero placeholder image'
+                            'type' => 'video',
+                            'src' => '_resources/video/hero-backgrounds/optimized/hero-bg-1.mp4',
+                            'poster' => '_resources/images/hero-backgrounds/hero-bg-2.jpg'
                         ]
                     ],
                     [],
@@ -78,41 +78,6 @@
             </div>
 
             <div class="mb-5">
-                <div class="container">
-                    <p class="eyebrow-sm mb-2">Full Variant / Breadcrumbs On</p>
-                </div>
-                <?php
-                component_hero(
-                    'full',
-                    'Full Hero Placeholder',
-                    $heroSupplementalContent,
-                    [
-                        [
-                            'type' => 'image',
-                            'src' => '_resources/images/lac-thumb.jpg',
-                            'alt' => 'Primary full hero placeholder image'
-                        ]
-                    ],
-                    [
-                        [
-                            'type' => 'image',
-                            'src' => '_resources/images/lac-thumb.jpg',
-                            'alt' => 'Right background full hero placeholder image'
-                        ]
-                    ],
-                    [
-                        [
-                            'type' => 'image',
-                            'src' => '_resources/images/lac-thumb.jpg',
-                            'alt' => 'Left background full hero placeholder image'
-                        ]
-                    ],
-                    true
-                );
-                ?>
-            </div>
-
-            <div>
                 <div class="container">
                     <p class="eyebrow-sm mb-2">Split Variant / Breadcrumbs Off</p>
                 </div>
@@ -124,19 +89,54 @@
                     [
                         [
                             'type' => 'image',
-                            'src' => '_resources/images/lac-thumb.jpg',
-                            'alt' => 'Split hero without breadcrumbs main media image'
+                            'src' => '_resources/images/hero-backgrounds/hero-bg-9.jpg',
+                            'alt' => 'Split hero without breadcrumbs main image'
                         ]
                     ],
                     [
                         [
                             'type' => 'image',
-                            'src' => '_resources/images/lac-thumb.jpg',
+                            'src' => '_resources/images/hero-backgrounds/hero-bg-1.jpg',
                             'alt' => 'Split hero without breadcrumbs right background image'
                         ]
                     ],
                     [],
                     false
+                );
+                ?>
+            </div>
+
+            <div>
+                <div class="container">
+                    <p class="eyebrow-sm mb-2">Full Variant / Left + Right Background Video / Breadcrumbs On</p>
+                </div>
+                <?php
+                component_hero(
+                    'full',
+                    'Full Hero Placeholder',
+                    $heroSupplementalContent,
+                    [
+                        [
+                            'type' => 'image',
+                            'src' => '_resources/images/hero-backgrounds/hero-bg-15.jpg',
+                            'alt' => 'Full hero main image'
+                        ]
+                    ],
+                    [
+                        [
+                            'type' => 'video',
+                            'src' => '_resources/video/hero-backgrounds/optimized/hero-bg-1.mp4',
+                            'poster' => '_resources/images/hero-backgrounds/hero-bg-7.jpg'
+                        ]
+                    ],
+                    [
+                        [
+                            'type' => 'video',
+                            'src' => '_resources/video/hero-backgrounds/optimized/hero-bg-2.mp4',
+                            'poster' => '_resources/images/hero-backgrounds/hero-bg-13.jpg'
+                        ]
+                    ],
+                    true
                 );
                 ?>
             </div>

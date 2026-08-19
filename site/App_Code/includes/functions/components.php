@@ -260,6 +260,11 @@ function component_hero(
     $breadcrumbsHtml = ''
 ) {
     $type = in_array($type, ['split', 'full'], true) ? $type : 'split';
+    $showMediaControl = component_hero_has_pausable_media(
+        $contentMedia,
+        $backgroundMediaRight,
+        $backgroundMediaLeft
+    );
 
     $componentClasses = [
         'component-hero',
@@ -268,43 +273,51 @@ function component_hero(
     ?>
     <section class="<?php echo lbcc_escape(implode(' ', $componentClasses)); ?>">
         <?php if ($type === 'full') { ?>
-            <?php component_hero_media_slot($backgroundMediaLeft, 'Background Media Left'); ?>
-        <?php } ?>
-        <div class="component-hero__inner container-xxl">
-            <div class="component-hero__content">
-                <?php if ($showBreadcrumbs) { ?>
-                    <div class="component-hero__breadcrumbs">
-                        <?php if (!empty($breadcrumbsHtml)) { ?>
-                            <?php echo $breadcrumbsHtml; ?>
-                        <?php } else { ?>
-                            <?php
-                            $page = [
-                                'title' => $title ?: 'Current Page'
-                            ];
-                            include dirname(__DIR__, 3) . '/_resources/includes/breadcrumbs.php';
-                            ?>
-                        <?php } ?>
-                    </div>
+            <div class="component-hero__media">
+                <?php component_hero_media_slot($backgroundMediaLeft, 'Background Media Left'); ?>
+                <?php component_hero_media_slot($contentMedia, 'Main Content Media'); ?>
+                <?php component_hero_media_slot($backgroundMediaRight, 'Background Media Right'); ?>
+                <?php component_hero_render_content($title, $supplementalContent, $showBreadcrumbs, $breadcrumbsHtml, 'd-none d-xl-block'); ?>
+                <?php if ($showMediaControl) { ?>
+                    <?php component_hero_render_media_control(); ?>
                 <?php } ?>
-
-                <div class="component-hero__message">
-                    <?php if (!empty($title)) { ?>
-                        <h1 class="component-hero__title fs-6xl"><?php echo lbcc_escape($title); ?></h1>
-                    <?php } ?>
-
-                    <?php if (!empty($supplementalContent)) { ?>
-                        <div class="component-hero__supplemental-content">
-                            <?php echo $supplementalContent; ?>
-                        </div>
-                    <?php } ?>
-                </div>
             </div>
-            <?php component_hero_media_slot($contentMedia, 'Main Content Media'); ?>
-        </div>
-
-        <?php component_hero_media_slot($backgroundMediaRight, 'Background Media Right'); ?>
+            <?php component_hero_render_mobile_supplemental($supplementalContent); ?>
+        <?php } else { ?>
+            <div class="component-hero__inner">
+                <?php component_hero_render_content($title, $supplementalContent, $showBreadcrumbs, $breadcrumbsHtml); ?>
+            </div>
+            <div class="component-hero__media">
+                <?php component_hero_media_slot($contentMedia, 'Main Content Media'); ?>
+                <?php component_hero_media_slot($backgroundMediaRight, 'Background Media Right'); ?>
+                <?php if ($showMediaControl) { ?>
+                    <?php component_hero_render_media_control(); ?>
+                <?php } ?>
+            </div>
+        <?php } ?>
     </section>
 <?php }
+
+function component_hero_has_pausable_media(...$mediaGroups)
+{
+    foreach ($mediaGroups as $mediaItems) {
+        if (!is_array($mediaItems) || empty($mediaItems)) {
+            continue;
+        }
+
+        if (count($mediaItems) > 1) {
+            return true;
+        }
+
+        foreach ($mediaItems as $mediaItem) {
+            if (is_array($mediaItem) && !empty($mediaItem['type']) && $mediaItem['type'] === 'video') {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
 
 function component_hero_media_slot($mediaItems = [], $slotLabel = 'Media Slot')
 {
@@ -333,6 +346,73 @@ function component_hero_media_slot($mediaItems = [], $slotLabel = 'Media Slot')
     </div>
 <?php }
 
+function component_hero_render_content(
+    $title = '',
+    $supplementalContent = '',
+    $showBreadcrumbs = true,
+    $breadcrumbsHtml = '',
+    $supplementalClasses = ''
+) {
+    $supplementalClasses = trim((string) $supplementalClasses);
+    ?>
+    <div class="component-hero__content">
+        <?php if ($showBreadcrumbs) { ?>
+            <div class="component-hero__breadcrumbs">
+                <?php if (!empty($breadcrumbsHtml)) { ?>
+                    <?php echo $breadcrumbsHtml; ?>
+                <?php } else { ?>
+                    <?php
+                    $page = [
+                        'title' => $title ?: 'Current Page'
+                    ];
+                    include dirname(__DIR__, 3) . '/_resources/includes/breadcrumbs.php';
+                    ?>
+                <?php } ?>
+            </div>
+        <?php } ?>
+
+        <div class="component-hero__message">
+            <?php if (!empty($title)) { ?>
+                <h1 class="component-hero__title fs-6xl"><?php echo lbcc_escape($title); ?></h1>
+            <?php } ?>
+
+            <?php if (!empty($supplementalContent)) { ?>
+                <div class="component-hero__supplemental-content<?php if ($supplementalClasses !== '') { ?> <?php echo lbcc_escape($supplementalClasses); ?><?php } ?>">
+                    <?php echo $supplementalContent; ?>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+<?php }
+
+function component_hero_render_mobile_supplemental($supplementalContent = '')
+{
+    if (empty($supplementalContent)) {
+        return;
+    }
+    ?>
+    <div class="component-hero__mobile-supplemental d-xl-none">
+        <div class="component-hero__mobile-supplemental-inner">
+            <?php echo $supplementalContent; ?>
+        </div>
+    </div>
+<?php }
+
+function component_hero_render_media_control()
+{
+    ?>
+    <button
+        class="component-hero__media-toggle btn btn-outline-secondary btn-circle"
+        type="button"
+        aria-label="Pause hero media"
+        aria-pressed="false"
+        data-lbcc-hero-media-control
+    >
+        <span class="fa-sharp fa-regular fa-pause" aria-hidden="true" data-lbcc-hero-media-icon="pause"></span>
+        <span class="fa-sharp fa-regular fa-play d-none" aria-hidden="true" data-lbcc-hero-media-icon="play"></span>
+    </button>
+<?php }
+
 function component_hero_media_item($mediaItem = [])
 {
     if (!is_array($mediaItem) || empty($mediaItem['src'])) {
@@ -346,11 +426,14 @@ function component_hero_media_item($mediaItem = [])
     ?>
     <div class="component-hero__media-item">
         <?php if ($mediaType === 'video') { ?>
-            <video class="component-hero__video w-100" autoplay muted loop playsinline preload="metadata"<?php if (!empty($poster)) { ?> poster="<?php echo lbcc_escape(lbcc_url($poster)); ?>"<?php } ?>>
+            <video class="component-hero__video" autoplay muted loop playsinline preload="metadata"<?php if (!empty($poster)) { ?> poster="<?php echo lbcc_escape(lbcc_url($poster)); ?>"<?php } ?>>
                 <source src="<?php echo lbcc_escape(lbcc_url($src)); ?>">
             </video>
         <?php } else { ?>
-            <img class="component-hero__image w-100" src="<?php echo lbcc_escape(lbcc_url($src)); ?>" alt="<?php echo lbcc_escape($alt); ?>">
+            <div
+                class="component-hero__image"
+                style="background-image: url('<?php echo lbcc_escape(lbcc_url($src)); ?>');"
+            ></div>
         <?php } ?>
     </div>
 <?php }
