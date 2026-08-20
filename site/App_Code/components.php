@@ -21,12 +21,7 @@ $componentIncludesDir = __DIR__ . '/includes/components';
 <?php if ($page['custom_hero']) { ?>
 <?php // Include Custom Hero Component here... ?>
 <?php } ?>
-<main id="main-content" class="py-5">
-    <header class="container mb-5">
-        <p class="eyebrow">Component Library</p>
-        <h1>Components</h1>
-        <p class="lead text-body-secondary mb-0">This page is reserved for component builds, documentation, and test fixtures as we add them.</p>
-    </header>
+<main id="main-content">
 
     <?php include $componentIncludesDir . '/hero.php'; ?>
 
@@ -34,6 +29,8 @@ $componentIncludesDir = __DIR__ . '/includes/components';
         <?php include $componentIncludesDir . '/utilities.php'; ?>
         <?php include $componentIncludesDir . '/block-arrow-link.php'; ?>
         <?php include $componentIncludesDir . '/buttons.php'; ?>
+        <?php include $componentIncludesDir . '/card.php'; ?>
+        <?php include $componentIncludesDir . '/card-as-link.php'; ?>
         <?php include $componentIncludesDir . '/badge.php'; ?>
         <?php include $componentIncludesDir . '/footer-i-heart-lb.php'; ?>
         <?php include $componentIncludesDir . '/quicklinks.php'; ?>

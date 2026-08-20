@@ -3,7 +3,12 @@ require_once dirname(__DIR__) . '/_resources/includes/head.php';
 
 $page = lbcc_resolve_page([
     'title' => 'Style Guide',
-    'description' => 'Starter LBCC style guide for the front-end foundation pass.'
+    'description' => 'Starter LBCC style guide for the front-end foundation pass.',
+    'section_nav' => true,
+    'section_nav_include' => __DIR__ . '/navs/section-nav-default.php',
+    'sidebar' => false,
+    'sidebar_include' => '',
+    'custom_hero' => false
 ]);
 
 $rawPaletteGroups = [
@@ -109,7 +114,7 @@ $surfaceUtilityClasses = [
 <?php if ($page['custom_hero']) { ?>
 <?php // Include Custom Hero Component here... ?>
 <?php } ?>
-<main id="main-content" class="flex-grow-1 py-5">
+<main id="main-content">
     <div class="container">
         <header id="page-header" class="mb-5">
             <nav aria-label="Breadcrumb" class="mb-3">

@@ -25,6 +25,7 @@ $page = lbcc_resolve_page([
                 <li><a href="<?php echo lbcc_escape(lbcc_url('/')); ?>">Homepage shell</a></li>
                 <li><a href="<?php echo lbcc_escape(lbcc_url('/current-students.php')); ?>">Current students shell</a></li>
                 <li><a href="<?php echo lbcc_escape(lbcc_url('/App_Code/components.php')); ?>">Components</a></li>
+                <li><a href="<?php echo lbcc_escape(lbcc_url('/App_Code/snippets.php')); ?>">Snippets</a></li>
                 <li><a href="<?php echo lbcc_escape(lbcc_url('/App_Code/styleguide.php')); ?>">Style guide</a></li>
             </ul>
         </div>

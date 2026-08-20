@@ -124,6 +124,218 @@ function component_buttons(
     </div>
 <?php }
 
+// Card
+// $style options: surface-subtle, surface-raised, surface-water, surface-sun-haze, white, gray-border, red-border
+// $content accepts trusted HTML
+// $ctas accepts an array of arrays with: link, text
+function component_card(
+    $title = '',
+    $content = '',
+    $ctas = [],
+    $image = '',
+    $style = 'surface-subtle',
+    $ctaDisplay = 'arrow-link',
+    $shadow = false
+) {
+    $style = in_array($style, ['surface-subtle', 'surface-raised', 'surface-water', 'surface-sun-haze', 'white', 'gray-border', 'red-border'], true) ? $style : 'surface-subtle';
+    $ctaDisplay = $ctaDisplay === 'button' ? 'button' : 'arrow-link';
+    $shadow = (bool) $shadow;
+    $ctas = is_array($ctas) ? array_values($ctas) : [];
+
+    $cardClasses = [
+        'card',
+        'component-card',
+        'h-100',
+        'rounded-4',
+        'overflow-hidden',
+        'component-card__style-' . $style
+    ];
+
+    if ($shadow) {
+        $cardClasses[] = 'shadow';
+    }
+
+    $cardStyle = '';
+
+    if ($style === 'surface-raised') {
+        $cardClasses[] = 'bg-surface-raised';
+        $cardClasses[] = 'border-0';
+    } elseif ($style === 'surface-water') {
+        $cardClasses[] = 'bg-surface-water';
+        $cardClasses[] = 'border-0';
+    } elseif ($style === 'surface-sun-haze') {
+        $cardClasses[] = 'bg-surface-sun-haze';
+        $cardClasses[] = 'border-0';
+    } elseif ($style === 'white') {
+        $cardClasses[] = 'bg-white';
+        $cardClasses[] = 'border-0';
+    } elseif ($style === 'gray-border') {
+        $cardClasses[] = 'bg-white';
+        $cardClasses[] = 'border';
+        $cardStyle = 'border-color: var(--color-gray-300); border-width: 1px;';
+    } elseif ($style === 'red-border') {
+        $cardClasses[] = 'bg-white';
+        $cardClasses[] = 'border';
+        $cardClasses[] = 'border-primary';
+        $cardStyle = 'border-width: 1px;';
+    } else {
+        $cardClasses[] = 'bg-surface-subtle';
+        $cardClasses[] = 'border-0';
+    }
+    ?>
+    <article class="<?php echo lbcc_escape(implode(' ', $cardClasses)); ?>"<?php if ($cardStyle !== '') { ?> style="<?php echo lbcc_escape($cardStyle); ?>"<?php } ?>>
+        <?php if (!empty($image)) { ?>
+            <img
+                class="card-img-top component-card__image"
+                src="<?php echo lbcc_escape(lbcc_url($image)); ?>"
+                alt=""
+            >
+        <?php } ?>
+
+        <div class="card-body d-flex flex-column gap-3 p-4">
+            <?php if ($title !== '') { ?>
+                <h2 class="h3 mb-0 component-card__title"><?php echo lbcc_escape($title); ?></h2>
+            <?php } ?>
+
+            <?php if ($content !== '') { ?>
+                <div class="component-card__content">
+                    <?php echo $content; ?>
+                </div>
+            <?php } ?>
+
+            <?php if (!empty($ctas)) { ?>
+                <div class="component-card__actions d-flex flex-column gap-3 align-items-start justify-content-start mt-auto pt-2">
+                    <?php foreach ($ctas as $cta) {
+                        if (!is_array($cta) || empty($cta['text'])) {
+                            continue;
+                        }
+
+                        $ctaLink = !empty($cta['link']) ? (string) $cta['link'] : '#';
+                        $ctaText = (string) $cta['text'];
+                        $buttonStyle = !empty($cta['style']) ? trim((string) $cta['style']) : 'btn-primary';
+                        $buttonSize = !empty($cta['size']) ? trim((string) $cta['size']) : '';
+                        ?>
+                        <?php if ($ctaDisplay === 'button') { ?>
+                            <?php
+                            $buttonClasses = [
+                                'btn',
+                                $buttonStyle
+                            ];
+
+                            if (in_array($buttonSize, ['btn-sm', 'btn-lg'], true)) {
+                                $buttonClasses[] = $buttonSize;
+                            }
+                            ?>
+                            <a href="<?php echo lbcc_escape($ctaLink); ?>" class="<?php echo lbcc_escape(implode(' ', $buttonClasses)); ?>">
+                                <?php echo lbcc_escape($ctaText); ?>
+                            </a>
+                        <?php } else { ?>
+                            <a href="<?php echo lbcc_escape($ctaLink); ?>" class="arrow-link"><?php echo lbcc_escape($ctaText); ?></a>
+                        <?php } ?>
+                    <?php } ?>
+                </div>
+            <?php } ?>
+        </div>
+    </article>
+<?php }
+
+// Card as Link
+// $style options: image-bg, primary-border-thin, primary-border-thick, teal-border-thin, teal-border-thick
+// $label is primarily intended for the image background variant
+function component_card_as_link(
+    $link = '#',
+    $title = '',
+    $description = '',
+    $style = 'image-bg',
+    $image = '',
+    $label = ''
+) {
+    $style = in_array($style, ['image-bg', 'primary-border-thin', 'primary-border-thick', 'teal-border-thin', 'teal-border-thick'], true) ? $style : 'image-bg';
+
+    $componentClasses = [
+        'card',
+        'component-card-as-link',
+        'component-card-as-link__style-' . $style,
+        'h-100',
+        'overflow-hidden',
+        'position-relative',
+        'rounded-4',
+        'text-decoration-none'
+    ];
+
+    if ($style === 'image-bg') {
+        $componentClasses[] = 'border-0';
+        $componentClasses[] = 'text-white';
+    } else {
+        $componentClasses[] = 'bg-white';
+    }
+
+    if ($style === 'image-bg' && $image === '') {
+        $componentClasses[] = 'bg-teal-800';
+    }
+    ?>
+    <a href="<?php echo lbcc_escape($link); ?>" class="<?php echo lbcc_escape(implode(' ', $componentClasses)); ?>">
+        <?php if ($style === 'image-bg') { ?>
+            <?php if ($image !== '') { ?>
+                <img
+                    class="card-img component-card-as-link__image-bg"
+                    src="<?php echo lbcc_escape(lbcc_url($image)); ?>"
+                    alt=""
+                >
+            <?php } ?>
+            <div class="card-img-overlay component-card-as-link__overlay d-flex flex-column justify-content-between p-3">
+                <?php if ($image !== '') { ?>
+                    <span class="component-card-as-link__shade" aria-hidden="true"></span>
+                <?php } ?>
+
+                <div class="component-card-as-link__top d-flex align-items-start justify-content-between gap-3 position-relative w-100">
+                    <?php if ($label !== '') { ?>
+                        <span class="component-card-as-link__label"><?php echo lbcc_escape($label); ?></span>
+                    <?php } else { ?>
+                        <span></span>
+                    <?php } ?>
+
+                    <span class="component-card-as-link__icon-shell" aria-hidden="true">
+                        <span class="fa-sharp fa-regular fa-arrow-up-right"></span>
+                    </span>
+                </div>
+
+                <div class="component-card-as-link__body component-card-as-link__body--image-bg position-relative d-flex flex-column gap-2 w-100">
+                    <?php if ($title !== '') { ?>
+                        <h2 class="h3 text-white mb-0"><?php echo lbcc_escape($title); ?></h2>
+                    <?php } ?>
+
+                    <?php if ($description !== '') { ?>
+                        <span class="component-card-as-link__description"><?php echo lbcc_escape($description); ?></span>
+                    <?php } ?>
+                </div>
+            </div>
+        <?php } else { ?>
+            <?php if ($image !== '') { ?>
+                <img
+                    class="card-img-top component-card-as-link__image-top"
+                    src="<?php echo lbcc_escape(lbcc_url($image)); ?>"
+                    alt=""
+                >
+            <?php } ?>
+
+            <div class="card-body component-card-as-link__body d-flex flex-column gap-3">
+                <?php if ($title !== '') { ?>
+                    <h2 class="h4 fs-2xl mb-0"><?php echo lbcc_escape($title); ?></h2>
+                <?php } ?>
+
+                <?php if ($description !== '') { ?>
+                    <p class="component-card-as-link__description mb-0"><?php echo lbcc_escape($description); ?></p>
+                <?php } ?>
+            </div>
+
+            <div class="card-footer component-card-as-link__footer bg-transparent border-0 pt-0">
+                <span class="component-card-as-link__arrow fa-sharp fa-regular fa-arrow-right" aria-hidden="true"></span>
+            </div>
+        <?php } ?>
+    </a>
+<?php }
+
 // Badge
 // $style options: light, dark, yellow, or water
 // $icon is a Font Awesome icon class

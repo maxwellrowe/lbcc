@@ -19,9 +19,9 @@
 </button>
 <div class="collapse" id="section-nav__menu">
     <ul>
-        <li><a href="#">Templates</a></li>
-        <li><a href="#">Styleguide</a></li>
-        <li><a href="#">Components</a></li>
+        <li><a href="/App_Code/">Templates</a></li>
+        <li><a href="/App_Code/styleguide.php">Styleguide</a></li>
+        <li><a href="/App_Code/components.php">Components</a></li>
         <li>
             <a href="#">Nested Menu One Level</a>
             <ul>
