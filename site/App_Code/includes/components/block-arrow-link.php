@@ -1,5 +1,4 @@
-<section aria-labelledby="block-arrow-link-heading">
-    <p class="eyebrow mb-2">Component</p>
+<section aria-labelledby="block-arrow-link-heading" class="mb-5">
     <h2 id="block-arrow-link-heading">Block Arrow Link</h2>
     <p class="text-body-secondary mb-4">A directional link pattern for content blocks, cards, and utility callouts. This page shows the current markup function in a few practical configurations before we layer in the component-specific CSS.</p>
 

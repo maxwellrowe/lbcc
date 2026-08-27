@@ -147,6 +147,10 @@
   will-change: auto;
 }
 
+.lbcc-fade {
+  --lbcc-anim-from-y: 0px;
+}
+
 .lbcc-fade-up {
   --lbcc-anim-from-y: 24px;
 }

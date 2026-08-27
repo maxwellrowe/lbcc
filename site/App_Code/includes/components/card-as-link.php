@@ -1,5 +1,4 @@
-<section aria-labelledby="card-as-link-heading" class="mt-5">
-    <p class="eyebrow mb-2">Component</p>
+<section aria-labelledby="card-as-link-heading" class="mt-5 mb-5">
     <h2 id="card-as-link-heading">Card as Link</h2>
     <p class="text-body-secondary mb-4">A fully clickable card pattern that uses Bootstrap card markup as the baseline, then layers in the image-overlay and bordered CTA variants from the design system. This keeps the structure familiar for implementation while still supporting the custom visual treatments.</p>
 

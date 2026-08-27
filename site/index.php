@@ -9,7 +9,7 @@ $page = lbcc_resolve_page([
 $audiences = [
     ['title' => 'New to College', 'copy' => 'Start with advising, admissions, and a clear first-semester path.', 'href' => '#get-started'],
     ['title' => 'Career Education', 'copy' => 'Build practical momentum with workforce-ready programs.', 'href' => '#programs'],
-    ['title' => 'Returning Students', 'copy' => 'Pick back up with support that respects work, family, and life.', 'href' => '/current-students.php#plan-register'],
+    ['title' => 'Returning Students', 'copy' => 'Pick back up with support that respects work, family, and life.', 'href' => '#support'],
     ['title' => 'Transfer Students', 'copy' => 'Map the next step toward a university with purpose.', 'href' => '#programs'],
     ['title' => 'Dual Enrollment', 'copy' => 'Create an early college start without losing flexibility.', 'href' => '#get-started'],
     ['title' => 'Adult Learners', 'copy' => 'Find re-entry paths built for new goals and changing timelines.', 'href' => '#support'],
@@ -56,7 +56,7 @@ $events = [
 <?php include __DIR__ . '/_resources/includes/header.php'; ?>
 <main id="main-content">
     <section class="py-5 bg-surface-subtle">
-        <div class="container">
+        <div class="container-xxl">
             <div class="row g-5 align-items-end">
                 <div class="col-lg-7">
                     <p class="eyebrow mb-3">We Are Long Beach City College</p>
@@ -64,7 +64,7 @@ $events = [
                     <p class="lead text-body-secondary mb-0">Rooted in Long Beach. Built for what comes next. This homepage shell is designed to feel energetic, direct, and genuinely student-centered without losing the structure an editor-friendly CMS needs.</p>
                     <div class="d-flex flex-wrap gap-3 mt-4">
                         <a class="btn btn-primary btn-lg" href="#get-started">Get Started</a>
-                        <a class="btn btn-outline-secondary btn-lg" href="<?php echo lbcc_escape(lbcc_url('/current-students.php')); ?>">Current Students</a>
+                        <a class="btn btn-outline-secondary btn-lg" href="<?php echo lbcc_escape(lbcc_url('/App_Code/homepage.php')); ?>">Homepage Template</a>
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -99,7 +99,7 @@ $events = [
     </section>
 
     <section id="audiences" class="py-5">
-        <div class="container">
+        <div class="container-xxl">
             <div class="row g-4 justify-content-between align-items-end mb-4">
                 <div class="col-lg-7">
                     <p class="eyebrow mb-2">You Belong Here</p>
@@ -124,7 +124,7 @@ $events = [
     </section>
 
     <section id="programs" class="py-5 bg-surface-water">
-        <div class="container">
+        <div class="container-xxl">
             <div class="row g-4 align-items-start">
                 <div class="col-lg-5">
                     <p class="eyebrow mb-2">Explore Our Programs</p>
@@ -157,7 +157,7 @@ $events = [
     </section>
 
     <section id="support" class="py-5">
-        <div class="container">
+        <div class="container-xxl">
             <div class="row g-4 justify-content-between align-items-end mb-4">
                 <div class="col-lg-7">
                     <p class="eyebrow mb-2">We Get You. We’ve Got You.</p>
@@ -182,7 +182,7 @@ $events = [
     </section>
 
     <section class="py-5 bg-surface-subtle">
-        <div class="container">
+        <div class="container-xxl">
             <div class="row g-4 align-items-stretch">
                 <div class="col-lg-6">
                     <article class="card h-100 border-0 bg-surface-raised p-4">
@@ -212,7 +212,7 @@ $events = [
     </section>
 
     <section id="news-events" class="py-5">
-        <div class="container">
+        <div class="container-xxl">
             <div class="row g-4">
                 <div class="col-lg-6">
                     <div class="mb-4">
@@ -252,7 +252,7 @@ $events = [
     </section>
 
     <section id="get-started" class="py-5">
-        <div class="container">
+        <div class="container-xxl">
             <div class="card border-0 bg-surface-subtle p-4 p-lg-5">
                 <div class="row g-4 align-items-lg-center justify-content-between">
                     <div class="col-lg-7">
@@ -262,7 +262,7 @@ $events = [
                     </div>
                     <div class="col-lg-auto">
                         <div class="d-flex flex-wrap gap-3">
-                            <a class="btn btn-primary btn-lg" href="<?php echo lbcc_escape(lbcc_url('/current-students.php')); ?>">Open Interior Hub</a>
+                            <a class="btn btn-primary btn-lg" href="<?php echo lbcc_escape(lbcc_url('/App_Code/homepage.php')); ?>">Open Homepage Template</a>
                             <a class="btn btn-outline-secondary btn-lg" href="<?php echo lbcc_escape(lbcc_url('/App_Code/styleguide.php')); ?>">Review Style Guide</a>
                         </div>
                     </div>

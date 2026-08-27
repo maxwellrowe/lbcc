@@ -1,1 +1,53 @@
-// Snippet-level SCSS will be added here as content modules are implemented.
+.component-carousel-anything {
+    --lbcc-carousel-control-size: 2rem;
+    overflow-x: clip;
+
+    .swiper {
+        overflow: hidden;
+    }
+
+    .swiper-wrapper {
+        align-items: stretch;
+    }
+
+    .swiper-slide {
+        height: auto;
+    }
+
+    .swiper-slide-content {
+        height: 100%;
+
+        > * {
+            height: 100%;
+        }
+    }
+
+    .component-carousel-anything__scrollbar {
+        position: relative;
+        inset: auto;
+        height: 0.5rem;
+        border-radius: 999px;
+        background: rgba(var(--color-teal-800-rgb), 0.12);
+        overflow: hidden;
+
+        .swiper-scrollbar-drag {
+            border-radius: 999px;
+            background: var(--bs-primary);
+        }
+    }
+
+    .component-carousel-anything__buttons .btn-circle {
+        --lbcc-btn-circle-size: var(--lbcc-carousel-control-size);
+    }
+
+    .component-carousel-anything__buttons [disabled],
+    .component-carousel-anything__buttons .swiper-button-disabled {
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    .component-card,
+    .component-card-as-link {
+        margin-bottom: 0;
+    }
+}

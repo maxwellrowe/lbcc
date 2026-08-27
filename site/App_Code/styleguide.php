@@ -115,7 +115,7 @@ $surfaceUtilityClasses = [
 <?php // Include Custom Hero Component here... ?>
 <?php } ?>
 <main id="main-content">
-    <div class="container">
+    <div class="container-xxl">
         <header id="page-header" class="mb-5">
             <nav aria-label="Breadcrumb" class="mb-3">
                 <ol class="breadcrumb mb-0">
@@ -137,7 +137,7 @@ $surfaceUtilityClasses = [
     </div>
 
     <section class="mb-5" aria-labelledby="color-heading">
-        <div class="container">
+        <div class="container-xxl">
             <h2 id="color-heading">Color</h2>
             <p class="text-body-secondary">This section lists the raw palette we maintain in Sass and the recommended semantic usage roles for applying those colors through Bootstrap or direct palette values. The implementation has been simplified so there is no separate semantic token layer in SCSS.</p>
 
@@ -198,7 +198,7 @@ $surfaceUtilityClasses = [
     </section>
 
     <section class="mb-5" aria-labelledby="type-heading">
-        <div class="container">
+        <div class="container-xxl">
             <h2 id="type-heading">Typography</h2>
             <p class="text-body-secondary">A cleaner reference for reading flow, heading hierarchy, utility sizes, and supporting text styles.</p>
 
@@ -293,7 +293,7 @@ $surfaceUtilityClasses = [
     </section>
 
     <section class="mb-5" aria-labelledby="utility-heading">
-        <div class="container">
+        <div class="container-xxl">
             <h2 id="utility-heading">Utilities</h2>
             <p class="text-body-secondary">Backgrounds, overlays, pills, and action helpers should read like a toolkit, not separate mini-pages. Utility references below show the backing SCSS token and, where available, the matching CSS variable.</p>
 
@@ -573,7 +573,7 @@ $surfaceUtilityClasses = [
     </section>
 
     <section class="mb-5" aria-labelledby="actions-heading">
-        <div class="container">
+        <div class="container-xxl">
             <h2 id="actions-heading">Actions</h2>
             <p class="text-body-secondary">Buttons, badges, alerts, and icon treatments should feel grouped and comparable rather than stacked in competing cards.</p>
 
@@ -634,7 +634,7 @@ $surfaceUtilityClasses = [
     </section>
 
     <section class="mb-5" aria-labelledby="forms-heading">
-        <div class="container">
+        <div class="container-xxl">
             <h2 id="forms-heading">Forms</h2>
             <p class="text-body-secondary">This keeps the same accessible control states, just in a more readable single-flow section.</p>
 
@@ -692,7 +692,7 @@ $surfaceUtilityClasses = [
     </section>
 
     <section class="mb-5" aria-labelledby="tables-heading">
-        <div class="container">
+        <div class="container-xxl">
             <h2 id="tables-heading">Tables</h2>
             <p class="text-body-secondary">Bootstrap table patterns are available for content-heavy views, comparison grids, and structured data.</p>
 
@@ -768,111 +768,7 @@ $surfaceUtilityClasses = [
         </div>
     </section>
 
-    <section class="mb-5" aria-labelledby="components-heading">
-        <div class="container">
-            <h2 id="components-heading">Components</h2>
-            <p class="text-body-secondary">Cards, navigation helpers, accordion behavior, and modal styling still live here, but in clearer groups.</p>
-
-            <div class="row g-4">
-                <div class="col-xl-6">
-                    <div class="bg-surface-subtle rounded p-4 h-100">
-                        <h3 class="h4 mb-3">Navigation Patterns</h3>
-                        <nav aria-label="Breadcrumb">
-                            <ol class="breadcrumb mb-4">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Programs</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Design Systems</li>
-                            </ol>
-                        </nav>
-                        <nav aria-label="Pagination">
-                            <ul class="pagination mb-0">
-                                <li class="page-item disabled">
-                                    <span class="page-link" aria-label="Previous page">
-                                        <span class="fa-sharp fa-solid fa-arrow-left" aria-hidden="true"></span>
-                                    </span>
-                                </li>
-                                <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next page">
-                                        <span class="fa-sharp fa-solid fa-arrow-right" aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="bg-surface-subtle rounded p-4 h-100">
-                        <h3 class="h4 mb-3">Card</h3>
-                        <article class="card shadow-sm border-0">
-                            <div class="card-body p-4">
-                                <p class="eyebrow mb-2">Feature card</p>
-                                <h4 class="card-title h4">Reusable shells come before page-specific solutions.</h4>
-                                <p class="card-text text-body-secondary">The starter card styling leans on Bootstrap variables, shared radius tokens, and semantic surfaces instead of one-off overrides.</p>
-                                <a class="btn btn-outline-secondary" href="#">Explore documentation</a>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="bg-surface-subtle rounded p-4 h-100">
-                        <h3 class="h4 mb-3">Accordion</h3>
-                        <div class="accordion" id="styleguide-accordion">
-                            <div class="accordion-item">
-                                <h4 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
-                                        Why start with a style guide shell?
-                                    </button>
-                                </h4>
-                                <div id="collapse-one" class="accordion-collapse collapse show" data-bs-parent="#styleguide-accordion">
-                                    <div class="accordion-body">It lets us validate the token system, Bootstrap configuration, and accessibility baseline before component complexity multiplies.</div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h4 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-two" aria-expanded="false" aria-controls="collapse-two">
-                                        What is intentionally missing?
-                                    </button>
-                                </h4>
-                                <div id="collapse-two" class="accordion-collapse collapse" data-bs-parent="#styleguide-accordion">
-                                    <div class="accordion-body">Detailed templates, production content modules, and final icon/image assets are still intentionally deferred.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="bg-surface-subtle rounded p-4 h-100">
-                        <h3 class="h4 mb-3">Modal</h3>
-                        <p class="text-body-secondary">Modal styling inherits the shared radius, shadow, and typography tokens instead of creating a separate visual system.</p>
-                        <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#styleguideModal">Open modal</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 </main>
-
-<div class="modal fade" id="styleguideModal" tabindex="-1" aria-labelledby="styleguideModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="styleguideModalLabel" class="modal-title fs-5">Starter modal</h2>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Modal styling inherits the shared radius, shadow, and typography tokens instead of creating a separate visual system.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Primary action</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <?php include dirname(__DIR__) . '/_resources/includes/footer.php'; ?>
 <?php include dirname(__DIR__) . '/_resources/includes/footer-scripts.php'; ?>

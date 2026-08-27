@@ -139,19 +139,31 @@ a.btn[target="_blank"]::after {
   width: 1px;
 }
 
-.card,
-.breadcrumb,
-.accordion-item,
-.accordion-button,
-.alert,
-.form-control,
-.form-select,
-.modal-content,
-.dropdown-menu,
-.page-link,
-.badge {
+*,
+*::before,
+*::after {
   @supports (corner-shape: squircle) {
     corner-shape: squircle;
+  }
+}
+
+.rounded-circle,
+.rounded-top-circle,
+.rounded-end-circle,
+.rounded-bottom-circle,
+.rounded-start-circle,
+.btn,
+.btn-icon-label,
+.btn-icon-addon,
+.btn-circle,
+.site-search-button,
+.btn-close,
+.pill-icon,
+.component-list-group__icon-shell,
+.component-testimonial-carousel__thumb,
+.corner-round {
+  @supports (corner-shape: squircle) {
+    corner-shape: round;
   }
 }
 

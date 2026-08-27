@@ -1,0 +1,122 @@
+[
+  {
+    "first_name": "Amelia",
+    "last_name": "Alvarez",
+    "title": "Admissions Specialist",
+    "department": "Admissions & Records",
+    "phone": "(562) 938-4012",
+    "email": "amelia.alvarez@lbcc.edu",
+    "location": "LAC, A-1012",
+    "profile_url": "#"
+  },
+  {
+    "first_name": "Noah",
+    "last_name": "Anderson",
+    "title": "Counselor",
+    "department": "Counseling Services",
+    "phone": "(562) 938-4158",
+    "email": "noah.anderson@lbcc.edu",
+    "location": "PCC, CC-220",
+    "profile_url": "#"
+  },
+  {
+    "first_name": "Sofia",
+    "last_name": "Arnold",
+    "title": "Financial Aid Advisor",
+    "department": "Financial Aid",
+    "phone": "(562) 938-4471",
+    "email": "sofia.arnold@lbcc.edu",
+    "location": "LAC, A-1080",
+    "profile_url": "#"
+  },
+  {
+    "first_name": "Mason",
+    "last_name": "Avery",
+    "title": "Program Coordinator",
+    "department": "Student Life",
+    "phone": "(562) 938-4622",
+    "email": "mason.avery@lbcc.edu",
+    "location": "LAC, E-2045",
+    "profile_url": "#"
+  },
+  {
+    "first_name": "Olivia",
+    "last_name": "Baker",
+    "title": "Administrative Assistant",
+    "department": "Business & Economics",
+    "phone": "(562) 938-4880",
+    "email": "olivia.baker@lbcc.edu",
+    "location": "PCC, LL-110",
+    "profile_url": "#"
+  },
+  {
+    "first_name": "Ethan",
+    "last_name": "Bennett",
+    "title": "Professor",
+    "department": "Mathematics",
+    "phone": "(562) 938-4925",
+    "email": "ethan.bennett@lbcc.edu",
+    "location": "LAC, M-325",
+    "profile_url": "#"
+  },
+  {
+    "first_name": "Harper",
+    "last_name": "Brooks",
+    "title": "Nursing Instructor",
+    "department": "Nursing",
+    "phone": "(562) 938-4339",
+    "email": "harper.brooks@lbcc.edu",
+    "location": "PCC, HH-312",
+    "profile_url": "#"
+  },
+  {
+    "first_name": "Liam",
+    "last_name": "Bryant",
+    "title": "Career Counselor",
+    "department": "Career Center",
+    "phone": "(562) 938-4763",
+    "email": "liam.bryant@lbcc.edu",
+    "location": "LAC, T-1100",
+    "profile_url": "#"
+  },
+  {
+    "first_name": "Mia",
+    "last_name": "Campbell",
+    "title": "Department Chair",
+    "department": "Computer & Office Studies",
+    "phone": "(562) 938-4216",
+    "email": "mia.campbell@lbcc.edu",
+    "location": "LAC, EE-208",
+    "profile_url": "#"
+  },
+  {
+    "first_name": "James",
+    "last_name": "Carter",
+    "title": "Library Faculty",
+    "department": "Library",
+    "phone": "(562) 938-4901",
+    "email": "james.carter@lbcc.edu",
+    "location": "LAC, L-105",
+    "profile_url": "#"
+  },
+  {
+    "first_name": "Isabella",
+    "last_name": "Chavez",
+    "title": "EOPS Specialist",
+    "department": "EOPS",
+    "phone": "(562) 938-4704",
+    "email": "isabella.chavez@lbcc.edu",
+    "location": "PCC, EE-140",
+    "profile_url": "#"
+  },
+  {
+    "first_name": "Benjamin",
+    "last_name": "Cole",
+    "title": "Campus Safety Officer",
+    "department": "Campus Safety",
+    "phone": "(562) 938-4911",
+    "email": "benjamin.cole@lbcc.edu",
+    "location": "LAC, X-101",
+    "profile_url": "#"
+  }
+]

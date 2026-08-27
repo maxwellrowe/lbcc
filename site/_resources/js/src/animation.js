@@ -33,6 +33,10 @@ const getDurationSeconds = (element) => {
 };
 
 const getAnimationPreset = (element) => {
+  if (element.classList.contains("lbcc-fade")) {
+    return { opacity: [0, 1] };
+  }
+
   if (element.classList.contains("lbcc-fade-left")) {
     return { opacity: [0, 1], x: [-24, 0] };
   }

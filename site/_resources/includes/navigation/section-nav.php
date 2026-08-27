@@ -16,7 +16,7 @@ if ($sectionNavInclude === null || !is_file($sectionNavInclude)) {
 }
 ?>
 <div class="container-xxl section-nav">
-    <nav class="bg-surface-subtle rounded-bottom d-flex justify-content-between align-items-stretch" aria-label="Section Navigation">
+    <nav class="bg-surface-subtle rounded-bottom d-flex justify-content-between align-items-stretch shadow" aria-label="Section Navigation">
         <?php include $sectionNavInclude; ?>
     </nav>
 </div>

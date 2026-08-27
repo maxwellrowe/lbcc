@@ -1,5 +1,4 @@
-<section aria-labelledby="badge-heading" class="mt-5">
-    <p class="eyebrow mb-2">Component</p>
+<section aria-labelledby="badge-heading" class="mt-5 mb-5">
     <h2 id="badge-heading">Badge</h2>
     <p class="text-body-secondary mb-4">A compact label component for statuses, filters, categories, and supporting metadata. The component uses Bootstrap badge markup, offers four preset style treatments, and can optionally prefix a Font Awesome icon.</p>
 

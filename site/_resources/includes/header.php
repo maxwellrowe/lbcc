@@ -8,7 +8,7 @@ $logoMark = lbcc_url($config['logo_mark']);
 <header class="site-header bg-white">
     <div class="container-xxl">
         <div class="site-header-top d-flex align-items-center justify-content-between gap-4">
-            <a class="site-brand py-2 py-md-3" href="<?php echo lbcc_escape(lbcc_url('/')); ?>">
+            <a class="site-brand py-2 py-md-3" href="<?php echo lbcc_escape(lbcc_url('/App_Code/index.php')); ?>">
                 <img class="site-brand-mark d-md-none" src="<?php echo lbcc_escape($logoMark); ?>" alt="" aria-hidden="true">
                 <img class="site-brand-logo d-none d-md-block" src="<?php echo lbcc_escape($wordmark); ?>" alt="<?php echo lbcc_escape($config['site_name']); ?>">
             </a> 

@@ -1,0 +1,1126 @@
+[
+  {
+    "title": "Accounting",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-accounting.jpg?1577830849",
+    "pathway": "Business, Management & Entrepreneurship",
+    "department": "Business",
+    "program_options": [
+      "AA",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Administrative Assistant",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-computer_support_specialist.jpg?1577830849",
+    "pathway": "Business, Management & Entrepreneurship",
+    "department": "Administrative Assistant Customer Support",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Administration of Justice",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-administration_of_justice.jpg?1577830849",
+    "pathway": "Society & Education",
+    "department": "Administration Justice",
+    "program_options": [
+      "AA",
+      "AS-T",
+      "C-ACH",
+      "C-ACMP",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Advanced Manufacturing Technology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-adv.manufacturing.png?1577830849",
+    "pathway": "Trades & Service Industry",
+    "department": "Advanced Manufacturing",
+    "program_options": [
+      "AS",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Advanced Transportation Technology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-att-electrical_vehicles.jpg?1577830849",
+    "pathway": "Trades & Service Industry",
+    "department": "Advanced Transportation",
+    "program_options": [
+      "AS",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "American Sign Language & Deaf Studies",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/asl_square_tile.jpg?1630086678",
+    "pathway": "Arts, Language & Communication",
+    "department": "American Sign Language Deaf Studies",
+    "program_options": [
+      "AA"
+    ]
+  },
+  {
+    "title": "Artificial Intelligence",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-database_management.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Artificial Intelligence",
+    "program_options": [
+      "AS",
+      "C-ACMP",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Anthropology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-anthropology.jpg?1577830849",
+    "pathway": "Society & Education",
+    "department": "Anthropology",
+    "program_options": [
+      "AA-T",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Applied Design",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/applied_design_program_tile.jpg?1673036902",
+    "pathway": "Arts, Language & Communication",
+    "department": "Art",
+    "program_options": [
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Architecture",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-architectural_design.jpg?1577830849",
+    "pathway": "Arts, Language & Communication; Trades & Service Industry",
+    "department": "Architectural Design",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Art",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-art.jpg?1577830849",
+    "pathway": "Arts, Language & Communication; Business, Management & Entrepreneurship",
+    "department": "Art",
+    "program_options": [
+      "AA",
+      "AA-T",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Art History",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/art-history-tile.jpg?1651188639",
+    "pathway": "Arts, Language & Communication",
+    "department": "Art",
+    "program_options": [
+      "AA-T"
+    ]
+  },
+  {
+    "title": "Automotive Technology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-automotive_tech.jpg?1577830849",
+    "pathway": "Trades & Service Industry",
+    "department": "Automotive Technology",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-ACMP",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Baking & Pastry Arts",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-culinary_arts.jpg?1577830849",
+    "pathway": "Trades & Service Industry",
+    "department": "Baking Pastry Arts",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Biology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-biology.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Biological Sciences",
+    "program_options": [
+      "AS-T"
+    ]
+  },
+  {
+    "title": "Business Administration",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-business_administration.jpg?1577830849",
+    "pathway": "Business, Management & Entrepreneurship",
+    "department": "Business",
+    "program_options": [
+      "AS-T"
+    ]
+  },
+  {
+    "title": "Business Information Worker",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-business_information_worker.jpg?1577830849",
+    "pathway": "Business, Management & Entrepreneurship; Health, Science & Technology",
+    "department": "Business Information Worker",
+    "program_options": [
+      "C-ACH",
+      "C-ACMP",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Child Development: Early Childhood Education",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/hero-early_childhood_education_0.png?1577830849",
+    "pathway": "Society & Education",
+    "department": "Child Development Early Childhood Education",
+    "program_options": [
+      "AA",
+      "AS-T",
+      "C-ACH",
+      "C-ACMP",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Cloud Computing",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/cloud_computing_tile.jpg?1669933385",
+    "pathway": "Health, Science & Technology",
+    "department": "Computer Security Networking",
+    "program_options": [
+      "AS",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "College & Workplace Readiness",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-college_prep.jpg?1577830849",
+    "pathway": "Arts, Language & Communication; Society & Education",
+    "department": "Counseling Student Development",
+    "program_options": [
+      "C-COMP",
+      "C-COMPETENCY"
+    ]
+  },
+  {
+    "title": "Comics & Animation",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/comics_animation_square_tile.jpg?1695933167",
+    "pathway": "Arts, Language & Communication",
+    "department": "Digital Media Arts",
+    "program_options": [
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Commercial Music",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/commercial_music_tile.jpg?1676502510",
+    "pathway": "Arts, Language & Communication",
+    "department": "Music",
+    "program_options": [
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Communication Studies",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/comm.jpeg?1577830849",
+    "pathway": "Arts, Language & Communication",
+    "department": "Communication Studies",
+    "program_options": [
+      "AA",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Computer Aided Design \u2013 Mechanical",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-drafting_mechanics.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Computer Aided Design Mechanical",
+    "program_options": [
+      "AS",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Computer Science",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-computer_science.jpg?1577830849",
+    "pathway": "Business, Management & Entrepreneurship; Health, Science & Technology",
+    "department": "Computer Science",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-ACMP"
+    ]
+  },
+  {
+    "title": "Computer Security & Networking",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-computer_security__networking.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Computer Security Networking",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-ACMP"
+    ]
+  },
+  {
+    "title": "Computer Technology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-engineering.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Computer Technology",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-ACMP",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Construction Technology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-construction_tech.jpg?1577830849",
+    "pathway": "Trades & Service Industry",
+    "department": "Construction Technology",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Counseling & Student Support Services",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/counseling-student-dev-tile.jpg?1648673230",
+    "pathway": "Society & Education",
+    "department": "Counseling Student Development",
+    "program_options": [
+      "C-COMP",
+      "C-COMPETENCY"
+    ]
+  },
+  {
+    "title": "Culinary Arts",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/culinaryarts_tile.jpg?1635804262",
+    "pathway": "Trades & Service Industry",
+    "department": "Culinary Arts",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Cybersecurity",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/cybersecurity_tile.jpg?1684349324",
+    "pathway": "Health, Science & Technology",
+    "department": "Computer Security Networking",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-ACMP"
+    ]
+  },
+  {
+    "title": "Dance",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/arlene.jpg?1577830849",
+    "pathway": "Arts, Language & Communication",
+    "department": "Dance",
+    "program_options": [
+      "AA",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Data Analytics",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-computer_science.jpg?1577830849",
+    "pathway": "Business, Management & Entrepreneurship",
+    "department": "Data Analytics",
+    "program_options": [
+      "AS",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Database Management",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-database_management.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Database Management",
+    "program_options": [
+      "C-ACMP"
+    ]
+  },
+  {
+    "title": "Diagnostic Medical Imaging (Radiology & X-ray)",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-diagnostic_medical_imaging.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Diagnostic Medical Imaging",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-ACMP"
+    ]
+  },
+  {
+    "title": "Digital Design & Publication",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-digital_design__publication.jpg?1577830849",
+    "pathway": "Arts, Language & Communication",
+    "department": "Design Management",
+    "program_options": [
+      "AA",
+      "AS",
+      "C-ACH",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Digital Media Arts",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-digital_media_art.jpg?1577830849",
+    "pathway": "Arts, Language & Communication",
+    "department": "Digital Media Arts",
+    "program_options": [
+      "AA",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Economics",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-economics.jpg?1577830849",
+    "pathway": "Business, Management & Entrepreneurship",
+    "department": "Business",
+    "program_options": [
+      "AA-T",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Electrical Technology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-electrical_technology.jpg?1577830849",
+    "pathway": "Trades & Service Industry",
+    "department": "Electrical Technology",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-ACMP",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Elementary Teacher Education",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-elementary_teacher_education.jpg?1577830849",
+    "pathway": "Society & Education",
+    "department": "Elementary Teacher Education",
+    "program_options": [
+      "AA-T",
+      "C-ACH",
+      "C-COMPETENCY"
+    ]
+  },
+  {
+    "title": "Emergency Medical Technician",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/emergency_medical_technician.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Medical Assisting Program",
+    "program_options": [
+      "C-ACMP"
+    ]
+  },
+  {
+    "title": "Engineering",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-engineering-new.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Engineering",
+    "program_options": [
+      "AS"
+    ]
+  },
+  {
+    "title": "Engineering Technology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-engineering-new.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Engineering Technology",
+    "program_options": [
+      "AS",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "English",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-english.jpg?1577830849",
+    "pathway": "Arts, Language & Communication",
+    "department": "English",
+    "program_options": [
+      "AA",
+      "AA-T"
+    ]
+  },
+  {
+    "title": "English, Creative Writing",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/creative_writing_square_tile.jpg?1630088781",
+    "pathway": "Arts, Language & Communication",
+    "department": "English",
+    "program_options": [
+      "AA"
+    ]
+  },
+  {
+    "title": "English, Language & Literature",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/language_lit_square_tile.jpg?1630089475",
+    "pathway": "Arts, Language & Communication",
+    "department": "English",
+    "program_options": [
+      "AA"
+    ]
+  },
+  {
+    "title": "English as a Second Language",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-esl.jpg?1631201109",
+    "pathway": "Arts, Language & Communication",
+    "department": "English Second Language",
+    "program_options": [
+      "C-COMPETENCY"
+    ]
+  },
+  {
+    "title": "Fashion",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-fashion_design.jpg?1577830849",
+    "pathway": "Arts, Language & Communication; Business, Management & Entrepreneurship",
+    "department": "Fashion Design",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Film & Film Studies",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-film.jpg?1577830849",
+    "pathway": "Arts, Language & Communication",
+    "department": "Film Production",
+    "program_options": [
+      "AS-T",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Financial Literacy",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/fit_lit_tile.jpg?1646094334",
+    "pathway": "Business, Management & Entrepreneurship",
+    "department": "Financial Literacy",
+    "program_options": [
+      "C-COMPETENCY"
+    ]
+  },
+  {
+    "title": "Fire Science",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-fire_science.jpg?1577830849",
+    "pathway": "Trades & Service Industry",
+    "department": "Fire Science",
+    "program_options": [
+      "AS",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Foundational Skills",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/foundational_skills_tile.jpg?1659560560",
+    "pathway": "Society & Education",
+    "department": "Foundational Skills",
+    "program_options": [
+      "C-COMPETENCY"
+    ]
+  },
+  {
+    "title": "Game Design",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/game_design_tile_0.jpg?1678301997",
+    "pathway": "Arts, Language & Communication",
+    "department": "Digital Media Arts",
+    "program_options": [
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "GED/HiSET Preparation",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/ged_tile.jpg?1659560810",
+    "pathway": "Society & Education",
+    "department": "Ged Hiset Preparation",
+    "program_options": [
+      "C-COMPETENCY"
+    ]
+  },
+  {
+    "title": "GED/HiSET Preparaci\u00f3n Espa\u00f1ol",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/ged_spanishtile.jpg?1659560984",
+    "pathway": "Society & Education",
+    "department": "Ged Hiset Preparation",
+    "program_options": [
+      "C-COMPETENCY"
+    ]
+  },
+  {
+    "title": "General Business",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-general_business.jpg?1577830849",
+    "pathway": "Business, Management & Entrepreneurship",
+    "department": "Business",
+    "program_options": [
+      "AA",
+      "AA-T",
+      "AS-T",
+      "C-ACH",
+      "C-ACMP",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "General Education",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/ge-tile.jpg?1648673313",
+    "pathway": "",
+    "department": "",
+    "program_options": []
+  },
+  {
+    "title": "Geography",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-geography.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Geography",
+    "program_options": [
+      "AA-T",
+      "C-ACMP"
+    ]
+  },
+  {
+    "title": "Geology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-geology.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Geology",
+    "program_options": [
+      "AS-T"
+    ]
+  },
+  {
+    "title": "Global Studies",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/globalstudies_tile.jpg?1637711380",
+    "pathway": "Society & Education",
+    "department": "Global Studies",
+    "program_options": [
+      "AA-T"
+    ]
+  },
+  {
+    "title": "Global Trade & Logistics",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-international_business.jpg?1577830849",
+    "pathway": "Business, Management & Entrepreneurship",
+    "department": "Business",
+    "program_options": [
+      "AA",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "History",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-history.jpg?1577830849",
+    "pathway": "Society & Education",
+    "department": "History",
+    "program_options": [
+      "AA-T"
+    ]
+  },
+  {
+    "title": "Homeland Security",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/homeland_security_tile.jpg?1681760035",
+    "pathway": "Society & Education",
+    "department": "Administration Justice",
+    "program_options": [
+      "C-ACMP",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Horticulture",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-horticulture.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Horticulture",
+    "program_options": [
+      "AS",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Hospitality Management",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/hospitality_management_tile.jpg?1682029234",
+    "pathway": "Business, Management & Entrepreneurship",
+    "department": "Hospitality Management",
+    "program_options": [
+      "AS-T"
+    ]
+  },
+  {
+    "title": "Human Services Addiction Studies",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/alcdrugstudies.jpeg?1630102526",
+    "pathway": "Society & Education",
+    "department": "Social Work",
+    "program_options": [
+      "AA",
+      "AA-T",
+      "C-ACH",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Jewelry & Metalsmithing",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/jewelry__metalsmithing_program_tile.jpg?1673037336",
+    "pathway": "Business, Management & Entrepreneurship",
+    "department": "Art",
+    "program_options": [
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Journalism",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-journalism.jpg?1577830849",
+    "pathway": "Arts, Language & Communication",
+    "department": "Journalism",
+    "program_options": [
+      "AA",
+      "AA-T",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Kinesiology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-kinesiology.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Kinesiology",
+    "program_options": [
+      "AA",
+      "AA-T",
+      "C-ACH",
+      "C-ACMP"
+    ]
+  },
+  {
+    "title": "Library Technician",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-library_technician.jpg?1577830849",
+    "pathway": "Society & Education",
+    "department": "Library Technician",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-ACMP",
+      "C-COMP",
+      "C-COMPETENCY"
+    ]
+  },
+  {
+    "title": "Linguistics",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-linguistics.jpg?1577830849",
+    "pathway": "Arts, Language & Communication",
+    "department": "Linguistics",
+    "program_options": [
+      "AA"
+    ]
+  },
+  {
+    "title": "Management",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-management.jpg?1577830849",
+    "pathway": "Business, Management & Entrepreneurship",
+    "department": "Business",
+    "program_options": [
+      "AA",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Marketing",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-marketing.jpg?1577830849",
+    "pathway": "Business, Management & Entrepreneurship",
+    "department": "Business",
+    "program_options": [
+      "AA",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Mathematics",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-mathematics.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Mathematics",
+    "program_options": [
+      "AS",
+      "AS-T",
+      "C-COMPETENCY"
+    ]
+  },
+  {
+    "title": "Medical Assisting",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-medical_assisting.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Medical Assisting Program",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-ACMP"
+    ]
+  },
+  {
+    "title": "Metal Fabrication Technology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-metal_fabrication.jpg?1577830849",
+    "pathway": "Trades & Service Industry",
+    "department": "Metal Fabrication Technology",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Music",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-music.jpg?1577830849",
+    "pathway": "Arts, Language & Communication",
+    "department": "Music",
+    "program_options": [
+      "AA",
+      "AA-T",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Nursing: LVN to RN",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/image_37690603441476471298709.png?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Nursing Lvn Rn Career Ladder Program",
+    "program_options": [
+      "AS",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Nursing: Registered Nursing (RN)",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/nursing.jpeg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Registered Nursing",
+    "program_options": [
+      "AS"
+    ]
+  },
+  {
+    "title": "Nursing: Vocational",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/vngrads16_11.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Nursing Vocational Practical",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-ACMP"
+    ]
+  },
+  {
+    "title": "Nutrition & Dietetics",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-dietetics.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Nutrition Dietetics",
+    "program_options": [
+      "AA",
+      "AS",
+      "AS-T",
+      "C-ACH",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Philosophy",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-philosophy.jpg?1577830849",
+    "pathway": "Society & Education",
+    "department": "Philosophy",
+    "program_options": [
+      "AA-T"
+    ]
+  },
+  {
+    "title": "Photography",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/photography_program_tile.jpg?1673467588",
+    "pathway": "Arts, Language & Communication",
+    "department": "Digital Media Arts",
+    "program_options": [
+      "AA",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Physical Sciences",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-physical_science.jpg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Physical Sciences",
+    "program_options": [
+      "AS",
+      "AS-T",
+      "AS-T (UC Transfer)",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Physics",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/physics_tile.jpg?1645140097",
+    "pathway": "Health, Science & Technology",
+    "department": "Physical Sciences",
+    "program_options": [
+      "AS-T",
+      "AS-T (UC Transfer)"
+    ]
+  },
+  {
+    "title": "Political Science",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-political_science.jpg?1577830849",
+    "pathway": "Society & Education",
+    "department": "Political Science",
+    "program_options": [
+      "AA-T"
+    ]
+  },
+  {
+    "title": "Psychology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-psychology.jpg?1577830849",
+    "pathway": "Society & Education",
+    "department": "Psychology",
+    "program_options": [
+      "AA-T"
+    ]
+  },
+  {
+    "title": "Public Health",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/public-health-tile.jpg?1577830849",
+    "pathway": "Health, Science & Technology; Society & Education",
+    "department": "Public Health Ast",
+    "program_options": [
+      "AS-T",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Reading",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/reading_square_tile.jpg?1630079557",
+    "pathway": "Society & Education",
+    "department": "Reading",
+    "program_options": [
+      "C-COMP",
+      "C-COMPETENCY"
+    ]
+  },
+  {
+    "title": "Real Estate",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-real_estate.jpg?1577830849",
+    "pathway": "Business, Management & Entrepreneurship",
+    "department": "Business",
+    "program_options": [
+      "C-ACMP"
+    ]
+  },
+  {
+    "title": "Social Justice Studies",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/social_justice_tile.jpg?1650918460",
+    "pathway": "Society & Education",
+    "department": "Social Justice Studies",
+    "program_options": [
+      "AA-T"
+    ]
+  },
+  {
+    "title": "Social Work",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/human_services.jpeg?1577830849",
+    "pathway": "Society & Education",
+    "department": "Social Work",
+    "program_options": [
+      "AA",
+      "AA-T",
+      "C-ACH",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "Sociology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-sociology.jpg?1577830849",
+    "pathway": "Society & Education",
+    "department": "Sociology",
+    "program_options": [
+      "AA-T",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Spatial Design",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-architectural_design.jpg?1577830849",
+    "pathway": "Arts, Language & Communication; Trades & Service Industry",
+    "department": "Architectural Design",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "TEAS Preparation",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/teas_tile.jpg?1646096878",
+    "pathway": "Health, Science & Technology",
+    "department": "Teas Preparation",
+    "program_options": [
+      "C-COMPETENCY"
+    ]
+  },
+  {
+    "title": "Television & Emerging Media",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-radiotv_0.jpg?1577830849",
+    "pathway": "Arts, Language & Communication",
+    "department": "Film Production",
+    "program_options": [
+      "AA",
+      "AS-T",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Theater Arts, General & Acting Academy",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-theater_arts.jpg?1577830849",
+    "pathway": "Arts, Language & Communication",
+    "department": "Theatre Arts",
+    "program_options": [
+      "AA",
+      "AA-T",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Web Development",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-web_development.jpg?1577830849",
+    "pathway": "Business, Management & Entrepreneurship",
+    "department": "Web Development",
+    "program_options": [
+      "AS",
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "Welding Technology",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-welding_technology.jpg?1577830849",
+    "pathway": "Trades & Service Industry",
+    "department": "Welding Technology",
+    "program_options": [
+      "AS",
+      "C-ACH",
+      "C-COMP"
+    ]
+  },
+  {
+    "title": "World Languages",
+    "url": "#",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/tile-foreign_language.jpg?1577830849",
+    "pathway": "Arts, Language & Communication; Health, Science & Technology",
+    "department": "World Languages",
+    "program_options": [
+      "AA",
+      "AA-T",
+      "C-ACH",
+      "C-ACMP"
+    ]
+  }
+]

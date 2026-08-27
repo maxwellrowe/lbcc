@@ -3,7 +3,7 @@ $config = lbcc_site_config();
 $wordmark = lbcc_url($config['logo_wordmark']);
 ?>
 <footer class="site-footer mt-5 pt-5 text-white">
-    <div class="container">
+    <div class="container-xxl">
         <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-md-between gap-4 pb-4 border-bottom border-white border-opacity-10">
             <a class="d-inline-flex align-items-center" href="<?php echo lbcc_escape(lbcc_url('/')); ?>">
                 <img class="footer-wordmark-logo img-fluid" src="<?php echo lbcc_escape($wordmark); ?>" alt="<?php echo lbcc_escape($config['site_name']); ?>">
@@ -45,11 +45,11 @@ $wordmark = lbcc_url($config['logo_wordmark']);
             <div class="col-6 col-lg-2">
                 <p class="eyebrow-sm text-white-50 mb-3">Resources</p>
                 <ul class="list-unstyled vstack gap-2 mb-0">
-                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/#support')); ?>">Student Support</a></li>
-                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/current-students.php#upcoming-events')); ?>">Calendars &amp; Events</a></li>
-                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/current-students.php#plan-register')); ?>">Class Schedule</a></li>
-                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/current-students.php#get-in-touch')); ?>">Directory</a></li>
-                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/current-students.php#campus-life')); ?>">Campus Maps</a></li>
+                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/App_Code/support.php')); ?>">Student Support</a></li>
+                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/App_Code/news.php')); ?>">Calendars &amp; Events</a></li>
+                    <li><a class="link-light text-decoration-none" href="#">Class Schedule</a></li>
+                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/App_Code/directory.php')); ?>">Directory</a></li>
+                    <li><a class="link-light text-decoration-none" href="#">Campus Maps</a></li>
                     <li><a class="link-light text-decoration-none" href="#">Campus Safety</a></li>
                 </ul>
             </div>
@@ -57,7 +57,7 @@ $wordmark = lbcc_url($config['logo_wordmark']);
             <div class="col-6 col-lg-2">
                 <p class="eyebrow-sm text-white-50 mb-3">Community</p>
                 <ul class="list-unstyled vstack gap-2 mb-0">
-                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/current-students.php')); ?>">Current Students</a></li>
+                    <li><a class="link-light text-decoration-none" href="<?php echo lbcc_escape(lbcc_url('/App_Code/homepage.php')); ?>">Homepage</a></li>
                     <li><a class="link-light text-decoration-none" href="#">Faculty &amp; Staff</a></li>
                     <li><a class="link-light text-decoration-none" href="#">Community</a></li>
                     <li><a class="link-light text-decoration-none" href="#">Alumni</a></li>

@@ -22,28 +22,6 @@
         <li><a href="/App_Code/">Templates</a></li>
         <li><a href="/App_Code/styleguide.php">Styleguide</a></li>
         <li><a href="/App_Code/components.php">Components</a></li>
-        <li>
-            <a href="#">Nested Menu One Level</a>
-            <ul>
-                <li><a href="#">Templates</a></li>
-                <li><a href="#">Styleguide</a></li>
-                <li><a href="#">Components</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">Nested Menu Two Level</a>
-            <ul>
-                <li><a href="#">Templates</a></li>
-                <li>
-                    <a href="#">Styleguide</a>
-                    <ul>
-                        <li><a href="#">Tertiary Item</a></li>
-                        <li><a href="#">Tertiary Item</a></li>
-                        <li><a href="#">Tertiary Item</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Components</a></li>
-            </ul>
-        </li>
+        <li><a href="/App_Code/snippets.php">Snippets</a></li>
     </ul>
 </div>

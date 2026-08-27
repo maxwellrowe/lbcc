@@ -1,5 +1,4 @@
-<section aria-labelledby="quicklinks-heading" class="mt-5">
-    <p class="eyebrow mb-2">Component</p>
+<section aria-labelledby="quicklinks-heading" class="mt-5 mb-5">
     <h2 id="quicklinks-heading">Quicklinks</h2>
     <p class="text-body-secondary mb-4">A compact icon-and-text link system for navigation clusters, featured pathways, and dashboard-style entry points. The row-level settings control variation, size, color treatment, and responsive items per row, while each quicklink only needs text, link, and icon.</p>
 

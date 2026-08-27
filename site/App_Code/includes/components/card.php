@@ -1,11 +1,25 @@
-<section aria-labelledby="card-component-heading" class="mt-5">
-    <p class="eyebrow mb-2">Component</p>
+<section aria-labelledby="card-component-heading" class="mt-5 mb-5">
     <h2 id="card-component-heading">Card</h2>
     <p class="text-body-secondary mb-4">A flexible content card for grouped messaging, optional media, and one or more calls to action. This starter version focuses on the content model and style variations before we add any component-specific CSS.</p>
 
     <h3 class="h5 mb-3">Example</h3>
     <div class="mb-5">
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 gx-4 gy-5">
+            <div class="col">
+                <p class="eyebrow-sm mb-2">Image Background / Non-Link</p>
+                <?php
+                component_card(
+                    'Start your application journey',
+                    '<p class="mb-0">Get the overview of what to do first, what to prepare, and where to go next.</p>',
+                    [],
+                    '_resources/images/hero-backgrounds/hero-bg-6.jpg',
+                    'image-bg',
+                    'arrow-link',
+                    false,
+                    'Admissions'
+                );
+                ?>
+            </div>
             <div class="col">
                 <p class="eyebrow-sm mb-2">Surface Subtle / No Image</p>
                 <?php
@@ -138,7 +152,7 @@
                     <td>Style</td>
                     <td>string</td>
                     <td>surface-subtle</td>
-                    <td>Supported values are <code>surface-subtle</code>, <code>surface-raised</code>, <code>surface-water</code>, <code>surface-sun-haze</code>, <code>white</code>, <code>gray-border</code>, and <code>red-border</code>.</td>
+                    <td>Supported values are <code>image-bg</code>, <code>surface-subtle</code>, <code>surface-raised</code>, <code>surface-water</code>, <code>surface-sun-haze</code>, <code>white</code>, <code>gray-border</code>, and <code>red-border</code>.</td>
                 </tr>
                 <tr>
                     <td>Title</td>
@@ -162,13 +176,19 @@
                     <td>CTA Display</td>
                     <td>string</td>
                     <td>arrow-link</td>
-                    <td>Supported values are <code>arrow-link</code> and <code>button</code>. This sets how the CTA repeater is rendered within the card.</td>
+                    <td>Supported values are <code>arrow-link</code> and <code>button</code>. This sets how the CTA repeater is rendered within the card. For <code>image-bg</code>, the component follows the same presentation shell as Card as Link and does not output the CTA repeater.</td>
                 </tr>
                 <tr>
                     <td>Shadow</td>
                     <td>boolean</td>
                     <td>false</td>
                     <td>When set to <code>true</code>, the card adds the Bootstrap <code>shadow</code> utility class.</td>
+                </tr>
+                <tr>
+                    <td>Label</td>
+                    <td>string</td>
+                    <td>empty</td>
+                    <td>Optional small label shown in the upper-left area of the <code>image-bg</code> style.</td>
                 </tr>
                 <tr>
                     <td>Link</td>
@@ -198,7 +218,7 @@
                     <td>Image</td>
                     <td>string</td>
                     <td>empty</td>
-                    <td>Optional image path rendered at the top of the card.</td>
+                    <td>Optional image path rendered at the top of the card. For <code>image-bg</code>, this becomes the card background image and falls back to teal 800 when omitted.</td>
                 </tr>
             </tbody>
         </table>

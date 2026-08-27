@@ -143,6 +143,12 @@ $dropdown-link-hover-color: $color-teal-800;
 $dropdown-link-hover-bg: $color-teal-100;
 $dropdown-link-active-bg: $secondary;
 
+$tooltip-bg: $color-teal-800;
+$tooltip-color: $color-white;
+$tooltip-opacity: 1;
+$tooltip-border-radius: $border-radius;
+$tooltip-arrow-color: $tooltip-bg;
+
 $modal-content-bg: $color-surface;
 $modal-content-color: $body-color;
 $modal-content-border-color: $gray-200;

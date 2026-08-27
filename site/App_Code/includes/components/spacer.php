@@ -1,5 +1,4 @@
-<section aria-labelledby="spacer-heading" class="mt-5">
-    <p class="eyebrow mb-2">Component</p>
+<section aria-labelledby="spacer-heading" class="mt-5 mb-5">
     <h2 id="spacer-heading">Spacer</h2>
     <p class="text-body-secondary mb-4">A simple spacing component for inserting consistent vertical rhythm between content blocks. The spacer uses <code>cs-*</code> classes, where <code>cs-1</code> equals <code>1rem</code> of height and <code>cs-10</code> equals <code>10rem</code>.</p>
 

@@ -23,7 +23,7 @@ $snippetIncludesDir = __DIR__ . '/includes/snippets';
 <?php } ?>
 <main id="main-content">
 
-    <div class="container my-5">
+    <div class="container-xxl my-5">
         <p class="eyebrow mb-2">Templates &amp; Resources</p>
         <p class="lead text-body-secondary mb-0">This is a baseline snippet library modeled after the GCC reference page and adapted to the current LBCC starter code. We can refine background options, wrappers, and snippet-specific patterns as we build each one out.</p>
     </div>
@@ -31,49 +31,46 @@ $snippetIncludesDir = __DIR__ . '/includes/snippets';
     <?php include $snippetIncludesDir . '/section.php'; ?>
 
     <section class="mb-5" id="columns">
-        <div class="container">
+        <div class="container-xxl">
             <h2>Columns</h2>
             <?php include $snippetIncludesDir . '/columns.php'; ?>
         </div>
     </section>
 
     <section class="mb-5" id="equal-columns">
-        <div class="container">
+        <div class="container-xxl">
             <h2>Equal Columns</h2>
             <?php include $snippetIncludesDir . '/columns-equal.php'; ?>
         </div>
     </section>
 
     <section class="mb-5" id="full-width-bg">
-        <div class="container">
+        <div class="container-xxl">
             <h2>Full Width Background</h2>
         </div>
         <?php include $snippetIncludesDir . '/full-width-bg.php'; ?>
     </section>
 
-    <section class="mb-5" id="accordion">
-        <div class="container">
-            <h2>Accordion</h2>
-            <?php include $snippetIncludesDir . '/accordion.php'; ?>
-        </div>
-    </section>
+    <?php include $snippetIncludesDir . '/tabs.php'; ?>
+
+    <?php include $snippetIncludesDir . '/accordion.php'; ?>
 
     <section class="mb-5" id="collapse">
-        <div class="container">
+        <div class="container-xxl">
             <h2>Collapse</h2>
             <?php include $snippetIncludesDir . '/collapse.php'; ?>
         </div>
     </section>
 
     <section class="mb-5" id="card">
-        <div class="container">
+        <div class="container-xxl">
             <h2>Card</h2>
             <?php include $snippetIncludesDir . '/card.php'; ?>
         </div>
     </section>
 
     <section class="mb-5" id="carousel-anything">
-        <div class="container">
+        <div class="container-xxl">
             <h2>Carousel Anything</h2>
             <?php include $snippetIncludesDir . '/carousel-anything.php'; ?>
         </div>

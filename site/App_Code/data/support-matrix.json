@@ -1,0 +1,439 @@
+{
+    "needs": [
+        "Getting Started at LBCC",
+        "Counseling & Academic Advising",
+        "Planning for Transfer & Careers",
+        "Financial Assistance",
+        "Health, Well-being & Safety",
+        "Help with Classes & Academics",
+        "Identity-based support & communities",
+        "Graduate from LBCC"
+    ],
+    "audiences": [
+        "Dreamer / Undocumented",
+        "Former Foster Youth",
+        "Formerly Incarcerated Student",
+        "Student Parent",
+        "Veteran or Military-Affiliated Student",
+        "Student with a Disability",
+        "International Student",
+        "Adult Learner",
+        "Low-income",
+        "Student of Color",
+        "LGBTQIA+"
+    ],
+    "items": [
+        {
+            "title": "A2MEND",
+            "description": "Mentorship, leadership development, and academic support focused on the success of African American men.",
+            "url": "https://www.lbcc.edu/post/a2mend",
+            "needs": [
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Student of Color"
+            ]
+        },
+        {
+            "title": "Accelerate Program for Adult Learners",
+            "description": "A learning community for new and returning adult learners that offers linked courses, academic support, and peer connection.",
+            "url": "https://www.lbcc.edu/accelerate-learning-community-program",
+            "needs": [
+                "Counseling & Academic Advising",
+                "Help with Classes & Academics",
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Adult Learner"
+            ]
+        },
+        {
+            "title": "Admissions & Records",
+            "description": "Help with enrollment, registration, transcripts, residency questions, and official student records.",
+            "url": "https://www.lbcc.edu/admissions-records",
+            "needs": [
+                "Getting Started at LBCC",
+                "Graduate from LBCC"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "Basic Needs Program",
+            "description": "Resources for food, housing, transportation, emergency support, and other essentials that help you stay focused on school.",
+            "url": "https://www.lbcc.edu/basic-needs-program",
+            "needs": [
+                "Financial Assistance",
+                "Health, Well-being & Safety"
+            ],
+            "audiences": [
+                "Student Parent",
+                "Low-income"
+            ]
+        },
+        {
+            "title": "Black Student Success Center",
+            "description": "A welcoming space centered on the success of Black students, offering community, academic resources, and culturally affirming support.",
+            "url": "https://www.lbcc.edu/black-student-success-center",
+            "needs": [
+                "Help with Classes & Academics",
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Student of Color"
+            ]
+        },
+        {
+            "title": "CalWORKs",
+            "description": "Education and career support for eligible student parents receiving public assistance, helping balance school, work, and family life.",
+            "url": "https://www.lbcc.edu/calworks",
+            "needs": [
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Student Parent",
+                "Low-income"
+            ]
+        },
+        {
+            "title": "Campus Printing",
+            "description": "Easy, low-cost printing options for class materials and assignments across campus.",
+            "url": "https://www.lbcc.edu/pay-print",
+            "needs": [
+                "Help with Classes & Academics"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "Career Center",
+            "description": "Career exploration, job search support, and internship resources to help you prepare for what comes next.",
+            "url": "https://www.lbcc.edu/career-center",
+            "needs": [
+                "Planning for Transfer & Careers"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "Counseling",
+            "description": "Academic counseling to help you plan classes, set goals, and stay on track toward graduation, transfer, or career pathways.",
+            "url": "https://www.lbcc.edu/counseling",
+            "needs": [
+                "Getting Started at LBCC",
+                "Counseling & Academic Advising"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "DESTINO Program",
+            "description": "A STEM-focused program supporting Latino/a/x students with academic guidance, community, and preparation for transfer.",
+            "url": "https://www.lbcc.edu/destino",
+            "needs": [
+                "Help with Classes & Academics",
+                "Identity-based support & communities"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "Disabled Student Services",
+            "description": "Accommodations, advocacy, and services that ensure students with disabilities have equal access to education.",
+            "url": "https://www.lbcc.edu/disabled-student-services",
+            "needs": [
+                "Help with Classes & Academics",
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Student with a Disability"
+            ]
+        },
+        {
+            "title": "DREAM Services",
+            "description": "A safe and welcoming space offering guidance, resources, and community for undocumented and Dreamer students.",
+            "url": "https://www.lbcc.edu/dream-services",
+            "needs": [
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Dreamer / Undocumented"
+            ]
+        },
+        {
+            "title": "EOPS",
+            "description": "Comprehensive academic and financial support for eligible students facing educational barriers.",
+            "url": "https://www.lbcc.edu/eops",
+            "needs": [
+                "Financial Assistance",
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Low-income"
+            ]
+        },
+        {
+            "title": "Financial Aid Office",
+            "description": "Help with paying for college, including FAFSA and CA Dream Act applications, grants, scholarships, loans, and work-study.",
+            "url": "https://www.lbcc.edu/financial-aid",
+            "needs": [
+                "Financial Assistance"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "Foster Youth Support Services",
+            "description": "Dedicated guidance and resources to help foster youth succeed academically and personally.",
+            "url": "https://www.lbcc.edu/fyss",
+            "needs": [
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Former Foster Youth"
+            ]
+        },
+        {
+            "title": "Health & Wellness",
+            "description": "Medical care, mental health support, and wellness resources designed to support your overall well-being.",
+            "url": "https://www.lbcc.edu/health-wellness",
+            "needs": [
+                "Health, Well-being & Safety"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "Honors",
+            "description": "An enriched academic experience offering smaller classes, priority registration, and enhanced preparation for transfer.",
+            "url": "https://www.lbcc.edu/honors-program",
+            "needs": [
+                "Help with Classes & Academics"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "International Student Services",
+            "description": "Advising and support for F-1 international students, including immigration guidance, academic resources, and help navigating life at LBCC during your time in the U.S.",
+            "url": "https://www.lbcc.edu/internationalstudents",
+            "needs": [
+                "Getting Started at LBCC",
+                "Counseling & Academic Advising",
+                "Financial Assistance"
+            ],
+            "audiences": [
+                "International Student"
+            ]
+        },
+        {
+            "title": "Justice Scholars Program",
+            "description": "A program designed to help justice-impacted students navigate college through counseling, resources, and community.",
+            "url": "https://www.lbcc.edu/post/justice-scholars-program",
+            "needs": [
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Formerly Incarcerated Student"
+            ]
+        },
+        {
+            "title": "LBCC Phoenix Scholars",
+            "description": "A supportive community for gang-impacted youth and young adults, offering counseling, resources, and guidance to help you succeed academically and build a stable path forward.",
+            "url": "https://www.lbcc.edu/post/lbcc-phoenix-scholars",
+            "needs": [
+                "Identity-based support & communities"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "Male Success Initiative (MSI)",
+            "description": "A learning community for men of color that provides mentorship, community, and support for academic success.",
+            "url": "https://www.lbcc.edu/post/male-success-initiative",
+            "needs": [
+                "Help with Classes & Academics",
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Student of Color"
+            ]
+        },
+        {
+            "title": "MANA - APID Learning Commmunity",
+            "description": "A learning community for Asian, Pacific Islander, and Desi (APID) students that fosters cultural connection, community, and academic success.",
+            "url": "https://www.lbcc.edu/mana-program",
+            "needs": [
+                "Counseling & Academic Advising",
+                "Help with Classes & Academics",
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Student of Color"
+            ]
+        },
+        {
+            "title": "MESA",
+            "description": "A community for students pursuing STEM majors, offering academic support, peer connection, and preparation for transfer to four-year universities.",
+            "url": "https://www.lbcc.edu/mesa-program",
+            "needs": [
+                "Help with Classes & Academics"
+            ],
+            "audiences": [
+                "Student of Color"
+            ]
+        },
+        {
+            "title": "North Long Beach Center",
+            "description": "Classes and student services closer to home, providing more convenient access to LBCC for North Long Beach residents.",
+            "url": "https://www.lbcc.edu/northlb",
+            "needs": [
+                "Getting Started at LBCC",
+                "Counseling & Academic Advising",
+                "Financial Assistance",
+                "Help with Classes & Academics"
+            ],
+            "audiences": [
+                "Adult Learner"
+            ]
+        },
+        {
+            "title": "Pride Scholars - LGBGTQIA+ Learning Community",
+            "description": "A learning community for LGBTQIA+ students and allies that fosters belonging, cultural awareness, and academic success.",
+            "url": "https://www.lbcc.edu/pride-scholars",
+            "needs": [
+                "Counseling & Academic Advising",
+                "Help with Classes & Academics",
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "LGBTQIA+"
+            ]
+        },
+        {
+            "title": "Probation Counseling",
+            "description": "Guidance for students on academic probation, helping you regroup, plan next steps, and work toward academic recovery.",
+            "url": "https://www.lbcc.edu/post/academic-recovery",
+            "needs": [
+                "Counseling & Academic Advising",
+                "Help with Classes & Academics"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "PUENTE - Latinx Learning Community",
+            "description": "A learning community for Latino/a/x students that builds community while supporting academic, career, and transfer goals.",
+            "url": "https://www.lbcc.edu/puente",
+            "needs": [
+                "Counseling & Academic Advising",
+                "Planning for Transfer & Careers",
+                "Help with Classes & Academics",
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Student of Color"
+            ]
+        },
+        {
+            "title": "Student Parenting Hub",
+            "description": "A central hub for student parents, connecting you to childcare support, resources, and a community that understands your priorities",
+            "url": "https://www.lbcc.edu/student-parenting-hub",
+            "needs": [
+                "Health, Well-being & Safety",
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Student Parent"
+            ]
+        },
+        {
+            "title": "Student Services Division",
+            "description": "The division that connects and coordinates many of the programs and services supporting your success at LBCC.",
+            "url": "https://www.lbcc.edu/student-services",
+            "needs": [],
+            "audiences": []
+        },
+        {
+            "title": "Student Success Centers",
+            "description": "Subject-specific spaces where you can get tutoring, guidance, and support connected directly to your major.",
+            "url": "https://www.lbcc.edu/student-success-centers",
+            "needs": [
+                "Help with Classes & Academics"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "Student Tech Help Desk",
+            "description": "Help with Canvas, student email, Wi-Fi, and other technology you rely on for classes\u2014available online or in person.",
+            "url": "https://www.lbcc.edu/sthd",
+            "needs": [
+                "Help with Classes & Academics"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "Transfer Center",
+            "description": "Advising, workshops, and application support to help you prepare for transfer to CSU, UC, or private universities.",
+            "url": "https://www.lbcc.edu/transfer-center",
+            "needs": [
+                "Counseling & Academic Advising",
+                "Planning for Transfer & Careers"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "TRIO GO Project",
+            "description": "Academic advising, transfer preparation, and personal development for first-generation and low-income students.",
+            "url": "https://www.lbcc.edu/trio-go-project",
+            "needs": [
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Low-income"
+            ]
+        },
+        {
+            "title": "Tutoring & Academic Resources",
+            "description": "Free tutoring and learning resources to help you understand course material, prepare for exams, and build strong study habits.",
+            "url": "https://www.lbcc.edu/learning-and-academic-resources",
+            "needs": [
+                "Help with Classes & Academics"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "UMOJA - Black Learning Community",
+            "description": "A learning community for Black and African American students that promotes cultural connection, community, and academic success.",
+            "url": "https://www.lbcc.edu/umoja-scholars-program",
+            "needs": [
+                "Counseling & Academic Advising",
+                "Planning for Transfer & Careers",
+                "Help with Classes & Academics",
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Student of Color"
+            ]
+        },
+        {
+            "title": "Upward Bound",
+            "description": "College readiness support for high school students through academic enrichment, mentoring, and guidance.",
+            "url": "https://www.lbcc.edu/upward-bound",
+            "needs": [
+                "Identity-based support & communities"
+            ],
+            "audiences": []
+        },
+        {
+            "title": "Veterans Services",
+            "description": "A dedicated space offering education benefits guidance, advising, and community for veterans and military-affiliated students.",
+            "url": "https://www.lbcc.edu/veterans-services",
+            "needs": [
+                "Identity-based support & communities"
+            ],
+            "audiences": [
+                "Veteran or Military-Affiliated Student"
+            ]
+        },
+        {
+            "title": "Welcome Center",
+            "description": "The starting point for new students, where you can get oriented, ask questions, and connect to the right next steps.",
+            "url": "https://www.lbcc.edu/welcome-center",
+            "needs": [
+                "Getting Started at LBCC"
+            ],
+            "audiences": []
+        }
+    ]
+}

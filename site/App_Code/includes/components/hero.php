@@ -1,12 +1,11 @@
-<section aria-labelledby="hero-heading" class="mt-5">
-    <div class="container">
-        <p class="eyebrow mb-2">Component</p>
+<section aria-labelledby="hero-heading" class="mt-5 mb-5">
+    <div class="container-xxl">
         <h2 id="hero-heading">Hero</h2>
         <p class="text-body-secondary mb-4">Backbone-only implementation for the shared custom hero component. This establishes the content model, media slot handling, breadcrumb toggle, and Swiper-ready markup without introducing the final visual layout yet.</p>
     </div>
 
     <div class="bg-surface-subtle py-4 py-lg-5">
-        <div class="container">
+        <div class="container-xxl">
             <h3 class="h5 mb-3">Example</h3>
         </div>
 
@@ -44,7 +43,7 @@
 
         <div class="container-fluid px-0">
             <div class="mb-5">
-                <div class="container">
+                <div class="container-xxl">
                     <p class="eyebrow-sm mb-2">Split Variant / Right Background Video / Breadcrumbs On</p>
                 </div>
                 <?php
@@ -67,7 +66,7 @@
                     [
                         [
                             'type' => 'video',
-                            'src' => '_resources/video/hero-backgrounds/optimized/hero-bg-1.mp4',
+                            'src' => '_resources/video/hero-backgrounds/hero-bg-1.mp4',
                             'poster' => '_resources/images/hero-backgrounds/hero-bg-2.jpg'
                         ]
                     ],
@@ -78,7 +77,7 @@
             </div>
 
             <div class="mb-5">
-                <div class="container">
+                <div class="container-xxl">
                     <p class="eyebrow-sm mb-2">Split Variant / Breadcrumbs Off</p>
                 </div>
                 <?php
@@ -107,7 +106,7 @@
             </div>
 
             <div>
-                <div class="container">
+                <div class="container-xxl">
                     <p class="eyebrow-sm mb-2">Full Variant / Left + Right Background Video / Breadcrumbs On</p>
                 </div>
                 <?php
@@ -125,14 +124,14 @@
                     [
                         [
                             'type' => 'video',
-                            'src' => '_resources/video/hero-backgrounds/optimized/hero-bg-1.mp4',
+                            'src' => '_resources/video/hero-backgrounds/hero-bg-1.mp4',
                             'poster' => '_resources/images/hero-backgrounds/hero-bg-7.jpg'
                         ]
                     ],
                     [
                         [
                             'type' => 'video',
-                            'src' => '_resources/video/hero-backgrounds/optimized/hero-bg-2.mp4',
+                            'src' => '_resources/video/hero-backgrounds/hero-bg-2.mp4',
                             'poster' => '_resources/images/hero-backgrounds/hero-bg-13.jpg'
                         ]
                     ],
@@ -143,7 +142,7 @@
         </div>
     </div>
 
-    <div class="container mt-5">
+    <div class="container-xxl mt-5">
         <h3 class="h5 mb-3">Options</h3>
         <div class="table-responsive">
             <table class="table align-middle">

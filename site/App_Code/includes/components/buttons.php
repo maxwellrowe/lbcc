@@ -1,5 +1,4 @@
-<section aria-labelledby="buttons-heading" class="mt-5">
-    <p class="eyebrow mb-2">Component</p>
+<section aria-labelledby="buttons-heading" class="mt-5 mb-5">
     <h2 id="buttons-heading">Buttons</h2>
     <p class="text-body-secondary mb-4">A grouped button component for primary actions, secondary actions, and icon-button variants. The function accepts row-level layout settings plus an array of individual button definitions.</p>
 

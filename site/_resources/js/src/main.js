@@ -4,6 +4,9 @@ import Collapse from "bootstrap/js/dist/collapse";
 import Dropdown from "bootstrap/js/dist/dropdown";
 import Modal from "bootstrap/js/dist/modal";
 import Offcanvas from "bootstrap/js/dist/offcanvas";
+import Tab from "bootstrap/js/dist/tab";
+import Tooltip from "bootstrap/js/dist/tooltip";
+import { animate } from "motion";
 import Swiper from "swiper/bundle";
 
 import { Animation } from "./animation";
@@ -518,6 +521,125 @@ const syncReducedMotionPreference = () => {
   reducedMotion.addEventListener("change", update);
 };
 
+const initCarouselAnything = () => {
+  document.querySelectorAll("[data-lbcc-carousel-anything]").forEach((component) => {
+    if (!(component instanceof HTMLElement) || isInitialized(component)) {
+      return;
+    }
+
+    const swiperElement = component.querySelector("[data-lbcc-carousel-swiper]");
+    const scrollbarElement = component.querySelector("[data-lbcc-carousel-scrollbar]");
+    const prevButton = component.querySelector("[data-lbcc-carousel-prev]");
+    const nextButton = component.querySelector("[data-lbcc-carousel-next]");
+    const toggleButton = component.querySelector("[data-lbcc-carousel-toggle]");
+    const pauseIcon = component.querySelector('[data-lbcc-carousel-icon="pause"]');
+    const playIcon = component.querySelector('[data-lbcc-carousel-icon="play"]');
+
+    if (
+      !(swiperElement instanceof HTMLElement) ||
+      !(scrollbarElement instanceof HTMLElement) ||
+      !(prevButton instanceof HTMLButtonElement) ||
+      !(nextButton instanceof HTMLButtonElement) ||
+      !(toggleButton instanceof HTMLButtonElement)
+    ) {
+      return;
+    }
+
+    const mobileItems = Number.parseInt(component.dataset.mobileItems || "1", 10) || 1;
+    const tabletItems = Number.parseInt(component.dataset.tabletItems || String(mobileItems), 10) || mobileItems;
+    const desktopItems = Number.parseInt(component.dataset.desktopItems || String(tabletItems), 10) || tabletItems;
+    const autoplayRequested = component.dataset.autoplay === "true";
+    const reducedMotionEnabled = document.documentElement.dataset.reducedMotion === "true";
+
+    const swiper = new Swiper(swiperElement, {
+      loop: false,
+      speed: 500,
+      slidesPerView: mobileItems,
+      spaceBetween: 24,
+      watchOverflow: true,
+      autoplay: autoplayRequested ? {
+        delay: 4000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      } : false,
+      scrollbar: {
+        el: scrollbarElement,
+        draggable: true
+      },
+      navigation: {
+        nextEl: nextButton,
+        prevEl: prevButton
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: tabletItems
+        },
+        1200: {
+          slidesPerView: desktopItems
+        }
+      }
+    });
+
+    let isPaused = !autoplayRequested || reducedMotionEnabled;
+
+    const setToggleState = (paused) => {
+      toggleButton.setAttribute("aria-pressed", paused ? "true" : "false");
+      toggleButton.setAttribute("aria-label", paused ? "Play carousel autoplay" : "Pause carousel autoplay");
+
+      if (pauseIcon instanceof HTMLElement) {
+        pauseIcon.classList.toggle("d-none", paused);
+      }
+
+      if (playIcon instanceof HTMLElement) {
+        playIcon.classList.toggle("d-none", !paused);
+      }
+    };
+
+    const syncControlState = () => {
+      const locked = swiper.isLocked;
+
+      prevButton.disabled = locked;
+      nextButton.disabled = locked;
+      scrollbarElement.classList.toggle("opacity-50", locked);
+
+      if (!autoplayRequested || locked) {
+        toggleButton.classList.add("d-none");
+      } else {
+        toggleButton.classList.remove("d-none");
+      }
+    };
+
+    if (reducedMotionEnabled && swiper.autoplay) {
+      swiper.autoplay.stop();
+    }
+
+    setToggleState(isPaused);
+    syncControlState();
+
+    swiper.on("lock", syncControlState);
+    swiper.on("unlock", syncControlState);
+    swiper.on("breakpoint", syncControlState);
+    swiper.on("resize", syncControlState);
+
+    toggleButton.addEventListener("click", () => {
+      if (!autoplayRequested || !swiper.autoplay) {
+        return;
+      }
+
+      if (isPaused) {
+        swiper.autoplay.start();
+      } else {
+        swiper.autoplay.stop();
+      }
+
+      isPaused = !isPaused;
+      setToggleState(isPaused);
+    });
+
+    markInitialized(component);
+  });
+};
+
 const initFooterIHeartLb = () => {
   document.querySelectorAll("[data-lbcc-i-heart-lb]").forEach((component) => {
     if (!(component instanceof HTMLElement) || isInitialized(component)) {
@@ -533,23 +655,52 @@ const initFooterIHeartLb = () => {
       return;
     }
 
-    const reducedMotionEnabled = document.documentElement.dataset.reducedMotion === "true";
-    const swiper = new Swiper(swiperElement, {
-      effect: "fade",
-      fadeEffect: {
-        crossFade: true
-      },
-      loop: true,
-      speed: 600,
-      allowTouchMove: false,
-      autoplay: reducedMotionEnabled ? false : {
-        delay: 1350,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: false
-      }
-    });
+    const slides = Array.from(swiperElement.querySelectorAll(".swiper-slide")).filter(
+      (slide) => slide instanceof HTMLElement
+    );
 
-    let isPaused = reducedMotionEnabled || !swiper.autoplay;
+    if (!slides.length) {
+      return;
+    }
+
+    const reducedMotionEnabled = document.documentElement.dataset.reducedMotion === "true";
+    const transitionPresets = [
+      {
+        enter: { opacity: [0, 1] },
+        exit: { opacity: [1, 0] },
+        duration: 0.4
+      },
+      {
+        enter: { opacity: [0, 1], rotateY: [-24, 0], scale: [0.985, 1] },
+        exit: { opacity: [1, 0], rotateY: [0, 24], scale: [1, 0.985] },
+        duration: 0.46
+      },
+      {
+        enter: { opacity: [0, 1], rotate: [-8, 0], scale: [0.975, 1] },
+        exit: { opacity: [1, 0], rotate: [0, 8], scale: [1, 0.975] },
+        duration: 0.44
+      }
+    ];
+    const transitionEase = [0.16, 1, 0.3, 1];
+    const autoplayDelay = 675;
+    let currentIndex = 0;
+    let currentTransitionIndex = 0;
+    let timeoutId = null;
+    let isTransitioning = false;
+    let isPaused = reducedMotionEnabled || slides.length < 2;
+
+    const resetSlideStyles = (slide, active = false) => {
+      slide.classList.toggle("is-active", active);
+      slide.style.opacity = active ? "1" : "0";
+      slide.style.transform = "none";
+      slide.style.clipPath = "";
+      slide.style.filter = "";
+      slide.style.zIndex = active ? "2" : "1";
+    };
+
+    slides.forEach((slide, index) => {
+      resetSlideStyles(slide, index === 0);
+    });
 
     const setToggleState = (paused) => {
       toggleButton.setAttribute("aria-pressed", paused ? "true" : "false");
@@ -564,7 +715,147 @@ const initFooterIHeartLb = () => {
       }
     };
 
+    const queueNextTransition = () => {
+      if (isPaused || slides.length < 2) {
+        return;
+      }
+
+      window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
+        if (isTransitioning) {
+          return;
+        }
+
+        const currentSlide = slides[currentIndex];
+        const nextIndex = (currentIndex + 1) % slides.length;
+        const nextSlide = slides[nextIndex];
+        const preset = transitionPresets[currentTransitionIndex % transitionPresets.length];
+
+        currentTransitionIndex += 1;
+        isTransitioning = true;
+
+        nextSlide.classList.add("is-active");
+        nextSlide.style.opacity = "0";
+        nextSlide.style.transform = "none";
+        nextSlide.style.clipPath = "";
+        nextSlide.style.zIndex = "3";
+        currentSlide.style.zIndex = "2";
+
+        const exitAnimation = animate(currentSlide, preset.exit, {
+          duration: preset.duration,
+          easing: transitionEase,
+          fill: "forwards"
+        });
+        const enterAnimation = animate(nextSlide, preset.enter, {
+          duration: preset.duration,
+          easing: transitionEase,
+          fill: "forwards"
+        });
+
+        Promise.all([exitAnimation.finished, enterAnimation.finished]).finally(() => {
+          resetSlideStyles(currentSlide, false);
+          resetSlideStyles(nextSlide, true);
+          currentIndex = nextIndex;
+          isTransitioning = false;
+          queueNextTransition();
+        });
+      }, autoplayDelay);
+    };
+
     setToggleState(isPaused);
+    queueNextTransition();
+
+    toggleButton.addEventListener("click", () => {
+      if (slides.length < 2) {
+        return;
+      }
+
+      if (isPaused) {
+        isPaused = false;
+        setToggleState(isPaused);
+        queueNextTransition();
+      } else {
+        isPaused = true;
+        window.clearTimeout(timeoutId);
+        setToggleState(isPaused);
+      }
+    });
+
+    markInitialized(component);
+  });
+};
+
+const initTestimonialCarousel = () => {
+  document.querySelectorAll("[data-lbcc-testimonial-carousel]").forEach((component) => {
+    if (!(component instanceof HTMLElement) || isInitialized(component)) {
+      return;
+    }
+
+    const swiperElement = component.querySelector("[data-lbcc-testimonial-swiper]");
+    const thumbButtons = Array.from(component.querySelectorAll("[data-lbcc-testimonial-thumb]")).filter(
+      (button) => button instanceof HTMLButtonElement
+    );
+    const toggleButton = component.querySelector("[data-lbcc-testimonial-toggle]");
+    const pauseIcon = component.querySelector('[data-lbcc-testimonial-icon="pause"]');
+    const playIcon = component.querySelector('[data-lbcc-testimonial-icon="play"]');
+
+    if (!(swiperElement instanceof HTMLElement) || !(toggleButton instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const autoplayRequested = component.dataset.autoplay === "true";
+    const reducedMotionEnabled = document.documentElement.dataset.reducedMotion === "true";
+    const swiper = new Swiper(swiperElement, {
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true
+      },
+      loop: true,
+      speed: 600,
+      slidesPerView: 1,
+      allowTouchMove: true,
+      autoplay: autoplayRequested && !reducedMotionEnabled ? {
+        delay: 4500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      } : false
+    });
+
+    let isPaused = reducedMotionEnabled || !swiper.autoplay;
+
+    const setActiveThumb = (realIndex) => {
+      thumbButtons.forEach((button, index) => {
+        const isActive = index === realIndex;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+    };
+
+    const setToggleState = (paused) => {
+      toggleButton.setAttribute("aria-pressed", paused ? "true" : "false");
+      toggleButton.setAttribute("aria-label", paused ? "Play testimonial autoplay" : "Pause testimonial autoplay");
+
+      if (pauseIcon instanceof HTMLElement) {
+        pauseIcon.classList.toggle("d-none", paused);
+      }
+
+      if (playIcon instanceof HTMLElement) {
+        playIcon.classList.toggle("d-none", !paused);
+      }
+    };
+
+    setActiveThumb(swiper.realIndex);
+    setToggleState(isPaused);
+
+    swiper.on("slideChange", () => {
+      setActiveThumb(swiper.realIndex);
+    });
+
+    thumbButtons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        swiper.slideToLoop(index);
+      });
+    });
 
     toggleButton.addEventListener("click", () => {
       if (!swiper.autoplay) {
@@ -580,6 +871,355 @@ const initFooterIHeartLb = () => {
       isPaused = !isPaused;
       setToggleState(isPaused);
     });
+
+    markInitialized(component);
+  });
+};
+
+const initVerticalSlider = () => {
+  document.querySelectorAll("[data-lbcc-vertical-slider]").forEach((component) => {
+    if (!(component instanceof HTMLElement) || isInitialized(component)) {
+      return;
+    }
+
+    const swiperElement = component.querySelector("[data-lbcc-vertical-slider-swiper]");
+    const prevButton = component.querySelector("[data-lbcc-vertical-slider-prev]");
+    const nextButton = component.querySelector("[data-lbcc-vertical-slider-next]");
+    const toggleButton = component.querySelector("[data-lbcc-vertical-slider-toggle]");
+    const pauseIcon = component.querySelector('[data-lbcc-vertical-slider-icon="pause"]');
+    const playIcon = component.querySelector('[data-lbcc-vertical-slider-icon="play"]');
+
+    if (
+      !(swiperElement instanceof HTMLElement) ||
+      !(prevButton instanceof HTMLButtonElement) ||
+      !(nextButton instanceof HTMLButtonElement)
+    ) {
+      return;
+    }
+
+    const slideCount = swiperElement.querySelectorAll(".swiper-slide").length;
+    const canRotate = slideCount > 1;
+    const reducedMotionEnabled = document.documentElement.dataset.reducedMotion === "true";
+    const autoplayRequested = component.dataset.autoplay === "true" && canRotate && !reducedMotionEnabled;
+
+    const swiper = new Swiper(swiperElement, {
+      direction: "vertical",
+      centeredSlides: true,
+      slidesPerView: 1.6,
+      spaceBetween: 16,
+      speed: 650,
+      loop: canRotate,
+      watchSlidesProgress: true,
+      allowTouchMove: canRotate,
+      autoplay: autoplayRequested ? {
+        delay: 2800,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      } : false,
+      navigation: {
+        prevEl: prevButton,
+        nextEl: nextButton
+      }
+    });
+
+    let isPaused = !autoplayRequested;
+
+    const setToggleState = (paused) => {
+      if (!(toggleButton instanceof HTMLButtonElement)) {
+        return;
+      }
+
+      toggleButton.setAttribute("aria-pressed", paused ? "true" : "false");
+      toggleButton.setAttribute("aria-label", paused ? "Play vertical slider autoplay" : "Pause vertical slider autoplay");
+
+      if (pauseIcon instanceof HTMLElement) {
+        pauseIcon.classList.toggle("d-none", paused);
+      }
+
+      if (playIcon instanceof HTMLElement) {
+        playIcon.classList.toggle("d-none", !paused);
+      }
+    };
+
+    prevButton.disabled = !canRotate;
+    nextButton.disabled = !canRotate;
+
+    if (toggleButton instanceof HTMLButtonElement) {
+      if (!canRotate) {
+        toggleButton.classList.add("d-none");
+      }
+
+      setToggleState(isPaused);
+
+      toggleButton.addEventListener("click", () => {
+        if (!swiper.autoplay) {
+          return;
+        }
+
+        if (isPaused) {
+          swiper.autoplay.start();
+        } else {
+          swiper.autoplay.stop();
+        }
+
+        isPaused = !isPaused;
+        setToggleState(isPaused);
+      });
+    }
+
+    markInitialized(component);
+  });
+};
+
+const initFadeSlider = () => {
+  document.querySelectorAll("[data-lbcc-fade-slider]").forEach((component) => {
+    if (!(component instanceof HTMLElement) || isInitialized(component)) {
+      return;
+    }
+
+    const swiperElement = component.querySelector("[data-lbcc-fade-slider-swiper]");
+    const toggleButton = component.querySelector("[data-lbcc-fade-slider-toggle]");
+    const pauseIcon = component.querySelector('[data-lbcc-fade-slider-icon="pause"]');
+    const playIcon = component.querySelector('[data-lbcc-fade-slider-icon="play"]');
+
+    if (!(swiperElement instanceof HTMLElement)) {
+      return;
+    }
+
+    const slideCount = swiperElement.querySelectorAll(".swiper-slide").length;
+    const canRotate = slideCount > 1;
+    const reducedMotionEnabled = document.documentElement.dataset.reducedMotion === "true";
+    const autoplayRequested = component.dataset.autoplay === "true" && canRotate && !reducedMotionEnabled;
+
+    const swiper = new Swiper(swiperElement, {
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true
+      },
+      slidesPerView: 1,
+      speed: 800,
+      loop: canRotate,
+      allowTouchMove: canRotate,
+      autoplay: autoplayRequested ? {
+        delay: 3000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      } : false
+    });
+
+    let isPaused = !autoplayRequested;
+
+    const setToggleState = (paused) => {
+      if (!(toggleButton instanceof HTMLButtonElement)) {
+        return;
+      }
+
+      toggleButton.setAttribute("aria-pressed", paused ? "true" : "false");
+      toggleButton.setAttribute("aria-label", paused ? "Play slideshow autoplay" : "Pause slideshow autoplay");
+
+      if (pauseIcon instanceof HTMLElement) {
+        pauseIcon.classList.toggle("d-none", paused);
+      }
+
+      if (playIcon instanceof HTMLElement) {
+        playIcon.classList.toggle("d-none", !paused);
+      }
+    };
+
+    if (toggleButton instanceof HTMLButtonElement) {
+      setToggleState(isPaused);
+
+      toggleButton.addEventListener("click", () => {
+        if (!swiper.autoplay) {
+          return;
+        }
+
+        if (isPaused) {
+          swiper.autoplay.start();
+        } else {
+          swiper.autoplay.stop();
+        }
+
+        isPaused = !isPaused;
+        setToggleState(isPaused);
+      });
+    }
+
+    markInitialized(component);
+  });
+};
+
+const initQuietVideo = () => {
+  document.querySelectorAll("[data-lbcc-quiet-video]").forEach((component) => {
+    if (!(component instanceof HTMLElement) || isInitialized(component)) {
+      return;
+    }
+
+    const video = component.querySelector("[data-lbcc-quiet-video-element]");
+    const toggleButton = component.querySelector("[data-lbcc-quiet-video-toggle]");
+    const pauseIcon = component.querySelector('[data-lbcc-quiet-video-icon="pause"]');
+    const playIcon = component.querySelector('[data-lbcc-quiet-video-icon="play"]');
+
+    if (!(video instanceof HTMLVideoElement) || !(toggleButton instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const reducedMotionEnabled = document.documentElement.dataset.reducedMotion === "true";
+    const autoplayRequested = component.dataset.autoplay === "true";
+    let isPaused = !autoplayRequested || reducedMotionEnabled;
+
+    const setToggleState = (paused) => {
+      toggleButton.setAttribute("aria-pressed", paused ? "true" : "false");
+      toggleButton.setAttribute("aria-label", paused ? "Play video playback" : "Pause video playback");
+
+      if (pauseIcon instanceof HTMLElement) {
+        pauseIcon.classList.toggle("d-none", paused);
+      }
+
+      if (playIcon instanceof HTMLElement) {
+        playIcon.classList.toggle("d-none", !paused);
+      }
+    };
+
+    const syncPausedState = (paused) => {
+      isPaused = paused;
+      setToggleState(paused);
+    };
+
+    const playVideo = () => {
+      const playPromise = video.play();
+
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.then(() => {
+          syncPausedState(false);
+        }).catch(() => {
+          syncPausedState(true);
+        });
+      } else {
+        syncPausedState(false);
+      }
+    };
+
+    const pauseVideo = () => {
+      video.pause();
+      syncPausedState(true);
+    };
+
+    video.addEventListener("play", () => {
+      syncPausedState(false);
+    });
+
+    video.addEventListener("pause", () => {
+      if (!video.ended) {
+        syncPausedState(true);
+      }
+    });
+
+    if (isPaused) {
+      pauseVideo();
+    } else {
+      playVideo();
+    }
+
+    toggleButton.addEventListener("click", () => {
+      if (isPaused) {
+        playVideo();
+      } else {
+        pauseVideo();
+      }
+    });
+
+    markInitialized(component);
+  });
+};
+
+const initTicker = () => {
+  document.querySelectorAll("[data-lbcc-ticker]").forEach((component) => {
+    if (!(component instanceof HTMLElement) || isInitialized(component)) {
+      return;
+    }
+
+    const swiperElement = component.querySelector("[data-lbcc-ticker-swiper]");
+    const toggleButtons = Array.from(component.querySelectorAll("[data-lbcc-ticker-toggle]")).filter(
+      (button) => button instanceof HTMLButtonElement
+    );
+    const pauseIcons = Array.from(component.querySelectorAll('[data-lbcc-ticker-icon="pause"]')).filter(
+      (icon) => icon instanceof HTMLElement
+    );
+    const playIcons = Array.from(component.querySelectorAll('[data-lbcc-ticker-icon="play"]')).filter(
+      (icon) => icon instanceof HTMLElement
+    );
+
+    if (!(swiperElement instanceof HTMLElement)) {
+      return;
+    }
+
+    const slideCount = swiperElement.querySelectorAll(".swiper-slide").length;
+    const canRotate = slideCount > 1;
+    const reducedMotionEnabled = document.documentElement.dataset.reducedMotion === "true";
+    const autoplayRequested = component.dataset.autoplay === "true" && canRotate && !reducedMotionEnabled;
+
+    const swiper = new Swiper(swiperElement, {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      speed: 975,
+      loop: canRotate,
+      watchOverflow: true,
+      allowTouchMove: canRotate,
+      autoplay: autoplayRequested ? {
+        delay: 3900,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      } : false,
+      breakpoints: {
+        768: {
+          slidesPerView: "auto",
+          spaceBetween: 24
+        }
+      }
+    });
+
+    let isPaused = !autoplayRequested;
+
+    const setToggleState = (paused) => {
+      toggleButtons.forEach((button) => {
+        button.setAttribute("aria-pressed", paused ? "true" : "false");
+        button.setAttribute("aria-label", paused ? "Play ticker autoplay" : "Pause ticker autoplay");
+      });
+
+      pauseIcons.forEach((icon) => {
+        icon.classList.toggle("d-none", paused);
+      });
+
+      playIcons.forEach((icon) => {
+        icon.classList.toggle("d-none", !paused);
+      });
+    };
+
+    if (!canRotate) {
+      toggleButtons.forEach((button) => {
+        button.classList.add("d-none");
+      });
+    } else {
+      setToggleState(isPaused);
+
+      toggleButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          if (!swiper.autoplay) {
+            return;
+          }
+
+          if (isPaused) {
+            swiper.autoplay.start();
+          } else {
+            swiper.autoplay.stop();
+          }
+
+          isPaused = !isPaused;
+          setToggleState(isPaused);
+        });
+      });
+    }
 
     markInitialized(component);
   });
@@ -767,6 +1407,566 @@ const initHeroBackgroundParallax = () => {
   desktopQuery.addEventListener("change", queueParallaxUpdate);
 };
 
+const initDirectoryFilters = () => {
+  document.querySelectorAll("[data-lbcc-directory]").forEach((directory) => {
+    if (!(directory instanceof HTMLElement) || isInitialized(directory)) {
+      return;
+    }
+
+    const searchInput = directory.querySelector("[data-lbcc-directory-search]");
+    const departmentSelect = directory.querySelector("[data-lbcc-directory-department]");
+    const entries = Array.from(directory.querySelectorAll("[data-lbcc-directory-entry]")).filter(
+      (entry) => entry instanceof HTMLElement
+    );
+    const sections = Array.from(directory.querySelectorAll("[data-lbcc-directory-section]")).filter(
+      (section) => section instanceof HTMLElement
+    );
+    const emptyState = directory.querySelector("[data-lbcc-directory-empty]");
+
+    if (!(searchInput instanceof HTMLInputElement) || !(departmentSelect instanceof HTMLSelectElement) || !entries.length) {
+      return;
+    }
+
+    const normalizeValue = (value) => value.trim().toLowerCase();
+
+    const applyFilters = () => {
+      const searchQuery = normalizeValue(searchInput.value);
+      const selectedDepartment = departmentSelect.value;
+      let visibleEntries = 0;
+
+      entries.forEach((entry) => {
+        const searchIndex = entry.dataset.searchIndex || "";
+        const department = entry.dataset.department || "";
+        const matchesSearch = searchQuery === "" || searchIndex.includes(searchQuery);
+        const matchesDepartment = selectedDepartment === "" || department === selectedDepartment;
+        const isVisible = matchesSearch && matchesDepartment;
+
+        entry.classList.toggle("d-none", !isVisible);
+
+        if (isVisible) {
+          visibleEntries += 1;
+        }
+      });
+
+      sections.forEach((section) => {
+        const hasVisibleEntries = Array.from(section.querySelectorAll("[data-lbcc-directory-entry]")).some(
+          (entry) => entry instanceof HTMLElement && !entry.classList.contains("d-none")
+        );
+
+        section.classList.toggle("d-none", !hasVisibleEntries);
+      });
+
+      if (emptyState instanceof HTMLElement) {
+        emptyState.classList.toggle("d-none", visibleEntries !== 0);
+      }
+    };
+
+    searchInput.addEventListener("input", applyFilters);
+    departmentSelect.addEventListener("change", applyFilters);
+
+    applyFilters();
+    markInitialized(directory);
+  });
+};
+
+const initProgramsFilters = () => {
+  document.querySelectorAll("[data-lbcc-programs]").forEach((programsPage) => {
+    if (!(programsPage instanceof HTMLElement) || isInitialized(programsPage)) {
+      return;
+    }
+
+    const searchInput = programsPage.querySelector("[data-lbcc-programs-search]");
+    const departmentToggle = programsPage.querySelector("[data-lbcc-programs-department-toggle]");
+    const departmentLabel = programsPage.querySelector("[data-lbcc-programs-department-label]");
+    const sortSelect = programsPage.querySelector("[data-lbcc-programs-sort]");
+    const grid = programsPage.querySelector("[data-lbcc-programs-grid]");
+    const entries = Array.from(programsPage.querySelectorAll("[data-lbcc-program-card]")).filter(
+      (entry) => entry instanceof HTMLElement
+    );
+    const pathwayInputs = Array.from(programsPage.querySelectorAll("[data-lbcc-programs-pathway]")).filter(
+      (input) => input instanceof HTMLInputElement
+    );
+    const optionInputs = Array.from(programsPage.querySelectorAll("[data-lbcc-programs-option]")).filter(
+      (input) => input instanceof HTMLInputElement
+    );
+    const departmentOptions = Array.from(programsPage.querySelectorAll("[data-lbcc-programs-department-option]")).filter(
+      (option) => option instanceof HTMLButtonElement
+    );
+    const activeFilters = programsPage.querySelector("[data-lbcc-programs-active-filters]");
+    const countElement = programsPage.querySelector("[data-lbcc-programs-count]");
+    const emptyState = programsPage.querySelector("[data-lbcc-programs-empty]");
+    const filterCountBadges = Array.from(programsPage.querySelectorAll("[data-lbcc-programs-filter-count]")).filter(
+      (badge) => badge instanceof HTMLElement
+    );
+
+    if (
+      !(searchInput instanceof HTMLInputElement) ||
+      !(departmentToggle instanceof HTMLElement) ||
+      !(departmentLabel instanceof HTMLElement) ||
+      !(sortSelect instanceof HTMLSelectElement) ||
+      !(grid instanceof HTMLElement) ||
+      !entries.length
+    ) {
+      return;
+    }
+
+    const normalizeValue = (value) => value.trim().toLowerCase();
+    const getSelectedValues = (inputs) => inputs
+      .filter((input) => input.checked)
+      .map((input) => normalizeValue(input.value))
+      .filter(Boolean);
+    const getSelectedDepartmentValues = () => departmentOptions
+      .filter((option) => option.classList.contains("is-active"))
+      .map((option) => normalizeValue(option.dataset.value || ""))
+      .filter(Boolean);
+    const getEntryColumn = (entry) => entry.closest(".col");
+    const getEntryOptions = (entry) => {
+      const programOptions = entry.dataset.programOptions || "";
+
+      if (programOptions === "") {
+        return [];
+      }
+
+      return programOptions.split("|").map((value) => value.trim()).filter(Boolean);
+    };
+
+    const updateDepartmentLabel = () => {
+      const selectedLabels = departmentOptions
+        .filter((option) => option.classList.contains("is-active"))
+        .map((option) => option.dataset.label || "")
+        .filter(Boolean);
+      const placeholder = departmentToggle.dataset.placeholder || "Select departments...";
+
+      if (!selectedLabels.length) {
+        departmentLabel.textContent = placeholder;
+        return;
+      }
+
+      if (selectedLabels.length <= 2) {
+        departmentLabel.textContent = selectedLabels.join(", ");
+        return;
+      }
+
+      departmentLabel.textContent = `${selectedLabels.length} departments selected`;
+    };
+
+    const updateSelectedFilterCount = () => {
+      const totalSelected = getSelectedValues(pathwayInputs).length +
+        getSelectedValues(optionInputs).length +
+        getSelectedDepartmentValues().length;
+
+      filterCountBadges.forEach((badge) => {
+        badge.textContent = String(totalSelected);
+      });
+    };
+
+    const renderActiveFilters = () => {
+      if (!(activeFilters instanceof HTMLElement)) {
+        return;
+      }
+
+      const items = [];
+
+      pathwayInputs.forEach((input) => {
+        if (!input.checked) {
+          return;
+        }
+
+        const label = programsPage.querySelector(`label[for="${input.id}"] .programs-filter-option__label`);
+
+        items.push({
+          group: "pathway",
+          value: input.value,
+          label: label instanceof HTMLElement ? label.textContent.trim() : input.value
+        });
+      });
+
+      optionInputs.forEach((input) => {
+        if (!input.checked) {
+          return;
+        }
+
+        const label = programsPage.querySelector(`label[for="${input.id}"] .programs-filter-check__label`);
+
+        items.push({
+          group: "option",
+          value: input.value,
+          label: label instanceof HTMLElement ? label.textContent.trim() : input.value
+        });
+      });
+
+      departmentOptions.forEach((option) => {
+        if (!option.classList.contains("is-active")) {
+          return;
+        }
+
+        items.push({
+          group: "department",
+          value: option.dataset.value || "",
+          label: option.dataset.label || option.dataset.value || ""
+        });
+      });
+
+      activeFilters.innerHTML = "";
+      activeFilters.classList.toggle("d-none", items.length === 0);
+
+      items.forEach((item) => {
+        const chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "programs-active-filter btn btn-sm btn-outline-secondary rounded-pill d-inline-flex align-items-center gap-2";
+        chip.dataset.lbccProgramsActiveFilter = "true";
+        chip.dataset.filterGroup = item.group;
+        chip.dataset.filterValue = item.value;
+        chip.innerHTML = `<span>${item.label}</span><span class="fa-sharp fa-regular fa-xmark" aria-hidden="true"></span>`;
+        activeFilters.appendChild(chip);
+      });
+    };
+
+    const setDepartmentOptionState = (option, active) => {
+      option.classList.toggle("is-active", active);
+      option.setAttribute("aria-pressed", active ? "true" : "false");
+    };
+
+    const sortEntries = () => {
+      const sortValue = sortSelect.value;
+      const sortedEntries = [...entries].sort((left, right) => {
+        const leftTitle = left.dataset.title || "";
+        const rightTitle = right.dataset.title || "";
+
+        return sortValue === "za"
+          ? rightTitle.localeCompare(leftTitle)
+          : leftTitle.localeCompare(rightTitle);
+      });
+
+      sortedEntries.forEach((entry) => {
+        const column = getEntryColumn(entry);
+
+        if (!(column instanceof HTMLElement)) {
+          return;
+        }
+
+        grid.appendChild(column);
+      });
+    };
+
+    const applyFilters = () => {
+      const searchQuery = normalizeValue(searchInput.value);
+      const selectedDepartments = getSelectedDepartmentValues();
+      const selectedPathways = getSelectedValues(pathwayInputs);
+      const selectedOptions = getSelectedValues(optionInputs);
+      let visibleEntries = 0;
+
+      entries.forEach((entry) => {
+        const column = getEntryColumn(entry);
+
+        if (!(column instanceof HTMLElement)) {
+          return;
+        }
+
+        const searchIndex = entry.dataset.searchIndex || "";
+        const departmentValue = (entry.dataset.department || "").trim();
+        const entryPathway = (entry.dataset.pathway || "").trim();
+        const entryOptions = getEntryOptions(entry);
+        const matchesSearch = searchQuery === "" || searchIndex.includes(searchQuery);
+        const matchesDepartment = selectedDepartments.length === 0 || selectedDepartments.includes(departmentValue);
+        const matchesPathway = selectedPathways.length === 0 || selectedPathways.includes(entryPathway);
+        const matchesProgramOption = selectedOptions.length === 0 || selectedOptions.some((option) => entryOptions.includes(option));
+        const isVisible = matchesSearch && matchesDepartment && matchesPathway && matchesProgramOption;
+
+        column.classList.toggle("d-none", !isVisible);
+
+        if (isVisible) {
+          visibleEntries += 1;
+        }
+      });
+
+      if (countElement instanceof HTMLElement) {
+        countElement.textContent = `Showing ${visibleEntries} program${visibleEntries === 1 ? "" : "s"}`;
+      }
+
+      if (emptyState instanceof HTMLElement) {
+        emptyState.classList.toggle("d-none", visibleEntries !== 0);
+      }
+
+      updateDepartmentLabel();
+      updateSelectedFilterCount();
+      renderActiveFilters();
+      sortEntries();
+    };
+
+    searchInput.addEventListener("input", applyFilters);
+    sortSelect.addEventListener("change", applyFilters);
+
+    pathwayInputs.forEach((input) => {
+      input.addEventListener("change", applyFilters);
+    });
+
+    optionInputs.forEach((input) => {
+      input.addEventListener("change", applyFilters);
+    });
+
+    departmentOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        setDepartmentOptionState(option, !option.classList.contains("is-active"));
+        applyFilters();
+      });
+    });
+
+    if (activeFilters instanceof HTMLElement) {
+      activeFilters.addEventListener("click", (event) => {
+        const target = event.target;
+
+        if (!(target instanceof HTMLElement)) {
+          return;
+        }
+
+        const chip = target.closest("[data-lbcc-programs-active-filter]");
+
+        if (!(chip instanceof HTMLButtonElement)) {
+          return;
+        }
+
+        const filterGroup = chip.dataset.filterGroup || "";
+        const filterValue = chip.dataset.filterValue || "";
+
+        if (filterGroup === "pathway") {
+          const input = pathwayInputs.find((item) => normalizeValue(item.value) === normalizeValue(filterValue));
+
+          if (input) {
+            input.checked = false;
+          }
+        } else if (filterGroup === "option") {
+          const input = optionInputs.find((item) => normalizeValue(item.value) === normalizeValue(filterValue));
+
+          if (input) {
+            input.checked = false;
+          }
+        } else if (filterGroup === "department") {
+          const option = departmentOptions.find((item) => normalizeValue(item.dataset.value || "") === normalizeValue(filterValue));
+
+          if (option) {
+            setDepartmentOptionState(option, false);
+          }
+        }
+
+        applyFilters();
+      });
+    }
+
+    applyFilters();
+    markInitialized(programsPage);
+  });
+};
+
+const initSupportMatrixFilters = () => {
+  document.querySelectorAll("[data-lbcc-support-matrix]").forEach((matrix) => {
+    if (!(matrix instanceof HTMLElement) || isInitialized(matrix)) {
+      return;
+    }
+
+    const needTrigger = matrix.querySelector("[data-lbcc-support-need]");
+    const needValueInput = matrix.querySelector("[data-lbcc-support-need-value]");
+    const needLabel = matrix.querySelector("[data-lbcc-support-need-label]");
+    const needOptions = Array.from(matrix.querySelectorAll("[data-lbcc-support-need-option]")).filter(
+      (option) => option instanceof HTMLButtonElement
+    );
+    const audienceSelect = matrix.querySelector("[data-lbcc-support-audience]");
+    const cards = Array.from(matrix.querySelectorAll("[data-lbcc-support-card]")).filter(
+      (card) => card instanceof HTMLElement
+    );
+    const emptyState = matrix.querySelector("[data-lbcc-support-empty]");
+    const countElement = matrix.querySelector("[data-lbcc-support-count]");
+
+    if (!cards.length) {
+      return;
+    }
+
+    const getSelectedValue = (element) => {
+      if (element instanceof HTMLSelectElement || element instanceof HTMLInputElement) {
+        return element.value.trim();
+      }
+
+      if (element instanceof HTMLElement) {
+        return (element.dataset.selectedValue || "").trim();
+      }
+
+      return "";
+    };
+
+    const getCardValues = (element, key) => {
+      const rawValue = element.dataset[key] || "";
+
+      if (rawValue === "") {
+        return [];
+      }
+
+      return rawValue.split("|").map((value) => value.trim()).filter(Boolean);
+    };
+
+    const updateCount = (count) => {
+      if (!(countElement instanceof HTMLElement)) {
+        return;
+      }
+
+      countElement.textContent = `Showing ${count} resource${count === 1 ? "" : "s"}`;
+    };
+
+    const syncNeedOptions = (selectedValue) => {
+      needOptions.forEach((option) => {
+        const isActive = option.dataset.value === selectedValue && selectedValue !== "";
+
+        option.classList.toggle("is-active", isActive);
+        option.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+    };
+
+    const setNeedValue = (value, labelText) => {
+      const normalizedValue = value.trim();
+
+      if (needValueInput instanceof HTMLInputElement) {
+        needValueInput.value = normalizedValue;
+      }
+
+      if (needTrigger instanceof HTMLElement) {
+        needTrigger.dataset.selectedValue = normalizedValue;
+      }
+
+      if (needLabel instanceof HTMLElement) {
+        const placeholder = needTrigger instanceof HTMLElement ? (needTrigger.dataset.placeholder || "") : "";
+        needLabel.textContent = normalizedValue === "" ? placeholder : labelText;
+      }
+
+      syncNeedOptions(normalizedValue);
+    };
+
+    const applyFilters = () => {
+      const selectedNeed = getSelectedValue(needValueInput);
+      const selectedAudience = getSelectedValue(audienceSelect);
+      let visibleCards = 0;
+
+      cards.forEach((card) => {
+        const needs = getCardValues(card, "needs");
+        const audiences = getCardValues(card, "audiences");
+        const matchesNeed = selectedNeed === "" || needs.includes(selectedNeed);
+        const matchesAudience = selectedAudience === "" || audiences.includes(selectedAudience);
+        const isVisible = matchesNeed && matchesAudience;
+
+        card.classList.toggle("d-none", !isVisible);
+
+        if (isVisible) {
+          visibleCards += 1;
+        }
+      });
+
+      if (emptyState instanceof HTMLElement) {
+        emptyState.classList.toggle("d-none", visibleCards !== 0);
+      }
+
+      updateCount(visibleCards);
+    };
+
+    if (audienceSelect instanceof HTMLSelectElement) {
+      audienceSelect.addEventListener("change", applyFilters);
+    }
+
+    needOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        const optionValue = (option.dataset.value || "").trim();
+        const optionLabel = option.dataset.label || "";
+        const currentValue = getSelectedValue(needValueInput);
+        const nextValue = optionValue === currentValue ? "" : optionValue;
+        const nextLabel = optionValue === currentValue ? "" : optionLabel;
+
+        setNeedValue(nextValue, nextLabel);
+        applyFilters();
+
+        if (needTrigger instanceof HTMLElement) {
+          Dropdown.getOrCreateInstance(needTrigger).hide();
+        }
+      });
+    });
+
+    setNeedValue(getSelectedValue(needValueInput), needLabel instanceof HTMLElement ? needLabel.textContent || "" : "");
+    applyFilters();
+    markInitialized(matrix);
+  });
+};
+
+const initAzIndexSpy = () => {
+  document.querySelectorAll("[data-lbcc-az-index]").forEach((index) => {
+    if (!(index instanceof HTMLElement) || isInitialized(index)) {
+      return;
+    }
+
+    const links = Array.from(document.querySelectorAll("[data-lbcc-az-link]")).filter(
+      (link) => link instanceof HTMLAnchorElement
+    );
+    const sectionMap = new Map();
+    let ticking = false;
+
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
+
+      if (!href || !href.startsWith("#")) {
+        return;
+      }
+
+      const target = document.querySelector(href);
+
+      if (target instanceof HTMLElement) {
+        sectionMap.set(link, target);
+      }
+    });
+
+    if (!sectionMap.size) {
+      return;
+    }
+
+    const setActiveLink = (activeLink) => {
+      links.forEach((link) => {
+        link.classList.toggle("is-active", link === activeLink);
+      });
+    };
+
+    const updateActiveLink = () => {
+      ticking = false;
+
+      const offset = 160;
+      let activeLink = null;
+
+      sectionMap.forEach((section, link) => {
+        const sectionTop = section.getBoundingClientRect().top;
+
+        if (sectionTop <= offset) {
+          activeLink = link;
+        }
+      });
+
+      if (!activeLink) {
+        const firstLink = sectionMap.keys().next();
+        activeLink = firstLink.done ? null : firstLink.value;
+      }
+
+      setActiveLink(activeLink);
+    };
+
+    const queueActiveUpdate = () => {
+      if (ticking) {
+        return;
+      }
+
+      ticking = true;
+      window.requestAnimationFrame(updateActiveLink);
+    };
+
+    updateActiveLink();
+    window.addEventListener("scroll", queueActiveUpdate, { passive: true });
+    window.addEventListener("resize", queueActiveUpdate);
+
+    markInitialized(index);
+  });
+};
+
 const initMatchHeightUtilities = () => {
   if (typeof $.fn.matchHeight !== "function") {
     return;
@@ -799,7 +1999,9 @@ LBCC.MatchHeight = {
 document.addEventListener("DOMContentLoaded", () => {
   syncReducedMotionPreference();
   initBootstrapSet(".accordion .accordion-collapse", Collapse);
+  initBootstrapSet("[data-bs-toggle=\"tab\"]", Tab);
   initBootstrapSet("[data-bs-toggle=\"dropdown\"]", Dropdown);
+  initBootstrapSet("[data-bs-toggle=\"tooltip\"]", Tooltip);
   initBootstrapSet(".modal", Modal);
   initBootstrapSet(".offcanvas", Offcanvas);
   initGoogleTranslateModal();
@@ -809,10 +2011,20 @@ document.addEventListener("DOMContentLoaded", () => {
   initDesktopSearchCollapseFocus();
   syncCollapseMenuTriggers();
   initSectionNavMenu();
+  initCarouselAnything();
   initFooterIHeartLb();
+  initTestimonialCarousel();
+  initVerticalSlider();
+  initFadeSlider();
+  initQuietVideo();
+  initTicker();
   initHeroMediaSwipers();
   initHeroMediaControls();
   initHeroBackgroundParallax();
+  initDirectoryFilters();
+  initProgramsFilters();
+  initSupportMatrixFilters();
+  initAzIndexSpy();
   initMatchHeightUtilities();
   LBCC.Animation.init();
 });
