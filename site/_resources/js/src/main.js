@@ -38,6 +38,14 @@ const initBootstrapSet = (selector, Constructor) => {
   });
 };
 
+const moveModalsToBody = () => {
+  document.querySelectorAll(".modal").forEach((modal) => {
+    if (modal.parentElement !== document.body) {
+      document.body.append(modal);
+    }
+  });
+};
+
 const initStickyHeader = () => {
   const header = document.querySelector(".site-header");
 
@@ -2079,6 +2087,7 @@ LBCC.MatchHeight = {
 
 document.addEventListener("DOMContentLoaded", () => {
   syncReducedMotionPreference();
+  moveModalsToBody();
   initBootstrapSet(".accordion .accordion-collapse", Collapse);
   initBootstrapSet("[data-bs-toggle=\"tab\"]", Tab);
   initBootstrapSet("[data-bs-toggle=\"dropdown\"]", Dropdown);

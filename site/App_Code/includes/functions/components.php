@@ -2230,6 +2230,60 @@ function component_quiet_video(
     </div>
 <?php }
 
+// Video Modal
+// $youtubeEmbedCode accepts trusted YouTube iframe embed markup.
+function component_video_modal(
+    $image = '',
+    $youtubeEmbedCode = '',
+    $title = ''
+) {
+    static $videoModalCount = 0;
+
+    $image = trim((string) $image);
+    $youtubeEmbedCode = trim((string) $youtubeEmbedCode);
+    $title = trim((string) $title);
+
+    if ($image === '' || $youtubeEmbedCode === '') {
+        return;
+    }
+
+    $videoModalCount++;
+    $modalId = 'video-modal-' . $videoModalCount;
+    $modalLabelId = $modalId . '-title';
+    ?>
+    <div class="component-video-modal">
+        <button
+            class="component-video-modal__trigger position-relative d-flex align-items-end justify-content-between overflow-hidden w-100 border-0 p-3 text-start"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#<?php echo lbcc_escape($modalId); ?>"
+            aria-label="Play<?php if ($title !== '') { ?> <?php echo lbcc_escape($title); ?><?php } ?>"
+        >
+            <img class="component-video-modal__image position-absolute top-0 start-0 w-100 h-100" src="<?php echo lbcc_escape(lbcc_url($image)); ?>" alt="">
+            <span class="btn btn-primary btn-circle component-video-modal__play position-relative" aria-hidden="true">
+                <span class="fa-sharp fa-solid fa-play"></span>
+            </span>
+            <?php if ($title !== '') { ?>
+                <span class="component-video-modal__label position-relative"><?php echo lbcc_escape($title); ?></span>
+            <?php } ?>
+        </button>
+
+        <div class="modal fade" id="<?php echo lbcc_escape($modalId); ?>" tabindex="-1" aria-labelledby="<?php echo lbcc_escape($modalLabelId); ?>" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content overflow-hidden border-0 rounded-4">
+                    <div class="modal-body position-relative p-0">
+                        <h2 id="<?php echo lbcc_escape($modalLabelId); ?>" class="visually-hidden"><?php echo lbcc_escape($title !== '' ? $title : 'Video'); ?></h2>
+                        <button class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-1" type="button" data-bs-dismiss="modal" aria-label="Close video"></button>
+                        <div class="ratio ratio-16x9 component-video-modal__embed">
+                            <?php echo $youtubeEmbedCode; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php }
+
 // Ticker
 // $items is an array of arrays with:
 // text, url, target
@@ -2320,7 +2374,7 @@ function component_ticker(
 
 // Social Media
 // $items accepts arrays with: link, icon, sr_label, target (optional; defaults to true)
-// $style options: light (white) or dark (gray-900)
+// $style options: light (white), dark (gray-900), or primary
 // $size options: s, m, or l
 function component_social_media(
     $items = [],
@@ -2332,7 +2386,7 @@ function component_social_media(
         return;
     }
 
-    $style = in_array($style, ['light', 'dark'], true) ? $style : 'light';
+    $style = in_array($style, ['light', 'dark', 'primary'], true) ? $style : 'light';
     $size = in_array($size, ['s', 'm', 'l'], true) ? $size : 'm';
     $sizeClasses = [
         's' => 'fs-6',
@@ -2346,7 +2400,7 @@ function component_social_media(
         'flex-wrap',
         'align-items-center',
         'gap-3',
-        $style === 'light' ? 'text-white' : 'text-dark',
+        $style === 'light' ? 'text-white' : ($style === 'primary' ? 'text-primary' : 'text-dark'),
         $sizeClasses[$size]
     ];
 

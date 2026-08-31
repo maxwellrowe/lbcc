@@ -122,6 +122,17 @@
 <div class="card bg-transparent rounded-5 shadow-none border-0 mt-2">
     <div class="card-body d-flex align-items-center justify-content-start flex-column gap-4">
         <span class="eyebrow">Connect with LBCC</span>
-        <?php include __DIR__ . '/social-media.php'; ?>
+        <?php component_social_media(
+            [
+                ['link' => 'https://www.tiktok.com/@longbeachcitycollege', 'icon' => 'fa-tiktok', 'sr_label' => 'LBCC on TikTok'],
+                ['link' => 'https://www.instagram.com/lbcitycollege', 'icon' => 'fa-instagram', 'sr_label' => 'LBCC on Instagram'],
+                ['link' => 'https://x.com/LBCityCollege', 'icon' => 'fa-x-twitter', 'sr_label' => 'LBCC on X'],
+                ['link' => 'https://www.facebook.com/lbcitycollege', 'icon' => 'fa-facebook', 'sr_label' => 'LBCC on Facebook'],
+                ['link' => 'https://www.youtube.com/user/LongBeachCityCollege', 'icon' => 'fa-youtube', 'sr_label' => 'LBCC on YouTube']
+            ],
+            'primary',
+            'm',
+            ['justify-content-center']
+        ); ?>
     </div>
 </div>

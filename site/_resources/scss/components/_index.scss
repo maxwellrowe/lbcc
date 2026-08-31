@@ -1533,6 +1533,43 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
     color: var(--bs-primary) !important;
 }
 
+.component-social-media--primary .component-social-media__link:hover,
+.component-social-media--primary .component-social-media__link:focus-visible {
+    color: var(--bs-secondary) !important;
+}
+
+.component-video-modal__trigger {
+    aspect-ratio: 843 / 442;
+    border-radius: var(--bs-border-radius-lg);
+    box-shadow: var(--lbcc-shadow);
+}
+
+.component-video-modal__image {
+    object-fit: cover;
+}
+
+.component-video-modal__play {
+    --lbcc-btn-circle-size: 3rem;
+}
+
+.component-video-modal__label {
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--bs-border-radius-sm);
+    background: rgba(var(--color-gray-900-rgb), 0.48);
+    color: var(--bs-white);
+    font-family: var(--lbcc-font-family-label);
+    font-size: var(--lbcc-font-size-sm);
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.component-video-modal__embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
 .component-events-list {
     background: transparent;
 }

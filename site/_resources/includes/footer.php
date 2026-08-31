@@ -11,8 +11,18 @@ $wordmark = lbcc_url($config['logo_wordmark']);
             <?php component_footer_i_heart_lb(); ?>
         </div>
 
-        <div class="d-flex flex-wrap gap-3 py-4">
-            <?php include __DIR__ . '/navigation/social-media.php'; ?>
+        <div class="py-4">
+            <?php component_social_media(
+                [
+                    ['link' => 'https://www.tiktok.com/@longbeachcitycollege', 'icon' => 'fa-tiktok', 'sr_label' => 'LBCC on TikTok'],
+                    ['link' => 'https://www.instagram.com/lbcitycollege', 'icon' => 'fa-instagram', 'sr_label' => 'LBCC on Instagram'],
+                    ['link' => 'https://x.com/LBCityCollege', 'icon' => 'fa-x-twitter', 'sr_label' => 'LBCC on X'],
+                    ['link' => 'https://www.facebook.com/lbcitycollege', 'icon' => 'fa-facebook', 'sr_label' => 'LBCC on Facebook'],
+                    ['link' => 'https://www.youtube.com/user/LongBeachCityCollege', 'icon' => 'fa-youtube', 'sr_label' => 'LBCC on YouTube']
+                ],
+                'light',
+                'm'
+            ); ?>
         </div>
 
         <div class="row g-4 g-xl-5 pb-4">

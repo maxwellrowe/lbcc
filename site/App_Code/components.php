@@ -35,6 +35,7 @@ $componentAnchorItems = [
     ['link' => '#vertical-slider-heading', 'title' => 'Vertical Slider'],
     ['link' => '#fade-slider-heading', 'title' => 'Fade Slider'],
     ['link' => '#quiet-video-heading', 'title' => 'Quiet Video'],
+    ['link' => '#video-modal-heading', 'title' => 'Video Modal'],
     ['link' => '#ticker-heading', 'title' => 'Ticker'],
     ['link' => '#spacer-heading', 'title' => 'Spacer']
 ];
@@ -88,6 +89,7 @@ $componentAnchorGroups = array_chunk($componentAnchorItems, (int) ceil(count($co
         <?php include $componentIncludesDir . '/vertical-slider.php'; ?>
         <?php include $componentIncludesDir . '/fade-slider.php'; ?>
         <?php include $componentIncludesDir . '/quiet-video.php'; ?>
+        <?php include $componentIncludesDir . '/video-modal.php'; ?>
         <?php include $componentIncludesDir . '/ticker.php'; ?>
         <?php include $componentIncludesDir . '/spacer.php'; ?>
     </div>

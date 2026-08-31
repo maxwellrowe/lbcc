@@ -6,7 +6,7 @@ $page = lbcc_resolve_page([
     'description' => 'Sample basic page template for reviewing typography and content flow.',
     'section_nav' => true,
     'section_nav_include' => __DIR__ . '/navs/section-nav-default.php',
-    'sidebar' => false,
+    'sidebar' => true,
     'sidebar_include' => __DIR__ . '/navs/section-nav-default.php',
     'custom_hero' => false
 ]);
@@ -20,8 +20,10 @@ $page = lbcc_resolve_page([
 <?php // Include Custom Hero Component here... ?>
 <?php } ?>
 <main id="main-content">
-    <section class="section-content-only">
+    <section>
         <div class="container-xxl">
+            <p class="lead fw-bold">A sidenav should never be used without first a section nav. In most instances it will not be needed, but if it is, it is considered the tertiary navigation option.</p>
+            <hr />
             <h2>Heading 2</h2>
             <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet nunc ac orci scelerisque vulputate. Aliquam erat volutpat. In sit amet magna eu sapien dapibus feugiat. Sed lacinia malesuada felis, id tincidunt nisl facilisis ut.</p>
             <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque eu risus nec urna tristique porttitor. Duis non risus a lorem porta accumsan. Vivamus ac pulvinar leo. Sed tincidunt, lorem sed laoreet tristique, ligula libero condimentum justo, vitae luctus diam lacus non leo.</p>
