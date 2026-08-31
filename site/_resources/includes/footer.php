@@ -2,7 +2,7 @@
 $config = lbcc_site_config();
 $wordmark = lbcc_url($config['logo_wordmark']);
 ?>
-<footer class="site-footer mt-5 pt-5 text-white">
+<footer class="site-footer pt-5 text-white">
     <div class="container-xxl">
         <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-md-between gap-4 pb-4 border-bottom border-white border-opacity-10">
             <a class="d-inline-flex align-items-center" href="<?php echo lbcc_escape(lbcc_url('/')); ?>">

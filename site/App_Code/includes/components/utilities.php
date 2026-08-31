@@ -65,6 +65,10 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>lbcc-animate lbcc-fade</td>
+                    <td>Fade in animation with no directional movement.</td>
+                </tr>
+                <tr>
                     <td>lbcc-animate lbcc-fade-up</td>
                     <td>Fade up animation.</td>
                 </tr>
@@ -156,6 +160,24 @@
                 <div class="bg-surface-sun-haze rounded p-4" style="min-height: 150px;"></div>
             </div>
         </div>
+    </div>
+
+    <h3 class="h4 mb-3">Font Family</h3>
+    <div class="table-responsive mb-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Function</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>font-label</code></td>
+                    <td>Applies the LBCC label font family.</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <h3 class="h4 mb-3">Padding, Margin And Custom Class</h3>

@@ -61,7 +61,6 @@
   --color-sun-soft-rgb: 255, 233, 199;
   --color-sun-haze: #{$color-sun-haze};
   --color-sun-haze-rgb: 230, 243, 242;
-  --color-sunhaze-gradient: linear-gradient(180deg, var(--color-sun-haze) 0%, var(--color-sun-soft) 100%);
   --color-water-gradient: linear-gradient(180deg, var(--color-sun-haze) 0%, var(--color-sun-haze) 50%, var(--color-teal-100) 100%);
   --lbcc-font-family-body: #{$lbcc-font-family-body};
   --lbcc-font-family-heading: #{$lbcc-font-family-heading};
@@ -260,6 +259,10 @@ a.btn[target="_blank"]::after {
 .form-control,
 .form-select {
   min-height: 3.5rem;
+
+  @supports (corner-shape: squircle) {
+    corner-shape: squircle;
+  }
 }
 
 textarea.form-control {

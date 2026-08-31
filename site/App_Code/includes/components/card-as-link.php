@@ -107,6 +107,12 @@
                     <td>Main card heading output as an <code>h2</code>.</td>
                 </tr>
                 <tr>
+                    <td>Title Size</td>
+                    <td>string</td>
+                    <td>h4</td>
+                    <td>Bootstrap heading class applied to the title. Supported values are <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>, and <code>h6</code>.</td>
+                </tr>
+                <tr>
                     <td>Description</td>
                     <td>string</td>
                     <td>empty</td>

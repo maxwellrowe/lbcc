@@ -1,6 +1,6 @@
 <section aria-labelledby="events-component-heading" class="mt-5 mb-5">
     <h2 id="events-component-heading">Events</h2>
-    <p class="text-body-secondary mb-4">An event listing built around the Title with CTAs header and a raised list-group item pattern. The three variations below map to the default, mobile-vertical, and horizontal layouts shown in Figma.</p>
+    <p class="text-body-secondary mb-4">An event listing built around a raised list-group item pattern. The three variations below map to the default, mobile-vertical, and horizontal layouts shown in Figma.</p>
 
     <h3 class="h5 mb-3">Example</h3>
     <div class="mb-5">
@@ -34,12 +34,7 @@
                             'category' => 'Academic Calendar'
                         ]
                     ],
-                    'default',
-                    'Events',
-                    [
-                        ['text' => 'Academic Calendar', 'url' => '#'],
-                        ['text' => 'All Events', 'url' => '#']
-                    ]
+                    'default'
                 );
                 ?>
             </div>
@@ -73,12 +68,7 @@
                             'category' => 'Academic Calendar'
                         ]
                     ],
-                    'mobile-vert',
-                    'Events',
-                    [
-                        ['text' => 'Academic Calendar', 'url' => '#'],
-                        ['text' => 'All Events', 'url' => '#']
-                    ]
+                    'mobile-vert'
                 );
                 ?>
             </div>
@@ -112,12 +102,7 @@
                             'category' => 'Academic Calendar'
                         ]
                     ],
-                    'horizontal',
-                    'Events',
-                    [
-                        ['text' => 'Academic Calendar', 'url' => '#'],
-                        ['text' => 'All Events', 'url' => '#']
-                    ]
+                    'horizontal'
                 );
                 ?>
             </div>
@@ -147,18 +132,6 @@
                     <td>string</td>
                     <td>default</td>
                     <td>Supported values are <code>default</code>, <code>mobile-vert</code>, and <code>horizontal</code>.</td>
-                </tr>
-                <tr>
-                    <td>Title</td>
-                    <td>string</td>
-                    <td>Events</td>
-                    <td>Header title shown in the title-with-line row.</td>
-                </tr>
-                <tr>
-                    <td>Buttons</td>
-                    <td>array</td>
-                    <td>empty</td>
-                    <td>Small pill actions shown in the header, for example Academic Calendar and All Events.</td>
                 </tr>
                 <tr>
                     <td>Item Title</td>

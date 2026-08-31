@@ -149,6 +149,34 @@
                 );
                 ?>
             </div>
+            <div class="col-lg-6">
+                <div class="bg-dark rounded p-4 h-100">
+                    <p class="eyebrow-sm text-white mb-2">Row / Light on Dark</p>
+                    <?php
+                    component_buttons(
+                        [
+                            [
+                                'style' => 'btn-outline-light',
+                                'text' => 'Explore LBCC',
+                                'url' => '#',
+                                'size' => '',
+                                'icon' => ''
+                            ],
+                            [
+                                'style' => 'btn-outline-light',
+                                'text' => 'Request Information',
+                                'url' => '#',
+                                'size' => '',
+                                'icon' => 'fa-arrow-right',
+                                'icon_position' => 'end'
+                            ]
+                        ],
+                        'row',
+                        3
+                    );
+                    ?>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -186,7 +214,7 @@
                     <td>Style</td>
                     <td>string</td>
                     <td>btn-primary</td>
-                    <td>Per-button style class, for example <code>btn-primary</code>, <code>btn-secondary</code>, <code>btn-outline-secondary</code>, or <code>btn-dark</code>.</td>
+                    <td>Per-button style class, for example <code>btn-primary</code>, <code>btn-secondary</code>, <code>btn-outline-secondary</code>, <code>btn-dark</code>, or <code>btn-outline-light</code>.</td>
                 </tr>
                 <tr>
                     <td>Link Text</td>

@@ -55,6 +55,10 @@
   font-size: var(--lbcc-font-size-8xl) !important;
 }
 
+.font-label {
+  font-family: var(--lbcc-font-family-label) !important;
+}
+
 .bg-surface-subtle {
   background: var(--color-gray-50);
 }
@@ -63,12 +67,10 @@
   background: var(--color-sand);
 }
 
-.bg-water,
 .bg-surface-water {
   background: var(--color-teal-50);
 }
 
-.bg-sunhaze,
 .bg-surface-sun-haze {
   background: var(--color-sun-haze);
 }
@@ -80,6 +82,10 @@
 
 .bg-teal-800 {
   background: var(--color-teal-800);
+}
+
+.bg-teal-200 {
+  background: var(--color-teal-200);
 }
 
 .bg-trans-teal {
@@ -100,10 +106,6 @@
 
 .bg-yellow-300 {
   background: var(--color-yellow-300);
-}
-
-.bg-sunhaze-gradient {
-  background: var(--color-sunhaze-gradient);
 }
 
 .bg-water-gradient {

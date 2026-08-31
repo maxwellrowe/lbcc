@@ -68,6 +68,30 @@
                 ?>
             </div>
             <div class="col">
+                <p class="eyebrow-sm mb-2">Surface Haze / Default</p>
+                <?php
+                component_list_group(
+                    [
+                        [
+                            'link' => '#',
+                            'title' => 'Heading',
+                            'description' => 'Lorem ipsum dolor sit amet',
+                            'label' => 'Here Is A Label'
+                        ],
+                        [
+                            'link' => '#',
+                            'title' => 'Heading',
+                            'description' => 'Learn more about student support',
+                            'label' => 'Here Is A Label',
+                            'left_icon' => 'fa-building-columns'
+                        ]
+                    ],
+                    'surface-haze',
+                    'default'
+                );
+                ?>
+            </div>
+            <div class="col">
                 <p class="eyebrow-sm mb-2">White / Default</p>
                 <?php
                 component_list_group(
@@ -199,7 +223,7 @@
                     <td>Style</td>
                     <td>string</td>
                     <td>surface</td>
-                    <td>Supported values are <code>surface</code>, <code>white</code>, and <code>lined</code>.</td>
+                    <td>Supported values are <code>surface</code>, <code>surface-haze</code>, <code>white</code>, and <code>lined</code>.</td>
                 </tr>
                 <tr>
                     <td>Size</td>

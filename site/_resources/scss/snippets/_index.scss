@@ -1,3 +1,70 @@
+.section-content-only > .container-xxl {
+    max-width: 768px;
+}
+
+.snippet-section-background-video {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    &__media,
+    &__overlay {
+        display: none;
+    }
+
+    &__content {
+        position: relative;
+        z-index: 2;
+    }
+
+    @include media-breakpoint-up(lg) {
+        min-height: 30rem;
+        display: flex;
+        align-items: center;
+
+        &__media,
+        &__overlay {
+            display: block;
+            position: absolute;
+            inset: 0 0 0 auto;
+            width: calc(50vw - 30rem);
+        }
+
+        &__media {
+            z-index: 0;
+            border-bottom-right-radius: var(--bs-border-radius-xxl);
+            overflow: hidden;
+
+            video {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &__overlay {
+            z-index: 1;
+            background: rgba(var(--color-teal-400-rgb), 0.48);
+            border-bottom-right-radius: var(--bs-border-radius-xxl);
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        &__media,
+        &__overlay {
+            width: calc(50vw - 35.625rem);
+        }
+    }
+
+    @include media-breakpoint-up(xxl) {
+        &__media,
+        &__overlay {
+            width: calc(50vw - 40rem);
+        }
+    }
+}
+
 .component-carousel-anything {
     --lbcc-carousel-control-size: 2rem;
     overflow-x: clip;

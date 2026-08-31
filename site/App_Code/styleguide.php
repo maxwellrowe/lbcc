@@ -348,17 +348,17 @@ $surfaceUtilityClasses = [
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-4">
-                        <div class="rounded p-4 bg-water border">
-                            <p class="mb-1 fw-semibold">.bg-water</p>
+                        <div class="rounded p-4 bg-surface-water border">
+                            <p class="mb-1 fw-semibold">.bg-surface-water</p>
                             <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-teal-50</code></p>
                             <p class="mb-0"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-4">
-                        <div class="rounded p-4 bg-sunhaze-gradient border">
-                            <p class="mb-1 fw-semibold">.bg-sunhaze-gradient</p>
-                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <span class="text-body-secondary">Gradient utility</span></p>
-                            <p class="mb-0"><code>#E6F3F2 → #FFE9C7</code></p>
+                        <div class="rounded p-4 bg-surface-sun-haze border">
+                            <p class="mb-1 fw-semibold">.bg-surface-sun-haze</p>
+                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-sun-haze</code></p>
+                            <p class="mb-0"><small class="text-body-secondary">CSS Var:</small> <code>--color-sun-haze</code></p>
                         </div>
                     </div>
                 </div>

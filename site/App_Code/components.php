@@ -22,10 +22,13 @@ $componentAnchorItems = [
     ['link' => '#contact-card-heading', 'title' => 'Contact Card'],
     ['link' => '#degree-certificate-heading', 'title' => 'Degree / Certificate'],
     ['link' => '#program-card-heading', 'title' => 'Program Card'],
+    ['link' => '#search-programs-heading', 'title' => 'Search Programs'],
     ['link' => '#support-matrix-heading', 'title' => 'Support Matrix'],
     ['link' => '#list-group-heading', 'title' => 'List Group'],
     ['link' => '#events-component-heading', 'title' => 'Events'],
+    ['link' => '#news-slider-heading', 'title' => 'News Slider'],
     ['link' => '#badge-heading', 'title' => 'Badge'],
+    ['link' => '#social-media-heading', 'title' => 'Social Media'],
     ['link' => '#footer-i-heart-lb-heading', 'title' => 'Footer I Heart LB'],
     ['link' => '#quicklinks-heading', 'title' => 'Quicklinks'],
     ['link' => '#testimonial-carousel-heading', 'title' => 'Testimonial Carousel'],
@@ -72,10 +75,13 @@ $componentAnchorGroups = array_chunk($componentAnchorItems, (int) ceil(count($co
         <?php include $componentIncludesDir . '/contact-card.php'; ?>
         <?php include $componentIncludesDir . '/degree-certificate.php'; ?>
         <?php include $componentIncludesDir . '/program-card.php'; ?>
+        <?php include $componentIncludesDir . '/search-programs.php'; ?>
         <?php include $componentIncludesDir . '/support-matrix.php'; ?>
         <?php include $componentIncludesDir . '/list-group.php'; ?>
         <?php include $componentIncludesDir . '/events.php'; ?>
+        <?php include $componentIncludesDir . '/news-slider.php'; ?>
         <?php include $componentIncludesDir . '/badge.php'; ?>
+        <?php include $componentIncludesDir . '/social-media.php'; ?>
         <?php include $componentIncludesDir . '/footer-i-heart-lb.php'; ?>
         <?php include $componentIncludesDir . '/quicklinks.php'; ?>
         <?php include $componentIncludesDir . '/testimonial-carousel.php'; ?>

@@ -277,7 +277,8 @@ function lbcc_component_card_image_bg_shell(
     $rootClasses = [],
     $attributes = [],
     $contentIsHtml = false,
-    $showTopIcon = true
+    $showTopIcon = true,
+    $titleSize = 'h4'
 ) {
     $tag = in_array($tag, ['a', 'article', 'div'], true) ? $tag : 'div';
     $rootClasses = is_array($rootClasses) ? $rootClasses : [$rootClasses];
@@ -294,6 +295,10 @@ function lbcc_component_card_image_bg_shell(
         'border-0',
         'text-white'
     ];
+
+    if ($tag !== 'a') {
+        $componentClasses[] = 'component-card--static';
+    }
 
     if ($image === '') {
         $componentClasses[] = 'bg-teal-800';
@@ -320,6 +325,7 @@ function lbcc_component_card_image_bg_shell(
         $attributes
     );
     $showTopIcon = (bool) $showTopIcon;
+    $titleSize = in_array($titleSize, ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'], true) ? $titleSize : 'h4';
     ?>
     <<?php echo $tag; ?><?php echo lbcc_component_attributes($attributes); ?>>
         <?php if ($image !== '') { ?>
@@ -330,10 +336,6 @@ function lbcc_component_card_image_bg_shell(
             >
         <?php } ?>
         <div class="card-img-overlay component-card-as-link__overlay d-flex flex-column justify-content-between p-3">
-            <?php if ($image !== '') { ?>
-                <span class="component-card-as-link__shade" aria-hidden="true"></span>
-            <?php } ?>
-
             <?php if ($label !== '' || $showTopIcon) { ?>
                 <div class="component-card-as-link__top d-flex align-items-start justify-content-between gap-3 position-relative w-100">
                     <?php if ($label !== '') { ?>
@@ -352,7 +354,7 @@ function lbcc_component_card_image_bg_shell(
 
             <div class="component-card-as-link__body component-card-as-link__body--image-bg position-relative d-flex flex-column gap-2 w-100">
                 <?php if ($title !== '') { ?>
-                    <h2 class="h3 text-white mb-0"><?php echo lbcc_escape($title); ?></h2>
+                    <h2 class="<?php echo lbcc_escape($titleSize); ?> text-white mb-0"><?php echo lbcc_escape($title); ?></h2>
                 <?php } ?>
 
                 <?php if ($content !== '') { ?>
@@ -375,12 +377,14 @@ function component_card(
     $style = 'surface-subtle',
     $ctaDisplay = 'arrow-link',
     $shadow = false,
-    $label = ''
+    $label = '',
+    $titleSize = 'h3'
 ) {
     $style = in_array($style, ['image-bg', 'surface-subtle', 'surface-raised', 'surface-water', 'surface-sun-haze', 'white', 'gray-border', 'red-border'], true) ? $style : 'surface-subtle';
     $ctaDisplay = $ctaDisplay === 'button' ? 'button' : 'arrow-link';
     $shadow = (bool) $shadow;
     $ctas = is_array($ctas) ? array_values($ctas) : [];
+    $titleSize = in_array($titleSize, ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'], true) ? $titleSize : 'h3';
 
     if ($style === 'image-bg') {
         $componentClasses = [
@@ -401,7 +405,8 @@ function component_card(
             $componentClasses,
             [],
             true,
-            false
+            false,
+            $titleSize
         );
 
         return;
@@ -459,7 +464,7 @@ function component_card(
 
         <div class="card-body d-flex flex-column gap-3 p-4">
             <?php if ($title !== '') { ?>
-                <h2 class="h3 mb-0 component-card__title"><?php echo lbcc_escape($title); ?></h2>
+                <h2 class="<?php echo lbcc_escape($titleSize); ?> mb-0 component-card__title"><?php echo lbcc_escape($title); ?></h2>
             <?php } ?>
 
             <?php if ($content !== '') { ?>
@@ -903,6 +908,75 @@ function component_program_card(
     </a>
 <?php }
 
+// Search Programs
+// $programs optionally accepts program records with title and url keys.
+// When omitted, the component loads App_Code/data/programs.json.
+function component_search_programs(
+    $programs = null,
+    $label = 'Search Programs',
+    $placeholder = 'Search programs at LBCC...',
+    $additionalAttributes = []
+) {
+    static $searchProgramsInstance = 0;
+    $searchProgramsInstance += 1;
+
+    if (!is_array($programs)) {
+        $dataPath = dirname(__DIR__, 2) . '/data/programs.json';
+        $decoded = is_readable($dataPath) ? json_decode((string) file_get_contents($dataPath), true) : [];
+        $programs = is_array($decoded) ? $decoded : [];
+    }
+    $label = trim((string) $label) ?: 'Search Programs';
+    $placeholder = trim((string) $placeholder) ?: 'Start typing to search programs...';
+    $inputId = 'search-programs-' . $searchProgramsInstance;
+    $menuId = $inputId . '-menu';
+    $attributes = is_array($additionalAttributes) ? $additionalAttributes : [];
+    ?>
+    <div class="search-programs position-relative" data-lbcc-search-programs<?php echo lbcc_component_attributes($attributes); ?>>
+        <label class="form-label fw-semibold mb-2 visually-hidden" for="<?php echo lbcc_escape($inputId); ?>"><?php echo lbcc_escape($label); ?></label>
+        <div class="input-group">
+            <span class="input-group-text bg-white border-end-0" aria-hidden="true">
+                <span class="fa-sharp fa-regular fa-magnifying-glass text-primary"></span>
+            </span>
+            <input
+                id="<?php echo lbcc_escape($inputId); ?>"
+                class="form-control border-start-0"
+                type="search"
+                placeholder="<?php echo lbcc_escape($placeholder); ?>"
+                role="combobox"
+                aria-autocomplete="list"
+                aria-expanded="false"
+                aria-controls="<?php echo lbcc_escape($menuId); ?>"
+                autocomplete="off"
+                data-lbcc-search-programs-input
+            >
+        </div>
+        <div id="<?php echo lbcc_escape($menuId); ?>" class="dropdown-menu w-100 mt-1 shadow" role="listbox" data-lbcc-search-programs-menu>
+            <?php foreach ($programs as $program) {
+                if (!is_array($program)) {
+                    continue;
+                }
+
+                $title = trim((string) ($program['title'] ?? ''));
+                $url = lbcc_url('App_Code/program-single.php');
+
+                if ($title === '') {
+                    continue;
+                }
+                ?>
+                <button
+                    class="dropdown-item search-programs__option"
+                    type="button"
+                    role="option"
+                    data-lbcc-search-programs-option
+                    data-title="<?php echo lbcc_escape(strtolower($title)); ?>"
+                    data-url="<?php echo lbcc_escape($url); ?>"
+                ><?php echo lbcc_escape($title); ?></button>
+            <?php } ?>
+            <p class="search-programs__empty dropdown-item-text mb-0 d-none" data-lbcc-search-programs-empty>No programs found.</p>
+        </div>
+    </div>
+<?php }
+
 // Support Matrix
 // $items is an array of support resource arrays with:
 // title, description, url, needs, audiences
@@ -1180,9 +1254,11 @@ function component_card_as_link(
     $description = '',
     $style = 'image-bg',
     $image = '',
-    $label = ''
+    $label = '',
+    $titleSize = 'h4'
 ) {
     $style = in_array($style, ['image-bg', 'primary-border-thin', 'primary-border-thick', 'teal-border-thin', 'teal-border-thick'], true) ? $style : 'image-bg';
+    $titleSize = in_array($titleSize, ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'], true) ? $titleSize : 'h4';
 
     $componentClasses = [
         'card',
@@ -1216,7 +1292,10 @@ function component_card_as_link(
             $componentClasses,
             [
                 'href' => $link
-            ]
+            ],
+            true,
+            true,
+            $titleSize
         );
     } else { ?>
         <a href="<?php echo lbcc_escape($link); ?>" class="<?php echo lbcc_escape(implode(' ', $componentClasses)); ?>">
@@ -1230,7 +1309,7 @@ function component_card_as_link(
 
             <div class="card-body component-card-as-link__body d-flex flex-column gap-3 p-3">
                 <?php if ($title !== '') { ?>
-                    <h2 class="h4 fs-2xl mb-0"><?php echo lbcc_escape($title); ?></h2>
+                    <h2 class="<?php echo lbcc_escape($titleSize); ?> mb-0"><?php echo lbcc_escape($title); ?></h2>
                 <?php } ?>
 
                 <?php if ($description !== '') { ?>
@@ -1246,7 +1325,7 @@ function component_card_as_link(
 <?php }
 
 // List Group
-// $style options: surface or lined
+// $style options: surface, surface-haze, white, or lined
 // $size options: default, sm, or lg
 // $items is an array of arrays with:
 // link, title, description, label, left_icon, image, class
@@ -1260,7 +1339,7 @@ function component_list_group(
         return;
     }
 
-    $style = in_array($style, ['surface', 'white', 'lined'], true) ? $style : 'surface';
+    $style = in_array($style, ['surface', 'surface-haze', 'white', 'lined'], true) ? $style : 'surface';
     $size = in_array($size, ['default', 'sm', 'lg'], true) ? $size : 'default';
 
     $wrapperClasses = [
@@ -1856,9 +1935,9 @@ function component_testimonial_carousel(
                             <div class="component-testimonial-carousel__quote-card">
                                 <div class="d-flex align-items-start gap-2">
                                     <span class="component-testimonial-carousel__mark" aria-hidden="true">&ldquo;</span>
-                                    <blockquote class="component-testimonial-carousel__quote mb-0">
+                                    <div class="component-testimonial-carousel__quote mb-0">
                                         <?php echo lbcc_escape($quote); ?>
-                                    </blockquote>
+                                    </div>
                                 </div>
                             </div>
 
@@ -1873,7 +1952,7 @@ function component_testimonial_carousel(
 
                                 <div class="component-testimonial-carousel__bio d-grid gap-2">
                                     <?php if ($name !== '') { ?>
-                                        <h3 class="component-testimonial-carousel__name mb-0"><?php echo lbcc_escape($name); ?></h3>
+                                        <h3 class="component-testimonial-carousel__name text-white mb-0"><?php echo lbcc_escape($name); ?></h3>
                                     <?php } ?>
 
                                     <?php if ($program !== '') { ?>
@@ -1959,6 +2038,21 @@ function component_vertical_slider(
     }
 
     $canRotate = count($validSlides) > 1;
+    $displaySlides = $validSlides;
+
+    // Centered vertical loop mode needs five rendered slides to keep both preview
+    // positions populated. Repeat short sets internally; a one-slide set remains static.
+    if ($canRotate && count($displaySlides) < 5) {
+        $sourceSlides = $displaySlides;
+        $sourceSlideCount = count($sourceSlides);
+        $sourceSlideIndex = 0;
+
+        while (count($displaySlides) < 5) {
+            $displaySlides[] = $sourceSlides[$sourceSlideIndex % $sourceSlideCount];
+            $sourceSlideIndex += 1;
+        }
+    }
+
     $autoplay = $autoplay && $canRotate ? 'true' : 'false';
     $showControls = (bool) $showControls;
     ?>
@@ -1971,7 +2065,7 @@ function component_vertical_slider(
             <div class="component-vertical-slider__frame flex-grow-1 min-w-0">
                 <div class="swiper component-vertical-slider__swiper" data-lbcc-vertical-slider-swiper>
                     <div class="swiper-wrapper">
-                        <?php foreach ($validSlides as $slide) {
+                        <?php foreach ($displaySlides as $slide) {
                             $image = (string) $slide['image'];
                             $alt = !empty($slide['alt']) ? (string) $slide['alt'] : '';
                             ?>
@@ -1992,7 +2086,7 @@ function component_vertical_slider(
             <?php if ($showControls) { ?>
                 <div class="component-vertical-slider__controls d-flex flex-column align-items-center justify-content-center gap-3 flex-shrink-0">
                     <button
-                        class="component-vertical-slider__control btn btn-link text-decoration-none p-0"
+                        class="component-vertical-slider__control btn btn-secondary btn-circle btn-sm"
                         type="button"
                         data-lbcc-vertical-slider-prev
                         aria-label="Previous slide"
@@ -2001,7 +2095,7 @@ function component_vertical_slider(
                     </button>
 
                     <button
-                        class="component-vertical-slider__control component-vertical-slider__toggle btn btn-link text-decoration-none p-0<?php echo $canRotate ? '' : ' d-none'; ?>"
+                        class="component-vertical-slider__control component-vertical-slider__toggle btn btn-secondary btn-circle btn-sm<?php echo $canRotate ? '' : ' d-none'; ?>"
                         type="button"
                         data-lbcc-vertical-slider-toggle
                         aria-label="Pause vertical slider autoplay"
@@ -2012,7 +2106,7 @@ function component_vertical_slider(
                     </button>
 
                     <button
-                        class="component-vertical-slider__control btn btn-link text-decoration-none p-0"
+                        class="component-vertical-slider__control btn btn-secondary btn-circle btn-sm"
                         type="button"
                         data-lbcc-vertical-slider-next
                         aria-label="Next slide"
@@ -2224,15 +2318,82 @@ function component_ticker(
     </div>
 <?php }
 
+// Social Media
+// $items accepts arrays with: link, icon, sr_label, target (optional; defaults to true)
+// $style options: light (white) or dark (gray-900)
+// $size options: s, m, or l
+function component_social_media(
+    $items = [],
+    $style = 'light',
+    $size = 'm',
+    $additionalWrapperClasses = []
+) {
+    if (empty($items) || !is_array($items)) {
+        return;
+    }
+
+    $style = in_array($style, ['light', 'dark'], true) ? $style : 'light';
+    $size = in_array($size, ['s', 'm', 'l'], true) ? $size : 'm';
+    $sizeClasses = [
+        's' => 'fs-6',
+        'm' => 'fs-4',
+        'l' => 'fs-2'
+    ];
+    $wrapperClasses = [
+        'component-social-media',
+        'component-social-media--' . $style,
+        'd-flex',
+        'flex-wrap',
+        'align-items-center',
+        'gap-3',
+        $style === 'light' ? 'text-white' : 'text-dark',
+        $sizeClasses[$size]
+    ];
+
+    if (is_string($additionalWrapperClasses) && trim($additionalWrapperClasses) !== '') {
+        $wrapperClasses[] = trim($additionalWrapperClasses);
+    } elseif (is_array($additionalWrapperClasses)) {
+        foreach ($additionalWrapperClasses as $wrapperClass) {
+            if (is_string($wrapperClass) && trim($wrapperClass) !== '') {
+                $wrapperClasses[] = trim($wrapperClass);
+            }
+        }
+    }
+    ?>
+    <div class="<?php echo lbcc_escape(implode(' ', $wrapperClasses)); ?>">
+        <?php foreach ($items as $item) {
+            if (!is_array($item)) {
+                continue;
+            }
+
+            $link = trim((string) ($item['link'] ?? ''));
+            $icon = trim((string) ($item['icon'] ?? ''));
+            $srLabel = trim((string) ($item['sr_label'] ?? ''));
+            $openInNewTab = !array_key_exists('target', $item) || (bool) $item['target'];
+
+            if ($link === '' || $icon === '' || $srLabel === '') {
+                continue;
+            }
+            ?>
+            <a
+                href="<?php echo lbcc_escape($link); ?>"
+                class="component-social-media__link d-inline-flex align-items-center justify-content-center text-reset text-decoration-none no-target-blank-icon"
+                <?php if ($openInNewTab) { ?>target="_blank" rel="noopener noreferrer"<?php } ?>
+            >
+                <span class="fa-brands <?php echo lbcc_escape($icon); ?>" aria-hidden="true"></span>
+                <span class="visually-hidden"><?php echo lbcc_escape($srLabel); ?></span>
+            </a>
+        <?php } ?>
+    </div>
+<?php }
+
 // Events
 // $variation options: default, mobile-vert, or horizontal
 // $items is an array of arrays with:
 // title, url, meta, category
 function component_events(
     $items = [],
-    $variation = 'default',
-    $title = 'Events',
-    $buttons = []
+    $variation = 'default'
 ) {
     if (empty($items) || !is_array($items)) {
         return;
@@ -2260,20 +2421,18 @@ function component_events(
     }
     ?>
     <div class="component-events component-events--<?php echo lbcc_escape($variation); ?> d-grid gap-4">
-        <?php component_title_with_ctas($title, $buttons, '', 'border-gray-300'); ?>
-
         <?php if ($variation === 'horizontal') { ?>
             <div class="row row-cols-1 row-cols-xl-4 g-3">
                 <?php foreach ($mappedItems as $mappedItem) {
                     $mappedItem['class'] = 'h-100';
                     ?>
                     <div class="col">
-                        <?php component_list_group([$mappedItem], 'surface', 'lg', ['component-events-list', 'component-events-list--horizontal']); ?>
+                        <?php component_list_group([$mappedItem], 'surface', '', ['component-events-list', 'component-events-list--horizontal']); ?>
                     </div>
                 <?php } ?>
             </div>
         <?php } else { ?>
-            <?php component_list_group($mappedItems, 'surface', 'lg', ['component-events-list', 'component-events-list--' . $variation]); ?>
+            <?php component_list_group($mappedItems, 'surface', '', ['component-events-list', 'component-events-list--' . $variation]); ?>
         <?php } ?>
     </div>
 <?php }

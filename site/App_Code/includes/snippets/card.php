@@ -1,96 +1,40 @@
-<?php
-$wellExamples = [];
+<p>A Card Well is a flexible <code>.card</code> wrapper for trusted editorial content, supporting components, or small layout groups. Build it directly with markup and apply the background, padding, and other Bootstrap utilities needed for that use.</p>
 
-ob_start();
-?>
-<div class="d-grid gap-3">
-    <div>
-        <h3 class="h4 mb-2">General Information</h3>
-        <p class="mb-0">Use this snippet as a flexible content well for mixed editorial content, supporting components, or small layout groupings inside a styled container.</p>
-    </div>
-    <?php
-    component_buttons(
-        [
-            ['text' => 'Primary Action', 'url' => '#', 'style' => 'btn-primary'],
-            ['text' => 'Secondary Action', 'url' => '#', 'style' => 'btn-outline-secondary']
-        ],
-        'row',
-        2
-    );
-    ?>
-</div>
-<?php
-$wellExamples[] = [
-    'label' => 'Surface Subtle / Default Padding',
-    'style' => 'surface-subtle',
-    'padding' => 'p-4',
-    'custom_class' => '',
-    'content' => ob_get_clean()
-];
-
-ob_start();
-?>
-<div class="d-grid gap-3">
-    <div class="d-flex flex-wrap gap-2">
-        <?php component_badge('Important', 'yellow', 'fa-circle-exclamation'); ?>
-        <?php component_badge('Student Support', 'water', 'fa-hand-holding-heart'); ?>
-    </div>
-    <div>
-        <h3 class="h4 mb-2">Flexible Mixed Content</h3>
-        <p class="mb-3">Because everything lives directly inside the <code>.card</code> wrapper, this works well for notices, grouped utility content, nested components, or custom layouts.</p>
-        <ul class="mb-0">
-            <li>Short editorial copy</li>
-            <li>Lists, buttons, or badges</li>
-            <li>Any snippet-specific HTML you need</li>
-        </ul>
-    </div>
-</div>
-<?php
-$wellExamples[] = [
-    'label' => 'White Border / Compact Padding',
-    'style' => 'white-border',
-    'padding' => 'p-3',
-    'custom_class' => 'shadow-sm',
-    'content' => ob_get_clean()
-];
-
-ob_start();
-?>
-<div class="row g-3 align-items-center">
-    <div class="col-md-7">
-        <h3 class="h4 mb-2">Component Grouping</h3>
-        <p class="mb-0">This variation shows the well acting as a wrapper for richer content patterns and media, without forcing a separate card content model.</p>
-    </div>
-    <div class="col-md-5">
-        <img src="<?php echo lbcc_escape(lbcc_url('/_resources/images/lac-thumb.jpg')); ?>" alt="Students" class="rounded-3 img-fluid w-100">
-    </div>
-</div>
-<?php
-$wellExamples[] = [
-    'label' => 'Sunhaze Gradient / Spacious Padding',
-    'style' => 'sunhaze-gradient',
-    'padding' => 'p-5',
-    'custom_class' => '',
-    'content' => ob_get_clean()
-];
-?>
-
-<p>This snippet is intended to function more like a flexible well than a structured card component. Place any trusted content directly inside the <code>.card</code> wrapper and control the presentation with a small set of wrapper options.</p>
-
-<div class="row row-cols-1 row-cols-lg-3 g-4">
-    <?php foreach ($wellExamples as $example) { ?>
-        <div class="col">
-            <p class="eyebrow-sm mb-2"><?php echo lbcc_escape($example['label']); ?></p>
-            <?php
-            snippet_card_well(
-                $example['content'],
-                $example['style'],
-                $example['padding'],
-                $example['custom_class']
-            );
-            ?>
+<div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+    <div class="col">
+        <div class="card rounded-4 h-100 border-0 bg-surface-subtle p-4">
+            <h3 class="h4 mb-2">bg-surface-subtle</h3>
+            <p class="mb-0">Use this well for mixed editorial content, supporting components, or small layout groupings.</p>
         </div>
-    <?php } ?>
+    </div>
+
+    <div class="col">
+        <div class="card rounded-4 h-100 border-0 bg-surface-raised p-4">
+            <h3 class="h4 mb-2">bg-surface-raised</h3>
+            <p class="mb-0">Place text, lists, badges, buttons, or another component directly inside the well.</p>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card rounded-4 h-100 border-0 bg-surface-water p-4">
+            <h3 class="h4 mb-2">bg-surface-water</h3>
+            <p class="mb-0">A soft background option for related information or a compact callout.</p>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card rounded-4 h-100 border-0 bg-surface-sun-haze p-4">
+            <h3 class="h4 mb-2">bg-surface-sun-haze</h3>
+            <p class="mb-0">Use a Card Well to visually group richer content without imposing a card component structure.</p>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card rounded-4 h-100 border-0 bg-water-gradient p-4">
+            <h3 class="h4 mb-2">bg-water-gradient</h3>
+            <p class="mb-0">The gradient option works well when a section needs a little more visual emphasis.</p>
+        </div>
+    </div>
 </div>
 
 <h3 class="h5 mb-3 mt-4">Options</h3>
@@ -99,30 +43,37 @@ $wellExamples[] = [
         <thead>
             <tr>
                 <th scope="col">Field</th>
-                <th scope="col">Type</th>
                 <th scope="col">Notes</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Style</td>
-                <td>string</td>
-                <td>Supported values are <code>white</code>, <code>white-border</code>, <code>surface-subtle</code>, <code>surface-raised</code>, <code>surface-water</code>, and <code>sunhaze-gradient</code>.</td>
+                <td>Custom Classes</td>
+                <td>Apply Bootstrap or project classes directly to the <code>.card</code> wrapper, such as <code>rounded-4</code>, <code>shadow-sm</code>, or <code>h-100</code>.</td>
+            </tr>
+            <tr>
+                <td>Background Color</td>
+                <td>
+                    <ul class="mb-0">
+                        <li><code>bg-surface-subtle</code></li>
+                        <li><code>bg-surface-raised</code></li>
+                        <li><code>bg-surface-water</code></li>
+                        <li><code>bg-surface-sun-haze</code></li>
+                        <li><code>bg-water-gradient</code></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Background CSS</td>
+                <td>Optional shorthand background CSS for a one-off treatment. This overrides the selected background class.</td>
             </tr>
             <tr>
                 <td>Padding</td>
-                <td>string</td>
-                <td>Pass Bootstrap spacing utility classes such as <code>p-2</code>, <code>p-4</code>, <code>px-5 py-4</code>, or leave blank if you want to handle spacing inside the content.</td>
-            </tr>
-            <tr>
-                <td>Custom Class</td>
-                <td>string</td>
-                <td>Optional additional classes for one-off presentation adjustments, for example <code>shadow-sm</code> or <code>match-height-row</code>.</td>
+                <td>Apply Bootstrap padding utilities such as <code>p-3</code>, <code>p-4</code>, or <code>px-5 py-4</code>.</td>
             </tr>
             <tr>
                 <td>Content</td>
-                <td>HTML string</td>
-                <td>Trusted freeform content placed directly inside the wrapper, including components, media, lists, buttons, or editorial HTML.</td>
+                <td>Any trusted HTML, snippet, or component placed directly inside the Card Well.</td>
             </tr>
         </tbody>
     </table>

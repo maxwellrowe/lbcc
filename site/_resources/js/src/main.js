@@ -1475,7 +1475,8 @@ const initProgramsFilters = () => {
       return;
     }
 
-    const searchInput = programsPage.querySelector("[data-lbcc-programs-search]");
+    const searchInput = programsPage.querySelector("[data-lbcc-programs-search] [data-lbcc-search-programs-input]") ||
+      programsPage.querySelector("[data-lbcc-programs-search]");
     const departmentToggle = programsPage.querySelector("[data-lbcc-programs-department-toggle]");
     const departmentLabel = programsPage.querySelector("[data-lbcc-programs-department-label]");
     const sortSelect = programsPage.querySelector("[data-lbcc-programs-sort]");
@@ -1758,6 +1759,86 @@ const initProgramsFilters = () => {
   });
 };
 
+const initSearchPrograms = () => {
+  document.querySelectorAll("[data-lbcc-search-programs]").forEach((searchPrograms) => {
+    if (!(searchPrograms instanceof HTMLElement) || isInitialized(searchPrograms)) {
+      return;
+    }
+
+    const input = searchPrograms.querySelector("[data-lbcc-search-programs-input]");
+    const menu = searchPrograms.querySelector("[data-lbcc-search-programs-menu]");
+    const emptyState = searchPrograms.querySelector("[data-lbcc-search-programs-empty]");
+    const options = Array.from(searchPrograms.querySelectorAll("[data-lbcc-search-programs-option]")).filter(
+      (option) => option instanceof HTMLButtonElement
+    );
+
+    if (!(input instanceof HTMLInputElement) || !(menu instanceof HTMLElement) || !options.length) {
+      return;
+    }
+
+    let activeOptionIndex = -1;
+    const closeMenu = () => {
+      menu.classList.remove("show");
+      input.setAttribute("aria-expanded", "false");
+      activeOptionIndex = -1;
+    };
+    const visibleOptions = () => options.filter((option) => !option.classList.contains("d-none"));
+    const updateResults = () => {
+      const query = input.value.trim().toLowerCase();
+      let count = 0;
+
+      options.forEach((option) => {
+        const matches = query === "" || (option.dataset.title || "").includes(query);
+        option.classList.toggle("d-none", !matches);
+        count += matches ? 1 : 0;
+      });
+
+      if (emptyState instanceof HTMLElement) {
+        emptyState.classList.toggle("d-none", count !== 0);
+      }
+
+      menu.classList.add("show");
+      input.setAttribute("aria-expanded", "true");
+      activeOptionIndex = -1;
+    };
+    const selectOption = (option) => {
+      input.value = option.textContent.trim();
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+      closeMenu();
+
+      const url = option.dataset.url || "#";
+      if (url !== "" && url !== "#") {
+        window.location.assign(url);
+      }
+    };
+
+    input.addEventListener("input", updateResults);
+    input.addEventListener("focus", updateResults);
+    input.addEventListener("keydown", (event) => {
+      const visible = visibleOptions();
+
+      if (event.key === "Escape") {
+        closeMenu();
+      } else if (event.key === "ArrowDown" && visible.length) {
+        event.preventDefault();
+        activeOptionIndex = Math.min(activeOptionIndex + 1, visible.length - 1);
+        visible[activeOptionIndex].focus();
+      } else if (event.key === "Enter" && activeOptionIndex >= 0 && visible[activeOptionIndex]) {
+        event.preventDefault();
+        selectOption(visible[activeOptionIndex]);
+      }
+    });
+    options.forEach((option) => option.addEventListener("click", () => selectOption(option)));
+    document.addEventListener("click", (event) => {
+      if (event.target instanceof Node && !searchPrograms.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
+    markInitialized(searchPrograms);
+  });
+};
+
 const initSupportMatrixFilters = () => {
   document.querySelectorAll("[data-lbcc-support-matrix]").forEach((matrix) => {
     if (!(matrix instanceof HTMLElement) || isInitialized(matrix)) {
@@ -2023,6 +2104,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeroBackgroundParallax();
   initDirectoryFilters();
   initProgramsFilters();
+  initSearchPrograms();
   initSupportMatrixFilters();
   initAzIndexSpy();
   initMatchHeightUtilities();

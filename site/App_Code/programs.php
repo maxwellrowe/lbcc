@@ -89,19 +89,12 @@ $buildProgramSearchIndex = static function (array $entry): string {
                 <section class="programs-toolbar mb-4" aria-labelledby="programs-search-heading">
                     <div class="row g-3 align-items-end">
                         <div class="col-12 col-lg-8">
-                            <label class="form-label fw-semibold mb-2" for="programs-search">Search Programs</label>
-                            <div class="input-group directory-filter-input">
-                                <span class="input-group-text bg-white border-end-0">
-                                    <span class="fa-sharp fa-regular fa-magnifying-glass text-primary" aria-hidden="true"></span>
-                                </span>
-                                <input
-                                    id="programs-search"
-                                    class="form-control border-start-0"
-                                    type="search"
-                                    placeholder="Start typing to search programs..."
-                                    data-lbcc-programs-search
-                                >
-                            </div>
+                            <?php component_search_programs(
+                                $programEntries,
+                                'Search Programs',
+                                'Start typing to search programs...',
+                                ['data-lbcc-programs-search' => true]
+                            ); ?>
                         </div>
 
                         <div class="col-12 col-lg-4">

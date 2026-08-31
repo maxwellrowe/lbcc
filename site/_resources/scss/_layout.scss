@@ -1,12 +1,25 @@
 .lbcc-page {
   color: $body-color;
 }
+#main-content {
+  transform: translateY(-3rem);
+  margin-bottom: -3rem;
+}
+
+#main-content > *:first-child {
+  padding-top: 3rem;
+}
+
+:where(#main-content .row) {
+    --bs-gutter-y: 1.5rem;
+}
 
 // Page Hero/ Page Title
 .page-hero {
   margin-top: -10rem;
   padding-top: 10rem;
   position: relative;
+  z-index: 2;
 }
 
 .page-cap {
@@ -302,4 +315,14 @@
 .programs-results__count {
   font-family: var(--lbcc-font-family-label);
   font-size: var(--lbcc-font-size-sm);
+}
+
+.search-programs .dropdown-menu {
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: $zindex-dropdown;
+}
+
+.search-programs__option {
+  white-space: normal;
 }
