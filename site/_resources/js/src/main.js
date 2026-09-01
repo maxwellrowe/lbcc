@@ -1674,11 +1674,14 @@ const initProgramsFilters = () => {
 
         const searchIndex = entry.dataset.searchIndex || "";
         const departmentValue = (entry.dataset.department || "").trim();
-        const entryPathway = (entry.dataset.pathway || "").trim();
+        const entryPathways = (entry.dataset.pathway || "")
+          .split("|")
+          .map((value) => normalizeValue(value))
+          .filter(Boolean);
         const entryOptions = getEntryOptions(entry);
         const matchesSearch = searchQuery === "" || searchIndex.includes(searchQuery);
         const matchesDepartment = selectedDepartments.length === 0 || selectedDepartments.includes(departmentValue);
-        const matchesPathway = selectedPathways.length === 0 || selectedPathways.includes(entryPathway);
+        const matchesPathway = selectedPathways.length === 0 || selectedPathways.some((pathway) => entryPathways.includes(pathway));
         const matchesProgramOption = selectedOptions.length === 0 || selectedOptions.some((option) => entryOptions.includes(option));
         const isVisible = matchesSearch && matchesDepartment && matchesPathway && matchesProgramOption;
 

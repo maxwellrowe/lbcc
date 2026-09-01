@@ -34,8 +34,8 @@ function lbcc_page_defaults(): array
         'canonical' => null,
         'section_nav' => false,
         'section_nav_include' => null,
-        'sidebar' => false,
-        'sidebar_include' => null,
+        'sidenav' => false,
+        'sidenav_include' => null,
         'custom_hero' => false
     ];
 }

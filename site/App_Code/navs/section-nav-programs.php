@@ -18,6 +18,9 @@
     </span>
 </button>
 <div class="collapse" id="section-nav__menu">
+    <div class="d-xl-none">
+        <?php include dirname(__DIR__, 2) . '/_resources/includes/navigation/sidenav.php'; ?>
+    </div>
     <ul>
         <li><a href="#programs-search-heading">Search</a></li>
         <li><a href="#programs-results-heading">Programs</a></li>

@@ -6,8 +6,8 @@ $page = lbcc_resolve_page([
     'description' => 'Sample directory template with front-end search and department filtering.',
     'section_nav' => false,
     'section_nav_include' => '',
-    'sidebar' => false,
-    'sidebar_include' => '',
+    'sidenav' => false,
+    'sidenav_include' => '',
     'custom_hero' => false
 ]);
 

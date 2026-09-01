@@ -6,8 +6,8 @@ $page = lbcc_resolve_page([
     'description' => 'Sample basic page template for reviewing typography and content flow.',
     'section_nav' => true,
     'section_nav_include' => __DIR__ . '/navs/section-nav-default.php',
-    'sidebar' => false,
-    'sidebar_include' => __DIR__ . '/navs/section-nav-default.php',
+    'sidenav' => false,
+    'sidenav_include' => __DIR__ . '/navs/section-nav-default.php',
     'custom_hero' => false
 ]);
 ?>

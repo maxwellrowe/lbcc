@@ -1542,10 +1542,33 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
     aspect-ratio: 843 / 442;
     border-radius: var(--bs-border-radius-lg);
     box-shadow: var(--lbcc-shadow);
+    isolation: isolate;
+
+    &::before {
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        background: rgba(var(--color-gray-900-rgb), 0.48);
+        content: "";
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    &:hover::before,
+    &:focus-visible::before {
+        opacity: 1;
+    }
 }
 
 .component-video-modal__image {
+    z-index: 0;
     object-fit: cover;
+}
+
+.component-video-modal__play,
+.component-video-modal__label {
+    z-index: 2;
 }
 
 .component-video-modal__play {

@@ -299,6 +299,26 @@
   overflow-y: auto;
 }
 
+.programs-filter-dropdown,
+.programs-filter-dropdown__toggle {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.programs-filter-dropdown__toggle {
+  align-items: flex-start;
+  white-space: normal;
+
+  [data-lbcc-programs-department-label] {
+    min-width: 0;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.4;
+  }
+}
+
 .programs-active-filter {
   border-width: 1.5px;
   background: var(--bs-white);

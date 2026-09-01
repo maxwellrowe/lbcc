@@ -863,9 +863,13 @@ function component_program_card(
         : lbcc_url($image);
 
     $programOptionSlugs = array_map('lbcc_slugify', $programOptions);
+    $pathwaySlugs = array_map(
+        'lbcc_slugify',
+        array_values(array_filter(array_map('trim', preg_split('/\\s*;\\s*/', $pathway) ?: [])))
+    );
     $dataAttributes = [
         'data-lbcc-program-card' => true,
-        'data-pathway' => $pathway !== '' ? lbcc_slugify($pathway) : false,
+        'data-pathway' => !empty($pathwaySlugs) ? implode('|', $pathwaySlugs) : false,
         'data-program-options' => !empty($programOptionSlugs) ? implode('|', $programOptionSlugs) : false,
         'data-department' => $department !== '' ? lbcc_slugify($department) : false
     ];
@@ -906,6 +910,107 @@ function component_program_card(
             <?php } ?>
         </div>
     </a>
+<?php }
+
+// Programs
+// $careerAndAcademicPathway optionally filters the programs data by a CAP name.
+// $display supports grid and carousel.
+function component_programs(
+    $careerAndAcademicPathway = '',
+    $display = 'grid',
+    $mobileItems = 1,
+    $tabletItems = 2,
+    $desktopItems = 3,
+    $autoplay = false
+) {
+    $dataPath = dirname(__DIR__, 2) . '/data/programs.json';
+    $decoded = is_readable($dataPath) ? json_decode((string) file_get_contents($dataPath), true) : [];
+    $programEntries = is_array($decoded) ? $decoded : [];
+    $pathwayFilter = lbcc_slugify(trim((string) $careerAndAcademicPathway));
+    $display = $display === 'carousel' ? 'carousel' : 'grid';
+    $mobileItems = max(1, min(6, (int) $mobileItems));
+    $tabletItems = max(1, min(6, (int) $tabletItems));
+    $desktopItems = max(1, min(6, (int) $desktopItems));
+
+    $programEntries = array_values(array_filter($programEntries, static function ($entry) use ($pathwayFilter) {
+        if (!is_array($entry) || empty($entry['title'])) {
+            return false;
+        }
+
+        if ($pathwayFilter === '') {
+            return true;
+        }
+
+        $pathways = array_values(array_filter(array_map(
+            'lbcc_slugify',
+            array_map('trim', preg_split('/\\s*;\\s*/', (string) ($entry['pathway'] ?? '')) ?: [])
+        )));
+
+        return in_array($pathwayFilter, $pathways, true);
+    }));
+
+    if (empty($programEntries)) {
+        return;
+    }
+
+    $renderCard = static function (array $entry) {
+        component_program_card(
+            $entry['url'] ?? '#',
+            $entry['title'] ?? '',
+            $entry['image'] ?? '',
+            is_array($entry['program_options'] ?? null) ? $entry['program_options'] : [],
+            $entry['pathway'] ?? '',
+            $entry['department'] ?? ''
+        );
+    };
+
+    if ($display === 'grid') { ?>
+        <div class="row row-cols-<?php echo lbcc_escape((string) $mobileItems); ?> row-cols-md-<?php echo lbcc_escape((string) $tabletItems); ?> row-cols-xl-<?php echo lbcc_escape((string) $desktopItems); ?> g-4">
+            <?php foreach ($programEntries as $entry) { ?>
+                <div class="col">
+                    <?php $renderCard($entry); ?>
+                </div>
+            <?php } ?>
+        </div>
+        <?php return;
+    } ?>
+
+    <div
+        class="component-carousel-anything component-programs-carousel"
+        data-lbcc-carousel-anything
+        data-mobile-items="<?php echo lbcc_escape((string) $mobileItems); ?>"
+        data-tablet-items="<?php echo lbcc_escape((string) $tabletItems); ?>"
+        data-desktop-items="<?php echo lbcc_escape((string) $desktopItems); ?>"
+        data-autoplay="<?php echo $autoplay ? 'true' : 'false'; ?>"
+    >
+        <div class="swiper" data-lbcc-carousel-swiper>
+            <div class="swiper-wrapper align-items-stretch">
+                <?php foreach ($programEntries as $entry) { ?>
+                    <div class="swiper-slide h-auto">
+                        <div class="swiper-slide-content h-100">
+                            <?php $renderCard($entry); ?>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+
+        <div class="component-carousel-anything__controls d-flex align-items-center flex-nowrap gap-2 mt-4">
+            <div class="swiper-scrollbar component-carousel-anything__scrollbar flex-grow-1" data-lbcc-carousel-scrollbar></div>
+            <div class="component-carousel-anything__buttons d-flex align-items-center gap-2 flex-shrink-0">
+                <button class="btn btn-primary btn-circle btn-sm" type="button" data-lbcc-carousel-prev aria-label="Previous program">
+                    <span class="fa-sharp fa-regular fa-arrow-left" aria-hidden="true"></span>
+                </button>
+                <button class="btn btn-primary btn-circle btn-sm" type="button" data-lbcc-carousel-next aria-label="Next program">
+                    <span class="fa-sharp fa-regular fa-arrow-right" aria-hidden="true"></span>
+                </button>
+                <button class="btn btn-primary btn-circle btn-sm" type="button" data-lbcc-carousel-toggle aria-label="Pause carousel autoplay" aria-pressed="false">
+                    <span class="fa-sharp fa-solid fa-pause" aria-hidden="true" data-lbcc-carousel-icon="pause"></span>
+                    <span class="fa-sharp fa-solid fa-play d-none" aria-hidden="true" data-lbcc-carousel-icon="play"></span>
+                </button>
+            </div>
+        </div>
+    </div>
 <?php }
 
 // Search Programs

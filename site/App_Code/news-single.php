@@ -7,8 +7,8 @@ $page = lbcc_resolve_page([
     'description' => $article['excerpt'],
     'section_nav' => true,
     'section_nav_include' => __DIR__ . '/navs/section-nav-news.php',
-    'sidebar' => false,
-    'sidebar_include' => '',
+    'sidenav' => false,
+    'sidenav_include' => '',
     'custom_hero' => true
 ]);
 

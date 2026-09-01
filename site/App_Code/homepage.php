@@ -6,8 +6,8 @@ $page = lbcc_resolve_page([
     'description' => 'LBCC meta description here.',
     'section_nav' => false,
     'section_nav_include' => '',
-    'sidebar' => false,
-    'sidebar_include' => '',
+    'sidenav' => false,
+    'sidenav_include' => '',
     'custom_hero' => true
 ]);
 

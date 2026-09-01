@@ -6,8 +6,8 @@ $page = lbcc_resolve_page([
     'description' => 'Starter LBCC style guide for the front-end foundation pass.',
     'section_nav' => true,
     'section_nav_include' => __DIR__ . '/navs/section-nav-default.php',
-    'sidebar' => false,
-    'sidebar_include' => '',
+    'sidenav' => false,
+    'sidenav_include' => '',
     'custom_hero' => false
 ]);
 
@@ -492,6 +492,61 @@ $surfaceUtilityClasses = [
                     <div class="col-md-6">
                         <div class="bg-surface-sun-haze border rounded pt-5 pb-2 px-4">
                             <p class="mb-0 fw-semibold"><code>.pt-5 .pb-2 .px-4</code></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <h3 class="h4 mb-3">Shadow Utilities</h3>
+                    <p class="text-body-secondary">Use Bootstrap’s shadow utilities to add elevation without introducing custom shadow declarations in markup.</p>
+                    <div class="table-responsive mb-4">
+                        <table class="table align-middle">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Utility</th>
+                                    <th scope="col">Use</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>.shadow-none</code></td>
+                                    <td>Removes an existing shadow.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.shadow-sm</code></td>
+                                    <td>Applies the small Bootstrap shadow.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.shadow</code></td>
+                                    <td>Applies the default Bootstrap shadow.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.shadow-lg</code></td>
+                                    <td>Applies the large Bootstrap shadow.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="bg-white border rounded p-4 shadow-none">
+                                <p class="mb-0 fw-semibold"><code>.shadow-none</code></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="bg-white border rounded p-4 shadow-sm">
+                                <p class="mb-0 fw-semibold"><code>.shadow-sm</code></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="bg-white border rounded p-4 shadow">
+                                <p class="mb-0 fw-semibold"><code>.shadow</code></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="bg-white border rounded p-4 shadow-lg">
+                                <p class="mb-0 fw-semibold"><code>.shadow-lg</code></p>
+                            </div>
                         </div>
                     </div>
                 </div>

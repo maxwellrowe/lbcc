@@ -6,8 +6,8 @@ $page = lbcc_resolve_page([
     'description' => 'Latest LBCC news, press releases, student stories, and media updates.',
     'section_nav' => true,
     'section_nav_include' => __DIR__ . '/navs/section-nav-news.php',
-    'sidebar' => false,
-    'sidebar_include' => '',
+    'sidenav' => false,
+    'sidenav_include' => '',
     'custom_hero' => false
 ]);
 

@@ -6,8 +6,8 @@ $page = lbcc_resolve_page([
     'description' => 'LBCC development and documentation area.',
     'section_nav' => true,
     'section_nav_include' => __DIR__ . '/navs/section-nav-default.php',
-    'sidebar' => false,
-    'sidebar_include' => '',
+    'sidenav' => false,
+    'sidenav_include' => '',
     'custom_hero' => false
 ]);
 
@@ -42,6 +42,10 @@ $pageTemplateItems = [
     [
         'link' => lbcc_url('/App_Code/basic-page.php'),
         'title' => 'Basic Page'
+    ],
+    [
+        'link' => lbcc_url('/App_Code/basic-page-sidenav.php'),
+        'title' => 'Basic Page Sidenav'
     ],
     [
         'link' => lbcc_url('/App_Code/directory-profile.php'),

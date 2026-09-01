@@ -42,7 +42,8 @@ h6,
 }
 
 #main-content {
-  .container-xxl {
+  .container-xxl,
+  section {
 		> h2, > .h2 {
 			padding-top: clamp(1.625rem, 3.5vw, 3rem);	
 		}

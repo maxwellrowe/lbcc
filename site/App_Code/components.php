@@ -6,8 +6,8 @@ $page = lbcc_resolve_page([
     'description' => 'LBCC component development and documentation area.',
     'section_nav' => true,
     'section_nav_include' => __DIR__ . '/navs/section-nav-default.php',
-    'sidebar' => false,
-    'sidebar_include' => '',
+    'sidenav' => false,
+    'sidenav_include' => '',
     'custom_hero' => false
 ]);
 

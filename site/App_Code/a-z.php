@@ -6,8 +6,8 @@ $page = lbcc_resolve_page([
     'description' => 'Sample A-Z index page for LBCC departments, services, and resources.',
     'section_nav' => false,
     'section_nav_include' => '',
-    'sidebar' => false,
-    'sidebar_include' => '',
+    'sidenav' => false,
+    'sidenav_include' => '',
     'custom_hero' => false
 ]);
 

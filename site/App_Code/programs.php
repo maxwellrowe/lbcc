@@ -6,8 +6,8 @@ $page = lbcc_resolve_page([
     'description' => 'Sample all programs template with search, filtering, and reusable program cards.',
     'section_nav' => true,
     'section_nav_include' => __DIR__ . '/navs/section-nav-programs.php',
-    'sidebar' => false,
-    'sidebar_include' => '',
+    'sidenav' => false,
+    'sidenav_include' => '',
     'custom_hero' => false
 ]);
 
@@ -24,11 +24,11 @@ if (is_readable($dataPath)) {
 }
 
 $pathwayIcons = [
-    'Arts, Language & Communication' => 'fa-palette',
-    'Business, Management & Entrepreneurship' => 'fa-laptop-code',
-    'Health, Science & Technology' => 'fa-heart-pulse',
-    'Society & Education' => 'fa-people-group',
-    'Trades & Service Industry' => 'fa-gears'
+    'Arts, Language & Communication' => '_resources/images/cap/arts-languages-communication.png',
+    'Business, Management & Entrepreneurship' => '_resources/images/cap/business-management-ent.png',
+    'Health, Science & Technology' => '_resources/images/cap/health-science-technology.png',
+    'Society & Education' => '_resources/images/cap/society-education.png',
+    'Trades & Service Industry' => '_resources/images/cap/trades-service-industry.png'
 ];
 
 $pathways = [];
@@ -36,13 +36,16 @@ $programOptions = [];
 $departments = [];
 
 foreach ($programEntries as $entry) {
-    $pathway = trim((string) ($entry['pathway'] ?? ''));
+    $entryPathways = array_values(array_filter(array_map(
+        'trim',
+        preg_split('/\\s*;\\s*/', (string) ($entry['pathway'] ?? '')) ?: []
+    )));
     $department = trim((string) ($entry['department'] ?? ''));
     $entryProgramOptions = !empty($entry['program_options']) && is_array($entry['program_options'])
         ? array_values(array_filter(array_map('trim', $entry['program_options'])))
         : [];
 
-    if ($pathway !== '') {
+    foreach ($entryPathways as $pathway) {
         $pathways[$pathway] = $pathway;
     }
 
@@ -210,7 +213,7 @@ $buildProgramSearchIndex = static function (array $entry): string {
                                     <div class="d-grid gap-3">
                                         <?php foreach ($pathways as $pathway) {
                                             $pathwaySlug = lbcc_slugify($pathway);
-                                            $pathwayIcon = $pathwayIcons[$pathway] ?? 'fa-circle';
+                                            $pathwayIcon = $pathwayIcons[$pathway] ?? '';
                                             $pathwayInputId = 'programs-pathway-' . $pathwaySlug;
                                             ?>
                                             <label class="programs-filter-option d-flex align-items-center gap-3" for="<?php echo lbcc_escape($pathwayInputId); ?>">
@@ -222,7 +225,9 @@ $buildProgramSearchIndex = static function (array $entry): string {
                                                     data-lbcc-programs-pathway
                                                 >
                                                 <span class="programs-filter-option__visual d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0">
-                                                    <span class="fa-sharp fa-regular <?php echo lbcc_escape($pathwayIcon); ?>" aria-hidden="true"></span>
+                                                    <?php if ($pathwayIcon !== '') { ?>
+                                                        <img src="<?php echo lbcc_escape(lbcc_url($pathwayIcon)); ?>" width="20" height="20" alt="">
+                                                    <?php } ?>
                                                 </span>
                                                 <span class="programs-filter-option__label"><?php echo lbcc_escape($pathway); ?></span>
                                             </label>
