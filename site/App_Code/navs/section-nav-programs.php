@@ -1,5 +1,5 @@
-<a href="/App_Code/programs.php" class="section-nav__title arrow-link rounded-bottom">
-    Academic Programs
+<a href="/App_Code/academics.php" class="section-nav__title arrow-link rounded-bottom">
+    Academics
 </a>
 
 <button
@@ -22,8 +22,8 @@
         <?php include dirname(__DIR__, 2) . '/_resources/includes/navigation/sidenav.php'; ?>
     </div>
     <ul>
-        <li><a href="#programs-search-heading">Search</a></li>
-        <li><a href="#programs-results-heading">Programs</a></li>
-        <li><a href="#programs-sidebar-heading">Filters</a></li>
+        <li><a href="/App_Code/programs.php">All Programs</a></li>
+        <li><a href="#">Degrees & Certificates</a></li>
+        <li><a href="#">Support & Resources</a></li>
     </ul>
 </div>

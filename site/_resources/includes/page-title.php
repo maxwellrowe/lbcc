@@ -17,8 +17,6 @@ if (!$page['custom_hero']) { ?>
                 <h1 class="page-title-default mb-0 mt-5 fs-6xl lbcc-animate lbcc-fade lbcc-duration-700"><?php echo lbcc_escape($pageTitle); ?></h1>
             <?php } ?>
         </div>
-
-        <div class="rounded-top-5 page-cap"></div>
     </div>
 
 <?php } ?>

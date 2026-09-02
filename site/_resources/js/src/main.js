@@ -46,6 +46,52 @@ const moveModalsToBody = () => {
   });
 };
 
+const initCurrentPageLinks = () => {
+  const normalizePathname = (pathname) => {
+    const normalized = pathname
+      .replace(/\/+$/, "")
+      .replace(/\/index\.php$/i, "");
+
+    return normalized === "" ? "/" : normalized;
+  };
+
+  const currentPathname = normalizePathname(window.location.pathname);
+
+  document.querySelectorAll("a[href]").forEach((link) => {
+    if (!(link instanceof HTMLAnchorElement)) {
+      return;
+    }
+
+    const href = link.getAttribute("href")?.trim() || "";
+
+    if (href === "" || href.startsWith("#")) {
+      return;
+    }
+
+    let linkUrl;
+
+    try {
+      linkUrl = new URL(href, window.location.href);
+    } catch {
+      return;
+    }
+
+    if (
+      linkUrl.origin !== window.location.origin ||
+      !["http:", "https:"].includes(linkUrl.protocol) ||
+      normalizePathname(linkUrl.pathname) !== currentPathname
+    ) {
+      return;
+    }
+
+    link.classList.add("current-page");
+
+    if (!link.hasAttribute("aria-current")) {
+      link.setAttribute("aria-current", "page");
+    }
+  });
+};
+
 const initStickyHeader = () => {
   const header = document.querySelector(".site-header");
 
@@ -1430,12 +1476,50 @@ const initDirectoryFilters = () => {
       (section) => section instanceof HTMLElement
     );
     const emptyState = directory.querySelector("[data-lbcc-directory-empty]");
+    const alphaNav = directory.querySelector("[data-lbcc-directory-alpha-nav]");
+    const footer = document.querySelector(".site-footer");
 
     if (!(searchInput instanceof HTMLInputElement) || !(departmentSelect instanceof HTMLSelectElement) || !entries.length) {
       return;
     }
 
     const normalizeValue = (value) => value.trim().toLowerCase();
+
+    if (alphaNav instanceof HTMLElement && footer instanceof HTMLElement) {
+      const desktopQuery = window.matchMedia("(min-width: 768px)");
+      let alphaNavFrame = 0;
+
+      const updateAlphaNavPosition = () => {
+        alphaNavFrame = 0;
+
+        if (!desktopQuery.matches) {
+          alphaNav.classList.remove("is-sticky");
+          directory.classList.remove("directory--alpha-nav-sticky");
+          return;
+        }
+
+        const offset = 16;
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        const footerTop = footer.getBoundingClientRect().top;
+        const isSticky = footerTop > viewportHeight - offset;
+
+        alphaNav.classList.toggle("is-sticky", isSticky);
+        directory.classList.toggle("directory--alpha-nav-sticky", isSticky);
+      };
+
+      const queueAlphaNavPosition = () => {
+        if (alphaNavFrame) {
+          return;
+        }
+
+        alphaNavFrame = window.requestAnimationFrame(updateAlphaNavPosition);
+      };
+
+      updateAlphaNavPosition();
+      window.addEventListener("scroll", queueAlphaNavPosition, { passive: true });
+      window.addEventListener("resize", queueAlphaNavPosition);
+      desktopQuery.addEventListener("change", queueAlphaNavPosition);
+    }
 
     const applyFilters = () => {
       const searchQuery = normalizeValue(searchInput.value);
@@ -2091,6 +2175,7 @@ LBCC.MatchHeight = {
 document.addEventListener("DOMContentLoaded", () => {
   syncReducedMotionPreference();
   moveModalsToBody();
+  initCurrentPageLinks();
   initBootstrapSet(".accordion .accordion-collapse", Collapse);
   initBootstrapSet("[data-bs-toggle=\"tab\"]", Tab);
   initBootstrapSet("[data-bs-toggle=\"dropdown\"]", Dropdown);

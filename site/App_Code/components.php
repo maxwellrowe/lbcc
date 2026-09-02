@@ -27,6 +27,8 @@ $componentAnchorItems = [
     ['link' => '#list-group-heading', 'title' => 'List Group'],
     ['link' => '#events-component-heading', 'title' => 'Events'],
     ['link' => '#news-slider-heading', 'title' => 'News Slider'],
+    ['link' => '#icon-heading', 'title' => 'Icon'],
+    ['link' => '#icon-heading-component-heading', 'title' => 'Icon Plus Heading'],
     ['link' => '#badge-heading', 'title' => 'Badge'],
     ['link' => '#social-media-heading', 'title' => 'Social Media'],
     ['link' => '#footer-i-heart-lb-heading', 'title' => 'Footer I Heart LB'],
@@ -44,7 +46,7 @@ $componentAnchorGroups = array_chunk($componentAnchorItems, (int) ceil(count($co
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
-<body class="lbcc-page">
+<body class="<?php echo lbcc_escape(lbcc_body_classes($page)); ?>">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
 <?php if ($page['custom_hero']) { ?>
 <?php // Include Custom Hero Component here... ?>
@@ -81,6 +83,8 @@ $componentAnchorGroups = array_chunk($componentAnchorItems, (int) ceil(count($co
         <?php include $componentIncludesDir . '/list-group.php'; ?>
         <?php include $componentIncludesDir . '/events.php'; ?>
         <?php include $componentIncludesDir . '/news-slider.php'; ?>
+        <?php include $componentIncludesDir . '/icon.php'; ?>
+        <?php include $componentIncludesDir . '/icon-heading.php'; ?>
         <?php include $componentIncludesDir . '/badge.php'; ?>
         <?php include $componentIncludesDir . '/social-media.php'; ?>
         <?php include $componentIncludesDir . '/footer-i-heart-lb.php'; ?>

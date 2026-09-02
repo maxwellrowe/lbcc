@@ -76,12 +76,12 @@ $buildProgramSearchIndex = static function (array $entry): string {
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
-<body class="lbcc-page">
+<body class="<?php echo lbcc_escape(lbcc_body_classes($page)); ?>">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
 <?php if ($page['custom_hero']) { ?>
 <?php // Include Custom Hero Component here... ?>
 <?php } ?>
-<main id="main-content" class="programs-page py-5">
+<main id="main-content" class="programs-page">
     <div class="container-xxl" data-lbcc-programs>
         <div class="w-100 mb-5">
             <p class="lead text-body-secondary mb-0">Explore LBCC&apos;s 70+ programs. Use the filters below to narrow your options and find the program that best fits you.</p>
@@ -273,7 +273,7 @@ $buildProgramSearchIndex = static function (array $entry): string {
                                             <span data-lbcc-programs-department-label data-lbcc-support-need-label>Select departments...</span>
                                         </button>
 
-                                        <div class="dropdown-menu component-support-matrix__menu w-100 p-0 border-0 overflow-hidden programs-filter-dropdown__menu">
+                                        <div class="dropdown-menu component-support-matrix__menu w-100 p-0 border-0 programs-filter-dropdown__menu">
                                             <?php foreach ($departments as $department) {
                                                 $departmentSlug = lbcc_slugify($department);
                                                 ?>

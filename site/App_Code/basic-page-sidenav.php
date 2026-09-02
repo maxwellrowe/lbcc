@@ -14,7 +14,7 @@ $page = lbcc_resolve_page([
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
-<body class="lbcc-page">
+<body class="<?php echo lbcc_escape(lbcc_body_classes($page)); ?>">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
 <?php if ($page['custom_hero']) { ?>
 <?php // Include Custom Hero Component here... ?>

@@ -592,7 +592,7 @@ function component_contact_card(
         ],
         [
             'icon' => 'fa-envelope',
-            'text' => $email,
+            'text' => $email !== '' ? 'Send Email' : '',
             'href' => $email !== '' ? 'mailto:' . $email : ''
         ],
         [
@@ -915,25 +915,33 @@ function component_program_card(
 // Programs
 // $careerAndAcademicPathway optionally filters the programs data by a CAP name.
 // $display supports grid and carousel.
+// $programTitles optionally limits the listing to exact program titles, in the supplied order.
 function component_programs(
     $careerAndAcademicPathway = '',
     $display = 'grid',
     $mobileItems = 1,
     $tabletItems = 2,
     $desktopItems = 3,
-    $autoplay = false
+    $autoplay = false,
+    $programTitles = []
 ) {
     $dataPath = dirname(__DIR__, 2) . '/data/programs.json';
     $decoded = is_readable($dataPath) ? json_decode((string) file_get_contents($dataPath), true) : [];
     $programEntries = is_array($decoded) ? $decoded : [];
     $pathwayFilter = lbcc_slugify(trim((string) $careerAndAcademicPathway));
+    $programTitles = is_array($programTitles) ? array_values(array_filter(array_map('trim', $programTitles))) : [];
+    $programTitleSlugs = array_values(array_unique(array_map('lbcc_slugify', $programTitles)));
     $display = $display === 'carousel' ? 'carousel' : 'grid';
     $mobileItems = max(1, min(6, (int) $mobileItems));
     $tabletItems = max(1, min(6, (int) $tabletItems));
     $desktopItems = max(1, min(6, (int) $desktopItems));
 
-    $programEntries = array_values(array_filter($programEntries, static function ($entry) use ($pathwayFilter) {
+    $programEntries = array_values(array_filter($programEntries, static function ($entry) use ($pathwayFilter, $programTitleSlugs) {
         if (!is_array($entry) || empty($entry['title'])) {
+            return false;
+        }
+
+        if (!empty($programTitleSlugs) && !in_array(lbcc_slugify((string) $entry['title']), $programTitleSlugs, true)) {
             return false;
         }
 
@@ -948,6 +956,17 @@ function component_programs(
 
         return in_array($pathwayFilter, $pathways, true);
     }));
+
+    if (!empty($programTitleSlugs)) {
+        $programOrder = array_flip($programTitleSlugs);
+
+        usort($programEntries, static function ($left, $right) use ($programOrder) {
+            $leftOrder = $programOrder[lbcc_slugify((string) ($left['title'] ?? ''))] ?? PHP_INT_MAX;
+            $rightOrder = $programOrder[lbcc_slugify((string) ($right['title'] ?? ''))] ?? PHP_INT_MAX;
+
+            return $leftOrder <=> $rightOrder;
+        });
+    }
 
     if (empty($programEntries)) {
         return;
@@ -1430,10 +1449,10 @@ function component_card_as_link(
 <?php }
 
 // List Group
-// $style options: surface, surface-haze, white, or lined
+// $style options: surface, surface-haze, white, primary-outline, or lined
 // $size options: default, sm, or lg
 // $items is an array of arrays with:
-// link, title, description, label, left_icon, image, class
+// link (optional), title, description, label, left_icon, image, class
 function component_list_group(
     $items = [],
     $style = 'surface',
@@ -1444,7 +1463,7 @@ function component_list_group(
         return;
     }
 
-    $style = in_array($style, ['surface', 'surface-haze', 'white', 'lined'], true) ? $style : 'surface';
+    $style = in_array($style, ['surface', 'surface-haze', 'white', 'primary-outline', 'lined'], true) ? $style : 'surface';
     $size = in_array($size, ['default', 'sm', 'lg'], true) ? $size : 'default';
 
     $wrapperClasses = [
@@ -1479,7 +1498,8 @@ function component_list_group(
                 continue;
             }
 
-            $link = !empty($item['link']) ? (string) $item['link'] : '#';
+            $link = !empty($item['link']) ? trim((string) $item['link']) : '';
+            $isLinked = $link !== '';
             $title = (string) $item['title'];
             $description = !empty($item['description']) ? (string) $item['description'] : '';
             $label = !empty($item['label']) ? (string) $item['label'] : '';
@@ -1489,12 +1509,13 @@ function component_list_group(
 
             $itemClasses = [
                 'list-group-item',
-                'list-group-item-action',
                 'component-list-group__item',
                 'd-flex',
                 'align-items-center',
                 'gap-3'
             ];
+
+            $itemClasses[] = $isLinked ? 'list-group-item-action' : 'component-list-group__item--static';
 
             if ($itemClass !== '') {
                 $itemClasses[] = $itemClass;
@@ -1516,7 +1537,11 @@ function component_list_group(
                 $titleClasses[] = 'fs-xl';
             }
             ?>
+            <?php if ($isLinked) { ?>
             <a href="<?php echo lbcc_escape($link); ?>" class="<?php echo lbcc_escape(implode(' ', $itemClasses)); ?>">
+            <?php } else { ?>
+            <div class="<?php echo lbcc_escape(implode(' ', $itemClasses)); ?>">
+            <?php } ?>
                 <div class="component-list-group__content d-flex flex-column gap-2 flex-grow-1 min-w-0">
                     <?php if ($label !== '') { ?>
                         <span class="component-list-group__label d-inline-flex align-items-center justify-content-center"><?php echo lbcc_escape($label); ?></span>
@@ -1543,12 +1568,16 @@ function component_list_group(
                         src="<?php echo lbcc_escape(lbcc_url($image)); ?>"
                         alt=""
                     >
-                <?php } else { ?>
+                <?php } elseif ($isLinked) { ?>
                     <span class="component-list-group__icon-shell d-inline-flex align-items-center justify-content-center flex-shrink-0" aria-hidden="true">
                         <span class="fa-sharp fa-regular fa-arrow-up-right"></span>
                     </span>
                 <?php } ?>
+            <?php if ($isLinked) { ?>
             </a>
+            <?php } else { ?>
+            </div>
+            <?php } ?>
         <?php } ?>
     </div>
 <?php }
@@ -1595,6 +1624,51 @@ function component_badge(
         <?php } ?>
         <span><?php echo lbcc_escape($text); ?></span>
     </span>
+<?php }
+
+// Icon
+// $icon is a Font Awesome icon class, for example fa-user
+// $size and $color accept existing font-size and text-color utility classes
+function component_icon(
+    $icon = '',
+    $size = 'fs-xl',
+    $color = 'text-primary'
+) {
+    $icon = trim((string) $icon);
+
+    if ($icon === '') {
+        return;
+    }
+
+    $size = trim((string) $size);
+    $color = trim((string) $color);
+    ?>
+    <span class="component-icon fa-sharp fa-regular <?php echo lbcc_escape($icon); ?><?php if ($size !== '') { ?> <?php echo lbcc_escape($size); ?><?php } ?><?php if ($color !== '') { ?> <?php echo lbcc_escape($color); ?><?php } ?>" aria-hidden="true"></span>
+<?php }
+
+// Icon plus Heading
+// $icon is a Font Awesome icon class, for example fa-user
+// $iconSize and $iconColor accept existing font-size and text-color utility classes
+// $headingSize options: h1 through h6
+function component_icon_heading(
+    $icon = '',
+    $heading = '',
+    $iconSize = 'fs-xl',
+    $iconColor = 'text-primary',
+    $headingSize = 'h3'
+) {
+    $heading = trim((string) $heading);
+
+    if ($heading === '') {
+        return;
+    }
+
+    $headingSize = in_array($headingSize, ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'], true) ? $headingSize : 'h3';
+    ?>
+    <div class="component-icon-heading d-flex justify-content-start align-items-center gap-3">
+        <?php component_icon($icon, $iconSize, $iconColor); ?>
+        <h2 class="<?php echo lbcc_escape($headingSize); ?> mb-0"><?php echo lbcc_escape($heading); ?></h2>
+    </div>
 <?php }
 
 // Footer "I Heart LB"
@@ -2581,12 +2655,13 @@ function component_events(
     ?>
     <div class="component-events component-events--<?php echo lbcc_escape($variation); ?> d-grid gap-4">
         <?php if ($variation === 'horizontal') { ?>
-            <div class="row row-cols-1 row-cols-xl-4 g-3">
+            <?php $horizontalColumns = min(count($mappedItems), 6); ?>
+            <div class="row row-cols-1 row-cols-xl-<?php echo lbcc_escape((string) $horizontalColumns); ?> g-3">
                 <?php foreach ($mappedItems as $mappedItem) {
                     $mappedItem['class'] = 'h-100';
                     ?>
                     <div class="col">
-                        <?php component_list_group([$mappedItem], 'surface', '', ['component-events-list', 'component-events-list--horizontal']); ?>
+                        <?php component_list_group([$mappedItem], 'surface', '', ['component-events-list', 'component-events-list--horizontal', 'h-100']); ?>
                     </div>
                 <?php } ?>
             </div>
@@ -2603,18 +2678,21 @@ function component_title_with_ctas(
     $title = '',
     $buttons = [],
     $content = '',
-    $lineClass = 'border-gray-300'
+    $lineClass = 'border-gray-300',
+    $titleSize = ''
 ) {
     if ($title === '') {
         return;
     }
 
     $lineClass = !empty($lineClass) ? trim((string) $lineClass) : 'border-gray-300';
+    $titleSize = trim((string) $titleSize);
+    $titleSize = in_array($titleSize, ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'], true) ? $titleSize : '';
     ?>
     <section class="component-title-with-ctas d-grid gap-3">
         <div class="component-title-with-ctas__header d-flex flex-column align-items-stretch gap-3 flex-lg-row align-items-lg-center">
             <div class="component-title-with-ctas__title-line d-flex align-items-center gap-2 w-100 min-w-0">
-                <h2 class="component-title-with-ctas__title mb-0"><?php echo lbcc_escape($title); ?></h2>
+                <h2 class="component-title-with-ctas__title mb-0<?php if ($titleSize !== '') { ?> <?php echo lbcc_escape($titleSize); ?><?php } ?>"><?php echo lbcc_escape($title); ?></h2>
                 <div class="component-title-with-ctas__line border-top flex-grow-1 min-w-0 <?php echo lbcc_escape($lineClass); ?>"></div>
             </div>
 

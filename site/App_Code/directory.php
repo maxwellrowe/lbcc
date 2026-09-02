@@ -75,12 +75,12 @@ $buildSearchIndex = static function (array $entry): string {
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
-<body class="lbcc-page">
+<body class="<?php echo lbcc_escape(lbcc_body_classes($page)); ?>">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
 <?php if ($page['custom_hero']) { ?>
 <?php // Include Custom Hero Component here... ?>
 <?php } ?>
-<main id="main-content" class="directory-page py-5">
+<main id="main-content" class="directory-page">
     <div class="container-xxl" data-lbcc-directory>
         <section class="directory-filters mb-5">
             <div class="row g-3">
@@ -101,13 +101,18 @@ $buildSearchIndex = static function (array $entry): string {
                 </div>
 
                 <div class="col-12 col-lg-6">
-                    <label class="form-label fw-semibold mb-2" for="directory-department">Department</label>
-                    <select id="directory-department" class="form-select" data-lbcc-directory-department>
-                        <option value="">All departments</option>
-                        <?php foreach ($departments as $department) { ?>
-                            <option value="<?php echo lbcc_escape($department); ?>"><?php echo lbcc_escape($department); ?></option>
-                        <?php } ?>
-                    </select>
+                    <label class="form-label fw-semibold mb-2" for="directory-department">Filter by Department</label>
+                    <div class="input-group directory-filter-input">
+                        <span class="input-group-text bg-white border-end-0">
+                            <span class="fa-sharp fa-regular fa-building-columns text-primary" aria-hidden="true"></span>
+                        </span>
+                        <select id="directory-department" class="form-select border-start-0" data-lbcc-directory-department>
+                            <option value="">All departments</option>
+                            <?php foreach ($departments as $department) { ?>
+                                <option value="<?php echo lbcc_escape($department); ?>"><?php echo lbcc_escape($department); ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
                 </div>
             </div>
         </section>
@@ -134,6 +139,7 @@ $buildSearchIndex = static function (array $entry): string {
                             $phone = (string) ($entry['phone'] ?? '');
                             $email = (string) ($entry['email'] ?? '');
                             $location = (string) ($entry['location'] ?? '');
+                            $hasProfile = !array_key_exists('has_profile', $entry) || !empty($entry['has_profile']);
                             $profileUrl = trim((string) ($entry['profile_url'] ?? ''));
                             if ($profileUrl === '' || $profileUrl === '#') {
                                 $profileUrl = lbcc_url('/App_Code/directory-profile.php');
@@ -175,7 +181,9 @@ $buildSearchIndex = static function (array $entry): string {
                                         </ul>
                                     </div>
 
-                                    <a href="<?php echo lbcc_escape($profileUrl); ?>" class="btn btn-outline-primary btn-sm flex-shrink-0">View Profile</a>
+                                    <?php if ($hasProfile) { ?>
+                                        <a href="<?php echo lbcc_escape($profileUrl); ?>" class="btn btn-outline-primary btn-sm flex-shrink-0">View Profile</a>
+                                    <?php } ?>
                                 </div>
                             </article>
                         <?php } ?>
@@ -189,6 +197,7 @@ $buildSearchIndex = static function (array $entry): string {
                             $phone = (string) ($entry['phone'] ?? '');
                             $email = (string) ($entry['email'] ?? '');
                             $location = (string) ($entry['location'] ?? '');
+                            $hasProfile = !array_key_exists('has_profile', $entry) || !empty($entry['has_profile']);
                             $profileUrl = trim((string) ($entry['profile_url'] ?? ''));
                             if ($profileUrl === '' || $profileUrl === '#') {
                                 $profileUrl = lbcc_url('/App_Code/directory-profile.php');
@@ -248,7 +257,9 @@ $buildSearchIndex = static function (array $entry): string {
                                             </li>
                                         </ul>
 
-                                        <a href="<?php echo lbcc_escape($profileUrl); ?>" class="btn btn-outline-primary btn-sm">View Profile</a>
+                                        <?php if ($hasProfile) { ?>
+                                            <a href="<?php echo lbcc_escape($profileUrl); ?>" class="btn btn-outline-primary btn-sm">View Profile</a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </article>
@@ -262,7 +273,7 @@ $buildSearchIndex = static function (array $entry): string {
                 <p class="mb-0 text-body-secondary">Try a different name or department filter.</p>
             </div>
 
-            <nav class="directory-alpha-nav d-none d-md-flex align-items-center justify-content-center flex-wrap gap-3 pt-3" aria-label="Directory letters">
+            <nav class="directory-alpha-nav d-none d-md-flex align-items-center justify-content-center flex-wrap gap-3 bg-white shadow rounded-4 p-3" aria-label="Directory letters" data-lbcc-directory-alpha-nav>
                 <?php foreach ($directoryLetters as $letter) {
                     $hasSection = array_key_exists($letter, $groupedEntries);
                     ?>

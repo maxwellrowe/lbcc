@@ -8,10 +8,15 @@ $page = lbcc_resolve_page([
     'section_nav_include' => __DIR__ . '/navs/section-nav-default.php',
     'sidenav' => false,
     'sidenav_include' => '',
-    'custom_hero' => false
+    'custom_hero' => true
 ]);
 
-$featuredTemplateItems = [
+
+$templateItems = [
+    [
+        'link' => lbcc_url('/App_Code/academics.php'),
+        'title' => 'Academics'
+    ],
     [
         'link' => lbcc_url('/App_Code/homepage.php'),
         'title' => 'Homepage'
@@ -31,10 +36,7 @@ $featuredTemplateItems = [
     [
         'link' => lbcc_url('/App_Code/directory.php'),
         'title' => 'Directory'
-    ]
-];
-
-$pageTemplateItems = [
+    ],
     [
         'link' => lbcc_url('/App_Code/a-z.php'),
         'title' => 'A-Z Index'
@@ -48,8 +50,16 @@ $pageTemplateItems = [
         'title' => 'Basic Page Sidenav'
     ],
     [
+        'link' => lbcc_url('/App_Code/current-students.php'),
+        'title' => 'Current Students'
+    ],
+    [
         'link' => lbcc_url('/App_Code/directory-profile.php'),
         'title' => 'Directory Profile'
+    ],
+    [
+        'link' => lbcc_url('/App_Code/financial-aid.php'),
+        'title' => 'Financial Aid'
     ],
     [
         'link' => lbcc_url('/App_Code/news-archive.php'),
@@ -60,10 +70,22 @@ $pageTemplateItems = [
         'title' => 'News Single'
     ],
     [
+        'link' => lbcc_url('/App_Code/program-single.php'),
+        'title' => 'Program Single (Accounting)'
+    ],
+    [
+        'link' => lbcc_url('/App_Code/program-single-nursing.php'),
+        'title' => 'Program (Registered Nursing)'
+    ],
+    [
         'link' => lbcc_url('/App_Code/404.php'),
         'title' => '404 Page'
     ]
 ];
+
+usort($templateItems, static function (array $left, array $right): int {
+    return strcasecmp((string) $left['title'], (string) $right['title']);
+});
 
 $resourceItems = [
     [
@@ -80,15 +102,81 @@ $resourceItems = [
     ]
 ];
 ?>
+
+<?php ob_start(); ?>
+<?php component_buttons(
+    [
+        [
+            'style' => 'btn-primary',
+            'text' => 'Templates',
+            'url' => '#templates-heading',
+            'size' => '',
+            'icon' => ''
+        ],
+        [
+            'style' => 'btn-primary',
+            'text' => 'Components',
+            'url' => '../App_Code/components.php',
+            'size' => '',
+            'icon' => ''
+        ],
+        [
+            'style' => 'btn-primary',
+            'text' => 'Snippets',
+            'url' => '../App_Code/snippets.php',
+            'size' => '',
+            'icon' => ''
+        ],
+        [
+            'style' => 'btn-primary',
+            'text' => 'Styleguide',
+            'url' => '../App_Code/styleguide.php',
+            'size' => '',
+            'icon' => ''
+        ],
+        
+    ],
+    'row',
+    2
+); ?>
+<?php $buttonGroupMarkup = ob_get_clean(); ?>
+<?php
+$heroSupplementalContent = '
+    <div class="mt-4">' . $buttonGroupMarkup . '</div>
+';
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
-<body class="lbcc-page">
+<body class="<?php echo lbcc_escape(lbcc_body_classes($page)); ?>">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
 <?php if ($page['custom_hero']) { ?>
-<?php // Include Custom Hero Component here... ?>
+    <?php
+    component_hero(
+        'split',
+        'Templates & Resources',
+        $heroSupplementalContent,
+        [
+            [
+                'type' => 'video',
+                'src' => '_resources/video/homepage/skating.mp4',
+                'alt' => ''
+            ]
+        ],
+        [
+            [
+                'type' => 'video',
+                'src' => '_resources/video/hero-backgrounds/hero-bg-6.mp4',
+                'poster' => '_resources/images/hero-backgrounds/hero-bg-2.jpg'
+            ]
+        ],
+        [],
+        true
+    );
+    ?>
 <?php } ?>
-<main id="main-content" class="py-5">
+<main id="main-content">
     <div class="container-xxl">
         <section class="mb-5">
             <div class="d-grid gap-3">
@@ -101,11 +189,11 @@ $resourceItems = [
             </div>
         </section>
 
-        <section class="mb-5" aria-labelledby="featured-templates-heading">
+        <section class="mb-5" aria-labelledby="templates-heading">
             <div class="d-grid gap-3">
-                <h2 id="featured-templates-heading" class="mb-0">Featured Templates</h2>
-                <p class="mb-0 text-body-secondary">Primary templates we already have standing up for iterative front-end and CMS handoff work.</p>
-                <?php component_list_group($featuredTemplateItems, 'surface', 'default'); ?>
+                <h2 id="templates-heading" class="mb-0">Templates</h2>
+                <p class="mb-0 text-body-secondary">Page templates available for iterative front-end and CMS handoff work.</p>
+                <?php component_list_group($templateItems, 'surface', 'default'); ?>
             </div>
 
             <div class="mt-3">
@@ -127,14 +215,6 @@ $resourceItems = [
                         <a class="arrow-link" href="<?php echo lbcc_escape(lbcc_url('/App_Code/components.php#hero-heading')); ?>">View Homepage Hero component</a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="mb-5" aria-labelledby="page-templates-heading">
-            <div class="d-grid gap-3">
-                <h2 id="page-templates-heading" class="mb-0">Additional Templates</h2>
-                <p class="mb-0 text-body-secondary">Supporting templates for article detail, indexing, profile, and error-state needs.</p>
-                <?php component_list_group($pageTemplateItems, 'surface', 'default'); ?>
             </div>
         </section>
 

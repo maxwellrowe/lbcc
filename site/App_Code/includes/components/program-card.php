@@ -13,6 +13,11 @@
         <?php component_programs('Business, Management & Entrepreneurship', 'carousel', 1, 2, 3, true); ?>
     </div>
 
+    <div class="mb-5">
+        <p class="eyebrow-sm mb-2">Grid / Selected Programs</p>
+        <?php component_programs('', 'grid', 1, 2, 3, false, ['Certified Nursing Assistant (CNA)', 'LVN to RN Career Ladder', 'Vocational Nursing']); ?>
+    </div>
+
     <h3 class="h5 mb-3">Options</h3>
     <div class="table-responsive">
         <table class="table align-middle">
@@ -48,6 +53,12 @@
                     <td>boolean</td>
                     <td>false</td>
                     <td>Enables carousel autoplay when the display is <code>carousel</code>.</td>
+                </tr>
+                <tr>
+                    <td>Program Titles</td>
+                    <td>array</td>
+                    <td>empty</td>
+                    <td>Optional list of exact program titles to include. When provided, only these programs render, in the supplied order.</td>
                 </tr>
             </tbody>
         </table>

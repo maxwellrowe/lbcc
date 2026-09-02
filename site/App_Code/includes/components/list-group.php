@@ -152,6 +152,30 @@
                 ?>
             </div>
             <div class="col">
+                <p class="eyebrow-sm mb-2">Primary Outline / Default</p>
+                <?php
+                component_list_group(
+                    [
+                        [
+                            'link' => '#',
+                            'title' => 'Heading',
+                            'description' => 'Lorem ipsum dolor sit amet',
+                            'label' => 'Here Is A Label'
+                        ],
+                        [
+                            'link' => '#',
+                            'title' => 'Heading',
+                            'description' => 'Learn more about student support',
+                            'label' => 'Here Is A Label',
+                            'left_icon' => 'fa-building-columns'
+                        ]
+                    ],
+                    'primary-outline',
+                    'default'
+                );
+                ?>
+            </div>
+            <div class="col">
                 <p class="eyebrow-sm mb-2">Surface / Large</p>
                 <?php
                 component_list_group(
@@ -223,7 +247,7 @@
                     <td>Style</td>
                     <td>string</td>
                     <td>surface</td>
-                    <td>Supported values are <code>surface</code>, <code>surface-haze</code>, <code>white</code>, and <code>lined</code>.</td>
+                    <td>Supported values are <code>surface</code>, <code>surface-haze</code>, <code>white</code>, <code>primary-outline</code>, and <code>lined</code>. The <code>primary-outline</code> style uses a 2px primary outline that changes to secondary on hover and focus.</td>
                 </tr>
                 <tr>
                     <td>Size</td>
@@ -234,8 +258,8 @@
                 <tr>
                     <td>Link</td>
                     <td>string</td>
-                    <td>#</td>
-                    <td>Destination URL for the linked list-group item.</td>
+                    <td>empty</td>
+                    <td>Optional destination URL. Omit it to render a static, non-linked row without the arrow treatment.</td>
                 </tr>
                 <tr>
                     <td>Title</td>

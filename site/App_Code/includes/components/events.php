@@ -131,7 +131,7 @@
                     <td>Variation</td>
                     <td>string</td>
                     <td>default</td>
-                    <td>Supported values are <code>default</code>, <code>mobile-vert</code>, and <code>horizontal</code>.</td>
+                    <td>Supported values are <code>default</code>, <code>mobile-vert</code>, and <code>horizontal</code>. The horizontal variation uses one column per event item at XL and above, up to six columns.</td>
                 </tr>
                 <tr>
                     <td>Item Title</td>

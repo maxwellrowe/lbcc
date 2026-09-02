@@ -16,12 +16,12 @@ $supportMatrixData = lbcc_support_matrix_load_data(__DIR__ . '/data/support-matr
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
-<body class="lbcc-page">
+<body class="<?php echo lbcc_escape(lbcc_body_classes($page)); ?>">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
 <?php if ($page['custom_hero']) { ?>
 <?php // Include Custom Hero Component here... ?>
 <?php } ?>
-<main id="main-content" class="support-page py-5">
+<main id="main-content" class="support-page">
     <div class="container-xxl d-grid gap-4">
         <div class="w-100">
             <p class="mb-0 text-body-secondary">Browse support resources and narrow the list by who you are, what you need, or both.</p>

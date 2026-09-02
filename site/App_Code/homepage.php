@@ -27,7 +27,7 @@ HTML;
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
-<body class="lbcc-page">
+<body class="<?php echo lbcc_escape(lbcc_body_classes($page)); ?>">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
 
 <?php
@@ -58,7 +58,7 @@ component_hero(
 ?>
 
 <main id="main-content">
-    <section class="bg-surface-subtle">
+    <section class="bg-surface-subtle pt-0">
         <div class="container-xxl">
             <?php
             component_ticker(

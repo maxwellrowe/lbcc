@@ -7,7 +7,8 @@
     "phone": "(562) 938-4012",
     "email": "amelia.alvarez@lbcc.edu",
     "location": "LAC, A-1012",
-    "profile_url": "#"
+    "profile_url": "#",
+    "has_profile": false
   },
   {
     "first_name": "Noah",
@@ -17,7 +18,8 @@
     "phone": "(562) 938-4158",
     "email": "noah.anderson@lbcc.edu",
     "location": "PCC, CC-220",
-    "profile_url": "#"
+    "profile_url": "#",
+    "has_profile": false
   },
   {
     "first_name": "Sofia",
@@ -27,7 +29,8 @@
     "phone": "(562) 938-4471",
     "email": "sofia.arnold@lbcc.edu",
     "location": "LAC, A-1080",
-    "profile_url": "#"
+    "profile_url": "#",
+    "has_profile": false
   },
   {
     "first_name": "Mason",

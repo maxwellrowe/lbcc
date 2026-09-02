@@ -16,12 +16,12 @@ $archiveItems = lbcc_news_archive_items();
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
-<body class="lbcc-page">
+<body class="<?php echo lbcc_escape(lbcc_body_classes($page)); ?>">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
 <?php if ($page['custom_hero']) { ?>
 <?php // Include Custom Hero Component here... ?>
 <?php } ?>
-<main id="main-content" class="py-5">
+<main id="main-content">
     <div class="container-xxl d-grid gap-5">
         <section id="news-list">
             <div class="row g-4 g-xl-5 align-items-start">

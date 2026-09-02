@@ -2,6 +2,17 @@
     max-width: 768px;
 }
 
+.snippet-card-well-as-link {
+    color: var(--bs-dark);
+    transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+    &:hover,
+    &:focus-visible {
+        color: inherit;
+        transform: translateY(-2px);
+    }
+}
+
 .snippet-section-background-video {
     position: relative;
     isolation: isolate;

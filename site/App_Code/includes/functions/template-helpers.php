@@ -45,6 +45,18 @@ function lbcc_resolve_page(array $page = []): array
     return array_merge(lbcc_page_defaults(), $page);
 }
 
+function lbcc_body_classes(array $page = []): string
+{
+    $page = lbcc_resolve_page($page);
+    $classes = ['lbcc-page'];
+
+    if (!empty($page['section_nav'])) {
+        $classes[] = 'section-nav-active';
+    }
+
+    return implode(' ', $classes);
+}
+
 function lbcc_page_partial_path(?string $includePath): ?string
 {
     if ($includePath === null || $includePath === '') {

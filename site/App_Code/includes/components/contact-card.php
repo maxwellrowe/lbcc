@@ -139,7 +139,7 @@
                     <td>Email</td>
                     <td>string</td>
                     <td>empty</td>
-                    <td>Optional email value shown with the envelope icon and linked with <code>mailto:</code>.</td>
+                    <td>Optional email address used as the <code>mailto:</code> destination. The visible link text is always “Send Email.”</td>
                 </tr>
                 <tr>
                     <td>Location</td>

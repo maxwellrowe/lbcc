@@ -14,7 +14,7 @@ $page = lbcc_resolve_page([
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
-<body class="lbcc-page">
+<body class="<?php echo lbcc_escape(lbcc_body_classes($page)); ?>">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
 <div class="bg-water-gradient page-hero">
     <div class="container-xxl pt-0 pt-sm-4">
@@ -60,7 +60,7 @@ $page = lbcc_resolve_page([
     
 </div>
 <main id="main-content">
-    <div class="container-xxl">
+    <div class="container-xxl pt-0">
         <div class="row">
             <div class="col-12 col-md-8 my-5">
                 <section>
@@ -277,34 +277,124 @@ $page = lbcc_resolve_page([
                     ?>
                 </section>
                 <section>
-                    <h2>Additional Program Resources</h2>
+                    <h2 class="mb-4">Additional Program Resources</h2>
+                    <?php
+                    component_list_group(
+                        [
+                            [
+                                'link' => '#',
+                                'title' => 'Learning Tools for Students',
+                                'description' => '',
+                                'label' => 'Program Resources'
+                            ],
+                            [
+                                'link' => '#',
+                                'title' => 'Find the Degrees/ Certificates and Course Information',
+                                'description' => '',
+                                'label' => 'College Catalog'
+                            ]
+                        ],
+                        'surface',
+                        'default'
+                    );
+                    ?>
+                </section>
+                <section>
+                    <h2 class="mb-4">Contact Us</h2>
+                    <div class="d-grid gap-4">
+                        <?php
+                        component_contact_card(
+                            'Maureen Baker',
+                            'Professor, Accounting',
+                            '(562) 938-4971',
+                            'maureen.baker@example.com',
+                            'LAC, T-2351',
+                            '',
+                            '',
+                            'horizontal',
+                            'default',
+                            '#',
+                            '',
+                            '',
+                            ''
+                        );
+
+                        component_contact_card(
+                            'Kirk Canzano',
+                            'Professor, Accounting',
+                            '(562) 938-4473',
+                            'kirk.canzano@example.com',
+                            'LAC, T-2350',
+                            '',
+                            '',
+                            'horizontal',
+                            'default',
+                            '#',
+                            '',
+                            '',
+                            ''
+                        );
+
+                        component_contact_card(
+                            'Bryan Corsnitz',
+                            'Professor, Accounting',
+                            '(562) 938-4204',
+                            'bryan.corsnitz@example.com',
+                            'LAC, T-2349',
+                            '',
+                            '',
+                            'horizontal',
+                            'default',
+                            '#',
+                            '',
+                            '',
+                            ''
+                        );
+
+                        component_contact_card(
+                            'Andrea Eliassen',
+                            'Assistant Professor, Accounting',
+                            '(562) 938-5511',
+                            'andrea.eliassen@example.com',
+                            'LAC, T-2366',
+                            '',
+                            '',
+                            'horizontal',
+                            'default',
+                            '#',
+                            '',
+                            '',
+                            ''
+                        );
+                        ?>
+                    </div>
                 </section>
             </div>
             <div class="col-12 col-md-4 ps-xl-5">
                 <div class="card rounded-0 rounded-bottom-5 bg-surface-subtle shadow-lg border-0">
                     <div class="card-body p-0">
                         <div class="p-4 bg-white">
-                            <h2 class="h4">Get Started in Accounting</h4>
+                            <h2 class="h4 mb-4">Get Started in <?php echo $pageTitle; ?></h4>
                             <?php
                             component_buttons(
                                 [
                                     [
                                         'style' => 'btn-outline-primary',
-                                        'text' => 'Program Brochure',
+                                        'text' => 'Info Sessions',
                                         'url' => '#',
                                         'size' => 'btn-sm',
                                         'icon' => ''
                                     ],
                                     [
                                         'style' => 'btn-outline-primary',
-                                        'text' => 'Speak with a Counselor',
+                                        'text' => 'Admissions Information',
                                         'url' => '#',
                                         'size' => 'btn-sm',
                                         'icon' => ''
                                     ],
                                     [
                                         'style' => 'btn-outline-primary',
-                                        'text' => 'Browse Classes',
+                                        'text' => 'Student Health Requirements',
                                         'url' => '#',
                                         'size' => 'btn-sm',
                                         'icon' => ''
@@ -329,6 +419,12 @@ $page = lbcc_resolve_page([
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="bg-sand-water-gradient py-5 rounded-top-5">
+        <div class="container-xxl">
+            <h2 class="mb-5 text-center">Explore Similar Programs</h2>
+            <?php component_programs('Business, Management & Entrepreneurship', 'carousel', 1, 2, 4, true); ?>
         </div>
     </div>
 </main>

@@ -103,13 +103,15 @@ $surfaceUtilityClasses = [
     ['class' => '.bg-surface-raised', 'sass' => '$color-sand', 'hex' => '#F4F0EC', 'border' => true],
     ['class' => '.bg-surface-water', 'sass' => '$color-teal-50', 'hex' => '#F1FBFC', 'border' => true],
     ['class' => '.bg-surface-sun-haze', 'sass' => '$color-sun-haze', 'hex' => '#E6F3F2', 'border' => true],
-    ['class' => '.bg-surface-inverse', 'sass' => '$dark / --bs-dark', 'hex' => '#1E1E1E', 'text' => 'text-white']
+    ['class' => '.bg-surface-inverse', 'sass' => '$dark / --bs-dark', 'hex' => '#1E1E1E', 'text' => 'text-white'],
+    ['class' => '.bg-water-gradient', 'sass' => '$color-water-gradient', 'css_var' => '--color-water-gradient', 'border' => true],
+    ['class' => '.bg-sand-water-gradient', 'sass' => '$color-sand-water-gradient', 'css_var' => '--color-sand-water-gradient', 'border' => true]
 ];
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
-<body class="lbcc-page">
+<body class="<?php echo lbcc_escape(lbcc_body_classes($page)); ?>">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
 <?php if ($page['custom_hero']) { ?>
 <?php // Include Custom Hero Component here... ?>
@@ -305,7 +307,7 @@ $surfaceUtilityClasses = [
                             <div class="rounded p-4 <?php echo lbcc_escape(ltrim($utility['class'], '.')); ?> <?php echo !empty($utility['border']) ? 'border' : ''; ?> <?php echo !empty($utility['text']) ? lbcc_escape($utility['text']) : ''; ?>">
                                 <p class="mb-1 fw-semibold"><?php echo lbcc_escape($utility['class']); ?></p>
                                 <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code><?php echo lbcc_escape($utility['sass']); ?></code></p>
-                                <p class="mb-0"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
+                                <p class="mb-0"><small class="text-body-secondary">CSS Var:</small> <?php if (!empty($utility['css_var'])) { ?><code><?php echo lbcc_escape($utility['css_var']); ?></code><?php } else { ?><span class="text-body-secondary">Not exposed</span><?php } ?></p>
                             </div>
                         </div>
                     <?php } ?>

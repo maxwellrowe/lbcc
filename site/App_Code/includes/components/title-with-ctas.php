@@ -33,7 +33,8 @@
                 ]
             ],
             '',
-            'border-gray-300'
+            'border-gray-300',
+            'h1'
         );
         ?>
     </div>
@@ -73,6 +74,12 @@
                     <td>string</td>
                     <td>border-gray-300</td>
                     <td>Divider color class for the bottom rule, typically a Bootstrap border utility.</td>
+                </tr>
+                <tr>
+                    <td>Title Size</td>
+                    <td>string</td>
+                    <td>empty</td>
+                    <td>Optional Bootstrap heading utility override: <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>, or <code>h6</code>.</td>
                 </tr>
             </tbody>
         </table>

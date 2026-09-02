@@ -46,7 +46,6 @@ $contactItems = [
     ],
     [
         'title' => $profile['location'],
-        'link' => '#',
         'left_icon' => 'fa-location-dot'
     ],
     [
@@ -64,7 +63,7 @@ $contactItems = [
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
-<body class="lbcc-page">
+<body class="<?php echo lbcc_escape(lbcc_body_classes($page)); ?>">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
 <div class="bg-water-gradient page-hero">
     <div class="container-xxl py-4">
@@ -87,20 +86,18 @@ $contactItems = [
             </a>
         </div>
     </div>
-
-    <div class="rounded-top-5 page-cap"></div>
 </div>
-<main id="main-content" class="py-5">
+<main id="main-content">
     <div class="container-xxl">
         <div class="row g-4 g-xl-5 align-items-start">
             <div class="col-12 col-xl-7">
-                <div class="d-grid gap-5">
+                <div>
                     <section aria-labelledby="directory-profile-contact-heading">
                         <h2 id="directory-profile-contact-heading" class="visually-hidden">Contact Information</h2>
                         <?php component_list_group($contactItems, 'lined', 'sm', ['w-100']); ?>
                     </section>
 
-                    <div>
+                    <div class="mt-5">
                         <a href="<?php echo lbcc_escape($profile['resume_url']); ?>" class="btn btn-primary">
                             Download Resume
                         </a>
@@ -124,7 +121,7 @@ $contactItems = [
                         </div>
                     </section>
 
-                    <div class="border-top pt-5">
+                    <div class="border-top pt-5 mt-5">
                         <a href="<?php echo lbcc_escape($profile['directory_url']); ?>" class="btn btn-outline-secondary">
                             View Full Directory
                         </a>
@@ -147,6 +144,8 @@ $contactItems = [
             </div>
         </div>
     </div>
+
+    
 </main>
 <?php include dirname(__DIR__) . '/_resources/includes/footer.php'; ?>
 <?php include dirname(__DIR__) . '/_resources/includes/footer-scripts.php'; ?>

@@ -21,6 +21,7 @@ $snippetAnchorItems = [
     ['link' => '#accordion', 'title' => 'Accordion'],
     ['link' => '#collapse', 'title' => 'Collapse'],
     ['link' => '#card', 'title' => 'Card Well'],
+    ['link' => '#card-as-link', 'title' => 'Card Well as Link'],
     ['link' => '#carousel-anything', 'title' => 'Carousel Anything']
 ];
 $snippetAnchorGroups = array_chunk($snippetAnchorItems, (int) ceil(count($snippetAnchorItems) / 3));
@@ -28,7 +29,7 @@ $snippetAnchorGroups = array_chunk($snippetAnchorItems, (int) ceil(count($snippe
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
-<body class="lbcc-page">
+<body class="<?php echo lbcc_escape(lbcc_body_classes($page)); ?>">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
 <?php if ($page['custom_hero']) { ?>
 <?php // Include Custom Hero Component here... ?>
@@ -87,6 +88,13 @@ $snippetAnchorGroups = array_chunk($snippetAnchorItems, (int) ceil(count($snippe
         <div class="container-xxl">
             <h2>Card Well</h2>
             <?php include $snippetIncludesDir . '/card.php'; ?>
+        </div>
+    </section>
+
+    <section class="mb-5" id="card-as-link">
+        <div class="container-xxl">
+            <h2>Card Well as Link</h2>
+            <?php include $snippetIncludesDir . '/card-as-link.php'; ?>
         </div>
     </section>
 

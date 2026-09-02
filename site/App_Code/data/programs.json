@@ -864,7 +864,17 @@
     ]
   },
   {
-    "title": "Nursing: LVN to RN",
+    "title": "Certified Nursing Assistant (CNA)",
+    "url": "../App_Code/program-single-nursing.php",
+    "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/nursing.jpeg?1577830849",
+    "pathway": "Health, Science & Technology",
+    "department": "Certified Nursing Assistant",
+    "program_options": [
+      "C-ACH"
+    ]
+  },
+  {
+    "title": "LVN to RN Career Ladder",
     "url": "../App_Code/program-single.php",
     "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/image_37690603441476471298709.png?1577830849",
     "pathway": "Health, Science & Technology",
@@ -885,7 +895,7 @@
     ]
   },
   {
-    "title": "Nursing: Vocational",
+    "title": "Vocational Nursing",
     "url": "../App_Code/program-single.php",
     "image": "https://www.lbcc.edu/sites/main/files/imagecache/tile/main-images/vngrads16_11.jpg?1577830849",
     "pathway": "Health, Science & Technology",

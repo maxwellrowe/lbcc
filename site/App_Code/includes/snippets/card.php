@@ -2,37 +2,47 @@
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
     <div class="col">
-        <div class="card rounded-4 h-100 border-0 bg-surface-subtle p-4">
-            <h3 class="h4 mb-2">bg-surface-subtle</h3>
-            <p class="mb-0">Use this well for mixed editorial content, supporting components, or small layout groupings.</p>
+        <div class="card rounded-4 h-100 border-0 bg-surface-subtle">
+            <div class="card-body p-4">
+                <h3 class="h4 mb-2">bg-surface-subtle</h3>
+                <p class="mb-0">Use this well for mixed editorial content, supporting components, or small layout groupings.</p>
+            </div>
         </div>
     </div>
 
     <div class="col">
-        <div class="card rounded-4 h-100 border-0 bg-surface-raised p-4">
-            <h3 class="h4 mb-2">bg-surface-raised</h3>
-            <p class="mb-0">Place text, lists, badges, buttons, or another component directly inside the well.</p>
+        <div class="card rounded-4 h-100 border-0 bg-surface-raised">
+            <div class="card-body p-4">
+                <h3 class="h4 mb-2">bg-surface-raised</h3>
+                <p class="mb-0">Place text, lists, badges, buttons, or another component directly inside the well.</p>
+            </div>
         </div>
     </div>
 
     <div class="col">
-        <div class="card rounded-4 h-100 border-0 bg-surface-water p-4">
-            <h3 class="h4 mb-2">bg-surface-water</h3>
-            <p class="mb-0">A soft background option for related information or a compact callout.</p>
+        <div class="card rounded-4 h-100 border-0 bg-surface-water">
+            <div class="card-body p-4">
+                <h3 class="h4 mb-2">bg-surface-water</h3>
+                <p class="mb-0">A soft background option for related information or a compact callout.</p>
+            </div>
         </div>
     </div>
 
     <div class="col">
-        <div class="card rounded-4 h-100 border-0 bg-surface-sun-haze p-4">
-            <h3 class="h4 mb-2">bg-surface-sun-haze</h3>
-            <p class="mb-0">Use a Card Well to visually group richer content without imposing a card component structure.</p>
+        <div class="card rounded-4 h-100 border-0 bg-surface-sun-haze">
+            <div class="card-body p-4">
+                <h3 class="h4 mb-2">bg-surface-sun-haze</h3>
+                <p class="mb-0">Use a Card Well to visually group richer content without imposing a card component structure.</p>
+            </div>
         </div>
     </div>
 
     <div class="col">
-        <div class="card rounded-4 h-100 border-0 bg-water-gradient p-4">
-            <h3 class="h4 mb-2">bg-water-gradient</h3>
-            <p class="mb-0">The gradient option works well when a section needs a little more visual emphasis.</p>
+        <div class="card rounded-4 h-100 border-0 bg-water-gradient">
+            <div class="card-body p-4 d-flex align-items-center justify-content-center flex-column text-center">
+                <h3 class="h4 mb-2">bg-water-gradient</h3>
+                <p class="mb-0">The gradient option works well when a section needs a little more visual emphasis and supports centered content.</p>
+            </div>
         </div>
     </div>
 </div>
@@ -49,7 +59,7 @@
         <tbody>
             <tr>
                 <td>Custom Classes</td>
-                <td>Apply Bootstrap or project classes directly to the <code>.card</code> wrapper, such as <code>rounded-4</code>, <code>shadow-sm</code>, or <code>h-100</code>.</td>
+                <td>Apply structural classes to the <code>.card</code> wrapper, such as <code>rounded-4</code>, <code>shadow-sm</code>, or <code>h-100</code>.</td>
             </tr>
             <tr>
                 <td>Background Color</td>
@@ -69,11 +79,15 @@
             </tr>
             <tr>
                 <td>Padding</td>
-                <td>Apply Bootstrap padding utilities such as <code>p-3</code>, <code>p-4</code>, or <code>px-5 py-4</code>.</td>
+                <td>Apply Bootstrap padding utilities such as <code>p-3</code>, <code>p-4</code>, or <code>px-5 py-4</code> to the nested <code>.card-body</code>.</td>
+            </tr>
+            <tr>
+                <td>Center Align</td>
+                <td>Boolean, default <code>false</code>. When enabled, add <code>d-flex align-items-center justify-content-center flex-column</code> to the nested <code>.card-body</code>.</td>
             </tr>
             <tr>
                 <td>Content</td>
-                <td>Any trusted HTML, snippet, or component placed directly inside the Card Well.</td>
+                <td>Any trusted HTML, snippet, or component placed inside the nested <code>.card-body</code>.</td>
             </tr>
         </tbody>
     </table>

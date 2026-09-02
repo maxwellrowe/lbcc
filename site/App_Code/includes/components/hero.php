@@ -139,6 +139,51 @@
                 );
                 ?>
             </div>
+
+            <div class="mt-5">
+                <div class="container-xxl">
+                    <p class="eyebrow-sm mb-2">Full Variant / Main Image Slideshow / Left + Right Background Images</p>
+                </div>
+                <?php
+                component_hero(
+                    'full',
+                    'Explore Your Academic Path',
+                    $heroSupplementalContent,
+                    [
+                        [
+                            'type' => 'image',
+                            'src' => '_resources/images/hero-backgrounds/hero-bg-3.jpg',
+                            'alt' => 'Students collaborating outdoors'
+                        ],
+                        [
+                            'type' => 'image',
+                            'src' => '_resources/images/hero-backgrounds/hero-bg-8.jpg',
+                            'alt' => 'Students on the LBCC campus'
+                        ],
+                        [
+                            'type' => 'image',
+                            'src' => '_resources/images/hero-backgrounds/hero-bg-11.jpg',
+                            'alt' => 'Student learning in a campus setting'
+                        ]
+                    ],
+                    [
+                        [
+                            'type' => 'image',
+                            'src' => '_resources/images/hero-backgrounds/hero-bg-5.jpg',
+                            'alt' => ''
+                        ]
+                    ],
+                    [
+                        [
+                            'type' => 'image',
+                            'src' => '_resources/images/hero-backgrounds/hero-bg-13.jpg',
+                            'alt' => ''
+                        ]
+                    ],
+                    true
+                );
+                ?>
+            </div>
         </div>
     </div>
 

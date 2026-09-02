@@ -417,6 +417,16 @@
           line-height: 1;
           transition: all .2s ease-in-out;
         }
+        
+        &.current-page {
+          flex-direction: row-reverse;
+          justify-content: start;
+          font-weight: 800;
+
+          &:after {
+            color: var(--bs-secondary);
+          }
+        }
 
         &:hover {
           color: var(--bs-primary);
@@ -474,6 +484,13 @@
 
     &:hover {
       background: var(--color-teal-200);
+    }
+
+    &.current-page {
+      border-bottom-right-radius: var(--bs-border-radius) !important;
+      background-color: var(--color-teal-200);
+      flex-direction: row-reverse;
+      justify-content: start;
     }
   }
 
@@ -556,6 +573,15 @@
           transition: all .2s ease-in-out;
           font-size: var(--lbcc-font-size-sm);
           border-top: 1px solid var(--bs-gray-200);
+
+          &.current-page {
+            color: var(--bs-secondary);
+            justify-content: start;
+            flex-direction: row-reverse;
+            &:after {
+              color: var(--bs-secondary);
+            }
+          }
 
           @include media-breakpoint-up(xl) {
             border-top-width: 0;

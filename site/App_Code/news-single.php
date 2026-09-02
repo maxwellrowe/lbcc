@@ -17,7 +17,7 @@ $articleUrl = lbcc_url('/App_Code/news-single.php');
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <?php lbcc_head($page); ?>
-<body class="lbcc-page">
+<body class="<?php echo lbcc_escape(lbcc_body_classes($page)); ?>">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
 <div class="bg-water-gradient page-hero">
     <div class="container-xxl py-4">
@@ -29,10 +29,8 @@ $articleUrl = lbcc_url('/App_Code/news-single.php');
             </ol>
         </nav>
     </div>
-
-    <div class="rounded-top-5 page-cap"></div>
 </div>
-<main id="main-content" class="py-5">
+<main id="main-content">
     <div class="container-xxl d-grid gap-5">
         <section>
             <div class="row g-4 g-xl-5 align-items-start">

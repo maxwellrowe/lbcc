@@ -268,8 +268,8 @@
 .component-support-matrix__title-link {
     color: var(--bs-dark);
 
-    &:hover,
-    &:focus-visible {
+    &.list-group-item-action:hover,
+    &.list-group-item-action:focus-visible {
         color: var(--bs-dark);
     }
 
@@ -359,6 +359,20 @@
     }
 }
 
+#main-content .component-card:not(.component-card__style-image-bg) .component-card__title,
+#main-content .component-card-as-link:not(.component-card-as-link__style-image-bg) .component-card-as-link__body > h2 {
+    color: var(--bs-dark);
+}
+
+.component-card-as-link__body > :is(h1, h2, h3, h4, h5, h6) {
+    transition: opacity 0.2s ease-in-out;
+}
+
+.component-card-as-link:hover .component-card-as-link__body > :is(h1, h2, h3, h4, h5, h6),
+.component-card-as-link:focus-visible .component-card-as-link__body > :is(h1, h2, h3, h4, h5, h6) {
+    opacity: 0.75;
+}
+
 .component-card-as-link__image-bg {
     min-height: 100%;
     height: 100%;
@@ -412,8 +426,6 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
 .component-card-as-link__image-top {
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
 }
 
 .component-card-as-link__label {
@@ -582,8 +594,8 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
         border-radius: var(--bs-border-radius-lg);
     }
 
-    .component-list-group__item:hover,
-    .component-list-group__item:focus-visible {
+    .component-list-group__item.list-group-item-action:hover,
+    .component-list-group__item.list-group-item-action:focus-visible {
         background: var(--color-sand-wet);
         transform: translateY(-1px);
         border-radius: var(--bs-border-radius-xxl);
@@ -597,8 +609,8 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
         border-radius: var(--bs-border-radius-lg);
     }
 
-    .component-list-group__item:hover,
-    .component-list-group__item:focus-visible {
+    .component-list-group__item.list-group-item-action:hover,
+    .component-list-group__item.list-group-item-action:focus-visible {
         background: var(--color-sun-soft);
         transform: translateY(-1px);
         border-radius: var(--bs-border-radius-xxl);
@@ -612,10 +624,26 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
         border-radius: var(--bs-border-radius-lg);
     }
 
-    .component-list-group__item:hover,
-    .component-list-group__item:focus-visible {
+    .component-list-group__item.list-group-item-action:hover,
+    .component-list-group__item.list-group-item-action:focus-visible {
         background: var(--bs-white);
         border-color: var(--bs-primary);
+        transform: translateY(-1px);
+        border-radius: var(--bs-border-radius-xxl);
+    }
+}
+
+.component-list-group__style-primary-outline {
+    .component-list-group__item {
+        background: var(--bs-white);
+        border: 2px solid var(--bs-primary);
+        border-radius: var(--bs-border-radius-lg);
+    }
+
+    .component-list-group__item.list-group-item-action:hover,
+    .component-list-group__item.list-group-item-action:focus-visible {
+        background: var(--bs-white);
+        border-color: var(--bs-secondary);
         transform: translateY(-1px);
         border-radius: var(--bs-border-radius-xxl);
     }
@@ -630,8 +658,8 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
         border-radius: 0;
     }
 
-    .component-list-group__item:hover,
-    .component-list-group__item:focus-visible {
+    .component-list-group__item.list-group-item-action:hover,
+    .component-list-group__item.list-group-item-action:focus-visible {
         background: transparent;
     }
 
@@ -687,11 +715,15 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
     background: var(--color-surface-haze);
 }
 
+.component-list-group__style-primary-outline .component-list-group__label {
+    background: var(--color-surface-haze);
+}
+
 .component-list-group__style-lined .component-list-group__label {
     background: var(--color-teal-50);
 }
 
-.component-list-group__title {
+#main-content .component-list-group__title {
     width: 100%;
     color: var(--bs-dark);
 }
@@ -745,8 +777,8 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
     transition: transform 0.2s ease-in-out;
 }
 
-.component-list-group__item:hover .component-list-group__icon-shell .fa-arrow-up-right,
-.component-list-group__item:focus-visible .component-list-group__icon-shell .fa-arrow-up-right {
+.component-list-group__item.list-group-item-action:hover .component-list-group__icon-shell .fa-arrow-up-right,
+.component-list-group__item.list-group-item-action:focus-visible .component-list-group__icon-shell .fa-arrow-up-right {
     transform: rotate(45deg);
 }
 
@@ -763,6 +795,19 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
 .component-list-group__style-white .component-list-group__icon-shell {
     border: 1.5px solid var(--bs-primary);
     color: var(--bs-primary);
+}
+
+.component-list-group__style-primary-outline .component-list-group__icon-shell {
+    border: 2px solid var(--bs-primary);
+    color: var(--bs-primary);
+}
+
+.component-list-group__style-primary-outline .component-list-group__item.list-group-item-action:hover .component-list-group__icon-shell,
+.component-list-group__style-primary-outline .component-list-group__item.list-group-item-action:focus-visible .component-list-group__icon-shell,
+.component-list-group__style-primary-outline .component-list-group__item.list-group-item-action:hover .component-list-group__left-icon,
+.component-list-group__style-primary-outline .component-list-group__item.list-group-item-action:focus-visible .component-list-group__left-icon {
+    border-color: var(--bs-secondary);
+    color: var(--bs-secondary);
 }
 
 .component-list-group__style-lined .component-list-group__icon-shell {
@@ -902,6 +947,7 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
 
 // Hero
 .component-hero {
+    --component-hero-main-content-overlap: 3rem;
     position: relative;
     z-index: 2;
     
@@ -964,19 +1010,16 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
 
         @include media-breakpoint-up(xl) {
             flex-direction: row;
-            align-items: center;
+            align-items: stretch;
             justify-content: end;
             background: transparent;
         }
 
-        @include media-breakpoint-up(xxl) {
-            align-items: stretch;
-        }
-
         .component-hero__inner {
             @include media-breakpoint-up(xl) {
+                flex: 0 0 50%;
                 width: 50%;
-                max-width: calc(640px - 0.75rem);
+                max-width: none;
                 background: var(--color-water-gradient);
             }
 
@@ -991,7 +1034,7 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
         }
 
         .component-hero__content {
-            padding: 2rem 0.75rem;
+            padding: 2rem 0.75rem calc(2rem + var(--component-hero-main-content-overlap));
             width: 100%;
 
             @include media-breakpoint-up(xl) {
@@ -1048,6 +1091,7 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
 
             @include media-breakpoint-up(xl) {
                 width: 50%;
+                align-items: stretch;
             }
 
             @include media-breakpoint-up(xxl) {
@@ -1061,12 +1105,12 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
             .component-hero__media-slot--main-content-media {
                 min-width: 0;
 
-                @include media-breakpoint-up(xxl) {
+                @include media-breakpoint-up(xl) {
                     display: flex;
                 }
 
                 .component-hero__media-swiper {
-                    @include media-breakpoint-up(xxl) {
+                    @include media-breakpoint-up(xl) {
                         width: 100%;
                         height: 100%;
                     }
@@ -1074,7 +1118,7 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
 
                 .swiper-wrapper,
                 .swiper-slide {
-                    @include media-breakpoint-up(xxl) {
+                    @include media-breakpoint-up(xl) {
                         height: 100%;
                     }
                 }
@@ -1083,8 +1127,11 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
                     width: 100%;
                     aspect-ratio: 4 / 3;
 
-                    @include media-breakpoint-up(xxl) {
+                    @include media-breakpoint-up(xl) {
                         height: 100%;
+                    }
+
+                    @include media-breakpoint-up(xxl) {
                         aspect-ratio: auto;
                         max-width: none;
                     }
@@ -1096,16 +1143,28 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
                 border-bottom-right-radius: var(--bs-border-radius-xxl);
                 overflow: hidden;
 
-                @include media-breakpoint-up(xxl) {
+                @include media-breakpoint-up(xl) {
                     display: flex;
+                }
+
+                .component-hero__media-swiper,
+                .swiper-wrapper,
+                .swiper-slide {
+                    @include media-breakpoint-up(xl) {
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
 
                 .component-hero__media-item {
                     width: 100%;
                     aspect-ratio: 1 / 3;
 
-                    @include media-breakpoint-up(xxl) {
+                    @include media-breakpoint-up(xl) {
                         height: 100%;
+                    }
+
+                    @include media-breakpoint-up(xxl) {
                         aspect-ratio: auto;
                     }
                 }
@@ -1119,7 +1178,7 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
                     display: inline-flex;
                     position: absolute;
                     right: 1rem;
-                    bottom: 1rem;
+                    bottom: calc(1rem + var(--component-hero-main-content-overlap));
                     z-index: 2;
                 }
             }
@@ -1183,7 +1242,7 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
 
             @include media-breakpoint-up(xl) {
                 grid-column: 2;
-                min-height: 38rem;
+                min-height: 42rem;
             }
 
             .component-hero__media-item {
@@ -1221,23 +1280,23 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
             position: relative;
             z-index: 1;
             min-width: 0;
-            padding: 1.5rem 0.75rem;
+            padding: 1.5rem 0.75rem calc(1.5rem + var(--component-hero-main-content-overlap));
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             color: var(--bs-white);
 
             @include media-breakpoint-up(md) {
-                padding: 2rem 0.75rem;
+                padding: 2rem 0.75rem calc(2rem + var(--component-hero-main-content-overlap));
             }
 
             @include media-breakpoint-up(xl) {
                 grid-column: 2;
-                padding: 2.5rem;
+                padding: 2.5rem 2.5rem calc(2.5rem + var(--component-hero-main-content-overlap));
             }
 
             @include media-breakpoint-up(xxl) {
-                padding: 3rem;
+                padding: 3rem 3rem calc(3rem + var(--component-hero-main-content-overlap));
             }
 
             &::before {
@@ -1245,7 +1304,7 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
                 position: absolute;
                 inset: 0;
                 z-index: -1;
-                background: linear-gradient(180deg, rgba(var(--color-teal-800-rgb), 0.12) 0%, rgba(var(--color-teal-800-rgb), 0.68) 100%);
+                background: linear-gradient(180deg, rgba(var(--bs-dark-rgb), 0.12) 0%, rgba(var(--bs-dark-rgb), 0.68) 100%);
             }
 
             > * {
@@ -1336,10 +1395,10 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
         }
 
         .component-hero__mobile-supplemental {
-            padding: 1.5rem;
+            padding: 1.5rem 1.5rem calc(1.5rem + var(--component-hero-main-content-overlap));
 
             @include media-breakpoint-up(md) {
-                padding: 2rem;
+                padding: 2rem 2rem calc(2rem + var(--component-hero-main-content-overlap));
             }
         }
 
@@ -1357,7 +1416,7 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
 
             @include media-breakpoint-up(xl) {
                 right: 1.5rem;
-                bottom: 1.5rem;
+                bottom: calc(1.5rem + var(--component-hero-main-content-overlap));
             }
         }
     }
@@ -1369,9 +1428,46 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
     
 }
 
+body.section-nav-active {
+    --component-hero-section-nav-offset: 4rem;
+
+    .component-hero {
+        margin-top: calc(-1 * var(--component-hero-section-nav-offset));
+
+        &.component-hero--split {
+            @include media-breakpoint-up(xl) {
+                .component-hero__inner {
+                    padding-top: var(--component-hero-section-nav-offset);
+                }
+            }
+        }
+
+        &.component-hero--full {
+            .component-hero__content {
+                padding-top: calc(1.5rem + var(--component-hero-section-nav-offset));
+
+                @include media-breakpoint-up(md) {
+                    padding-top: calc(2rem + var(--component-hero-section-nav-offset));
+                }
+
+                @include media-breakpoint-up(xl) {
+                    padding-top: calc(2.5rem + var(--component-hero-section-nav-offset));
+                }
+
+                @include media-breakpoint-up(xxl) {
+                    padding-top: calc(3rem + var(--component-hero-section-nav-offset));
+                }
+            }
+        }
+    }
+}
+
 .component-title-with-ctas__title {
     text-wrap: balance;
     flex: 0 0 auto;
+}
+
+.component-title-with-ctas__title:not(.h1):not(.h2):not(.h3):not(.h4):not(.h5):not(.h6) {
     font-size: var(--lbcc-font-size-2xl);
     line-height: 1.3;
 }
