@@ -97,6 +97,16 @@ a {
   text-underline-offset: 0.18em;
 }
 
+.link-light {
+  transition: color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-teal-100) !important;
+    text-decoration-color: var(--bs-primary) !important;
+  }
+}
+
 a[target="_blank"]:not(.arrow-link):not(.pill):not(.page-link):not(.no-target-blank-icon)::after {
   content: "\f35d";
   display: inline-block;
