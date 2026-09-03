@@ -22,7 +22,7 @@
         <?php include dirname(__DIR__, 2) . '/_resources/includes/navigation/sidenav.php'; ?>
     </div>
     <ul>
-        <li><a href="/App_Code/programs.php">All Programs</a></li>
+        <li><a href="../App_Code/programs.php">All Programs</a></li>
         <li><a href="#">Degrees & Certificates</a></li>
         <li><a href="#">Support & Resources</a></li>
     </ul>

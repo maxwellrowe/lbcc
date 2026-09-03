@@ -22,9 +22,9 @@
         <?php include dirname(__DIR__, 2) . '/_resources/includes/navigation/sidenav.php'; ?>
     </div>
     <ul>
-        <li><a href="/App_Code/">Templates</a></li>
-        <li><a href="/App_Code/styleguide.php">Styleguide</a></li>
-        <li><a href="/App_Code/components.php">Components</a></li>
-        <li><a href="/App_Code/snippets.php">Snippets</a></li>
+        <li><a href="../App_Code/">Templates</a></li>
+        <li><a href="../App_Code/styleguide.php">Styleguide</a></li>
+        <li><a href="../App_Code/components.php">Components</a></li>
+        <li><a href="../App_Code/snippets.php">Snippets</a></li>
     </ul>
 </div>

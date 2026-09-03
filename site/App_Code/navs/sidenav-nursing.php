@@ -8,7 +8,7 @@
 </ul>
 <span class="eyebrow-sm d-block p-3">Related Programs</span>
 <ul>
-    <li><a href="/App_Code/program-single-nursing.php">Registered Nursing</a></li>
+    <li><a href="../App_Code/program-single-nursing.php">Registered Nursing</a></li>
     <li><a href="#">Certified Nursing Assistant (CNA)</a></li>
     <li><a href="#">LVN to RN Career Ladder</a></li>
     <li><a href="#">Vocational Nursing</a></li>

@@ -22,8 +22,8 @@
         <?php include dirname(__DIR__, 2) . '/_resources/includes/navigation/sidenav.php'; ?>
     </div>
     <ul>
-        <li><a href="#programs-search-heading">Programs</a></li>
-        <li><a href="#programs-results-heading">Learning & Academic Resources</a></li>
-        <li><a href="#programs-sidebar-heading">About Us</a></li>
+        <li><a href="../App_Code/programs.php">Programs</a></li>
+        <li><a href="">Learning & Academic Resources</a></li>
+        <li><a href="">About Us</a></li>
     </ul>
 </div>
