@@ -1114,7 +1114,8 @@ function component_support_matrix(
     $prefilterAudiences = [],
     $mobilePerRow = 1,
     $tabletPerRow = 2,
-    $desktopPerRow = 3
+    $desktopPerRow = 3,
+    $linkCards = false
 ) {
     if (empty($items) || !is_array($items)) {
         return;
@@ -1143,6 +1144,7 @@ function component_support_matrix(
     $mobilePerRow = $normalizePerRow($mobilePerRow, 1);
     $tabletPerRow = $normalizePerRow($tabletPerRow, 2);
     $desktopPerRow = $normalizePerRow($desktopPerRow, 3);
+    $linkCards = (bool) $linkCards;
 
     $normalizedItems = [];
 
@@ -1305,11 +1307,20 @@ function component_support_matrix(
                         data-needs="<?php echo lbcc_escape($needsData); ?>"
                         data-audiences="<?php echo lbcc_escape($audiencesData); ?>"
                     >
+                        <?php if ($linkCards) { ?>
+                        <a href="<?php echo lbcc_escape($item['url'] !== '' ? $item['url'] : '#'); ?>" class="card component-support-matrix__card h-100 bg-white text-decoration-none">
+                        <?php } else { ?>
                         <article class="card component-support-matrix__card h-100 bg-white">
+                        <?php } ?>
                             <div class="card-body d-flex flex-column justify-content-between gap-4 p-4">
                                 <div class="d-grid gap-3">
                                     <h3 class="component-support-matrix__title mb-0">
-                                        <?php if ($item['url'] !== '') { ?>
+                                        <?php if ($linkCards) { ?>
+                                            <span class="component-support-matrix__title-link d-flex align-items-start justify-content-between gap-3 w-100 text-decoration-none">
+                                                <span><?php echo lbcc_escape($item['title']); ?></span>
+                                                <span class="component-support-matrix__title-icon fa-sharp fa-regular fa-arrow-up-right flex-shrink-0" aria-hidden="true"></span>
+                                            </span>
+                                        <?php } elseif ($item['url'] !== '') { ?>
                                             <a href="<?php echo lbcc_escape($item['url']); ?>" class="component-support-matrix__title-link d-flex align-items-start justify-content-between gap-3 w-100 text-decoration-none">
                                                 <span><?php echo lbcc_escape($item['title']); ?></span>
                                                 <span class="component-support-matrix__title-icon fa-sharp fa-regular fa-arrow-up-right flex-shrink-0" aria-hidden="true"></span>
@@ -1356,7 +1367,11 @@ function component_support_matrix(
                                     <div></div>
                                 <?php } ?>
                             </div>
+                        <?php if ($linkCards) { ?>
+                        </a>
+                        <?php } else { ?>
                         </article>
+                        <?php } ?>
                     </div>
                 <?php } ?>
             </div>

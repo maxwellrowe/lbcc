@@ -109,7 +109,8 @@ $supportMatrixData = lbcc_support_matrix_load_data(__DIR__ . '/data/support-matr
             [],
             1,
             2,
-            3
+            3,
+            true
         );
         ?>
     </div>
