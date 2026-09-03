@@ -97,7 +97,7 @@ $supportMatrixData = lbcc_support_matrix_load_data(__DIR__ . '/data/support-matr
             </div>
         </div>
     </section>
-    <div class="container-xxl d-grid gap-4">
+    <div class="container-xxl d-grid gap-4 pb-5">
         <?php
         component_support_matrix(
             $supportMatrixData['items'],
