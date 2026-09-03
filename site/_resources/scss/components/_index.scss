@@ -1618,6 +1618,18 @@ body.section-nav-active {
     margin-bottom: 0;
 }
 
+.component-alert .alert-heading {
+  color: inherit;
+}
+
+.component-alert--info {
+  background-color: $color-teal-100;
+}
+
+.component-alert--global {
+  margin-bottom: 0;
+}
+
 .component-social-media__link {
     transition: color 0.2s ease-in-out;
 }
@@ -2037,4 +2049,28 @@ body.section-nav-active {
         justify-content: flex-start;
         white-space: nowrap;
     }
+}
+
+
+// Homepage Announcement
+.component-homepage-announcement {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: auto;
+    z-index: 4;
+}
+
+.component-homepage-announcement--light .card,
+.component-homepage-announcement--light .card :is(h1, h2, h3, h4, h5, h6),
+#main-content .component-homepage-announcement--light .card,
+#main-content .component-homepage-announcement--light .card :is(h1, h2, h3, h4, h5, h6) {
+    color: var(--bs-white);
+}
+
+.component-homepage-announcement--dark .card,
+.component-homepage-announcement--dark .card :is(h1, h2, h3, h4, h5, h6),
+#main-content .component-homepage-announcement--dark .card,
+#main-content .component-homepage-announcement--dark .card :is(h1, h2, h3, h4, h5, h6) {
+    color: var(--bs-dark);
 }

@@ -1,5 +1,6 @@
 import $ from "jquery";
 import "jquery-match-height";
+import Alert from "bootstrap/js/dist/alert";
 import Collapse from "bootstrap/js/dist/collapse";
 import Dropdown from "bootstrap/js/dist/dropdown";
 import Modal from "bootstrap/js/dist/modal";
@@ -27,13 +28,13 @@ const markInitialized = (element) => {
 
 const isInitialized = (element) => element.dataset.lbccInitialized === "true";
 
-const initBootstrapSet = (selector, Constructor) => {
+const initBootstrapSet = (selector, Constructor, config = {}) => {
   document.querySelectorAll(selector).forEach((element) => {
     if (isInitialized(element)) {
       return;
     }
 
-    Constructor.getOrCreateInstance(element);
+    Constructor.getOrCreateInstance(element, config);
     markInitialized(element);
   });
 };
@@ -2176,7 +2177,8 @@ document.addEventListener("DOMContentLoaded", () => {
   syncReducedMotionPreference();
   moveModalsToBody();
   initCurrentPageLinks();
-  initBootstrapSet(".accordion .accordion-collapse", Collapse);
+  initBootstrapSet(".alert", Alert);
+  initBootstrapSet(".accordion .accordion-collapse", Collapse, { toggle: false });
   initBootstrapSet("[data-bs-toggle=\"tab\"]", Tab);
   initBootstrapSet("[data-bs-toggle=\"dropdown\"]", Dropdown);
   initBootstrapSet("[data-bs-toggle=\"tooltip\"]", Tooltip);

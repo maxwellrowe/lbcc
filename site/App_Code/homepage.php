@@ -29,7 +29,15 @@ HTML;
 <?php lbcc_head($page); ?>
 <body class="<?php echo lbcc_escape(lbcc_body_classes($page)); ?>">
 <?php include dirname(__DIR__) . '/_resources/includes/header.php'; ?>
-
+<?php component_homepage_announcement([
+    'background' => 'linear-gradient(90deg, #64152b, #71320d, #574900, #10532f, #104c61, #20346e, #52265e)',
+    'text_color' => 'light',
+    'content' => '<h2 class="h5 m-0">Happy Pride Month from LBCC!</h2>',
+    'cta' => [
+        'text' => 'Join Us for Events',
+        'url' => '#'
+    ]
+]); ?>
 <?php
 component_hero(
     'full',

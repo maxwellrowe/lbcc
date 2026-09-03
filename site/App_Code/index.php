@@ -18,6 +18,10 @@ $templateItems = [
         'title' => 'Academics'
     ],
     [
+        'link' => lbcc_url('/App_Code/alerts.php'),
+        'title' => 'Alerts'
+    ],
+    [
         'link' => lbcc_url('/App_Code/homepage.php'),
         'title' => 'Homepage'
     ],
@@ -26,8 +30,16 @@ $templateItems = [
         'title' => 'Programs'
     ],
     [
+        'link' => lbcc_url('/App_Code/search.php'),
+        'title' => 'Search LBCC'
+    ],
+    [
         'link' => lbcc_url('/App_Code/support.php'),
         'title' => 'Support'
+    ],
+    [
+        'link' => lbcc_url('/App_Code/student-in-the-loop.php'),
+        'title' => 'Student in the Loop'
     ],
     [
         'link' => lbcc_url('/App_Code/news.php'),

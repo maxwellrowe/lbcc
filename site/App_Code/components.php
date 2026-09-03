@@ -14,8 +14,10 @@ $page = lbcc_resolve_page([
 $componentIncludesDir = __DIR__ . '/includes/components';
 $componentAnchorItems = [
     ['link' => '#hero-heading', 'title' => 'Hero'],
+    ['link' => '#homepage-announcement-heading', 'title' => 'Homepage Announcement'],
     ['link' => '#block-arrow-link-heading', 'title' => 'Block Arrow Link'],
     ['link' => '#buttons-heading', 'title' => 'Buttons'],
+    ['link' => '#alert-heading', 'title' => 'Alert'],
     ['link' => '#title-with-ctas-heading', 'title' => 'Title with CTAs'],
     ['link' => '#card-component-heading', 'title' => 'Card'],
     ['link' => '#card-as-link-heading', 'title' => 'Card as Link'],
@@ -70,8 +72,10 @@ $componentAnchorGroups = array_chunk($componentAnchorItems, (int) ceil(count($co
 
     <div class="container-xxl">
         <?php include $componentIncludesDir . '/utilities.php'; ?>
+        <?php include $componentIncludesDir . '/homepage-announcement.php'; ?>
         <?php include $componentIncludesDir . '/block-arrow-link.php'; ?>
         <?php include $componentIncludesDir . '/buttons.php'; ?>
+        <?php include $componentIncludesDir . '/alert.php'; ?>
         <?php include $componentIncludesDir . '/title-with-ctas.php'; ?>
         <?php include $componentIncludesDir . '/card.php'; ?>
         <?php include $componentIncludesDir . '/card-as-link.php'; ?>

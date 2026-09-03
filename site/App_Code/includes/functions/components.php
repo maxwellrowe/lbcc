@@ -1198,7 +1198,7 @@ function component_support_matrix(
         'row-cols-xl-' . $desktopPerRow
     ];
     ?>
-    <section class="component-support-matrix d-grid gap-4" data-lbcc-support-matrix>
+    <section class="component-support-matrix d-grid gap-4 bg-surface-subtle rounded-5 p-4 p-xl-5" data-lbcc-support-matrix>
         <?php if ($title !== '') { ?>
             <div class="d-grid gap-2">
                 <h2 class="mb-0"><?php echo lbcc_escape($title); ?></h2>
@@ -1207,10 +1207,10 @@ function component_support_matrix(
         <?php } ?>
 
         <?php if ($showFiltering) { ?>
-            <div class="component-support-matrix__filters bg-surface-subtle p-4 p-xl-5">
-                <div class="row component-support-matrix__filter-row g-4 g-xl-5 align-items-start">
+            <div class="component-support-matrix__filters">
+                <div class="row component-support-matrix__filter-row g-4 g-xl-5 align-items-center">
                     <div class="col-12 col-xl-auto component-support-matrix__filter-copy">
-                        <p class="mb-0 fs-xl text-teal-800">Start by choosing who you are, what you need, or both.</p>
+                        <p class="h5">Start by choosing who you are, what you need, or both.</p>
                     </div>
 
                     <div class="col-12 col-xl">
@@ -1624,6 +1624,118 @@ function component_badge(
         <?php } ?>
         <span><?php echo lbcc_escape($text); ?></span>
     </span>
+<?php }
+
+// Alert
+// $variation options: emergency, info, or warning
+// $cta accepts an array with text, url, and class keys
+// $startDate and $endDate accept a YYYY-MM-DD date or a date/time string
+function lbcc_component_alert_is_active($enabled = true, $startDate = '', $endDate = '')
+{
+    if (!$enabled) {
+        return false;
+    }
+
+    $timezone = new DateTimeZone(date_default_timezone_get());
+    $parseDate = static function ($date, $isEndDate = false) use ($timezone) {
+        $date = trim((string) $date);
+
+        if ($date === '') {
+            return null;
+        }
+
+        try {
+            if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+                $date .= $isEndDate ? ' 23:59:59' : ' 00:00:00';
+            }
+
+            return new DateTimeImmutable($date, $timezone);
+        } catch (Exception $exception) {
+            return null;
+        }
+    };
+
+    $now = new DateTimeImmutable('now', $timezone);
+    $start = $parseDate($startDate);
+    $end = $parseDate($endDate, true);
+
+    return !($start !== null && $now < $start) && !($end !== null && $now > $end);
+}
+
+function component_alert(
+    $title = '',
+    $content = '',
+    $variation = 'info',
+    $icon = '',
+    $cta = [],
+    $enabled = true,
+    $startDate = '',
+    $endDate = '',
+    $global = false,
+    $dateLabel = ''
+) {
+    $title = trim((string) $title);
+    $content = trim((string) $content);
+
+    if (($title === '' && $content === '') || !lbcc_component_alert_is_active($enabled, $startDate, $endDate)) {
+        return;
+    }
+
+    $variation = in_array($variation, ['emergency', 'info', 'warning'], true) ? $variation : 'info';
+    $bootstrapVariation = $variation === 'emergency' ? 'danger' : $variation;
+    $icon = trim((string) $icon);
+    $cta = is_array($cta) ? $cta : [];
+    $ctaText = trim((string) ($cta['text'] ?? ''));
+    $ctaUrl = trim((string) ($cta['url'] ?? '#'));
+    $ctaClass = trim((string) ($cta['class'] ?? 'btn btn-outline-dark btn-sm'));
+    $isGlobal = (bool) $global;
+    $dateLabel = trim((string) $dateLabel);
+
+    $alertClasses = [
+        'alert',
+        'alert-' . $bootstrapVariation,
+        'alert-dismissible',
+        'fade',
+        'show',
+        'border-0',
+        'component-alert',
+        'component-alert--' . $variation,
+        $isGlobal ? 'component-alert--global' : 'component-alert--inline',
+        $isGlobal ? 'rounded-0' : 'rounded-4'
+    ];
+    ?>
+    <div class="<?php echo lbcc_escape(implode(' ', $alertClasses)); ?>" role="alert">
+        <?php if ($isGlobal) { ?>
+        <div class="container-xxl">
+        <?php } ?>
+            <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-3">
+                <div class="d-flex align-items-start gap-3">
+                    <?php if ($icon !== '') { ?>
+                    <span class="fa-sharp fa-regular <?php echo lbcc_escape($icon); ?> fs-4 flex-shrink-0" aria-hidden="true"></span>
+                    <?php } ?>
+                    <div>
+                        <?php if ($isGlobal && $dateLabel !== '') { ?>
+                        <p class="eyebrow-sm mb-1"><?php echo lbcc_escape($dateLabel); ?></p>
+                        <?php } ?>
+                        <?php if ($title !== '') { ?>
+                        <h2 class="alert-heading h5 mb-1"><?php echo lbcc_escape($title); ?></h2>
+                        <?php } ?>
+                        <?php if ($content !== '') { ?>
+                        <div><?php echo $content; ?></div>
+                        <?php } ?>
+                    </div>
+                </div>
+                <?php if ($ctaText !== '') { ?>
+                <a class="<?php echo lbcc_escape($ctaClass); ?> align-self-start align-self-lg-center flex-shrink-0" href="<?php echo lbcc_escape($ctaUrl); ?>"><?php echo lbcc_escape($ctaText); ?></a>
+                <?php } ?>
+            </div>
+        <?php if ($isGlobal) { ?>
+        </div>
+        <?php } ?>
+        <button type="button" class="border-0 bg-transparent text-reset p-0 lh-1 fs-4 position-absolute top-0 end-0 m-3" data-bs-dismiss="alert" aria-label="Close">
+            <span class="fa-sharp fa-regular fa-xmark" aria-hidden="true"></span>
+        </button>
+    </div>
 <?php }
 
 // Icon
@@ -2456,6 +2568,58 @@ function component_video_modal(
                         <div class="ratio ratio-16x9 component-video-modal__embed">
                             <?php echo $youtubeEmbedCode; ?>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php }
+
+// Homepage Announcement
+// Intended for the homepage above a custom hero.
+// $options accepts background, text_color (light or dark), content, and cta (text and url).
+function component_homepage_announcement($options = [])
+{
+    $options = is_array($options) ? $options : [];
+    $background = trim((string) ($options['background'] ?? ''));
+    $textColor = ($options['text_color'] ?? 'light') === 'dark' ? 'dark' : 'light';
+    $content = trim((string) ($options['content'] ?? ''));
+    $cta = is_array($options['cta'] ?? null) ? $options['cta'] : [];
+    $ctaText = trim((string) ($cta['text'] ?? ''));
+    $ctaUrl = trim((string) ($cta['url'] ?? '#'));
+
+    if ($content === '') {
+        return;
+    }
+
+    $cardClasses = [
+        'card',
+        'border-0',
+        'rounded-0',
+        'rounded-bottom-5',
+        $textColor === 'dark' ? 'text-dark' : 'text-white'
+    ];
+    ?>
+    <div class="component-homepage-announcement component-homepage-announcement--<?php echo lbcc_escape($textColor); ?> lbcc-animate lbcc-fade lbcc-delay-300">
+        <div class="container-xxl">
+            <div class="<?php echo lbcc_escape(implode(' ', $cardClasses)); ?>"<?php if ($background !== '') { ?> style="background: <?php echo lbcc_escape($background); ?>;"<?php } ?>>
+                <div class="card-body">
+                    <div class="d-flex justify-content-center align-items-center gap-4">
+                        <?php echo $content; ?>
+                        <?php if ($ctaText !== '') {
+                            component_buttons(
+                                [
+                                    [
+                                        'style' => 'btn-primary',
+                                        'text' => $ctaText,
+                                        'url' => $ctaUrl,
+                                        'size' => 'btn-sm'
+                                    ]
+                                ],
+                                'row',
+                                3
+                            );
+                        } ?>
                     </div>
                 </div>
             </div>
