@@ -47,7 +47,7 @@ $archiveItems = lbcc_news_archive_items();
                     <?php
                     lbcc_news_render_sidebar(
                         [
-                            'text' => 'View Latest News',
+                            'text' => 'All News & Media',
                             'url' => lbcc_url('/App_Code/news.php')
                         ],
                         'news-archive-search'
@@ -56,8 +56,11 @@ $archiveItems = lbcc_news_archive_items();
                 </div>
             </div>
         </section>
-
-        <?php lbcc_news_render_stay_connected('student-in-the-loop'); ?>
+    </div>
+    <div class="bg-surface-subtle mt-5">
+        <div class="container-xxl">
+            <?php lbcc_news_render_stay_connected('student-in-the-loop'); ?>
+        </div>
     </div>
 </main>
 <?php include dirname(__DIR__) . '/_resources/includes/footer.php'; ?>

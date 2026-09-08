@@ -72,7 +72,7 @@ $articleUrl = lbcc_url('/App_Code/news-single.php');
                     <?php
                     lbcc_news_render_sidebar(
                         [
-                            'text' => 'Back to News',
+                            'text' => 'All News & Media',
                             'url' => lbcc_url('/App_Code/news.php')
                         ],
                         'news-single-search'
@@ -81,8 +81,11 @@ $articleUrl = lbcc_url('/App_Code/news-single.php');
                 </div>
             </div>
         </section>
-
-        <?php lbcc_news_render_stay_connected('student-in-the-loop'); ?>
+    </div>
+    <div class="bg-surface-subtle mt-5">
+        <div class="container-xxl">
+            <?php lbcc_news_render_stay_connected('student-in-the-loop'); ?>
+        </div>
     </div>
 </main>
 <?php include dirname(__DIR__) . '/_resources/includes/footer.php'; ?>

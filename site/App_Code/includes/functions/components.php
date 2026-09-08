@@ -2799,6 +2799,62 @@ function component_social_media(
     </div>
 <?php }
 
+// Social Media Sharing
+// Generates platform-specific share links for the supplied page URL and title.
+// $style options: light (white), dark (gray-900), or primary
+// $size options: s, m, or l
+function component_social_media_sharing(
+    $url = '',
+    $title = '',
+    $style = 'dark',
+    $size = 's',
+    $additionalWrapperClasses = []
+) {
+    $url = trim((string) $url);
+    $title = trim((string) $title);
+
+    if ($url === '') {
+        return;
+    }
+
+    if (!preg_match('#^https?://#i', $url)) {
+        $host = trim((string) ($_SERVER['HTTP_HOST'] ?? ''));
+
+        if ($host !== '') {
+            $isSecure = (!empty($_SERVER['HTTPS']) && strtolower((string) $_SERVER['HTTPS']) !== 'off')
+                || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
+            $url = ($isSecure ? 'https' : 'http') . '://' . $host . '/' . ltrim($url, '/');
+        }
+    }
+
+    $encodedUrl = rawurlencode($url);
+    $encodedTitle = rawurlencode($title);
+    $items = [
+        [
+            'sr_label' => 'Share on Facebook',
+            'link' => 'https://www.facebook.com/sharer/sharer.php?u=' . $encodedUrl,
+            'icon' => 'fa-facebook-f'
+        ],
+        [
+            'sr_label' => 'Share on X',
+            'link' => 'https://twitter.com/intent/tweet?url=' . $encodedUrl . '&text=' . $encodedTitle,
+            'icon' => 'fa-x-twitter'
+        ],
+        [
+            'sr_label' => 'Share on LinkedIn',
+            'link' => 'https://www.linkedin.com/sharing/share-offsite/?url=' . $encodedUrl,
+            'icon' => 'fa-linkedin-in'
+        ],
+        [
+            'sr_label' => 'Share on Reddit',
+            'link' => 'https://www.reddit.com/submit?url=' . $encodedUrl . '&title=' . $encodedTitle,
+            'icon' => 'fa-reddit-alien'
+        ]
+    ];
+
+    component_social_media($items, $style, $size, $additionalWrapperClasses);
+}
+
 // Events
 // $variation options: default, mobile-vert, or horizontal
 // $items is an array of arrays with:

@@ -33,6 +33,7 @@ $componentAnchorItems = [
     ['link' => '#icon-heading-component-heading', 'title' => 'Icon Plus Heading'],
     ['link' => '#badge-heading', 'title' => 'Badge'],
     ['link' => '#social-media-heading', 'title' => 'Social Media'],
+    ['link' => '#social-media-sharing-heading', 'title' => 'Social Media Sharing'],
     ['link' => '#footer-i-heart-lb-heading', 'title' => 'Footer I Heart LB'],
     ['link' => '#quicklinks-heading', 'title' => 'Quicklinks'],
     ['link' => '#testimonial-carousel-heading', 'title' => 'Testimonial Carousel'],
@@ -89,6 +90,7 @@ $componentAnchorGroups = array_chunk($componentAnchorItems, (int) ceil(count($co
         <?php include $componentIncludesDir . '/icon-heading.php'; ?>
         <?php include $componentIncludesDir . '/badge.php'; ?>
         <?php include $componentIncludesDir . '/social-media.php'; ?>
+        <?php include $componentIncludesDir . '/social-media-sharing.php'; ?>
         <?php include $componentIncludesDir . '/footer-i-heart-lb.php'; ?>
         <?php include $componentIncludesDir . '/quicklinks.php'; ?>
         <?php include $componentIncludesDir . '/testimonial-carousel.php'; ?>

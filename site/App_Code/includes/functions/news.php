@@ -138,12 +138,20 @@ function lbcc_news_categories(): array
             'url' => lbcc_url('/App_Code/news.php')
         ],
         [
-            'label' => 'News Archive',
-            'url' => lbcc_url('/App_Code/news-archive.php')
+            'label' => 'Campus Updates',
+            'url' => '#'
         ],
         [
             'label' => 'Press Releases',
             'url' => lbcc_url('/App_Code/news-archive.php#press-releases')
+        ],
+        [
+            'label' => 'Student in the Loop',
+            'url' => lbcc_url('/App_Code/student-in-the-loop.php')
+        ],
+        [
+            'label' => 'College Announcements',
+            'url' => '#'
         ]
     ];
 }
@@ -294,45 +302,67 @@ function lbcc_news_render_list_item(array $item, bool $showExcerpt = true, bool 
     <?php
 }
 
-function lbcc_news_render_sidebar(?array $topButton = null, string $searchInputId = 'news-search'): void
+function lbcc_news_render_sidebar(?array $topButton = null, string $archiveSelectId = 'news-archive-select'): void
 {
     $categories = lbcc_news_categories();
+    $archiveMonths = [
+        'September 2026' => '2026-09',
+        'August 2026' => '2026-08',
+        'July 2026' => '2026-07',
+        'June 2026' => '2026-06',
+        'May 2026' => '2026-05',
+        'April 2026' => '2026-04',
+        'March 2026' => '2026-03',
+        'February 2026' => '2026-02',
+        'January 2026' => '2026-01',
+        'December 2025' => '2025-12'
+    ];
     ?>
     <aside class="d-grid gap-4">
         <?php if (is_array($topButton) && !empty($topButton['text'])) { ?>
-            <a
-                href="<?php echo lbcc_escape((string) ($topButton['url'] ?? '#')); ?>"
-                class="btn btn-outline-secondary d-inline-flex align-items-center justify-content-center gap-2"
-            >
-                <span class="fa-sharp fa-regular fa-arrow-left" aria-hidden="true"></span>
-                <span><?php echo lbcc_escape((string) $topButton['text']); ?></span>
-            </a>
+            <?php component_buttons(
+                [
+                    [
+                        'style' => 'btn-outline-primary',
+                        'text' => (string) $topButton['text'],
+                        'url' => (string) ($topButton['url'] ?? '#'),
+                        'size' => '',
+                        'icon' => 'fa-arrow-up-right',
+                        'icon_position' => 'end'
+                    ]
+                ],
+                'block',
+                3
+            ); ?>
         <?php } ?>
 
-        <section class="card bg-surface-subtle border-0 rounded-3">
-            <div class="card-body p-3">
-                <h2 class="eyebrow-sm mb-3">Explore News</h2>
-                <div class="list-group list-group-flush bg-transparent">
+        <div class="card rounded-5 bg-white shadow-lg border-0">
+            <div class="card-body">
+                <div class="sidenav">
+                    <span class="eyebrow-sm d-block p-3">Categories</span>
+                    <ul>
                     <?php foreach ($categories as $category) { ?>
-                        <a href="<?php echo lbcc_escape($category['url']); ?>" class="list-group-item list-group-item-action bg-transparent px-0 py-3">
-                            <?php echo lbcc_escape($category['label']); ?>
-                        </a>
+                        <li>
+                            <a href="<?php echo lbcc_escape($category['url']); ?>"><?php echo lbcc_escape($category['label']); ?></a>
+                        </li>
                     <?php } ?>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section class="card bg-surface-subtle border-0 rounded-3">
-            <div class="card-body p-3">
-                <h2 class="eyebrow-sm mb-3">Search News</h2>
+        <section class="card bg-white border-0 rounded-3 shadow-lg">
+            <div class="card-body p-4">
+                <h2 class="eyebrow-sm mb-3">Archives</h2>
                 <form action="<?php echo lbcc_escape(lbcc_url('/App_Code/news-archive.php')); ?>" method="get" class="d-grid gap-3">
-                    <label class="visually-hidden" for="<?php echo lbcc_escape($searchInputId); ?>">Search news</label>
-                    <div class="input-group">
-                        <span class="input-group-text bg-white border-end-0">
-                            <span class="fa-sharp fa-regular fa-magnifying-glass text-primary" aria-hidden="true"></span>
-                        </span>
-                        <input id="<?php echo lbcc_escape($searchInputId); ?>" class="form-control border-start-0" type="search" name="q" placeholder="Search news">
-                    </div>
+                    <label class="visually-hidden" for="<?php echo lbcc_escape($archiveSelectId); ?>">Select a news archive</label>
+                    <select id="<?php echo lbcc_escape($archiveSelectId); ?>" class="form-select" name="archive" onchange="this.form.submit()">
+                        <option value="">Select a month and year...</option>
+                        <?php foreach ($archiveMonths as $label => $value) { ?>
+                        <option value="<?php echo lbcc_escape($value); ?>"><?php echo lbcc_escape($label); ?></option>
+                        <?php } ?>
+                    </select>
+                    <noscript><button class="btn btn-primary btn-sm align-self-start" type="submit">View Archive</button></noscript>
                 </form>
             </div>
         </section>
@@ -356,50 +386,11 @@ function lbcc_news_render_social_links(): void
 
 function lbcc_news_render_share_links(string $url, string $title): void
 {
-    $encodedUrl = rawurlencode($url);
-    $encodedTitle = rawurlencode($title);
-    $shareLinks = [
-        [
-            'label' => 'Facebook',
-            'url' => 'https://www.facebook.com/sharer/sharer.php?u=' . $encodedUrl,
-            'icon_class' => 'fa-brands fa-facebook-f'
-        ],
-        [
-            'label' => 'X',
-            'url' => 'https://twitter.com/intent/tweet?url=' . $encodedUrl . '&text=' . $encodedTitle,
-            'icon_class' => 'fa-brands fa-x-twitter'
-        ],
-        [
-            'label' => 'LinkedIn',
-            'url' => 'https://www.linkedin.com/shareArticle?mini=true&url=' . $encodedUrl . '&title=' . $encodedTitle,
-            'icon_class' => 'fa-brands fa-linkedin-in'
-        ],
-        [
-            'label' => 'Reddit',
-            'url' => 'https://www.reddit.com/submit?url=' . $encodedUrl . '&title=' . $encodedTitle,
-            'icon_class' => 'fa-brands fa-reddit-alien'
-        ],
-        [
-            'label' => 'Email',
-            'url' => 'mailto:?subject=' . $encodedTitle . '&body=' . $encodedUrl,
-            'icon_class' => 'fa-sharp fa-regular fa-envelope'
-        ]
-    ];
     ?>
-    <div class="d-inline-flex align-items-center flex-wrap gap-2 bg-surface-subtle rounded-pill px-3 py-2">
+    <div class="d-inline-flex align-items-center flex-wrap gap-2 bg-surface-water rounded-pill px-3 py-2">
         <span class="eyebrow-sm mb-0">Share</span>
         <span aria-hidden="true">/</span>
-        <?php foreach ($shareLinks as $shareLink) { ?>
-            <a
-                href="<?php echo lbcc_escape($shareLink['url']); ?>"
-                class="link-dark no-target-blank-icon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="<?php echo lbcc_escape($shareLink['label']); ?>"
-            >
-                <span class="<?php echo lbcc_escape($shareLink['icon_class']); ?>" aria-hidden="true"></span>
-            </a>
-        <?php } ?>
+        <?php component_social_media_sharing($url, $title, 'dark', 's'); ?>
     </div>
     <?php
 }
