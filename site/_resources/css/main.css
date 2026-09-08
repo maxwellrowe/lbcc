@@ -13340,7 +13340,7 @@ textarea.form-control {
   padding: 0rem 1rem 1rem 1rem;
 }
 
-.lbcc-main-nav .site-search-button {
+.site-desktop-actions .site-search-button {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -13353,19 +13353,19 @@ textarea.form-control {
   border-radius: 50%;
   background: var(--color-red-100);
 }
-.lbcc-main-nav .site-search-button::before, .lbcc-main-nav .site-search-button::after {
+.site-desktop-actions .site-search-button::before, .site-desktop-actions .site-search-button::after {
   display: none;
   content: none;
 }
-.lbcc-main-nav .site-search-button:hover, .lbcc-main-nav .site-search-button:focus-visible {
+.site-desktop-actions .site-search-button:hover, .site-desktop-actions .site-search-button:focus-visible {
   color: var(--bs-primary);
   border-color: var(--bs-primary);
 }
-.lbcc-main-nav .site-search-button[aria-expanded=true] {
+.site-desktop-actions .site-search-button[aria-expanded=true] {
   background: var(--color-teal-200);
   border-color: var(--color-teal-800);
 }
-.lbcc-main-nav .site-search-button[aria-expanded=true]:hover, .lbcc-main-nav .site-search-button[aria-expanded=true]:focus-visible {
+.site-desktop-actions .site-search-button[aria-expanded=true]:hover, .site-desktop-actions .site-search-button[aria-expanded=true]:focus-visible {
   border-color: var(--color-teal-800);
 }
 

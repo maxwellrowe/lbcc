@@ -36,7 +36,8 @@ function lbcc_page_defaults(): array
         'section_nav_include' => null,
         'sidenav' => false,
         'sidenav_include' => null,
-        'custom_hero' => false
+        'custom_hero' => false,
+        'show_page_title' => true
     ];
 }
 

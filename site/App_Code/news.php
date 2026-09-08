@@ -24,20 +24,27 @@ $moreNewsItems = lbcc_news_archive_items(5, 4);
 <?php // Include Custom Hero Component here... ?>
 <?php } ?>
 <main id="main-content">
-    <div class="container-xxl d-grid gap-5">
+    <div class="container-xxl">
         <section class="d-grid gap-4">
-            <?php
-            component_title_with_ctas(
-                'Latest News',
-                [
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-lg-center gap-3">
+                <h2 class="eyebrow-lg">Latest News</h2>
+                <?php
+                component_buttons(
                     [
-                        'text' => 'View All News',
-                        'url' => lbcc_url('/App_Code/news-archive.php'),
-                        'class' => 'btn btn-outline-secondary btn-sm'
-                    ]
-                ]
-            );
-            ?>
+                        [
+                            'style' => 'btn-secondary',
+                            'text' => 'View All News',
+                            'url' => '#',
+                            'size' => 'btn-sm',
+                            'icon' => 'fa-arrow-down',
+                            'icon_position' => 'end'
+                        ]
+                    ],
+                    'row',
+                    3
+                );
+                ?>
+            </div>
 
             <div class="row g-4 g-xl-5 align-items-start">
                 <div class="col-12 col-lg-6">
@@ -54,7 +61,7 @@ $moreNewsItems = lbcc_news_archive_items(5, 4);
 
                         <div class="d-grid gap-3">
                             <a href="<?php echo lbcc_escape($featuredItem['url']); ?>" class="text-decoration-none text-reset d-grid gap-2">
-                                <h2 class="h2 fs-4xl mb-0"><?php echo lbcc_escape($featuredItem['title']); ?></h2>
+                                <h2 class="h4 mb-0"><?php echo lbcc_escape($featuredItem['title']); ?></h2>
                                 <p class="mb-0 text-body-secondary"><?php echo lbcc_escape($featuredItem['excerpt']); ?></p>
                             </a>
 
@@ -72,14 +79,20 @@ $moreNewsItems = lbcc_news_archive_items(5, 4);
                 </div>
             </div>
         </section>
-
-        <?php lbcc_news_render_stay_connected('student-in-the-loop'); ?>
-
-        <section id="press-releases">
+    </div>
+    <div class="bg-surface-subtle my-5">
+        <div class="container-xxl">
+            <?php lbcc_news_render_stay_connected('student-in-the-loop'); ?>
+        </div>
+    </div>
+    <div class="container-xxl">
+        <section id="press-releases" class="pb-5">
+            <div class="mb-4">
+                <?php component_title_with_ctas('All News'); ?>
+            </div>
             <div class="row g-4 g-xl-5 align-items-start">
                 <div class="col-12 col-xl-9">
                     <div class="d-grid gap-4">
-                        <?php component_title_with_ctas('More News'); ?>
 
                         <div class="d-grid">
                             <?php foreach ($moreNewsItems as $moreNewsItem) {

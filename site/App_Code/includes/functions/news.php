@@ -16,7 +16,7 @@ function lbcc_news_items(): array
             'summary' => 'The $102 Million State-of-the-Art Complex Honors Music Icon and LBCC Alumna While Elevating Arts Education Across the Region',
             'category' => 'Press Release',
             'date' => 'March 26, 2026',
-            'image' => '_resources/images/placeholders/news/news-1.jpg',
+            'image' => '_resources/images/placeholders/news/news-5.jpg',
             'url' => '',
             'caption' => 'The five children of the late Jenni Rivera joined LBCC leadership for a ribbon-cutting ceremony at the newly named Jenni Rivera Performing Arts Center.',
             'body' => [
@@ -154,28 +154,28 @@ function lbcc_news_media_links(): array
         [
             'text' => 'News Archive',
             'url' => lbcc_url('/App_Code/news-archive.php'),
-            'style' => 'btn-secondary',
+            'style' => 'btn-outline-primary',
             'size' => 'btn-sm',
             'icon' => ''
         ],
         [
             'text' => 'Student in the Loop',
             'url' => lbcc_url('/App_Code/news.php#student-in-the-loop'),
-            'style' => 'btn-secondary',
+            'style' => 'btn-outline-primary',
             'size' => 'btn-sm',
             'icon' => ''
         ],
         [
             'text' => 'Press Releases',
             'url' => lbcc_url('/App_Code/news-archive.php#press-releases'),
-            'style' => 'btn-secondary',
+            'style' => 'btn-outline-primary',
             'size' => 'btn-sm',
             'icon' => ''
         ],
         [
             'text' => 'Media Kit',
             'url' => '#',
-            'style' => 'btn-secondary',
+            'style' => 'btn-outline-primary',
             'size' => 'btn-sm',
             'icon' => ''
         ]
@@ -343,21 +343,15 @@ function lbcc_news_render_sidebar(?array $topButton = null, string $searchInputI
 function lbcc_news_render_social_links(): void
 {
     $channels = lbcc_news_social_channels();
-    ?>
-    <div class="d-flex flex-wrap align-items-center gap-2">
-        <?php foreach ($channels as $channel) { ?>
-            <a
-                href="<?php echo lbcc_escape($channel['url']); ?>"
-                class="btn btn-outline-secondary btn-circle btn-sm no-target-blank-icon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="<?php echo lbcc_escape($channel['label']); ?>"
-            >
-                <span class="fa-brands <?php echo lbcc_escape($channel['icon']); ?>" aria-hidden="true"></span>
-            </a>
-        <?php } ?>
-    </div>
-    <?php
+    $socialMediaItems = array_map(static function (array $channel): array {
+        return [
+            'link' => $channel['url'],
+            'icon' => $channel['icon'],
+            'sr_label' => $channel['label']
+        ];
+    }, $channels);
+
+    component_social_media($socialMediaItems, 'dark', 'l', 'gap-2');
 }
 
 function lbcc_news_render_share_links(string $url, string $title): void
@@ -434,7 +428,7 @@ function lbcc_news_render_stay_connected(string $sectionId = ''): void
                             <input id="news-subscribe-email" class="form-control" type="email" placeholder="you@example.edu">
                         </div>
                         <div>
-                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                            <button class="btn btn-primary" type="submit">Join Mailling List</button>
                         </div>
                     </form>
                 </div>
@@ -447,13 +441,13 @@ function lbcc_news_render_stay_connected(string $sectionId = ''): void
                     '<p class="mb-0">' . lbcc_escape($studentLoop['description']) . '</p>',
                     [
                         [
-                            'text' => $studentLoop['button_text'],
+                            'text' => 'View',
                             'link' => $studentLoop['link'],
                             'style' => 'btn-primary'
                         ]
                     ],
                     $studentLoop['image'],
-                    'surface-water',
+                    'white',
                     'button'
                 );
                 ?>

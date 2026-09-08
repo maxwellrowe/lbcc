@@ -55,9 +55,7 @@ $componentAnchorGroups = array_chunk($componentAnchorItems, (int) ceil(count($co
 <?php } ?>
 <main id="main-content">
     <div class="container-xxl">
-        <section aria-labelledby="components-jump-heading" class="mb-5">
-            <h2 id="components-jump-heading">Jump to a Component</h2>
-            <p class="text-body-secondary mb-4">Use the links below to move directly to each component section on this page.</p>
+        <div class="mb-5">
             <div class="row row-cols-1 row-cols-lg-3 g-4">
                 <?php foreach ($componentAnchorGroups as $anchorGroup) { ?>
                     <div class="col">
@@ -65,7 +63,7 @@ $componentAnchorGroups = array_chunk($componentAnchorItems, (int) ceil(count($co
                     </div>
                 <?php } ?>
             </div>
-        </section>
+        </div>
     </div>
 
     <?php include $componentIncludesDir . '/hero.php'; ?>

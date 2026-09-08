@@ -6,7 +6,7 @@ if (!isset($page) || !is_array($page)) {
 $page = lbcc_resolve_page($page);
 $pageTitle = $page['title'] ?? '';
 
-if (!$page['custom_hero']) { ?>
+if (!$page['custom_hero'] && !empty($page['show_page_title'])) { ?>
 
     <div class="bg-water-gradient page-hero">
         <div class="container-xxl py-4">

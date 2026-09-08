@@ -36,15 +36,8 @@ $snippetAnchorGroups = array_chunk($snippetAnchorItems, (int) ceil(count($snippe
 <?php } ?>
 <main id="main-content">
 
-    <div class="container-xxl my-5">
-        <p class="eyebrow mb-2">Templates &amp; Resources</p>
-        <p class="lead text-body-secondary mb-0">This is a baseline snippet library modeled after the GCC reference page and adapted to the current LBCC starter code. We can refine background options, wrappers, and snippet-specific patterns as we build each one out.</p>
-    </div>
-
     <div class="container-xxl">
-        <section aria-labelledby="snippets-jump-heading" class="mb-5">
-            <h2 id="snippets-jump-heading">Jump to a Snippet</h2>
-            <p class="text-body-secondary mb-4">Use the links below to move directly to each snippet section on this page.</p>
+        <div class="mb-5">
             <div class="row row-cols-1 row-cols-lg-3 g-4">
                 <?php foreach ($snippetAnchorGroups as $anchorGroup) { ?>
                     <div class="col">
@@ -52,7 +45,7 @@ $snippetAnchorGroups = array_chunk($snippetAnchorItems, (int) ceil(count($snippe
                     </div>
                 <?php } ?>
             </div>
-        </section>
+        </div>
     </div>
 
     <?php include $snippetIncludesDir . '/section.php'; ?>

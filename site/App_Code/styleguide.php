@@ -107,6 +107,16 @@ $surfaceUtilityClasses = [
     ['class' => '.bg-water-gradient', 'sass' => '$color-water-gradient', 'css_var' => '--color-water-gradient', 'border' => true],
     ['class' => '.bg-sand-water-gradient', 'sass' => '$color-sand-water-gradient', 'css_var' => '--color-sand-water-gradient', 'border' => true]
 ];
+
+$styleguideAnchorItems = [
+    ['link' => '#color-heading', 'title' => 'Color'],
+    ['link' => '#type-heading', 'title' => 'Typography'],
+    ['link' => '#utility-heading', 'title' => 'Utilities'],
+    ['link' => '#actions-heading', 'title' => 'Actions'],
+    ['link' => '#forms-heading', 'title' => 'Forms'],
+    ['link' => '#tables-heading', 'title' => 'Tables']
+];
+$styleguideAnchorGroups = array_chunk($styleguideAnchorItems, (int) ceil(count($styleguideAnchorItems) / 3));
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -118,24 +128,15 @@ $surfaceUtilityClasses = [
 <?php } ?>
 <main id="main-content">
     <div class="container-xxl">
-        <header id="page-header" class="mb-5">
-            <nav aria-label="Breadcrumb" class="mb-3">
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="<?php echo lbcc_escape(lbcc_url('/')); ?>">Home</a></li>
-                    <li class="breadcrumb-item"><a href="<?php echo lbcc_escape(lbcc_url('/App_Code/')); ?>">App Code</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Style Guide</li>
-                </ol>
-            </nav>
-            <div class="d-flex justify-content-start justify-content-lg-between align-items-start align-items-lg-end flex-column flex-lg-row gap-3">
-                <div>
-                    <p class="eyebrow mb-2">Foundation</p>
-                    <h1 class="mb-0">LBCC Style Guide</h1>
-                </div>
-                <div class="col-xl-6 px-0">
-                    <p class="lead text-body-secondary mb-0">This starter shell focuses on design tokens, Bootstrap mappings, and accessible baseline patterns we can build on during the next implementation passes.</p>
-                </div>
+        <div class="mb-5">
+            <div class="row row-cols-1 row-cols-lg-3 g-4">
+                <?php foreach ($styleguideAnchorGroups as $anchorGroup) { ?>
+                    <div class="col">
+                        <?php component_list_group($anchorGroup, 'lined', 'sm'); ?>
+                    </div>
+                <?php } ?>
             </div>
-        </header>
+        </div>
     </div>
 
     <section class="mb-5" aria-labelledby="color-heading">
