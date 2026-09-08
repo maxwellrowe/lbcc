@@ -13340,6 +13340,55 @@ textarea.form-control {
   padding: 0rem 1rem 1rem 1rem;
 }
 
+.lbcc-main-nav .site-search-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.1rem;
+  max-width: none;
+  height: 3.1rem;
+  padding: 0;
+  border: 1.5px solid var(--color-red-100);
+  border-radius: 50%;
+  background: var(--color-red-100);
+}
+.lbcc-main-nav .site-search-button::before, .lbcc-main-nav .site-search-button::after {
+  display: none;
+  content: none;
+}
+.lbcc-main-nav .site-search-button:hover, .lbcc-main-nav .site-search-button:focus-visible {
+  color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+.lbcc-main-nav .site-search-button[aria-expanded=true] {
+  background: var(--color-teal-200);
+  border-color: var(--color-teal-800);
+}
+.lbcc-main-nav .site-search-button[aria-expanded=true]:hover, .lbcc-main-nav .site-search-button[aria-expanded=true]:focus-visible {
+  border-color: var(--color-teal-800);
+}
+
+.site-search-button__icon {
+  position: absolute;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.site-search-button__icon--close {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.7);
+}
+
+.site-search-button[aria-expanded=true] .site-search-button__icon--search {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.7);
+}
+
+.site-search-button[aria-expanded=true] .site-search-button__icon--close {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
 .site-desktop-utility-nav a {
   font-size: var(--lbcc-font-size-2xs);
   font-weight: 600;
@@ -13349,6 +13398,16 @@ textarea.form-control {
 }
 .site-desktop-utility-nav a [class^=fa-] {
   color: var(--bs-primary);
+}
+.site-desktop-utility-nav a > span:not([aria-hidden=true]) {
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: text-decoration-color 0.2s ease-in-out;
+}
+.site-desktop-utility-nav a:hover > span:not([aria-hidden=true]), .site-desktop-utility-nav a:focus-visible > span:not([aria-hidden=true]) {
+  text-decoration-color: var(--bs-primary);
 }
 .site-desktop-utility-nav a.btn.btn-link {
   background-color: var(--color-gray-200);

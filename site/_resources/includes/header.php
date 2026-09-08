@@ -66,7 +66,8 @@ $logoMark = lbcc_url($config['logo_mark']);
                         aria-expanded="false"
                         aria-controls="site-desktop-search"
                     >
-                        <span class="fa-sharp fa-regular fa-magnifying-glass" aria-hidden="true"></span>
+                        <span class="site-search-button__icon site-search-button__icon--search fa-sharp fa-regular fa-magnifying-glass" aria-hidden="true"></span>
+                        <span class="site-search-button__icon site-search-button__icon--close fa-sharp fa-regular fa-xmark" aria-hidden="true"></span>
                     </button>
                     <div class="lbcc-main-nav__item collapse bg-surface-sun-haze" id="site-desktop-search">
                         <div class="container-xxl">
