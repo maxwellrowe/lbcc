@@ -1200,7 +1200,7 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
             isolation: isolate;
 
             @include media-breakpoint-up(xl) {
-                grid-template-columns: minmax(0, 1fr) minmax(0, calc($lbcc-shell-max-width - 1.5rem)) minmax(0, 1fr);
+                grid-template-columns: minmax(0, 1fr) minmax(0, calc($lbcc-shell-max-width - 3rem)) minmax(0, 1fr);
             }
         }
 

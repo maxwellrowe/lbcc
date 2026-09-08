@@ -1,6 +1,16 @@
 .lbcc-page {
   color: $body-color;
 }
+
+// Sitewide horizontal breathing room for the primary layout container.
+.container-xxl {
+  --bs-gutter-x: 2rem;
+
+  @include media-breakpoint-up(md) {
+    --bs-gutter-x: 3rem;
+  }
+}
+
 #main-content {
   position: relative;
   z-index: 2;

@@ -767,7 +767,7 @@ progress {
 }
 @media (min-width: 1400px) {
   .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1280px;
+    max-width: 1328px;
   }
 }
 :root {
@@ -12669,6 +12669,15 @@ textarea.form-control {
   color: #1E1E1E;
 }
 
+.container-xxl {
+  --bs-gutter-x: 2rem;
+}
+@media (min-width: 768px) {
+  .container-xxl {
+    --bs-gutter-x: 3rem;
+  }
+}
+
 #main-content {
   position: relative;
   z-index: 2;
@@ -13250,7 +13259,7 @@ textarea.form-control {
 }
 @media (min-width: 1400px) {
   .site-desktop-actions .lbcc-main-nav__item {
-    width: calc(1280px - 1.5rem);
+    width: calc(1328px - 3rem);
     max-width: 100vw;
   }
 }
@@ -15332,7 +15341,7 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
 }
 @media (min-width: 1200px) {
   .component-hero.component-hero--full .component-hero__media {
-    grid-template-columns: minmax(0, 1fr) minmax(0, calc(1280px - 1.5rem)) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, calc(1328px - 3rem)) minmax(0, 1fr);
   }
 }
 .component-hero.component-hero--full .component-hero__media-slot {
