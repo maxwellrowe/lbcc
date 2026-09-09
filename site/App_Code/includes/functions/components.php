@@ -1248,6 +1248,16 @@ function component_support_matrix(
                                     </button>
 
                                     <div class="dropdown-menu component-support-matrix__menu w-100 p-0 border-0 overflow-hidden">
+                                        <button
+                                            type="button"
+                                            class="dropdown-item component-support-matrix__menu-item d-flex align-items-center"
+                                            data-lbcc-support-need-option
+                                            data-value=""
+                                            data-label="Show All"
+                                            aria-pressed="<?php echo $initialNeedValue === '' ? 'true' : 'false'; ?>"
+                                        >
+                                            <span class="flex-grow-1">Show All</span>
+                                        </button>
                                         <?php foreach ($availableNeeds as $need) {
                                             $needSlug = lbcc_support_matrix_slug($need);
                                             $iconClass = !empty($needIconMap[$need]) ? $needIconMap[$need] : 'fa-circle-info';
@@ -1367,10 +1377,7 @@ function component_support_matrix(
                 <?php } ?>
             </div>
 
-            <div class="component-support-matrix__empty d-none bg-surface-raised rounded-4 p-4 text-center" data-lbcc-support-empty>
-                <h3 class="h4 mb-2">No Results Found</h3>
-                <p class="mb-0 text-body-secondary">Try a different audience or support need.</p>
-            </div>
+            <p class="component-support-matrix__empty d-none mb-0 p-4 bg-white rounded" data-lbcc-support-empty aria-live="polite"></p>
         </div>
     </section>
 <?php }

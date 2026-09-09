@@ -1990,7 +1990,7 @@ const initSupportMatrixFilters = () => {
 
     const syncNeedOptions = (selectedValue) => {
       needOptions.forEach((option) => {
-        const isActive = option.dataset.value === selectedValue && selectedValue !== "";
+        const isActive = option.dataset.value === selectedValue;
 
         option.classList.toggle("is-active", isActive);
         option.setAttribute("aria-pressed", isActive ? "true" : "false");
@@ -2016,6 +2016,22 @@ const initSupportMatrixFilters = () => {
       syncNeedOptions(normalizedValue);
     };
 
+    const getAudienceLabel = () => {
+      if (!(audienceSelect instanceof HTMLSelectElement) || audienceSelect.value.trim() === "") {
+        return "all audiences";
+      }
+
+      return audienceSelect.selectedOptions[0]?.textContent?.trim() || "all audiences";
+    };
+
+    const getNeedLabel = () => {
+      if (getSelectedValue(needValueInput) === "") {
+        return "all service types";
+      }
+
+      return needLabel instanceof HTMLElement ? needLabel.textContent?.trim() || "all service types" : "all service types";
+    };
+
     const applyFilters = () => {
       const selectedNeed = getSelectedValue(needValueInput);
       const selectedAudience = getSelectedValue(audienceSelect);
@@ -2037,6 +2053,10 @@ const initSupportMatrixFilters = () => {
 
       if (emptyState instanceof HTMLElement) {
         emptyState.classList.toggle("d-none", visibleCards !== 0);
+
+        if (visibleCards === 0) {
+          emptyState.textContent = `Sorry, there are no results for ${getAudienceLabel()} and ${getNeedLabel()}. Please try altering your filters.`;
+        }
       }
 
       updateCount(visibleCards);

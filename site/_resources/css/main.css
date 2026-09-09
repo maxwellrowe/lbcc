@@ -14393,6 +14393,7 @@ textarea.form-control {
   align-items: center;
   justify-content: space-between;
   background-color: var(--bs-white);
+  font-weight: 400;
 }
 .component-support-matrix__filter-toggle:hover, .component-support-matrix__filter-toggle:focus-visible, .component-support-matrix__filter-toggle:active, .component-support-matrix__filter-toggle.show {
   border-color: var(--color-gray-400);

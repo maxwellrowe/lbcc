@@ -27,32 +27,7 @@ $supportMatrixData = lbcc_support_matrix_load_data(__DIR__ . '/data/support-matr
         [
             [
                 'type' => 'image',
-                'src' => '_resources/images/academics/academics-hero.jpg',
-                'alt' => ''
-            ],
-            [
-                'type' => 'image',
-                'src' => '_resources/images/academics/academics-hero-2.jpg',
-                'alt' => ''
-            ],
-            [
-                'type' => 'image',
-                'src' => '_resources/images/academics/academics-hero-3.jpg',
-                'alt' => ''
-            ],
-            [
-                'type' => 'image',
-                'src' => '_resources/images/academics/academics-hero-4.jpg',
-                'alt' => ''
-            ],
-            [
-                'type' => 'image',
-                'src' => '_resources/images/academics/academics-hero-5.jpg',
-                'alt' => ''
-            ],
-            [
-                'type' => 'image',
-                'src' => '_resources/images/academics/academics-hero-6.jpg',
+                'src' => '_resources/images/placeholders/students/students-11.jpg',
                 'alt' => ''
             ]
         ],
@@ -94,6 +69,15 @@ $supportMatrixData = lbcc_support_matrix_load_data(__DIR__ . '/data/support-matr
                     );
                     ?>
                 </div>
+            </div>
+            <div class="mt-5">
+                <?php component_alert(
+                    'Template Review Note',
+                    '<p class="mb-0">The following support matrix is using "sample" data and may not accurately represent all services nor relative filters.</p>',
+                    'info',
+                    'fa-circle-info',
+                    []
+                ); ?>
             </div>
         </div>
     </section>
