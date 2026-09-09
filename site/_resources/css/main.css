@@ -12726,8 +12726,15 @@ textarea.form-control {
   opacity: 1;
 }
 
+.footer-wordmark {
+  width: 17rem;
+  max-width: 100%;
+  flex: 0 0 auto;
+}
+
 .footer-wordmark-logo {
-  width: min(17rem, 100%);
+  display: block;
+  width: 100%;
   height: auto;
   filter: brightness(0) invert(1);
 }
@@ -13061,6 +13068,13 @@ textarea.form-control {
   gap: 1rem;
   text-decoration: none;
 }
+@media (min-width: 768px) {
+  .site-brand {
+    width: 14.75rem;
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
+}
 
 .site-brand-mark {
   width: 3.5rem;
@@ -13069,9 +13083,16 @@ textarea.form-control {
 }
 
 .site-brand-logo {
-  width: min(14.75rem, 100%);
+  width: 100%;
   height: auto;
   display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media (min-width: 768px) {
+  .site-brand-logo {
+    height: 63px;
+  }
 }
 
 .site-search-button {

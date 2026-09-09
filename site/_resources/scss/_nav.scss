@@ -16,6 +16,12 @@
   align-items: center;
   gap: 1rem;
   text-decoration: none;
+
+  @include media-breakpoint-up(md) {
+    width: 14.75rem;
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
 }
 
 .site-brand-mark {
@@ -25,9 +31,15 @@
 }
 
 .site-brand-logo {
-  width: min(14.75rem, 100%);
+  width: 100%;
   height: auto;
   display: block;
+  object-fit: contain;
+
+  @include media-breakpoint-up(md) {
+    height: 63px;
+  }
+
 }
 
 .site-search-button {

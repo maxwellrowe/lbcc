@@ -61,8 +61,15 @@
   opacity: 1;
 }
 
+.footer-wordmark {
+  width: 17rem;
+  max-width: 100%;
+  flex: 0 0 auto;
+}
+
 .footer-wordmark-logo {
-  width: min(17rem, 100%);
+  display: block;
+  width: 100%;
   height: auto;
   filter: brightness(0) invert(1);
 }

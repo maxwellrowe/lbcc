@@ -5,7 +5,7 @@ $wordmark = lbcc_url($config['logo_wordmark']);
 <footer class="site-footer pt-5 text-white">
     <div class="container-xxl">
         <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-md-between gap-4 mb-5 lbcc-animate lbcc-stagger">
-            <a class="d-none d-md-inline-flex align-items-center flex-shrink-0" href="<?php echo lbcc_escape(lbcc_url('/')); ?>">
+            <a class="footer-wordmark d-none d-md-inline-flex align-items-center" href="<?php echo lbcc_escape(lbcc_url('/')); ?>">
                 <img class="footer-wordmark-logo img-fluid" src="<?php echo lbcc_escape($wordmark); ?>" alt="<?php echo lbcc_escape($config['site_name']); ?>">
             </a>
             <div class="border-bottom border-white border-opacity-25 flex-grow-1 d-none d-md-block"></div>
