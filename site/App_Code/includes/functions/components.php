@@ -132,16 +132,7 @@ function component_block_arrow_link(
     $size = 'default',
     $style = 'dark'
 ) { ?>
-    <a href="<?php echo lbcc_escape($link); ?>" class="arrow-link component-block-arrow-link component-block-arrow-link__size-<?php echo lbcc_escape($size); ?> component-block-arrow-link__style-<?php echo lbcc_escape($style); ?>">
-        <?php if(!empty($icon)) { ?>
-            <span class="fa-sharp fa-regular <?php echo lbcc_escape($icon); ?>"></span>
-        <?php } else if(!empty($image)) { ?>
-            <span class="component-block-arrow-link__image" style="background-image: url('<?php echo lbcc_escape(lbcc_url($image)); ?>');"></span>
-        <?php } ?>
-        <span class="component-block-arrow-link__text">
-            <?php echo lbcc_escape($text); ?>
-        </span>
-    </a>
+    <a href="<?php echo lbcc_escape($link); ?>" class="arrow-link component-block-arrow-link component-block-arrow-link__size-<?php echo lbcc_escape($size); ?> component-block-arrow-link__style-<?php echo lbcc_escape($style); ?>"><?php if (!empty($icon)) { ?><span class="fa-sharp fa-regular <?php echo lbcc_escape($icon); ?>"></span><?php } elseif (!empty($image)) { ?><span class="component-block-arrow-link__image" style="background-image: url('<?php echo lbcc_escape(lbcc_url($image)); ?>');"></span><?php } ?><span class="component-block-arrow-link__text"><?php echo lbcc_escape($text); ?></span></a>
 <?php }
 
 // Buttons

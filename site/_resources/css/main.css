@@ -13286,6 +13286,8 @@ textarea.form-control {
     padding: calc(2.25rem + 4px) 0 2.25rem 0;
     width: -moz-fit-content;
     width: fit-content;
+    z-index: 11;
+    position: relative;
   }
 }
 .lbcc-main-nav .lbcc-main-nav__btn:hover {
@@ -14286,9 +14288,16 @@ textarea.form-control {
   bottom: 0;
 }
 
+.component-block-arrow-link {
+  display: inline;
+}
+.component-block-arrow-link > .fa-sharp,
 .component-block-arrow-link .component-block-arrow-link__image {
-  display: block;
-  flex: 0 0 auto;
+  display: inline-block;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+.component-block-arrow-link .component-block-arrow-link__image {
   width: 2.5rem;
   height: 2.5rem;
   background-size: cover;
@@ -14296,8 +14305,24 @@ textarea.form-control {
   background-position: center center;
   border-radius: 999px;
 }
+.component-block-arrow-link::after {
+  content: none;
+}
+.component-block-arrow-link .component-block-arrow-link__text::after {
+  content: " \f061";
+  display: inline-block;
+  font: var(--fa-font-sharp-regular);
+  color: var(--bs-primary);
+  white-space: nowrap;
+  vertical-align: middle;
+  transition: transform 0.2s ease-in-out;
+}
+.component-block-arrow-link:hover .component-block-arrow-link__text::after, .component-block-arrow-link:focus-visible .component-block-arrow-link__text::after {
+  transform: translateX(3px);
+}
 .component-block-arrow-link.component-block-arrow-link__size-sm {
   font-size: 0.875rem;
+  font-weight: 600;
 }
 .component-block-arrow-link.component-block-arrow-link__size-sm .component-block-arrow-link__image {
   width: 2rem;

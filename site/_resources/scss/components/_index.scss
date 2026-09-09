@@ -106,9 +106,16 @@
 
 // Block Arrow Link
 .component-block-arrow-link {
+    display: inline;
+
+    > .fa-sharp,
     .component-block-arrow-link__image {
-        display: block;
-        flex: 0 0 auto;
+        display: inline-block;
+        margin-right: 0.5rem;
+        vertical-align: middle;
+    }
+
+    .component-block-arrow-link__image {
         width: 2.5rem;
         height: 2.5rem;
         background-size: cover;
@@ -117,8 +124,28 @@
         border-radius: 999px;
     }
 
+    &::after {
+        content: none;
+    }
+
+    .component-block-arrow-link__text::after {
+        content: "\00a0\f061";
+        display: inline-block;
+        font: var(--fa-font-sharp-regular);
+        color: var(--bs-primary);
+        white-space: nowrap;
+        vertical-align: middle;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    &:hover .component-block-arrow-link__text::after,
+    &:focus-visible .component-block-arrow-link__text::after {
+        transform: translateX(3px);
+    }
+
     &.component-block-arrow-link__size-sm {
         font-size: 0.875rem;
+        font-weight: 600;
 
         .component-block-arrow-link__image {
             width: 2rem;
