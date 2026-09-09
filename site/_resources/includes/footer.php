@@ -5,9 +5,9 @@ $wordmark = lbcc_url($config['logo_wordmark']);
 <footer class="site-footer pt-5 text-white">
     <div class="container-xxl">
         <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-md-between gap-4 mb-5 lbcc-animate lbcc-stagger">
-            <a class="footer-wordmark d-none d-md-inline-flex align-items-center" href="<?php echo lbcc_escape(lbcc_url('/')); ?>">
+            <div class="footer-wordmark d-none d-md-inline-flex align-items-center">
                 <img class="footer-wordmark-logo img-fluid" src="<?php echo lbcc_escape($wordmark); ?>" alt="<?php echo lbcc_escape($config['site_name']); ?>">
-            </a>
+            </div>
             <div class="border-bottom border-white border-opacity-25 flex-grow-1 d-none d-md-block"></div>
             <div class="flex-shrink-0">
                 <?php component_footer_i_heart_lb(); ?>
@@ -101,7 +101,7 @@ $wordmark = lbcc_url($config['logo_wordmark']);
                     </ul>
                 </div>
                 <div class="col-12 order-md-1 col-md-4">
-                    <p class="text-white fs-9 m-0"><a href="" class="link-light">&copy;</a> Long Beach City College, All Rights Reserved</p>
+                    <p class="text-white fs-9 m-0">&copy; Long Beach City College, All Rights Reserved</p>
                 </div>
             </div>
         </div>

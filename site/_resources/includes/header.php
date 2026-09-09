@@ -78,7 +78,7 @@ $logoMark = lbcc_url($config['logo_mark']);
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-primary" href="<?php echo lbcc_escape(lbcc_url('/')); ?>">Apply Now</a>
+                    <button class="btn btn-primary" type="button">Apply Now</button>
                 </div>
             </nav>
         </div>

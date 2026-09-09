@@ -277,7 +277,7 @@ $aboutId = $lbccMainNavItemPrefix . '-about';
     <div class="lbcc-main-nav__item collapse bg-surface-sun-haze" id="<?php echo lbcc_escape($aboutId); ?>">
         <div class="container-xxl">
             <div class="row row-cols-1 row-cols-xl-4 g-5 mb-4 mb-xl-0 p-0 py-4">
-                <div class="col">
+                <div class="col-12 col-xl-3">
                     <div class="d-grid gap-4">
                         <span class="eyebrow-sm">Learn More About LBCC</span>
                         <?php component_block_arrow_link('#', '', '', 'Overview & History', 'sm'); ?>
@@ -290,17 +290,14 @@ $aboutId = $lbccMainNavItemPrefix . '-about';
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="col-12 col-xl-3">
                     <div class="d-grid gap-4">
                         <span class="eyebrow-sm">Leadership</span>
                         <?php component_block_arrow_link('#', '', '', 'Board of Trustees', 'sm'); ?>
                         <?php component_block_arrow_link('#', '', '', 'Office of the President', 'sm'); ?>
                         <?php component_block_arrow_link('#', '', '', 'Participatory Governance', 'sm'); ?>
                     </div>
-                </div>
-
-                <div class="col">
-                    <div class="d-grid gap-4">
+                    <div class="d-grid gap-4 mt-5">
                         <span class="eyebrow-sm">Explore our Campuses</span>
                         <?php component_block_arrow_link('#', '', '', 'Campus Maps', 'sm'); ?>
                         <?php component_block_arrow_link('#', '', '', 'Liberal Arts Campus', 'sm'); ?>
@@ -309,19 +306,27 @@ $aboutId = $lbccMainNavItemPrefix . '-about';
                     </div>
                 </div>
 
-                <div class="col">
-                    <div class="d-grid gap-4">
-                        <span class="eyebrow-sm">Campus Offices</span>
-                        <?php component_block_arrow_link('#', '', '', 'Academic Services', 'sm'); ?>
-                        <?php component_block_arrow_link('#', '', '', 'Administrative & Business Services', 'sm'); ?>
-                        <?php component_block_arrow_link('#', '', '', 'Event & Filming Services', 'sm'); ?>
-                        <?php component_block_arrow_link('#', '', '', 'Human Resources', 'sm'); ?>
-                        <?php component_block_arrow_link('#', '', '', 'Office of Innovation', 'sm'); ?>
-                        <?php component_block_arrow_link('#', '', '', 'Information Technology Services', 'sm'); ?>
-                        <?php component_block_arrow_link('#', '', '', 'Institutional Effectiveness', 'sm'); ?>
-                        <?php component_block_arrow_link('#', '', '', 'Public Affairs & Marketing', 'sm'); ?>
-                        <?php component_block_arrow_link('#', '', '', 'Student Services', 'sm'); ?>
-                        <?php component_block_arrow_link('#', '', '', 'Workforce & Economic Development', 'sm'); ?>
+                <div class="col-12 col-xl-6">
+                    <span class="eyebrow-sm mb-4 d-block">Campus Offices</span>
+                    <div class="row row-cols-1 row-cols-xl-2">
+                        <div class="col">
+                            <div class="d-grid gap-4">
+                                <?php component_block_arrow_link('#', '', '', 'Academic Services', 'sm'); ?>
+                                <?php component_block_arrow_link('#', '', '', 'Administrative & Business Services', 'sm'); ?>
+                                <?php component_block_arrow_link('#', '', '', 'Event & Filming Services', 'sm'); ?>
+                                <?php component_block_arrow_link('#', '', '', 'Human Resources', 'sm'); ?>
+                                <?php component_block_arrow_link('#', '', '', 'Office of Innovation', 'sm'); ?>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-grid gap-4">
+                                <?php component_block_arrow_link('#', '', '', 'Information Technology Services', 'sm'); ?>
+                                <?php component_block_arrow_link('#', '', '', 'Institutional Effectiveness', 'sm'); ?>
+                                <?php component_block_arrow_link('#', '', '', 'Public Affairs & Marketing', 'sm'); ?>
+                                <?php component_block_arrow_link('#', '', '', 'Student Services', 'sm'); ?>
+                                <?php component_block_arrow_link('#', '', '', 'Workforce & Economic Development', 'sm'); ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
