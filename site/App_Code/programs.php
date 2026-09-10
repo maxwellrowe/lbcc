@@ -81,7 +81,7 @@ $buildProgramSearchIndex = static function (array $entry): string {
 <?php if ($page['custom_hero']) { ?>
 <?php // Include Custom Hero Component here... ?>
 <?php } ?>
-<main id="main-content" class="programs-page">
+<main id="main-content" class="programs-page pb-5">
     <div class="container-xxl" data-lbcc-programs>
         <div class="w-100 mb-5">
             <p class="lead text-body-secondary mb-0">Explore LBCC&apos;s 70+ programs. Use the filters below to narrow your options and find the program that best fits you.</p>
@@ -112,7 +112,7 @@ $buildProgramSearchIndex = static function (array $entry): string {
 
                 <div class="programs-active-filters d-none flex-wrap align-items-center gap-2 mb-3" data-lbcc-programs-active-filters></div>
 
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-4">
                     <p id="programs-search-heading" class="programs-results__count mb-0 text-body-secondary" data-lbcc-programs-count>
                         Showing <?php echo lbcc_escape((string) count($programEntries)); ?> programs
                     </p>
@@ -179,8 +179,8 @@ $buildProgramSearchIndex = static function (array $entry): string {
             <aside class="col-12 col-xl-3 order-1 order-xl-2">
                 <div class="programs-page__sidebar">
                     <div class="programs-filter-card bg-surface-subtle rounded-4 p-3 p-xl-4">
-                        <div class="d-none d-xl-flex align-items-center justify-content-between gap-3 mb-4">
-                            <h2 id="programs-sidebar-heading" class="h5 mb-0">Filters</h2>
+                        <div class="d-none d-xl-flex align-items-center justify-content-between gap-2 mb-4">
+                            <h2 id="programs-sidebar-heading" class="eyebrow mb-0">Filters</h2>
                             <span class="badge bg-surface-water text-dark" data-lbcc-programs-filter-count>0</span>
                         </div>
 
@@ -205,18 +205,30 @@ $buildProgramSearchIndex = static function (array $entry): string {
                         <div id="programs-filters-panel" class="collapse d-xl-block">
                             <div class="d-grid gap-4">
                                 <section class="programs-filter-group" aria-labelledby="programs-filters-pathways">
-                                    <div class="d-flex align-items-center justify-content-between gap-3 mb-3">
+                                    <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
                                         <h3 id="programs-filters-pathways" class="h6 mb-0">Career and Academic Pathways</h3>
-                                        <span class="fa-sharp fa-regular fa-circle-info text-body-secondary" aria-hidden="true"></span>
+                                        <button
+                                            class="btn btn-link text-primary p-0 lh-1"
+                                            type="button"
+                                            data-bs-toggle="popover"
+                                            data-bs-trigger="click"
+                                            data-bs-placement="auto"
+                                            data-bs-container="body"
+                                            title="What's a CAP?"
+                                            data-bs-content="Career and Academic Pathways (CAP) group related majors into broad career areas, making it easier for you to explore potential paths. Each CAP also has dedicated counselors who offer guidance tailored to your specific major or career goals."
+                                            aria-label="What's a CAP?"
+                                        >
+                                            <span class="fa-sharp fa-regular fa-circle-info" aria-hidden="true"></span>
+                                        </button>
                                     </div>
 
-                                    <div class="d-grid gap-3">
+                                    <div class="d-grid gap-2">
                                         <?php foreach ($pathways as $pathway) {
                                             $pathwaySlug = lbcc_slugify($pathway);
                                             $pathwayIcon = $pathwayIcons[$pathway] ?? '';
                                             $pathwayInputId = 'programs-pathway-' . $pathwaySlug;
                                             ?>
-                                            <label class="programs-filter-option d-flex align-items-center gap-3" for="<?php echo lbcc_escape($pathwayInputId); ?>">
+                                            <label class="programs-filter-option d-flex align-items-center gap-2" for="<?php echo lbcc_escape($pathwayInputId); ?>">
                                                 <input
                                                     id="<?php echo lbcc_escape($pathwayInputId); ?>"
                                                     class="form-check-input mt-0 flex-shrink-0"
@@ -238,12 +250,12 @@ $buildProgramSearchIndex = static function (array $entry): string {
                                 <section class="programs-filter-group" aria-labelledby="programs-filters-options">
                                     <h3 id="programs-filters-options" class="h6 mb-3">Program Options</h3>
 
-                                    <div class="d-grid gap-3">
+                                    <div class="d-grid gap-2">
                                         <?php foreach ($programOptions as $programOption) {
                                             $programOptionSlug = lbcc_slugify($programOption);
                                             $programOptionInputId = 'programs-option-' . $programOptionSlug;
                                             ?>
-                                            <label class="programs-filter-check d-flex align-items-center gap-3" for="<?php echo lbcc_escape($programOptionInputId); ?>">
+                                            <label class="programs-filter-check d-flex align-items-center gap-2" for="<?php echo lbcc_escape($programOptionInputId); ?>">
                                                 <input
                                                     id="<?php echo lbcc_escape($programOptionInputId); ?>"
                                                     class="form-check-input mt-0 flex-shrink-0"

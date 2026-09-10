@@ -273,6 +273,10 @@
   border: 1.5px solid var(--color-gray-100);
 }
 
+.programs-results__grid {
+  scroll-margin-top: 8rem;
+}
+
 .programs-filter-card__toggle {
   color: var(--bs-dark);
   min-height: 0;
@@ -298,6 +302,17 @@
 .programs-filter-group + .programs-filter-group {
   padding-top: 1.5rem;
   border-top: 1px solid var(--color-gray-200);
+}
+
+.programs-filter-group,
+.programs-filter-dropdown,
+.programs-filter-dropdown__toggle {
+  width: 100%;
+  min-width: 0;
+}
+
+#main-content .programs-filter-group h3 {
+  color: var(--bs-dark);
 }
 
 .programs-filter-option,
@@ -353,25 +368,35 @@
 .programs-filter-dropdown__menu {
   max-height: 20rem;
   overflow-y: auto;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
 }
 
 .programs-filter-dropdown,
 .programs-filter-dropdown__toggle {
-  min-width: 0;
   max-width: 100%;
 }
 
-.programs-filter-dropdown__toggle {
-  align-items: flex-start;
-  white-space: normal;
+.programs-filter-dropdown__toggle.component-support-matrix__filter-toggle {
+  align-items: center;
+  overflow: hidden;
 
   [data-lbcc-programs-department-label] {
     min-width: 0;
-    overflow: visible;
-    text-overflow: clip;
-    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.programs-filter-dropdown__menu .component-support-matrix__menu-item {
+  min-width: 0;
+  white-space: normal;
+
+  > .flex-grow-1 {
+    min-width: 0;
     overflow-wrap: anywhere;
-    line-height: 1.4;
   }
 }
 

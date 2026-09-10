@@ -5,6 +5,7 @@ import Collapse from "bootstrap/js/dist/collapse";
 import Dropdown from "bootstrap/js/dist/dropdown";
 import Modal from "bootstrap/js/dist/modal";
 import Offcanvas from "bootstrap/js/dist/offcanvas";
+import Popover from "bootstrap/js/dist/popover";
 import Tab from "bootstrap/js/dist/tab";
 import Tooltip from "bootstrap/js/dist/tooltip";
 import { animate } from "motion";
@@ -1849,6 +1850,15 @@ const initProgramsFilters = () => {
       });
     };
 
+    const scrollToResults = () => {
+      window.requestAnimationFrame(() => {
+        grid.scrollIntoView({
+          behavior: document.documentElement.dataset.reducedMotion === "true" ? "auto" : "smooth",
+          block: "start"
+        });
+      });
+    };
+
     const applyFilters = () => {
       const searchQuery = normalizeValue(searchInput.value);
       const selectedDepartments = getSelectedDepartmentValues();
@@ -1899,20 +1909,30 @@ const initProgramsFilters = () => {
     };
 
     searchInput.addEventListener("input", applyFilters);
-    sortSelect.addEventListener("change", applyFilters);
+    sortSelect.addEventListener("change", () => {
+      applyFilters();
+      scrollToResults();
+    });
 
     pathwayInputs.forEach((input) => {
-      input.addEventListener("change", applyFilters);
+      input.addEventListener("change", () => {
+        applyFilters();
+        scrollToResults();
+      });
     });
 
     optionInputs.forEach((input) => {
-      input.addEventListener("change", applyFilters);
+      input.addEventListener("change", () => {
+        applyFilters();
+        scrollToResults();
+      });
     });
 
     departmentOptions.forEach((option) => {
       option.addEventListener("click", () => {
         setDepartmentOptionState(option, !option.classList.contains("is-active"));
         applyFilters();
+        scrollToResults();
       });
     });
 
@@ -1954,6 +1974,7 @@ const initProgramsFilters = () => {
         }
 
         applyFilters();
+        scrollToResults();
       });
     }
 
@@ -2310,6 +2331,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initBootstrapSet("[data-bs-toggle=\"tab\"]", Tab);
   initBootstrapSet("[data-bs-toggle=\"dropdown\"]", Dropdown);
   initBootstrapSet("[data-bs-toggle=\"tooltip\"]", Tooltip);
+  initBootstrapSet("[data-bs-toggle=\"popover\"]", Popover);
   initBootstrapSet(".modal", Modal);
   initVideoModals();
   initBootstrapSet(".offcanvas", Offcanvas);

@@ -55,6 +55,68 @@
             </div>
 
             <div>
+                <p class="eyebrow-sm mb-2">Steps / Default</p>
+                <?php
+                component_accordion(
+                    [
+                        [
+                            'title' => 'Choose a Program',
+                            'content' => '<p class="mb-0">Explore programs that align with your academic and career goals.</p>',
+                            'step' => '1',
+                            'open' => true
+                        ],
+                        [
+                            'title' => 'Submit Your Application',
+                            'content' => '<p class="mb-0">Complete the application and submit any required documents.</p>',
+                            'step' => '2'
+                        ],
+                        [
+                            'title' => 'Register for Classes',
+                            'content' => '<p class="mb-0">Meet with a counselor and register for your first semester.</p>',
+                            'step' => '3'
+                        ]
+                    ],
+                    'snippet-accordion-steps',
+                    false,
+                    true,
+                    'default',
+                    true
+                );
+                ?>
+            </div>
+
+            <div>
+                <p class="eyebrow-sm mb-2">Steps / Surface Raised</p>
+                <?php
+                component_accordion(
+                    [
+                        [
+                            'title' => 'Plan Your Courses',
+                            'content' => '<p class="mb-0">Review degree requirements and create an educational plan.</p>',
+                            'step' => 'A',
+                            'open' => true
+                        ],
+                        [
+                            'title' => 'Meet With a Counselor',
+                            'content' => '<p class="mb-0">Connect with a counselor for guidance specific to your goals.</p>',
+                            'step' => 'B'
+                        ],
+                        [
+                            'title' => 'Enroll',
+                            'content' => '<p class="mb-0">Register for classes and prepare for the start of the term.</p>',
+                            'step' => 'C'
+                        ]
+                    ],
+                    'snippet-accordion-steps-surface-raised',
+                    false,
+                    true,
+                    'surface-raised',
+                    true
+                );
+                ?>
+            </div>
+
+            <div>
                 <p class="eyebrow-sm mb-2">Surface Raised</p>
                 <?php
                 component_accordion(
@@ -96,7 +158,7 @@
                         <td>Items</td>
                         <td>array</td>
                         <td>Required</td>
-                        <td>Array of accordion item definitions. Each item can include Title, Content, Icon, and Open.</td>
+                        <td>Array of accordion item definitions. Each item can include Title, Content, Icon, Step, and Open.</td>
                     </tr>
                     <tr>
                         <td>ID</td>
@@ -109,6 +171,12 @@
                         <td>boolean</td>
                         <td>true</td>
                         <td>Controls whether a leading Font Awesome icon slot is rendered for each item.</td>
+                    </tr>
+                    <tr>
+                        <td>Show Steps</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Displays a leading circular step marker before the optional icon. When enabled, it uses each item’s Step value or falls back to its sequence number.</td>
                     </tr>
                     <tr>
                         <td>Allow Multiple</td>
@@ -139,6 +207,12 @@
                         <td>string</td>
                         <td>empty</td>
                         <td>Optional Font Awesome icon class, for example <code>fa-unicorn</code>.</td>
+                    </tr>
+                    <tr>
+                        <td>Step</td>
+                        <td>string</td>
+                        <td>item sequence</td>
+                        <td>Optional step marker, such as <code>1</code> or <code>A</code>. Used when Show Steps is enabled.</td>
                     </tr>
                     <tr>
                         <td>Open</td>

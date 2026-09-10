@@ -2990,13 +2990,14 @@ function component_title_with_ctas(
 
 // Accordion
 // $items is an array of arrays with:
-// title, content, icon, open
+// title, content, icon, step, open
 function component_accordion(
     $items = [],
     $id = '',
     $showIcons = true,
     $allowMultiple = true,
-    $style = 'default'
+    $style = 'default',
+    $showSteps = false
 ) {
     if (empty($items) || !is_array($items)) {
         return;
@@ -3022,6 +3023,7 @@ function component_accordion(
             $title = (string) $item['title'];
             $content = !empty($item['content']) ? (string) $item['content'] : '';
             $icon = !empty($item['icon']) ? trim((string) $item['icon']) : '';
+            $step = !empty($item['step']) ? trim((string) $item['step']) : (string) ($index + 1);
             $isOpen = !empty($item['open']);
             $itemId = $id . '-item-' . ($index + 1);
             $headingId = $itemId . '-heading';
@@ -3038,6 +3040,10 @@ function component_accordion(
                         aria-controls="<?php echo lbcc_escape($collapseId); ?>"
                     >
                         <span class="component-accordion__button-inner d-flex align-items-center gap-2 w-100 min-w-0 pe-4">
+                            <?php if ($showSteps) { ?>
+                                <span class="component-accordion__step d-inline-flex align-items-center justify-content-center flex-shrink-0" aria-hidden="true"><?php echo lbcc_escape($step); ?></span>
+                            <?php } ?>
+
                             <?php if ($showIcons && $icon !== '') { ?>
                                 <span class="component-accordion__icon fa-sharp fa-regular <?php echo lbcc_escape($icon); ?> flex-shrink-0" aria-hidden="true"></span>
                             <?php } ?>

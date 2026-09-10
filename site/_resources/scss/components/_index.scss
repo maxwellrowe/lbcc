@@ -1692,6 +1692,21 @@ body.section-nav-active {
     transition: color 0.2s ease-in-out;
 }
 
+.component-accordion__step {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--color-teal-50);
+    color: var(--color-teal-800);
+    font-family: var(--lbcc-font-family-heading);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.component-accordion--surface-raised .component-accordion__step {
+    background: var(--bs-white);
+}
+
 .component-accordion__button.collapsed:hover .component-accordion__icon,
 .component-accordion__button.collapsed:focus-visible .component-accordion__icon,
 .component-accordion__button:not(.collapsed) .component-accordion__icon {
