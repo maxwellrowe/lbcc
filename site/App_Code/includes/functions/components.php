@@ -2665,25 +2665,33 @@ function component_ticker(
     $autoplay = $autoplay && $canRotate ? 'true' : 'false';
     ?>
     <div
-        class="component-ticker rounded-bottom-4 px-3 py-3 px-md-4"
+        class="component-ticker rounded-bottom-4 pt-3"
         data-lbcc-ticker
         data-autoplay="<?php echo lbcc_escape($autoplay); ?>"
     >
-        <div class="d-flex flex-column gap-3 flex-md-row align-items-md-center">
+        <div class="d-flex flex-column gap-3 flex-md-row align-items-md-center px-3 px-md-4">
             <div class="component-ticker__header d-flex align-items-center justify-content-between gap-3 flex-shrink-0">
                 <span class="component-ticker__label"><?php echo lbcc_escape($label); ?></span>
 
                 <?php if ($canRotate) { ?>
-                    <button
-                        class="component-ticker__toggle btn btn-link text-decoration-none p-0 d-inline-flex d-md-none"
-                        type="button"
-                        data-lbcc-ticker-toggle
-                        aria-label="Pause ticker autoplay"
-                        aria-pressed="false"
-                    >
-                        <span class="fa-sharp fa-solid fa-pause" aria-hidden="true" data-lbcc-ticker-icon="pause"></span>
-                        <span class="fa-sharp fa-solid fa-play d-none" aria-hidden="true" data-lbcc-ticker-icon="play"></span>
-                    </button>
+                    <div class="d-flex d-md-none align-items-center gap-2">
+                        <button class="component-ticker__control btn btn-circle btn-sm" type="button" data-lbcc-ticker-prev aria-label="Previous ticker item">
+                            <span class="fa-sharp fa-regular fa-arrow-left" aria-hidden="true"></span>
+                        </button>
+                        <button class="component-ticker__control btn btn-circle btn-sm" type="button" data-lbcc-ticker-next aria-label="Next ticker item">
+                            <span class="fa-sharp fa-regular fa-arrow-right" aria-hidden="true"></span>
+                        </button>
+                        <button
+                            class="component-ticker__toggle btn btn-link text-decoration-none p-0 d-inline-flex"
+                            type="button"
+                            data-lbcc-ticker-toggle
+                            aria-label="Pause ticker autoplay"
+                            aria-pressed="false"
+                        >
+                            <span class="fa-sharp fa-solid fa-pause" aria-hidden="true" data-lbcc-ticker-icon="pause"></span>
+                            <span class="fa-sharp fa-solid fa-play d-none" aria-hidden="true" data-lbcc-ticker-icon="play"></span>
+                        </button>
+                    </div>
                 <?php } ?>
             </div>
 
@@ -2712,6 +2720,14 @@ function component_ticker(
                 </div>
 
                 <?php if ($canRotate) { ?>
+                    <div class="d-none d-md-flex d-lg-none align-items-center gap-2 flex-shrink-0">
+                        <button class="component-ticker__control btn btn-circle btn-sm" type="button" data-lbcc-ticker-prev aria-label="Previous ticker item">
+                            <span class="fa-sharp fa-regular fa-arrow-left" aria-hidden="true"></span>
+                        </button>
+                        <button class="component-ticker__control btn btn-circle btn-sm" type="button" data-lbcc-ticker-next aria-label="Next ticker item">
+                            <span class="fa-sharp fa-regular fa-arrow-right" aria-hidden="true"></span>
+                        </button>
+                    </div>
                     <button
                         class="component-ticker__toggle btn btn-link text-decoration-none p-0 d-none d-md-inline-flex flex-shrink-0"
                         type="button"
@@ -2724,7 +2740,14 @@ function component_ticker(
                     </button>
                 <?php } ?>
             </div>
+
         </div>
+
+        <?php if ($canRotate) { ?>
+            <div class="component-ticker__controls mt-3">
+                <div class="swiper-scrollbar component-ticker__scrollbar" data-lbcc-ticker-scrollbar></div>
+            </div>
+        <?php } ?>
     </div>
 <?php }
 

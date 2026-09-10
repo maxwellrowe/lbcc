@@ -1,6 +1,6 @@
 <section aria-labelledby="ticker-heading" class="mt-5 mb-5">
     <h2 id="ticker-heading">Ticker</h2>
-    <p class="text-body-secondary mb-4">A compact “latest” bar for linked announcements, updates, and featured actions. On mobile it shows one item at a time; from tablet up it uses an auto-width Swiper track so multiple pill links can sit visible in the row while still rotating through the set.</p>
+    <p class="text-body-secondary mb-4">A compact “latest” bar for linked announcements, updates, and featured actions. On mobile it shows one item at a time; from tablet up it uses an auto-width Swiper track so multiple pill links can sit visible in the row while still rotating through the set. Multi-item tickers include a draggable scrollbar and previous/next controls.</p>
 
     <h3 class="h5 mb-3">Example</h3>
     <div class="mb-5">

@@ -1195,6 +1195,13 @@ const initTicker = () => {
     }
 
     const swiperElement = component.querySelector("[data-lbcc-ticker-swiper]");
+    const scrollbarElement = component.querySelector("[data-lbcc-ticker-scrollbar]");
+    const prevButtons = Array.from(component.querySelectorAll("[data-lbcc-ticker-prev]")).filter(
+      (button) => button instanceof HTMLButtonElement
+    );
+    const nextButtons = Array.from(component.querySelectorAll("[data-lbcc-ticker-next]")).filter(
+      (button) => button instanceof HTMLButtonElement
+    );
     const toggleButtons = Array.from(component.querySelectorAll("[data-lbcc-ticker-toggle]")).filter(
       (button) => button instanceof HTMLButtonElement
     );
@@ -1226,6 +1233,11 @@ const initTicker = () => {
         disableOnInteraction: false,
         pauseOnMouseEnter: true
       } : false,
+      scrollbar: scrollbarElement instanceof HTMLElement ? {
+        el: scrollbarElement,
+        draggable: true,
+        hide: false
+      } : false,
       breakpoints: {
         768: {
           slidesPerView: "auto",
@@ -1235,6 +1247,18 @@ const initTicker = () => {
     });
 
     let isPaused = !autoplayRequested;
+
+    const syncNavigationState = () => {
+      const locked = swiper.isLocked;
+
+      prevButtons.forEach((button) => {
+        button.disabled = locked;
+      });
+
+      nextButtons.forEach((button) => {
+        button.disabled = locked;
+      });
+    };
 
     const setToggleState = (paused) => {
       toggleButtons.forEach((button) => {
@@ -1257,6 +1281,18 @@ const initTicker = () => {
       });
     } else {
       setToggleState(isPaused);
+      syncNavigationState();
+
+      swiper.on("lock", syncNavigationState);
+      swiper.on("unlock", syncNavigationState);
+
+      prevButtons.forEach((button) => {
+        button.addEventListener("click", () => swiper.slidePrev());
+      });
+
+      nextButtons.forEach((button) => {
+        button.addEventListener("click", () => swiper.slideNext());
+      });
 
       toggleButtons.forEach((button) => {
         button.addEventListener("click", () => {

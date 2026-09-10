@@ -2082,6 +2082,64 @@ body.section-nav-active {
     background: var(--color-sun-haze);
 }
 
+.component-ticker__scrollbar {
+    // Swiper sets an inline display:none when all slides fit in the viewport.
+    // Keep the ticker rail visible as a consistent navigation affordance.
+    display: block !important;
+    position: relative;
+    inset: auto;
+    height: 0.5rem;
+    width: 100%;
+    border-radius: 0 0 var(--bs-border-radius-xl) var(--bs-border-radius-xl);
+    background: rgba(var(--color-teal-800-rgb), 0.16);
+    overflow: hidden;
+
+    // Swiper hides a locked scrollbar by default. Keep the rail visible so the
+    // ticker retains its navigation affordance when every item fits onscreen.
+    &.swiper-scrollbar-lock {
+        display: block;
+    }
+
+    // Swiper adds this class after initialization and otherwise changes the
+    // rail to an absolutely positioned 4px element inside the slider.
+    &.swiper-scrollbar-horizontal {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        z-index: auto;
+        width: 100%;
+        height: 0.5rem;
+    }
+
+    .swiper-scrollbar-drag {
+        border-radius: 999px;
+        background: var(--color-teal-800);
+    }
+}
+
+.component-ticker__control {
+    --lbcc-btn-circle-size: 2rem;
+    color: var(--bs-white);
+    background-color: var(--color-teal-800);
+    border-color: var(--color-teal-800);
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+
+    &:hover,
+    &:focus-visible {
+        color: var(--bs-white);
+        background-color: var(--color-teal-600);
+        border-color: var(--color-teal-600);
+    }
+
+    &[disabled],
+    &.swiper-button-disabled {
+        opacity: 0.4;
+        pointer-events: none;
+    }
+}
+
 @include media-breakpoint-up(lg) {
     .component-vertical-slider__layout {
         gap: 1rem;
