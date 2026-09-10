@@ -279,7 +279,6 @@ function lbcc_component_card_image_bg_shell(
         'card',
         'component-card-as-link',
         'component-card-as-link__style-image-bg',
-        'h-100',
         'overflow-hidden',
         'position-relative',
         'rounded-4',
@@ -293,6 +292,8 @@ function lbcc_component_card_image_bg_shell(
 
     if ($image === '') {
         $componentClasses[] = 'bg-teal-800';
+    } else {
+        $componentClasses[] = 'h-100';
     }
 
     if (!empty($attributes['class']) && is_string($attributes['class'])) {
@@ -326,7 +327,7 @@ function lbcc_component_card_image_bg_shell(
                 alt=""
             >
         <?php } ?>
-        <div class="card-img-overlay component-card-as-link__overlay d-flex flex-column justify-content-between p-3">
+        <div class="card-img-overlay component-card-as-link__overlay d-flex flex-column justify-content-between p-3<?php if ($image === '') { ?> component-card-as-link__overlay--no-image<?php } ?>">
             <?php if ($label !== '' || $showTopIcon) { ?>
                 <div class="component-card-as-link__top d-flex align-items-start justify-content-between gap-3 position-relative w-100">
                     <?php if ($label !== '') { ?>
@@ -565,9 +566,12 @@ function component_contact_card(
         'card',
         'border-0',
         'rounded-3',
-        'overflow-hidden',
-        'h-100'
+        'overflow-hidden'
     ];
+
+    if ($layout === 'horizontal') {
+        $identityClasses[] = 'h-100';
+    }
 
     if ($style === 'surface') {
         $identityClasses[] = 'bg-white';
@@ -685,7 +689,7 @@ function component_contact_card(
             <?php if (!empty($details)) { ?>
                 <ul class="<?php echo lbcc_escape(implode(' ', $detailListClasses)); ?>">
                     <?php foreach ($details as $detail) { ?>
-                        <li class="component-contact-card__detail d-inline-flex align-items-start gap-2 min-w-0">
+                        <li class="component-contact-card__detail d-inline-flex align-items-center gap-2 min-w-0">
                             <span class="component-contact-card__detail-icon fa-sharp fa-regular <?php echo lbcc_escape($detail['icon']); ?> text-primary flex-shrink-0" aria-hidden="true"></span>
 
                             <?php if (!empty($detail['href'])) { ?>
@@ -1401,7 +1405,6 @@ function component_card_as_link(
         'card',
         'component-card-as-link',
         'component-card-as-link__style-' . $style,
-        'h-100',
         'overflow-hidden',
         'position-relative',
         'rounded-4',
@@ -1417,6 +1420,8 @@ function component_card_as_link(
 
     if ($style === 'image-bg' && $image === '') {
         $componentClasses[] = 'bg-teal-800';
+    } else {
+        $componentClasses[] = 'h-100';
     }
     ?>
     <?php if ($style === 'image-bg') {

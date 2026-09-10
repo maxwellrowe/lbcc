@@ -12702,11 +12702,17 @@ textarea.form-control {
 }
 
 .page-hero {
-  margin-top: -10rem;
-  padding-top: 10rem;
+  padding-top: 5rem;
+  margin-top: -5rem;
   padding-bottom: 3rem;
   position: relative;
   z-index: 2;
+}
+@media (min-width: 1200px) {
+  .page-hero {
+    margin-top: -10rem;
+    padding-top: 10rem;
+  }
 }
 
 .btn-close {
@@ -14270,8 +14276,14 @@ textarea.form-control {
 
 .component-footer-i-heart-lb__toggle {
   --lbcc-btn-circle-size: var(--footer-heart-toggle-size);
+  --bs-btn-bg: var(--color-gray-800);
+  --bs-btn-border-color: var(--color-gray-800);
+  --bs-btn-hover-bg: var(--color-gray-800);
+  --bs-btn-hover-border-color: var(--color-gray-800);
+  --bs-btn-active-bg: var(--color-gray-800);
+  --bs-btn-active-border-color: var(--color-gray-800);
   position: absolute;
-  right: 0;
+  right: -1rem;
   bottom: 0;
   z-index: 1;
 }
@@ -14310,13 +14322,18 @@ textarea.form-control {
 }
 
 .component-block-arrow-link {
-  display: inline;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
 }
 .component-block-arrow-link > .fa-sharp,
 .component-block-arrow-link .component-block-arrow-link__image {
-  display: inline-block;
+  display: inline-flex;
+  flex: 0 0 auto;
   margin-right: 0.5rem;
-  vertical-align: middle;
+}
+.component-block-arrow-link .component-block-arrow-link__text {
+  min-width: 0;
 }
 .component-block-arrow-link .component-block-arrow-link__image {
   width: 2.5rem;
@@ -14593,6 +14610,13 @@ textarea.form-control {
   transition: opacity 0.25s ease-in-out;
 }
 
+.component-card-as-link__overlay--no-image {
+  position: relative;
+}
+.component-card-as-link__overlay--no-image .component-card-as-link__body--image-bg {
+  margin-top: 9.375rem;
+}
+
 a.component-card-as-link__style-image-bg:hover .component-card-as-link__overlay::before,
 a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__overlay::before {
   opacity: 1;
@@ -14636,6 +14660,10 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
   color: var(--bs-white);
   font-size: var(--lbcc-font-size-xs);
   line-height: 1;
+}
+
+.component-card-as-link__style-image-bg .component-card-as-link__icon-shell {
+  border: 0;
 }
 
 .component-card-as-link__body--image-bg {
@@ -14697,7 +14725,6 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
 }
 
 .component-contact-card__detail-icon {
-  padding-top: 0.125rem;
   line-height: 1;
 }
 

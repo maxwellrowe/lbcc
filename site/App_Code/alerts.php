@@ -32,7 +32,7 @@ $page = lbcc_resolve_page([
 <?php // Include Custom Hero Component here... ?>
 <?php } ?>
 <main id="main-content">
-    <section class="section-content-only">
+    <section class="section-content-only pb-5">
         <div class="container-xxl">
             <h2>Inline Alerts</h2>
             <p class="lead">Use inline alerts to share contextual information and time-sensitive notices within page content.</p>

@@ -137,7 +137,7 @@ $page = lbcc_resolve_page([
                 </section>
                 <section>
                     <h2 class="mb-4">Additional Program Resources</h2>
-                    <div class="row row-cols-1 row-cols-md-2">
+                    <div class="row row-cols-1 row-cols-md-2 gy-3">
                         <div class="col">
                             <?php
                             component_list_group(
@@ -196,7 +196,7 @@ $page = lbcc_resolve_page([
                 </section>
                 <section>
                     <h2 class="mb-4">Contact Us</h2>
-                    <div class="row row-cols-1 row-cols-md-2">
+                    <div class="row row-cols-1 row-cols-md-2 gy-4">
                         <div class="col">
                             <?php
                             component_contact_card(

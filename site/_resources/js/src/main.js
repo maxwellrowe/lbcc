@@ -737,27 +737,14 @@ const initFooterIHeartLb = () => {
     }
 
     const reducedMotionEnabled = document.documentElement.dataset.reducedMotion === "true";
-    const transitionPresets = [
-      {
-        enter: { opacity: [0, 1] },
-        exit: { opacity: [1, 0] },
-        duration: 0.4
-      },
-      {
-        enter: { opacity: [0, 1], rotateY: [-24, 0], scale: [0.985, 1] },
-        exit: { opacity: [1, 0], rotateY: [0, 24], scale: [1, 0.985] },
-        duration: 0.46
-      },
-      {
-        enter: { opacity: [0, 1], rotate: [-8, 0], scale: [0.975, 1] },
-        exit: { opacity: [1, 0], rotate: [0, 8], scale: [1, 0.975] },
-        duration: 0.44
-      }
-    ];
+    const fadeTransition = {
+      enter: { opacity: [0, 1] },
+      exit: { opacity: [1, 0] },
+      duration: 0.4
+    };
     const transitionEase = [0.16, 1, 0.3, 1];
     const autoplayDelay = 675;
     let currentIndex = 0;
-    let currentTransitionIndex = 0;
     let timeoutId = null;
     let isTransitioning = false;
     let isPaused = reducedMotionEnabled || slides.length < 2;
@@ -802,9 +789,6 @@ const initFooterIHeartLb = () => {
         const currentSlide = slides[currentIndex];
         const nextIndex = (currentIndex + 1) % slides.length;
         const nextSlide = slides[nextIndex];
-        const preset = transitionPresets[currentTransitionIndex % transitionPresets.length];
-
-        currentTransitionIndex += 1;
         isTransitioning = true;
 
         nextSlide.classList.add("is-active");
@@ -814,13 +798,13 @@ const initFooterIHeartLb = () => {
         nextSlide.style.zIndex = "3";
         currentSlide.style.zIndex = "2";
 
-        const exitAnimation = animate(currentSlide, preset.exit, {
-          duration: preset.duration,
+        const exitAnimation = animate(currentSlide, fadeTransition.exit, {
+          duration: fadeTransition.duration,
           easing: transitionEase,
           fill: "forwards"
         });
-        const enterAnimation = animate(nextSlide, preset.enter, {
-          duration: preset.duration,
+        const enterAnimation = animate(nextSlide, fadeTransition.enter, {
+          duration: fadeTransition.duration,
           easing: transitionEase,
           fill: "forwards"
         });
