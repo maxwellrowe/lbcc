@@ -1624,6 +1624,74 @@ const initProgramsFilters = () => {
       return programOptions.split("|").map((value) => value.trim()).filter(Boolean);
     };
 
+    const getQueryValues = (params, name) => params
+      .getAll(name)
+      .flatMap((value) => value.split(","))
+      .map((value) => normalizeValue(value))
+      .filter(Boolean);
+
+    const syncQueryParameters = () => {
+      const url = new URL(window.location.href);
+      const params = url.searchParams;
+      const searchQuery = searchInput.value.trim();
+      const selectedPathways = getSelectedValues(pathwayInputs);
+      const selectedOptions = getSelectedValues(optionInputs);
+      const selectedDepartments = getSelectedDepartmentValues();
+
+      ["search", "pathway", "option", "department", "sort"].forEach((name) => params.delete(name));
+
+      if (searchQuery !== "") {
+        params.set("search", searchQuery);
+      }
+
+      if (selectedPathways.length) {
+        params.set("pathway", selectedPathways.join(","));
+      }
+
+      if (selectedOptions.length) {
+        params.set("option", selectedOptions.join(","));
+      }
+
+      if (selectedDepartments.length) {
+        params.set("department", selectedDepartments.join(","));
+      }
+
+      if (sortSelect.value === "za") {
+        params.set("sort", "za");
+      }
+
+      window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+    };
+
+    const applyQueryParameters = () => {
+      const params = new URLSearchParams(window.location.search);
+      const selectedPathways = new Set(getQueryValues(params, "pathway"));
+      const selectedOptions = new Set(getQueryValues(params, "option"));
+      const selectedDepartments = new Set(getQueryValues(params, "department"));
+      const searchQuery = params.get("search");
+      const sortValue = normalizeValue(params.get("sort") || "");
+
+      if (searchQuery !== null) {
+        searchInput.value = searchQuery;
+      }
+
+      if (["az", "za"].includes(sortValue)) {
+        sortSelect.value = sortValue;
+      }
+
+      pathwayInputs.forEach((input) => {
+        input.checked = selectedPathways.has(normalizeValue(input.value));
+      });
+
+      optionInputs.forEach((input) => {
+        input.checked = selectedOptions.has(normalizeValue(input.value));
+      });
+
+      departmentOptions.forEach((option) => {
+        setDepartmentOptionState(option, selectedDepartments.has(normalizeValue(option.dataset.value || "")));
+      });
+    };
+
     const updateDepartmentLabel = () => {
       const selectedLabels = departmentOptions
         .filter((option) => option.classList.contains("is-active"))
@@ -1789,6 +1857,7 @@ const initProgramsFilters = () => {
       updateSelectedFilterCount();
       renderActiveFilters();
       sortEntries();
+      syncQueryParameters();
     };
 
     searchInput.addEventListener("input", applyFilters);
@@ -1850,6 +1919,7 @@ const initProgramsFilters = () => {
       });
     }
 
+    applyQueryParameters();
     applyFilters();
     markInitialized(programsPage);
   });

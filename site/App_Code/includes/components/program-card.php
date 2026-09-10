@@ -63,4 +63,25 @@
             </tbody>
         </table>
     </div>
+
+    <h3 class="h5 mb-3">Programs Page Query Parameters</h3>
+    <p class="text-body-secondary">The full <code>programs.php</code> template keeps applied search, filter, and sort state in the URL. Multiple values use comma-separated filter slugs.</p>
+    <div class="table-responsive">
+        <table class="table align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">Parameter</th>
+                    <th scope="col">Example</th>
+                    <th scope="col">Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><code>search</code></td><td><code>?search=nursing</code></td><td>Filters programs by title and search terms.</td></tr>
+                <tr><td><code>pathway</code></td><td><code>?pathway=health-science-technology</code></td><td>Filters by one or more Career and Academic Pathways.</td></tr>
+                <tr><td><code>option</code></td><td><code>?option=aa,c-ach</code></td><td>Filters by one or more program options.</td></tr>
+                <tr><td><code>department</code></td><td><code>?department=business,registered-nursing</code></td><td>Filters by one or more departments.</td></tr>
+                <tr><td><code>sort</code></td><td><code>?sort=za</code></td><td>Uses <code>az</code> (default) or <code>za</code> program-title sorting.</td></tr>
+            </tbody>
+        </table>
+    </div>
 </section>

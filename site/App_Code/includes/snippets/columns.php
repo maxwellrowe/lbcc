@@ -1,6 +1,6 @@
 <p>Columns built using Bootstrap classes. Default will be three columns using <code>col-12 col-lg-4</code>.</p>
 
-<div class="row gy-2 gy-lg-0 gx-lg-4">
+<div class="row gy-4">
     <div class="col-12 col-lg-4">
         <h3>col-12 col-lg-4</h3>
         <p>Lorem ipsum dolor sit amet, consectetur snack-adipiscing elit. Tacos over kale any day, unless kale is deep-fried and covered in cheese. Integer porttitor Netflixus bingea est, ut commodo sriracha nisi.</p>
@@ -28,7 +28,7 @@
                 <tr>
                     <td>Row Classes</td>
                     <td>
-                        <p>Option to add classes to the row. Common examples might be gutter utilities like <code>gy-md-3</code> and <code>gx-md-1</code>.</p>
+                        <p>Option to add classes to the row. Common examples might be gutter utilities like <code>gy-md-3</code> and <code>gx-md-1</code>. By default we add "gy-4" to apply gap when columns collapse.</p>
                     </td>
                 </tr>
                 <tr>

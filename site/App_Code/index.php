@@ -70,6 +70,10 @@ $templateItems = [
         'title' => 'Directory Profile'
     ],
     [
+        'link' => lbcc_url('/App_Code/directory-profile-no-photo.php'),
+        'title' => 'Directory Profile (No Photo)'
+    ],
+    [
         'link' => lbcc_url('/App_Code/financial-aid.php'),
         'title' => 'Financial Aid'
     ],

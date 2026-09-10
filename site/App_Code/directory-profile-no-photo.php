@@ -92,20 +92,6 @@ $contactItems = [
         <div class="container-xxl">
             <div class="row g-4 g-xl-5 align-items-start">
 
-                <div class="col-12 col-md-3 col-xl-4 offset-xl-1 order-1 order-md-2">
-                    <div class="sticky-top">
-                        <div class="card border-0 bg-surface-subtle rounded-3 overflow-hidden shadow-sm">
-                            <div class="ratio ratio-1x1">
-                                <img
-                                    src="<?php echo lbcc_escape(lbcc_url($profile['image'])); ?>"
-                                    alt=""
-                                    class="w-100 h-100 object-fit-cover"
-                                >
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="col-12 col-md-9 col-xl-7 order-2 order-md-1">
 
                     <section>

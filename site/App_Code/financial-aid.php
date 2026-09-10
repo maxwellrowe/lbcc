@@ -145,7 +145,7 @@ component_hero(
     </section>
     <section class="bg-surface-subtle py-5">
         <div class="container-xxl">
-            <div class="row lbcc-animate lbcc-stagger">
+            <div class="row gy-4 lbcc-animate lbcc-stagger">
                 <div class="col-12 col-md-12 col-xl-3">
                     <p class="eyebrow">Understanding Your Costs</p>
                     <p class="h3">Understanding the cost of college is the first step toward figuring out how to pay for it.</p>
@@ -203,7 +203,7 @@ component_hero(
                                 We got you!
                             </h2>
                             <p class="lead mb-4">In addition to Financial Aid, LBCC offers plenty of resources to help you cover your costs and make college more affordable.</p>
-                            <div class="row lbcc-animate lbcc-stagger">
+                            <div class="row gy-4 lbcc-animate lbcc-stagger">
                                 <div class="col-12 col-md-6">
                                     <?php
                                     component_card_as_link(

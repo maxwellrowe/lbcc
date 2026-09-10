@@ -955,6 +955,33 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
         width: var(--component-quicklink-circle-size);
         height: var(--component-quicklink-circle-size);
         flex: 0 0 auto;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .component-quicklink__text {
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .component-quicklink:hover .component-quicklink__icon-shell,
+    .component-quicklink:focus-visible .component-quicklink__icon-shell {
+        transform: translateY(-4px);
+    }
+
+    .component-quicklink:hover .component-quicklink__text,
+    .component-quicklink:focus-visible .component-quicklink__text {
+        opacity: 0.75;
+    }
+}
+
+.component-quicklinks__variation-icon {
+    .component-quicklink__icon {
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    }
+
+    .component-quicklink:hover .component-quicklink__icon,
+    .component-quicklink:focus-visible .component-quicklink__icon {
+        opacity: 0.75;
+        transform: translateY(-4px);
     }
 }
 
