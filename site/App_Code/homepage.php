@@ -290,7 +290,7 @@ component_hero(
         </div>
     </section>
 
-    <section class="bg-teal-800">
+    <section class="bg-teal-800 pb-5">
         <div class="container-xxl">
             <div class="row gy-4 gy-md-0 align-items-center">
                 <div class="col-12 col-md-6 col-xl-5 order-2 order-md-2">
@@ -315,7 +315,7 @@ component_hero(
                     );
                     ?>
                 </div>
-                <div class="col-12 col-md-6 col-xl-7 order-2 order-md-1 pe-xl-5">
+                <div class="col-12 col-md-6 col-xl-7 order-2 order-md-1 pe-xl-5 mb-5 mb-md-0">
                     <div class="card rounded-4 p-5 bg-white">
                         <div class="mb-2">
                             <img src="../_resources/images/homepage/we-get-you-got-you-mobile.svg" alt="We Get You. We've Got You" class="img-fluid d-block d-xl-none" />
@@ -395,7 +395,7 @@ component_hero(
 
     <section class="mt-n5 bg-teal-200 py-5 rounded-top-5 position-relative z-3">
         <div class="container-xxl">
-            <div class="row row-cols-1 row-cols-md-2 align-items-center">
+            <div class="row row-cols-1 row-cols-md-2 align-items-center gy-4">
                 <div class="col">
                     <h2 class="lbcc-animate lbcc-fade">Be Who You Are</h2>
                     <p class="lead lbcc-animate lbcc-fade">LBCC is filled with opportunities to show up as yourself, build meaningful connections, and find your people.</p>
@@ -583,7 +583,7 @@ component_hero(
         <div class="snippet-section-background-video__overlay" aria-hidden="true"></div>
 
         <div class="container-xxl snippet-section-background-video__content pe-lg-5">
-            <div class="row">
+            <div class="row gy-4">
                 <div class="col-12 col-md-6 col-xl-5">
                     <h2>Why Study at LBCC</h2>
                 </div>
@@ -593,7 +593,7 @@ component_hero(
                 </div>
             </div>
 
-            <div class="row row-cols-1 row-cols-md-2 align-items-center">
+            <div class="row row-cols-1 row-cols-md-2 align-items-center gy-4">
                 <div class="col">
                     <div class="row align-items-end mb-4 g-4 lbcc-animate lbcc-stagger">
                         <div class="col-4">

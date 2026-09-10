@@ -47,6 +47,24 @@ const moveModalsToBody = () => {
   });
 };
 
+const initVideoModals = () => {
+  document.addEventListener("hidden.bs.modal", (event) => {
+    const modal = event.target;
+
+    if (!(modal instanceof HTMLElement) || !modal.matches("[data-lbcc-video-modal]")) {
+      return;
+    }
+
+    modal.querySelectorAll("video").forEach((video) => video.pause());
+
+    // Reloading an embed stops providers such as YouTube, which cannot be
+    // reliably paused through the native media API.
+    modal.querySelectorAll("iframe[src]").forEach((iframe) => {
+      iframe.setAttribute("src", iframe.getAttribute("src") || "");
+    });
+  });
+};
+
 const initCurrentPageLinks = () => {
   const normalizePathname = (pathname) => {
     const normalized = pathname
@@ -2309,6 +2327,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initBootstrapSet("[data-bs-toggle=\"dropdown\"]", Dropdown);
   initBootstrapSet("[data-bs-toggle=\"tooltip\"]", Tooltip);
   initBootstrapSet(".modal", Modal);
+  initVideoModals();
   initBootstrapSet(".offcanvas", Offcanvas);
   initGoogleTranslateModal();
   initStickyHeader();

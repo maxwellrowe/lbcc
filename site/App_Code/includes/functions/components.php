@@ -2572,7 +2572,7 @@ function component_video_modal(
             <?php } ?>
         </button>
 
-        <div class="modal fade" id="<?php echo lbcc_escape($modalId); ?>" tabindex="-1" aria-labelledby="<?php echo lbcc_escape($modalLabelId); ?>" aria-hidden="true">
+        <div class="modal fade" id="<?php echo lbcc_escape($modalId); ?>" tabindex="-1" aria-labelledby="<?php echo lbcc_escape($modalLabelId); ?>" aria-hidden="true" data-lbcc-video-modal>
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content overflow-hidden border-0 rounded-4">
                     <div class="modal-body position-relative p-0">
