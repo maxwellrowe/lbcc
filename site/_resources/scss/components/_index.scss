@@ -597,6 +597,16 @@ a.component-card-as-link__style-image-bg:focus-visible .component-card-as-link__
     transform: translateY(0) scale(1);
 }
 
+.component-program-card__image,
+.component-program-card__image-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+}
+
+.component-program-card__image {
+    object-fit: cover;
+}
+
 .component-program-card__body {
     background: transparent;
 }
