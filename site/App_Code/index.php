@@ -23,7 +23,7 @@ $templateItems = [
     ],
     [
         'link' => lbcc_url('/App_Code/calworks.php'),
-        'title' => 'CALWORKs'
+        'title' => 'Service Department Small (CalWORKs)'
     ],
     [
         'link' => lbcc_url('/App_Code/get-started.php'),
@@ -83,7 +83,7 @@ $templateItems = [
     ],
     [
         'link' => lbcc_url('/App_Code/financial-aid.php'),
-        'title' => 'Financial Aid'
+        'title' => 'Service Department Large (Financial Aid)'
     ],
     [
         'link' => lbcc_url('/App_Code/news-archive.php'),
