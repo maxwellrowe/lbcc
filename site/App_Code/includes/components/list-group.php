@@ -1,6 +1,6 @@
 <section aria-labelledby="list-group-heading" class="mt-5 mb-5">
     <h2 id="list-group-heading">List Group</h2>
-    <p class="text-body-secondary mb-4">A Bootstrap list group adapted to the LBCC design system for linked content rows. This baseline combines the “List Group Item” and “List Group Item with Image” patterns from Figma into one component with style, size, and per-item media options.</p>
+    <p class="text-body-secondary mb-4">A Bootstrap list group adapted to the LBCC design system for linked or static content rows. This baseline combines the “List Group Item” and “List Group Item with Image” patterns from Figma into one component with style, size, and per-item media options.</p>
 
     <h3 class="h5 mb-3">Example</h3>
     <div class="mb-5">
@@ -87,6 +87,27 @@
                         ]
                     ],
                     'surface-haze',
+                    'default'
+                );
+                ?>
+            </div>
+            <div class="col">
+                <p class="eyebrow-sm mb-2">Surface / Static Items</p>
+                <?php
+                component_list_group(
+                    [
+                        [
+                            'title' => 'Office Hours',
+                            'description' => 'Monday–Thursday, 8:00 a.m.–5:00 p.m.',
+                            'label' => 'Student Services'
+                        ],
+                        [
+                            'title' => 'Location',
+                            'description' => 'PCC, GG-217',
+                            'left_icon' => 'fa-location-dot'
+                        ]
+                    ],
+                    'surface',
                     'default'
                 );
                 ?>
@@ -265,7 +286,7 @@
                     <td>Title</td>
                     <td>string</td>
                     <td>Required</td>
-                    <td>Main linked heading for the row.</td>
+                    <td>Main heading for the row.</td>
                 </tr>
                 <tr>
                     <td>Description</td>

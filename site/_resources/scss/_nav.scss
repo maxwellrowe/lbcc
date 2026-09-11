@@ -655,11 +655,11 @@
           border-top: 1px solid var(--bs-gray-200);
 
           &.current-page {
-            color: var(--bs-secondary);
+            color: var(--color-teal-800);
             justify-content: start;
             flex-direction: row-reverse;
             &:after {
-              color: var(--bs-secondary);
+              color: var(--color-teal-800);
             }
           }
 

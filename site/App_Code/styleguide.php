@@ -754,44 +754,73 @@ $styleguideAnchorGroups = array_chunk($styleguideAnchorItems, (int) ceil(count($
             <h2 id="tables-heading">Tables</h2>
             <p class="text-body-secondary">Bootstrap table patterns are available for content-heavy views, comparison grids, and structured data.</p>
 
-            <div class="bg-surface-subtle rounded p-4 p-lg-5">
-                <h3 class="h4 mb-3">Default Table</h3>
-                <div class="table-responsive mb-5">
-                    <table class="table align-middle">
+            <h3 class="h4 mb-3">Default Table</h3>
+            <div class="table-responsive mb-5">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">Program</th>
+                            <th scope="col">Award</th>
+                            <th scope="col">Units</th>
+                            <th scope="col">Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Graphic Design</td>
+                            <td>Associate Degree</td>
+                            <td>60</td>
+                            <td>LAC</td>
+                        </tr>
+                        <tr>
+                            <td>Nursing</td>
+                            <td>Associate Degree</td>
+                            <td>72</td>
+                            <td>PCC</td>
+                        </tr>
+                        <tr>
+                            <td>Welding</td>
+                            <td>Certificate</td>
+                            <td>36</td>
+                            <td>LAC</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="h4 mb-3">Bordered Table</h3>
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered align-middle">
                         <thead>
                             <tr>
-                                <th scope="col">Program</th>
-                                <th scope="col">Award</th>
-                                <th scope="col">Units</th>
-                                <th scope="col">Location</th>
+                                <th scope="col">Service</th>
+                                <th scope="col">Audience</th>
+                                <th scope="col">Delivery</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Graphic Design</td>
-                                <td>Associate Degree</td>
-                                <td>60</td>
-                                <td>LAC</td>
+                                <td>Academic Counseling</td>
+                                <td>Current Students</td>
+                                <td>In Person</td>
                             </tr>
                             <tr>
-                                <td>Nursing</td>
-                                <td>Associate Degree</td>
-                                <td>72</td>
-                                <td>PCC</td>
+                                <td>Financial Aid</td>
+                                <td>All Students</td>
+                                <td>Virtual</td>
                             </tr>
                             <tr>
-                                <td>Welding</td>
-                                <td>Certificate</td>
-                                <td>36</td>
-                                <td>LAC</td>
+                                <td>Career Center</td>
+                                <td>All Students</td>
+                                <td>Hybrid</td>
                             </tr>
                         </tbody>
-                    </table>
-                </div>
+                </table>
+            </div>
 
-                <h3 class="h4 mb-3">Striped Table</h3>
-                <div class="table-responsive">
-                    <table class="table table-striped align-middle mb-0">
+            <h3 class="h4 mb-3">Striped Table</h3>
+            <div class="table-responsive">
+                <table class="table table-striped align-middle mb-0">
                         <thead>
                             <tr>
                                 <th scope="col">Date</th>
@@ -820,8 +849,7 @@ $styleguideAnchorGroups = array_chunk($styleguideAnchorItems, (int) ceil(count($
                                 <td><span class="badge text-bg-light rounded-pill">Upcoming</span></td>
                             </tr>
                         </tbody>
-                    </table>
-                </div>
+                </table>
             </div>
         </div>
     </section>

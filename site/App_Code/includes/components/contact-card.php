@@ -71,7 +71,7 @@
             </div>
 
             <div class="col">
-                <p class="eyebrow-sm mb-2">Horizontal / Surface</p>
+                <p class="eyebrow-sm mb-2">Horizontal / Surface / Social Media</p>
                 <?php
                 component_contact_card(
                     'Veterans Resource Center',
@@ -86,7 +86,22 @@
                     '#',
                     'Learn More',
                     'mailto:veterans@lbcc.edu',
-                    'Email Office'
+                    'Email Office',
+                    'btn-outline-secondary',
+                    [
+                        [
+                            'link' => 'https://www.instagram.com/',
+                            'icon' => 'fa-instagram',
+                            'sr_label' => 'Follow Veterans Resource Center on Instagram'
+                        ],
+                        [
+                            'link' => 'https://www.linkedin.com/',
+                            'icon' => 'fa-linkedin-in',
+                            'sr_label' => 'Follow Veterans Resource Center on LinkedIn'
+                        ]
+                    ],
+                    'dark',
+                    'm'
                 );
                 ?>
             </div>
@@ -108,8 +123,8 @@
                 <tr>
                     <td>Name</td>
                     <td>string</td>
-                    <td>Required</td>
-                    <td>Primary contact name or office name. The component does not render when Name is empty.</td>
+                    <td>empty</td>
+                    <td>Optional primary contact name or office name. When Name, Title, and Image are all empty, the identity panel is omitted while the outer card and any supplied details remain visible.</td>
                 </tr>
                 <tr>
                     <td>Title</td>
@@ -188,6 +203,12 @@
                     <td>string</td>
                     <td>btn-outline-secondary</td>
                     <td>Optional button class string, for example <code>btn-outline-secondary</code> or <code>btn-primary</code>.</td>
+                </tr>
+                <tr>
+                    <td>Social Media</td>
+                    <td>array</td>
+                    <td>empty</td>
+                    <td>Optional social links passed to the Social Media component. Each item accepts <code>link</code>, <code>icon</code>, and <code>sr_label</code>; the optional following arguments control its style and size.</td>
                 </tr>
             </tbody>
         </table>

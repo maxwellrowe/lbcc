@@ -516,13 +516,12 @@ function component_contact_card(
     $profileLinkText = 'View Profile',
     $buttonLink = '',
     $buttonText = 'View Profile',
-    $buttonStyle = 'btn-outline-secondary'
+    $buttonStyle = 'btn-outline-secondary',
+    $socialMedia = [],
+    $socialMediaStyle = 'dark',
+    $socialMediaSize = 'm'
 ) {
     $name = trim((string) $name);
-
-    if ($name === '') {
-        return;
-    }
 
     $title = trim((string) $title);
     $phone = trim((string) $phone);
@@ -543,12 +542,14 @@ function component_contact_card(
         $buttonLink = $profileUrl;
     }
 
+    $hasIdentity = $name !== '' || $title !== '' || $image !== '';
+    $hasActions = $profileLinkText !== '' || $buttonText !== '';
+
     $outerClasses = [
         'card',
         'component-contact-card',
         'component-contact-card__layout-' . $layout,
         'component-contact-card__style-' . $style,
-        'h-100',
         'rounded-4'
     ];
     $outerStyle = '';
@@ -624,33 +625,40 @@ function component_contact_card(
         $detailListClasses[] = 'gap-3';
     }
     ?>
-    <article class="<?php echo lbcc_escape(implode(' ', $outerClasses)); ?>"<?php if ($outerStyle !== '') { ?> style="<?php echo lbcc_escape($outerStyle); ?>"<?php } ?>>
+    <div class="<?php echo lbcc_escape(implode(' ', $outerClasses)); ?>"<?php if ($outerStyle !== '') { ?> style="<?php echo lbcc_escape($outerStyle); ?>"<?php } ?>>
         <div class="card-body p-4 d-flex flex-column gap-4">
-            <?php if ($layout === 'horizontal') { ?>
+            <?php if ($layout === 'horizontal' && ($hasIdentity || $hasActions)) { ?>
                 <div class="d-flex flex-column flex-md-row align-items-start gap-3 gap-lg-4 justify-content-between">
-                    <div class="<?php echo lbcc_escape(implode(' ', $identityClasses)); ?> flex-grow-1">
-                        <div class="d-flex h-100">
-                            <?php if ($image !== '') { ?>
-                                <div class="component-contact-card__image-shell component-contact-card__image-shell--horizontal flex-shrink-0">
-                                    <img
-                                        class="component-contact-card__image component-contact-card__image--horizontal"
-                                        src="<?php echo lbcc_escape($imageSrc); ?>"
-                                        alt=""
-                                    >
-                                </div>
-                            <?php } ?>
+                    <?php if ($hasIdentity) { ?>
+                        <div class="<?php echo lbcc_escape(implode(' ', $identityClasses)); ?>">
+                            <div class="d-flex h-100">
+                                <?php if ($image !== '') { ?>
+                                    <div class="component-contact-card__image-shell component-contact-card__image-shell--horizontal flex-shrink-0">
+                                        <img
+                                            class="component-contact-card__image component-contact-card__image--horizontal"
+                                            src="<?php echo lbcc_escape($imageSrc); ?>"
+                                            alt=""
+                                        >
+                                    </div>
+                                <?php } ?>
 
-                            <div class="card-body p-3 p-lg-4 d-flex flex-column justify-content-center gap-2 min-w-0">
-                                <h3 class="h4 fs-2xl mb-0"><?php echo lbcc_escape($name); ?></h3>
+                                <?php if ($name !== '' || $title !== '') { ?>
+                                    <div class="card-body p-3 p-lg-4 d-flex flex-column justify-content-center gap-2 min-w-0">
+                                        <?php if ($name !== '') { ?>
+                                            <h3 class="h4 fs-2xl mb-0"><?php echo lbcc_escape($name); ?></h3>
+                                        <?php } ?>
 
-                                <?php if ($title !== '') { ?>
-                                    <p class="mb-0 text-body-secondary"><?php echo lbcc_escape($title); ?></p>
+                                        <?php if ($title !== '') { ?>
+                                            <p class="mb-0 text-body-secondary"><?php echo lbcc_escape($title); ?></p>
+                                        <?php } ?>
+                                    </div>
                                 <?php } ?>
                             </div>
+                            </div>
                         </div>
-                    </div>
+                    <?php } ?>
 
-                    <?php if ($profileLinkText !== '' || $buttonText !== '') { ?>
+                    <?php if ($hasActions) { ?>
                         <div class="component-contact-card__actions d-flex flex-column align-items-start gap-3 flex-shrink-0">
                             <?php if ($profileLinkText !== '') { ?>
                                 <a href="<?php echo lbcc_escape($profileUrl); ?>" class="arrow-link text-nowrap">
@@ -666,7 +674,7 @@ function component_contact_card(
                         </div>
                     <?php } ?>
                 </div>
-            <?php } else { ?>
+            <?php } elseif ($layout !== 'horizontal' && $hasIdentity) { ?>
                 <div class="<?php echo lbcc_escape(implode(' ', $identityClasses)); ?>">
                     <?php if ($image !== '') { ?>
                         <img
@@ -676,32 +684,46 @@ function component_contact_card(
                         >
                     <?php } ?>
 
-                    <div class="card-body p-3 p-lg-4 d-flex flex-column gap-2">
-                        <h3 class="h4 fs-2xl mb-0"><?php echo lbcc_escape($name); ?></h3>
+                    <?php if ($name !== '' || $title !== '') { ?>
+                        <div class="card-body p-3 p-lg-4 d-flex flex-column gap-2">
+                            <?php if ($name !== '') { ?>
+                                <h3 class="h4 fs-2xl mb-0"><?php echo lbcc_escape($name); ?></h3>
+                            <?php } ?>
 
-                        <?php if ($title !== '') { ?>
-                            <p class="mb-0 text-body-secondary"><?php echo lbcc_escape($title); ?></p>
-                        <?php } ?>
-                    </div>
+                            <?php if ($title !== '') { ?>
+                                <p class="mb-0 text-body-secondary"><?php echo lbcc_escape($title); ?></p>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
                 </div>
             <?php } ?>
 
-            <?php if (!empty($details)) { ?>
-                <ul class="<?php echo lbcc_escape(implode(' ', $detailListClasses)); ?>">
-                    <?php foreach ($details as $detail) { ?>
-                        <li class="component-contact-card__detail d-inline-flex align-items-center gap-2 min-w-0">
-                            <span class="component-contact-card__detail-icon fa-sharp fa-regular <?php echo lbcc_escape($detail['icon']); ?> text-primary flex-shrink-0" aria-hidden="true"></span>
+            <?php if (!empty($details) || (!empty($socialMedia) && is_array($socialMedia))) { ?>
+                <div class="<?php echo $layout === 'horizontal' ? 'd-flex flex-column flex-xl-row flex-wrap align-items-start align-items-xl-center gap-3 gap-xl-4' : 'd-flex flex-column gap-3'; ?>">
+                    <?php if (!empty($details)) { ?>
+                        <ul class="<?php echo lbcc_escape(implode(' ', $detailListClasses)); ?>">
+                            <?php foreach ($details as $detail) { ?>
+                                <li class="component-contact-card__detail d-inline-flex align-items-center gap-2 min-w-0">
+                                    <span class="component-contact-card__detail-icon fa-sharp fa-regular <?php echo lbcc_escape($detail['icon']); ?> text-primary flex-shrink-0" aria-hidden="true"></span>
 
-                            <?php if (!empty($detail['href'])) { ?>
-                                <a href="<?php echo lbcc_escape($detail['href']); ?>" class="text-decoration-none">
-                                    <?php echo lbcc_escape($detail['text']); ?>
-                                </a>
-                            <?php } else { ?>
-                                <span><?php echo lbcc_escape($detail['text']); ?></span>
+                                    <?php if (!empty($detail['href'])) { ?>
+                                        <a href="<?php echo lbcc_escape($detail['href']); ?>" class="text-decoration-none">
+                                            <?php echo lbcc_escape($detail['text']); ?>
+                                        </a>
+                                    <?php } else { ?>
+                                        <span><?php echo lbcc_escape($detail['text']); ?></span>
+                                    <?php } ?>
+                                </li>
                             <?php } ?>
-                        </li>
+                        </ul>
                     <?php } ?>
-                </ul>
+
+                    <?php if (!empty($socialMedia) && is_array($socialMedia)) { ?>
+                        <div class="component-contact-card__social-media">
+                            <?php component_social_media($socialMedia, $socialMediaStyle, $socialMediaSize); ?>
+                        </div>
+                    <?php } ?>
+                </div>
             <?php } ?>
 
             <?php if ($layout !== 'horizontal' && ($profileLinkText !== '' || $buttonText !== '')) { ?>
@@ -720,7 +742,7 @@ function component_contact_card(
                 </div>
             <?php } ?>
         </div>
-    </article>
+    </div>
 <?php }
 
 // Degree / Certificate
@@ -1571,7 +1593,7 @@ function component_list_group(
                         <?php } ?>
 
                         <div class="component-list-group__copy d-flex flex-column gap-1 min-w-0 flex-grow-1">
-                            <h3 class="<?php echo lbcc_escape(implode(' ', $titleClasses)); ?>"><?php echo lbcc_escape($title); ?></h3>
+                            <span class="<?php echo lbcc_escape(implode(' ', $titleClasses)); ?>"><?php echo lbcc_escape($title); ?></span>
 
                             <?php if ($description !== '') { ?>
                                 <p class="component-list-group__description mb-0"><?php echo lbcc_escape($description); ?></p>

@@ -22,6 +22,10 @@ $templateItems = [
         'title' => 'Alerts'
     ],
     [
+        'link' => lbcc_url('/App_Code/calworks.php'),
+        'title' => 'CALWORKs'
+    ],
+    [
         'link' => lbcc_url('/App_Code/homepage.php'),
         'title' => 'Homepage'
     ],
