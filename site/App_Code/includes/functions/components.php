@@ -654,7 +654,6 @@ function component_contact_card(
                                     </div>
                                 <?php } ?>
                             </div>
-                            </div>
                         </div>
                     <?php } ?>
 

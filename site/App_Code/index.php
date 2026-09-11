@@ -26,6 +26,10 @@ $templateItems = [
         'title' => 'CALWORKs'
     ],
     [
+        'link' => lbcc_url('/App_Code/get-started.php'),
+        'title' => 'Get Started'
+    ],
+    [
         'link' => lbcc_url('/App_Code/homepage.php'),
         'title' => 'Homepage'
     ],
