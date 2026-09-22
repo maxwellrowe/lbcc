@@ -68,7 +68,7 @@ $aboutId = $lbccMainNavItemPrefix . '-about';
                 </div>
                 <div class="col">
                     <div class="d-grid gap-4">
-                        <span class="eyebrow-sm">Paying for College</span>
+                        <span class="eyebrow-sm">Help Getting Started</span>
                         <?php component_block_arrow_link('#', '', '', 'Welcome Center', 'sm'); ?>
                         <?php component_block_arrow_link('#', '', '', 'Admissions & Records Office', 'sm'); ?>
                         <?php component_block_arrow_link('#', '', '', 'Financial Aid Office', 'sm'); ?>
