@@ -33,11 +33,11 @@ $wordmark = lbcc_url($config['logo_wordmark']);
                 <p class="eyebrow text-white mb-4">Our Campuses</p>
                 <div class="d-flex gap-3 lbcc-animate lbcc-stagger">
                     <div>
-                        <img src="../_resources/images/ttc-thumb.jpg" alt="Image of Trades, Technology and Community Learning Campus" class="rounded-circle flex-shrink-0" style="width: 4rem;" />
+                        <img src="../_resources/images/lac-thumb.jpg" alt="Image of Trades, Technology and Community Learning Campus" class="rounded-circle flex-shrink-0" style="width: 4rem;" />
                     </div>
                     <div>
-                        <h2 class="fs-7 text-white">Trades, Technology, and Community Learning Campus (TTC)</h2>
-                        <p class="text-white fs-8">1305 E. Pacific Coast Highway<br /> Long Beach, CA 90806</p>
+                        <h2 class="fs-7 text-white">Liberal Arts Campus (LAC)</h2>
+                        <p class="text-white fs-8">4901 East Carson St.<br /> Long Beach, CA 90808</p>
                         <p class="mb-0">
                             <a class="link-light fs-8" href="tel:5629384111">(562) 938-4111</a>
                         </p>
@@ -45,11 +45,11 @@ $wordmark = lbcc_url($config['logo_wordmark']);
                 </div>
                 <div class="d-flex gap-3 mt-4 lbcc-animate lbcc-stagger">
                     <div>
-                        <img src="../_resources/images/lac-thumb.jpg" alt="Image of Trades, Technology and Community Learning Campus" class="rounded-circle flex-shrink-0" style="width: 4rem;" />
+                        <img src="../_resources/images/ttc-thumb.jpg" alt="Image of Trades, Technology and Community Learning Campus" class="rounded-circle flex-shrink-0" style="width: 4rem;" />
                     </div>
                     <div>
-                        <h2 class="fs-7 text-white">Liberal Arts Campus (LAC)</h2>
-                        <p class="text-white fs-8">4901 East Carson St.<br /> Long Beach, CA 90808</p>
+                        <h2 class="fs-7 text-white">Trades, Technology, and Community Learning Campus (TTC)</h2>
+                        <p class="text-white fs-8">1305 E. Pacific Coast Highway<br /> Long Beach, CA 90806</p>
                         <p class="mb-0">
                             <a class="link-light fs-8" href="tel:5629384111">(562) 938-4111</a>
                         </p>
@@ -64,6 +64,7 @@ $wordmark = lbcc_url($config['logo_wordmark']);
                             <li><a class="link-light" href="#">Accreditation</a></li>
                             <li><a class="link-light" href="#">Office of the President</a></li>
                             <li><a class="link-light" href="#">Shared Governance</a></li>
+                            <li><a class="link-light" href="#">Board of Trustees</a></li>
                             <li><a class="link-light" href="#">Careers at LBCC</a></li>
                         </ul>
                     </div>
