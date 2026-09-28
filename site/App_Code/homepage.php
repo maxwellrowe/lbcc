@@ -316,7 +316,7 @@ component_hero(
                     ?>
                 </div>
                 <div class="col-12 col-md-6 col-xl-7 order-2 order-md-1 pe-xl-5 mb-5 mb-md-0">
-                    <div class="card rounded-4 p-5 bg-white">
+                    <div class="card rounded-4 p-5 bg-white my-4">
                         <div class="mb-2">
                             <img src="../_resources/images/homepage/we-get-you-got-you-mobile.svg" alt="We Get You. We've Got You" class="img-fluid d-block d-xl-none" />
                             <img src="../_resources/images/homepage/we-get-you-got-you.svg" alt="We Get You. We've Got You" class="img-fluid d-none d-xl-block" />
@@ -325,7 +325,7 @@ component_hero(
                         <p class="lead">Here, support is personal. Opportunity is shared. And students are supported as whole people, not just applicants or ID numbers.</p>
                         <p class="lead fw-medium">Support isn’t extra—<span class="text-primary">it’s expected.</span>
 
-                        <div class="row row-cols-1 row-cols-md-2 g-4 mt-2">
+                        <div class="row row-cols-1 row-cols-xl-2 gy-3 mt-2">
                             <div class="col">
                                 <?php
                                 component_list_group(
@@ -393,7 +393,7 @@ component_hero(
         </div>
     </section>
 
-    <section class="py-5 bg-white mt-n5 position-relative z-3">
+    <section class="py-5 pb-lg-0 bg-white mt-n5 position-relative z-3">
         <div class="container-xxl">
             <div class="row row-cols-1 row-cols-md-2">
                 <div class="col">
@@ -587,7 +587,7 @@ component_hero(
         </div>
     </section>
 
-    <section class="mt-n5 bg-teal-200 py-5 rounded-top-5 position-relative z-3">
+    <section class="bg-teal-200 py-5 rounded-top-5 position-relative z-3">
         <div class="container-xxl">
             <div class="row row-cols-1 row-cols-md-2 align-items-center gy-4">
                 <div class="col">
