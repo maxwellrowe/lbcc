@@ -3,7 +3,7 @@
     <p class="text-body-secondary mb-4">A grouped button component for primary actions, secondary actions, and icon-button variants. The function accepts row-level layout settings plus an array of individual button definitions.</p>
 
     <h3 class="h5 mb-3">Example</h3>
-    <div class="bg-surface-subtle rounded p-4 mb-5">
+    <div class="rounded mb-5">
         <div class="row g-4">
             <div class="col-lg-6">
                 <p class="eyebrow-sm mb-2">Row / Mixed Styles</p>
