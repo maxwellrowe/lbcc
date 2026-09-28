@@ -2026,6 +2026,9 @@ function component_hero_render_content(
     $supplementalClasses = ''
 ) {
     $supplementalClasses = trim((string) $supplementalClasses);
+    // Allow explicit line breaks while escaping all other heading content.
+    $titleLines = preg_split('/<br\s*\/?\s*>/i', (string) $title);
+    $titleHtml = implode('<br />', array_map('lbcc_escape', $titleLines));
     ?>
     <div class="component-hero__content">
         <?php if ($showBreadcrumbs) { ?>
@@ -2035,7 +2038,7 @@ function component_hero_render_content(
                 <?php } else { ?>
                     <?php
                     $page = [
-                        'title' => $title ?: 'Current Page'
+                        'title' => $title ? implode(' ', $titleLines) : 'Current Page'
                     ];
                     include dirname(__DIR__, 3) . '/_resources/includes/breadcrumbs.php';
                     ?>
@@ -2045,7 +2048,7 @@ function component_hero_render_content(
 
         <div class="component-hero__message">
             <?php if (!empty($title)) { ?>
-                <h1 class="component-hero__title lbcc-animate lbcc-fade lbcc-duration-700"><?php echo lbcc_escape($title); ?></h1>
+                <h1 class="component-hero__title lbcc-animate lbcc-fade lbcc-duration-700"><?php echo $titleHtml; ?></h1>
             <?php } ?>
 
             <?php if (!empty($supplementalContent)) { ?>

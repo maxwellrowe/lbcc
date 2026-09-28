@@ -210,7 +210,7 @@
                         <td>Title</td>
                         <td>string</td>
                         <td>empty</td>
-                        <td>Main hero heading.</td>
+                        <td>Main hero heading. Supports <code>&lt;br /&gt;</code> for explicit line breaks; other HTML is escaped.</td>
                     </tr>
                     <tr>
                         <td>Supplemental Content</td>

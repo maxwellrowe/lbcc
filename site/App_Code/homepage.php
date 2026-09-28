@@ -41,7 +41,7 @@ HTML;
 <?php
 component_hero(
     'full',
-    'We Are Long Beach City College',
+    'We Are<br />Long Beach<br />City College',
     $homepageHeroContent,
     [
         [
