@@ -179,6 +179,41 @@ const initGoogleTranslateModal = () => {
   const defaultLanguage = window.gtranslateSettings?.default_language || "en";
   const returnOriginalElement = document.getElementById("gtranslate-return-og");
 
+  document.querySelectorAll(".modal").forEach((modal) => {
+    if (!modal.querySelector(".gtranslate_wrapper")) {
+      return;
+    }
+
+    let opener = null;
+
+    modal.addEventListener("show.bs.modal", (event) => {
+      opener = event.relatedTarget instanceof HTMLElement ? event.relatedTarget : document.activeElement;
+    });
+
+    modal.addEventListener("hide.bs.modal", (event) => {
+      const focusedElement = document.activeElement;
+
+      if (event.defaultPrevented || !(focusedElement instanceof HTMLElement) || !modal.contains(focusedElement)) {
+        return;
+      }
+
+      // Clear focus before Bootstrap can apply aria-hidden, even without a fade.
+      focusedElement.blur();
+
+      // hide.bs.modal fires before Bootstrap releases its focus trap.
+      queueMicrotask(() => {
+        if (event.defaultPrevented) {
+          focusedElement.focus({ preventScroll: true });
+          return;
+        }
+
+        if (opener instanceof HTMLElement && opener.isConnected && !modal.contains(opener) && opener.getClientRects().length) {
+          opener.focus({ preventScroll: true });
+        }
+      });
+    });
+  });
+
   const enhanceTranslateSelects = (root = document) => {
     root.querySelectorAll(".gtranslate_wrapper select").forEach((select) => {
       if (!(select instanceof HTMLSelectElement) || select.dataset.lbccEnhanced === "true") {

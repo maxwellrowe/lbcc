@@ -37,5 +37,5 @@ $googleTranslateWrapperId = $googleTranslateModalId . 'Wrapper';
             wrapper_selector: "#<?php echo lbcc_escape($googleTranslateWrapperId); ?>"
         };
     </script>
-    <script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script>
+    <script src="<?php echo lbcc_escape(lbcc_url('_resources/js/vendor/gtranslate-dropdown.js')); ?>" defer></script>
 <?php } ?>
