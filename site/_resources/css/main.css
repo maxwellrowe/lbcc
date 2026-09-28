@@ -15925,6 +15925,22 @@ body.section-nav-active .component-hero.component-hero--full .component-hero__co
   margin-bottom: 0;
 }
 
+[data-bs-toggle=collapse] > .fa-plus {
+  display: inline-block;
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition: transform 0.2s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-bs-toggle=collapse] > .fa-plus {
+    transition: none;
+  }
+}
+
+[data-bs-toggle=collapse][aria-expanded=true] > .fa-plus {
+  transform: rotate(45deg);
+}
+
 .component-accordion__item {
   border-color: var(--color-gray-200) !important;
   background: var(--color-surface-subtle);
