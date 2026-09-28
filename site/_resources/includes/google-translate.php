@@ -18,14 +18,6 @@ $googleTranslateWrapperId = $googleTranslateModalId . 'Wrapper';
     </div>
 </div>
 
-<div id="gtranslate-return-og" class="position-fixed bottom-0 start-0 p-3 d-none" data-lbcc-translate-toast-container>
-    <div class="border-0 shadow p-2 rounded bg-white d-flex align-items-center justify-content-start gap-2">
-        <span class="fa-sharp fa-regular fa-language"></span>
-        <div class="fs-8 fw-bold">Site Translated</div>
-        <button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-lbcc-translate-reset>View Original</button>
-    </div>
-</div>
-
 <?php if (!defined('LBCC_GOOGLE_TRANSLATE_WIDGET_LOADED')) {
     define('LBCC_GOOGLE_TRANSLATE_WIDGET_LOADED', true);
     ?>

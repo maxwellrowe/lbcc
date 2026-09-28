@@ -14174,14 +14174,6 @@ textarea.form-control {
   width: 100%;
 }
 
-[data-lbcc-translate-toast-container] {
-  z-index: 1090;
-}
-
-#gtranslate-return-og .btn-link {
-  font-weight: 500;
-}
-
 .btn-circle {
   --lbcc-btn-circle-size: 3rem;
   width: var(--lbcc-btn-circle-size);

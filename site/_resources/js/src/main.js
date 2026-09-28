@@ -176,9 +176,6 @@ const initStickyHeader = () => {
 };
 
 const initGoogleTranslateModal = () => {
-  const defaultLanguage = window.gtranslateSettings?.default_language || "en";
-  const returnOriginalElement = document.getElementById("gtranslate-return-og");
-
   document.querySelectorAll(".modal").forEach((modal) => {
     if (!modal.querySelector(".gtranslate_wrapper")) {
       return;
@@ -226,65 +223,7 @@ const initGoogleTranslateModal = () => {
     });
   };
 
-  const getGoogleTranslateLanguage = () => {
-    const cookieMatch = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
-
-    if (!cookieMatch) {
-      return defaultLanguage;
-    }
-
-    const cookieValue = decodeURIComponent(cookieMatch[1]);
-    const languageCode = cookieValue.split("/").filter(Boolean).pop();
-
-    if (!languageCode || languageCode === defaultLanguage) {
-      return defaultLanguage;
-    }
-
-    return languageCode;
-  };
-
-  const hideTranslateToast = () => {
-    if (!(returnOriginalElement instanceof HTMLElement)) {
-      return;
-    }
-
-    returnOriginalElement.classList.add("d-none");
-  };
-
-  const showTranslateToast = (languageCode) => {
-    if (!(returnOriginalElement instanceof HTMLElement) || !languageCode || languageCode === defaultLanguage) {
-      return;
-    }
-
-    returnOriginalElement.classList.remove("d-none");
-  };
-
-  const syncTranslateToast = (languageCode = getGoogleTranslateLanguage()) => {
-    if (!languageCode || languageCode === defaultLanguage) {
-      hideTranslateToast();
-      return;
-    }
-
-    showTranslateToast(languageCode);
-  };
-
-  const clearGoogleTranslateCookie = () => {
-    const expireCookie = (cookieDomain) => {
-      const domainSegment = cookieDomain ? `;domain=${cookieDomain}` : "";
-      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${domainSegment}`;
-    };
-
-    expireCookie("");
-
-    const hostnameParts = window.location.hostname.split(".");
-
-    if (hostnameParts.length > 1) {
-      expireCookie(`.${hostnameParts.slice(-2).join(".")}`);
-    }
-  };
-
   enhanceTranslateSelects();
-  syncTranslateToast();
 
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
@@ -295,9 +234,6 @@ const initGoogleTranslateModal = () => {
 
         if (node.matches(".gtranslate_wrapper") || node.querySelector(".gtranslate_wrapper")) {
           enhanceTranslateSelects(node);
-          window.setTimeout(() => {
-            syncTranslateToast();
-          }, 50);
         }
       });
     });
@@ -316,8 +252,6 @@ const initGoogleTranslateModal = () => {
       return;
     }
 
-    syncTranslateToast(target.value);
-
     const modalElement = target.closest(".modal");
 
     if (!(modalElement instanceof HTMLElement)) {
@@ -327,22 +261,6 @@ const initGoogleTranslateModal = () => {
     window.setTimeout(() => {
       Modal.getOrCreateInstance(modalElement).hide();
     }, 150);
-  });
-
-  document.addEventListener("click", (event) => {
-    const target = event.target;
-
-    if (!(target instanceof HTMLElement)) {
-      return;
-    }
-
-    if (!target.closest("[data-lbcc-translate-reset]")) {
-      return;
-    }
-
-    event.preventDefault();
-    clearGoogleTranslateCookie();
-    window.location.reload();
   });
 };
 

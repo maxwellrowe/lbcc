@@ -2,7 +2,8 @@
 /* Vendored from https://cdn.gtranslate.net/widgets/latest/dropdown.js on 2026-09-28.
  * Local fix: load_tlib also receives pointerenter/focusin Event objects;
  * only register or invoke callbacks when they are functions.
- * Preserve this guard when updating from upstream.
+ * Local customization: omit the placeholder option; default to the current language.
+ * Preserve these changes when updating from upstream.
  */
 (function(){if(!(document.currentScript instanceof HTMLScriptElement))return;
     var gt = window.gtranslateSettings || {};
@@ -66,10 +67,6 @@
     el_s.classList.add('gt_selector', 'notranslate');
     el_s.setAttribute('aria-label', select_language_label);
 
-    var el_o = document.createElement('option');
-    el_o.value = '';
-    el_o.innerText = select_language_label;
-    el_s.appendChild(el_o);
     languages.forEach(function(lang) {
         var el_o = document.createElement('option');
         el_o.value = default_language + '|' + lang;
