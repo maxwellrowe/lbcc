@@ -38,7 +38,7 @@
             display: block;
             position: absolute;
             inset: 0 0 0 auto;
-            width: calc(50vw - 30rem);
+            width: calc((100% - var(--lbcc-background-video-content-width)) / 2);
         }
 
         &__media {
@@ -61,17 +61,14 @@
         }
     }
 
-    @include media-breakpoint-up(xl) {
-        &__media,
-        &__overlay {
-            width: calc(50vw - 35.625rem);
-        }
-    }
+    // Keep the content edge and decorative video aligned at every desktop size.
+    @each $breakpoint in (lg, xl, xxl) {
+        @include media-breakpoint-up($breakpoint) {
+            --lbcc-background-video-content-width: #{map-get($container-max-widths, $breakpoint)};
 
-    @include media-breakpoint-up(xxl) {
-        &__media,
-        &__overlay {
-            width: calc(50vw - 40rem);
+            &__content {
+                max-width: var(--lbcc-background-video-content-width);
+            }
         }
     }
 }

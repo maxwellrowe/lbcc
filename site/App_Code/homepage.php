@@ -705,7 +705,7 @@ component_hero(
                     <a href="#" class="btn btn-primary">View Campus Life at LBCC</a>
                 </div>
                 <div class="col ps-lg-5">
-                    <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
+                    <div class="row row-cols-1 row-cols-md-2 gy-3 align-items-center">
                         <div class="col lbcc-animate lbcc-stagger ">
                             <div class="mb-4">
                                 <?php
@@ -720,7 +720,7 @@ component_hero(
                                 );
                                 ?>
                             </div>
-                            <div class="mb-4 ms-md-5">
+                            <div class="mb-4 ms-xl-5">
                                 <?php
                                 component_card_as_link(
                                     '#',
@@ -735,7 +735,7 @@ component_hero(
                             </div>  
                         </div>
                         <div class="col lbcc-animate lbcc-stagger">
-                            <div class="mb-4 me-md-5">
+                            <div class="mb-4 me-xl-5">
                                 <?php
                                 component_card_as_link(
                                     '#',
@@ -778,16 +778,16 @@ component_hero(
 
         <div class="container-xxl snippet-section-background-video__content pe-lg-5">
             <div class="row gy-4">
-                <div class="col-12 col-md-6 col-xl-5">
+                <div class="col-12 col-lg-6 col-xl-5">
                     <h2>Why Study at LBCC</h2>
                 </div>
-                <div class="col-12 col-md-6 col-xl-7">
+                <div class="col-12 col-lg-6 col-xl-7">
                     <p class="lead">Our students transfer to universities, launch careers, and strengthen their communities—often while balancing work, family, and life. As one of California’s largest community colleges, we serve the most diverse communities in California—and we show up for it every day.</p>
                     <p class="lead fw-bold">There’s no single path forward. <span class="text-primary">That’s the power of LBCC.</span></p>
                 </div>
             </div>
 
-            <div class="row row-cols-1 row-cols-md-2 align-items-center gy-4">
+            <div class="row row-cols-1 row-cols-lg-2 align-items-center gy-4">
                 <div class="col">
                     <div class="row align-items-end mb-4 g-4 lbcc-animate lbcc-stagger">
                         <div class="col-4">
