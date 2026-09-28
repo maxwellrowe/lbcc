@@ -174,7 +174,7 @@ $aboutId = $lbccMainNavItemPrefix . '-about';
                 <div class="col">
                     <div class="d-grid gap-4">
                         <span class="eyebrow-sm">Support for Your Needs</span>
-                        <?php component_block_arrow_link('#', '', '', 'Explore all specialized support', 'sm'); ?>
+                        <?php component_block_arrow_link('#', '', '', 'Explore All Specialized Support', 'sm'); ?>
                         <?php component_block_arrow_link('#', '', '', 'Basic Needs Programs', 'sm'); ?>
                         <?php component_block_arrow_link('#', '', '', 'Disabled Students Program & Services (DSPS)', 'sm'); ?>
                         <?php component_block_arrow_link('#', '', '', 'Extended Opportunities & Services (EOPS)', 'sm'); ?>
@@ -189,7 +189,7 @@ $aboutId = $lbccMainNavItemPrefix . '-about';
                         <?php component_block_arrow_link('#', '', '', 'Tutoring & Academic Resources', 'sm'); ?>
                         <?php component_block_arrow_link('#', '', '', 'Learning Communities', 'sm'); ?>
                         <?php component_block_arrow_link('#', '', '', 'Student Technology Help Desk', 'sm'); ?>
-                        <?php component_block_arrow_link('#', '', '', 'Computer labs and printing services', 'sm'); ?>
+                        <?php component_block_arrow_link('#', '', '', 'Computer Labs and Printing Services', 'sm'); ?>
                     </div>
                 </div>
 
