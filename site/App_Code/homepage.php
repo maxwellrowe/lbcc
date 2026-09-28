@@ -1020,22 +1020,22 @@ component_hero(
                                     <p class="fw-bold mb-0 mt-4">Join Our Mailing List</p>
                                     <form class="d-grid gap-3 w-100 mb-5" action="#" method="post">
                                         <div class="row g-3">
-                                            <div class="col-12 col-sm-6">
+                                            <div class="col-12 col-xl-6">
                                                 <label class="visually-hidden" for="mailing-list-name">Your Full Name</label>
                                                 <div class="input-group">
                                                     <span class="input-group-text bg-white border-end-0 text-primary" aria-hidden="true">
                                                         <span class="fa-sharp fa-regular fa-user"></span>
                                                     </span>
-                                                    <input id="mailing-list-name" class="form-control border-start-0" type="text" name="full_name" placeholder="Your Full Name" autocomplete="name" required>
+                                                    <input id="mailing-list-name" class="form-control border-start-0 ps-0" type="text" name="full_name" placeholder="Your Full Name" autocomplete="name" required>
                                                 </div>
                                             </div>
-                                            <div class="col-12 col-sm-6">
+                                            <div class="col-12 col-xl-6">
                                                 <label class="visually-hidden" for="mailing-list-email">Your Email Address</label>
                                                 <div class="input-group">
                                                     <span class="input-group-text bg-white border-end-0 text-primary" aria-hidden="true">
                                                         <span class="fa-sharp fa-regular fa-envelope"></span>
                                                     </span>
-                                                    <input id="mailing-list-email" class="form-control border-start-0" type="email" name="email" placeholder="Your Email Address" autocomplete="email" required>
+                                                    <input id="mailing-list-email" class="form-control border-start-0 ps-0" type="email" name="email" placeholder="Your Email Address" autocomplete="email" required>
                                                 </div>
                                             </div>
                                         </div>
