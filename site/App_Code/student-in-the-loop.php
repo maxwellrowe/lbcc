@@ -146,40 +146,6 @@ component_hero(
         <div class="container-xxl">
             <div class="row row-cols-1 row-cols-lg-2 g-5">
                 <div class="col">
-                    <h2 class="h4 mb-4">Reminders</h2>
-                    <?php
-                    component_accordion(
-                        [
-                            [
-                                'title' => 'Campus Safety Escort Program Reminder',
-                                'content' => '<p class="mb-0">The Campus Safety Escort Program is available to the campus community during the winter term, Monday through Friday, from 6 pm to 11 pm to provide a safe, reliable, and time-efficient way to get around campus during the evening. To request an escort, please call (562) 938-4100.</p>',
-                                'icon' => 'fa-diamond-exclamation',
-                                'open' => true
-                            ],
-                            [
-                                'title' => 'It Takes Two – 8-Week Course Accelerated Program',
-                                'content' => '<p>Long Beach City College has expanded its accelerated 8-week-course offerings.</p><p class="mb-0">The 8-week-course accelerated program format is part of an effort to help students balance college with work and family obligations.</p>',
-                                'icon' => 'fa-laptop'
-                            ],
-                            [
-                                'title' => '¡Manténgase saludable con TimelyCare!',
-                                'content' => '<p class="mb-0">De parte del departamento Student Health Services: Acceda a citas virtuales con proveedores de salud mental en cualquier momento y en cualquier lugar, ¡GRATIS! Regístrese utilizando el correo electrónico de su universidad estudiantil.</p>',
-                                'icon' => 'fa-carrot'
-                            ],
-                            [
-                                'title' => 'Stay Healthy with TimelyCare!',
-                                'content' => '<p class="mb-0">A message from Student Health Services: Access virtual appointments with mental health providers anytime, anywhere, for FREE! Register using your student college email.</p>',
-                                'icon' => 'fa-carrot'
-                            ]
-                        ],
-                        'student-loop-reminders',
-                        true,
-                        true,
-                        'surface-raised'
-                    );
-                    ?>
-                </div>
-                <div class="col">
                     <div class="card bg-teal-200 border-0 rounded-5">
                         <div class="card-body">
                             <div class="mb-4 lbcc-animate lbcc-fade">
@@ -228,6 +194,40 @@ component_hero(
                             ?>
                         </div>
                     </div>
+                </div>
+                <div class="col">
+                    <h2 class="h4 mb-4">Reminders</h2>
+                    <?php
+                    component_accordion(
+                        [
+                            [
+                                'title' => 'Campus Safety Escort Program Reminder',
+                                'content' => '<p class="mb-0">The Campus Safety Escort Program is available to the campus community during the winter term, Monday through Friday, from 6 pm to 11 pm to provide a safe, reliable, and time-efficient way to get around campus during the evening. To request an escort, please call (562) 938-4100.</p>',
+                                'icon' => 'fa-diamond-exclamation',
+                                'open' => true
+                            ],
+                            [
+                                'title' => 'It Takes Two – 8-Week Course Accelerated Program',
+                                'content' => '<p>Long Beach City College has expanded its accelerated 8-week-course offerings.</p><p class="mb-0">The 8-week-course accelerated program format is part of an effort to help students balance college with work and family obligations.</p>',
+                                'icon' => 'fa-laptop'
+                            ],
+                            [
+                                'title' => '¡Manténgase saludable con TimelyCare!',
+                                'content' => '<p class="mb-0">De parte del departamento Student Health Services: Acceda a citas virtuales con proveedores de salud mental en cualquier momento y en cualquier lugar, ¡GRATIS! Regístrese utilizando el correo electrónico de su universidad estudiantil.</p>',
+                                'icon' => 'fa-carrot'
+                            ],
+                            [
+                                'title' => 'Stay Healthy with TimelyCare!',
+                                'content' => '<p class="mb-0">A message from Student Health Services: Access virtual appointments with mental health providers anytime, anywhere, for FREE! Register using your student college email.</p>',
+                                'icon' => 'fa-carrot'
+                            ]
+                        ],
+                        'student-loop-reminders',
+                        true,
+                        true,
+                        'surface-raised'
+                    );
+                    ?>
                 </div>
             </div>
         </div>
