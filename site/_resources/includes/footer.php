@@ -14,7 +14,7 @@ $wordmark = lbcc_url($config['logo_wordmark']);
             </div>
         </div>
 
-        <div class="row g-5 justify-content-start justify-content-lg-between">
+        <div class="row gy-5 justify-content-start justify-content-lg-between">
             <div class="col-12 col-md-4 col-lg-4">
                 <div class="mb-5 lbcc-animate lbcc-fade-up lbcc-delay-300">
                     <?php component_social_media(
@@ -58,7 +58,7 @@ $wordmark = lbcc_url($config['logo_wordmark']);
             </div>
 
             <div class="col-12 col-md-8 col-lg-6">
-                <div class="row row-cols-1 row-cols-md-3 g-5 lbcc-animate lbcc-stagger">
+                <div class="row row-cols-1 row-cols-md-3 gy-5 lbcc-animate lbcc-stagger">
                     <div class="col">
                         <ul class="list-unstyled vstack gap-2 mb-0 fs-8">
                             <li><a class="link-light" href="#">Accreditation</a></li>
@@ -92,7 +92,7 @@ $wordmark = lbcc_url($config['logo_wordmark']);
             </div>
         </div>
         <div class="border-top border-white border-opacity-25 mt-5 py-4">
-            <div class="row g-5">
+            <div class="row gy-5">
                 <div class="col-12 order-md-2 col-md-8">
                     <ul class="list-unstyled gap-2 mb-0 fs-8 d-lg-flex justify-content-lg-end flex-lg-row flex-column">
                         <li><a class="link-light" href="#">Accessibilty Statement</a></li>
