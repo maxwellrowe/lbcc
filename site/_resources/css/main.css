@@ -13048,47 +13048,6 @@ textarea.form-control {
   transform: rotate(45deg);
 }
 
-.directory-alpha-nav__link {
-  color: var(--bs-dark);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 1.75rem;
-  min-height: 1.75rem;
-  font-family: var(--lbcc-font-family-heading);
-  font-size: var(--lbcc-font-size-xl);
-  font-weight: 700;
-  line-height: 1;
-  text-decoration: none;
-  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
-}
-.directory-alpha-nav__link:hover, .directory-alpha-nav__link:focus-visible {
-  color: var(--bs-primary);
-  transform: translateY(-1px);
-}
-
-@media (min-width: 768px) {
-  .directory-alpha-nav {
-    width: min(100vw - 2rem, 75rem);
-  }
-  .directory-alpha-nav.is-sticky {
-    position: sticky;
-    z-index: 1020;
-    bottom: 1rem;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 768px) {
-  .directory--alpha-nav-sticky .directory-results {
-    padding-bottom: 6rem;
-  }
-}
-
-.directory-alpha-nav__link--disabled {
-  color: var(--color-gray-400);
-}
-
 @media (min-width: 1200px) {
   .programs-page__sidebar {
     position: sticky;

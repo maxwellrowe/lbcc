@@ -218,50 +218,6 @@
   transform: rotate(45deg);
 }
 
-.directory-alpha-nav__link {
-  color: var(--bs-dark);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 1.75rem;
-  min-height: 1.75rem;
-  font-family: var(--lbcc-font-family-heading);
-  font-size: var(--lbcc-font-size-xl);
-  font-weight: 700;
-  line-height: 1;
-  text-decoration: none;
-  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
-
-  &:hover,
-  &:focus-visible {
-    color: var(--bs-primary);
-    transform: translateY(-1px);
-  }
-}
-
-.directory-alpha-nav {
-  @include media-breakpoint-up(md) {
-    width: min(calc(100vw - 2rem), 75rem);
-
-    &.is-sticky {
-      position: sticky;
-      z-index: 1020;
-      bottom: 1rem;
-      margin: 0 auto;
-    }
-  }
-}
-
-.directory--alpha-nav-sticky .directory-results {
-  @include media-breakpoint-up(md) {
-    padding-bottom: 6rem;
-  }
-}
-
-.directory-alpha-nav__link--disabled {
-  color: var(--color-gray-400);
-}
-
 .programs-page__sidebar {
   @include media-breakpoint-up(xl) {
     position: sticky;

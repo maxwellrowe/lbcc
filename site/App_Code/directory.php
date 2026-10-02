@@ -56,8 +56,6 @@ foreach ($directoryEntries as $entry) {
 ksort($groupedEntries, SORT_NATURAL);
 natcasesort($departments);
 
-$directoryLetters = range('A', 'Z');
-
 $buildSearchIndex = static function (array $entry): string {
     $parts = [
         $entry['first_name'] ?? '',
@@ -117,12 +115,12 @@ $buildSearchIndex = static function (array $entry): string {
             </div>
         </section>
 
-        <div class="directory-results">
+        <div class="directory-results pb-5">
             <?php foreach ($groupedEntries as $letter => $entries) { ?>
                 <?php $mobileGroupId = 'directory-mobile-group-' . strtolower($letter); ?>
                 <section
                     id="directory-letter-<?php echo strtolower($letter); ?>"
-                    class="directory-section mb-5"
+                    class="directory-section mb-5 d-none"
                     data-lbcc-directory-section
                     data-letter="<?php echo lbcc_escape($letter); ?>"
                 >
@@ -273,17 +271,6 @@ $buildSearchIndex = static function (array $entry): string {
                 <p class="mb-0 text-body-secondary">Try a different name or department filter.</p>
             </div>
 
-            <nav class="directory-alpha-nav d-none d-md-flex align-items-center justify-content-center flex-wrap gap-3 bg-white shadow rounded-4 p-3" aria-label="Directory letters" data-lbcc-directory-alpha-nav>
-                <?php foreach ($directoryLetters as $letter) {
-                    $hasSection = array_key_exists($letter, $groupedEntries);
-                    ?>
-                    <?php if ($hasSection) { ?>
-                        <a class="directory-alpha-nav__link" href="#directory-letter-<?php echo strtolower($letter); ?>"><?php echo lbcc_escape($letter); ?></a>
-                    <?php } else { ?>
-                        <span class="directory-alpha-nav__link directory-alpha-nav__link--disabled" aria-disabled="true"><?php echo lbcc_escape($letter); ?></span>
-                    <?php } ?>
-                <?php } ?>
-            </nav>
         </div>
     </div>
 </main>

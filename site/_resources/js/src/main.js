@@ -1469,8 +1469,6 @@ const initDirectoryFilters = () => {
       (section) => section instanceof HTMLElement
     );
     const emptyState = directory.querySelector("[data-lbcc-directory-empty]");
-    const alphaNav = directory.querySelector("[data-lbcc-directory-alpha-nav]");
-    const footer = document.querySelector(".site-footer");
 
     if (!(searchInput instanceof HTMLInputElement) || !(departmentSelect instanceof HTMLSelectElement) || !entries.length) {
       return;
@@ -1478,45 +1476,10 @@ const initDirectoryFilters = () => {
 
     const normalizeValue = (value) => value.trim().toLowerCase();
 
-    if (alphaNav instanceof HTMLElement && footer instanceof HTMLElement) {
-      const desktopQuery = window.matchMedia("(min-width: 768px)");
-      let alphaNavFrame = 0;
-
-      const updateAlphaNavPosition = () => {
-        alphaNavFrame = 0;
-
-        if (!desktopQuery.matches) {
-          alphaNav.classList.remove("is-sticky");
-          directory.classList.remove("directory--alpha-nav-sticky");
-          return;
-        }
-
-        const offset = 16;
-        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-        const footerTop = footer.getBoundingClientRect().top;
-        const isSticky = footerTop > viewportHeight - offset;
-
-        alphaNav.classList.toggle("is-sticky", isSticky);
-        directory.classList.toggle("directory--alpha-nav-sticky", isSticky);
-      };
-
-      const queueAlphaNavPosition = () => {
-        if (alphaNavFrame) {
-          return;
-        }
-
-        alphaNavFrame = window.requestAnimationFrame(updateAlphaNavPosition);
-      };
-
-      updateAlphaNavPosition();
-      window.addEventListener("scroll", queueAlphaNavPosition, { passive: true });
-      window.addEventListener("resize", queueAlphaNavPosition);
-      desktopQuery.addEventListener("change", queueAlphaNavPosition);
-    }
-
     const applyFilters = () => {
       const searchQuery = normalizeValue(searchInput.value);
       const selectedDepartment = departmentSelect.value;
+      const hasActiveFilter = searchQuery !== "" || selectedDepartment !== "";
       let visibleEntries = 0;
 
       entries.forEach((entry) => {
@@ -1524,7 +1487,7 @@ const initDirectoryFilters = () => {
         const department = entry.dataset.department || "";
         const matchesSearch = searchQuery === "" || searchIndex.includes(searchQuery);
         const matchesDepartment = selectedDepartment === "" || department === selectedDepartment;
-        const isVisible = matchesSearch && matchesDepartment;
+        const isVisible = hasActiveFilter && matchesSearch && matchesDepartment;
 
         entry.classList.toggle("d-none", !isVisible);
 
@@ -1542,7 +1505,7 @@ const initDirectoryFilters = () => {
       });
 
       if (emptyState instanceof HTMLElement) {
-        emptyState.classList.toggle("d-none", visibleEntries !== 0);
+        emptyState.classList.toggle("d-none", !hasActiveFilter || visibleEntries !== 0);
       }
     };
 
