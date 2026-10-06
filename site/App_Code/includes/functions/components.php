@@ -626,7 +626,7 @@ function component_contact_card(
     }
     ?>
     <div class="<?php echo lbcc_escape(implode(' ', $outerClasses)); ?>"<?php if ($outerStyle !== '') { ?> style="<?php echo lbcc_escape($outerStyle); ?>"<?php } ?>>
-        <div class="card-body p-4 d-flex flex-column gap-4">
+        <div class="card-body d-flex flex-column gap-4 <?php echo $layout === 'horizontal' ? 'p-4' : 'p-3'; ?>">
             <?php if ($layout === 'horizontal' && ($hasIdentity || $hasActions)) { ?>
                 <div class="d-flex flex-column flex-md-row align-items-start gap-3 gap-lg-4 justify-content-between">
                     <?php if ($hasIdentity) { ?>
@@ -643,7 +643,7 @@ function component_contact_card(
                                 <?php } ?>
 
                                 <?php if ($name !== '' || $title !== '') { ?>
-                                    <div class="card-body p-3 p-lg-4 d-flex flex-column justify-content-center gap-2 min-w-0">
+                                    <div class="card-body p-2 p-lg-4 d-flex flex-column justify-content-center gap-2 min-w-0">
                                         <?php if ($name !== '') { ?>
                                             <h3 class="h4 fs-2xl mb-0"><?php echo lbcc_escape($name); ?></h3>
                                         <?php } ?>
@@ -698,7 +698,7 @@ function component_contact_card(
             <?php } ?>
 
             <?php if (!empty($details) || (!empty($socialMedia) && is_array($socialMedia))) { ?>
-                <div class="<?php echo $layout === 'horizontal' ? 'd-flex flex-column flex-xl-row flex-wrap align-items-start align-items-xl-center gap-3 gap-xl-4' : 'd-flex flex-column gap-3'; ?>">
+                <div class="<?php echo $layout === 'horizontal' ? 'd-flex flex-column flex-xl-row flex-wrap align-items-start align-items-xl-center gap-3 gap-xl-4' : 'd-flex flex-column gap-3 px-2'; ?>">
                     <?php if (!empty($details)) { ?>
                         <ul class="<?php echo lbcc_escape(implode(' ', $detailListClasses)); ?>">
                             <?php foreach ($details as $detail) { ?>

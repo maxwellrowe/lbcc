@@ -366,6 +366,25 @@ function lbcc_news_render_sidebar(?array $topButton = null, string $archiveSelec
                 </form>
             </div>
         </section>
+
+        <section>
+            <h2 class="eyebrow-sm mb-3">Media Contact</h2>
+            <?php component_contact_card(
+                'Stacey Toda',
+                'Director of Communications & Community Engagement',
+                '(562) 938-4004',
+                'stoda@lbcc.edu',
+                '',
+                '',
+                '',
+                'vertical',
+                'surface',
+                '#',
+                '',
+                '',
+                ''
+            ); ?>
+        </section>
     </aside>
     <?php
 }
