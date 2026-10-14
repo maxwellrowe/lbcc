@@ -12994,8 +12994,8 @@ textarea.form-control {
 .directory-filter-input .input-group-text,
 .directory-filter-input .form-control,
 .directory-filter-input .form-select {
-  height: 3.5rem;
-  min-height: 3.5rem;
+  height: 4rem;
+  min-height: 4rem;
 }
 
 .directory-filter-input .form-control,
