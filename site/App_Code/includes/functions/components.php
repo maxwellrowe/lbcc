@@ -1080,7 +1080,7 @@ function component_search_programs(
             <input
                 id="<?php echo lbcc_escape($inputId); ?>"
                 class="form-control border-start-0"
-                type="search"
+                type="text"
                 placeholder="<?php echo lbcc_escape($placeholder); ?>"
                 role="combobox"
                 aria-autocomplete="list"
@@ -1378,15 +1378,13 @@ function component_support_matrix(
                                         <?php foreach ($itemNeeds as $need) {
                                             $iconClass = !empty($needIconMap[$need]) ? $needIconMap[$need] : 'fa-circle-info';
                                             ?>
-                                            <button
-                                                type="button"
-                                                class="component-support-matrix__need-icon btn p-0 border-0 bg-transparent"
-                                                data-bs-toggle="tooltip"
-                                                data-bs-title="<?php echo lbcc_escape($need); ?>"
+                                            <span
+                                                class="component-support-matrix__need-icon d-inline-flex align-items-center"
+                                                role="img"
                                                 aria-label="<?php echo lbcc_escape($need); ?>"
                                             >
                                                 <span class="fa-sharp fa-regular <?php echo lbcc_escape($iconClass); ?>" aria-hidden="true"></span>
-                                            </button>
+                                            </span>
                                         <?php } ?>
                                     </div>
                                 <?php } else { ?>
@@ -1860,7 +1858,7 @@ function component_footer_i_heart_lb($hearts = [], $variant = 'light', $fillWidt
     <div
         class="<?php echo lbcc_escape(implode(' ', $componentClasses)); ?>"
         data-lbcc-i-heart-lb
-        role="img"
+        role="group"
         aria-label="I Heart LB"
     >
         <img
@@ -2310,7 +2308,7 @@ function component_testimonial_carousel(
         </div>
 
         <div class="component-testimonial-carousel__controls d-flex align-items-center gap-3 w-100 min-w-0">
-            <div class="component-testimonial-carousel__thumbs d-flex align-items-center flex-wrap gap-2 min-w-0" role="tablist" aria-label="Testimonials">
+            <div class="component-testimonial-carousel__thumbs d-flex align-items-center flex-wrap gap-2 min-w-0" role="group" aria-label="Choose a testimonial">
                 <?php foreach ($testimonials as $index => $testimonial) {
                     if (!is_array($testimonial) || empty($testimonial['quote'])) {
                         continue;

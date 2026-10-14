@@ -286,7 +286,7 @@ function lbcc_news_render_list_item(array $item, bool $showExcerpt = true, bool 
 
             <?php if ($showImage && $image !== '') { ?>
                 <div class="col-auto">
-                    <a href="<?php echo lbcc_escape($url); ?>" class="d-block text-decoration-none">
+                    <a href="<?php echo lbcc_escape($url); ?>" class="d-block text-decoration-none" aria-label="<?php echo lbcc_escape($title); ?>">
                         <img
                             src="<?php echo lbcc_escape(lbcc_url($image)); ?>"
                             alt=""

@@ -1,7 +1,7 @@
 <section class="mb-5" aria-labelledby="utilities-heading">
     <h2 id="utilities-heading">Utilities (AKA Component Advanced Options)</h2>
     <p>The following can be applied to most any component. For each component build, these can act as the shared <strong>Advanced Options</strong> wrapper around the core component output.</p>
-    <pre class="bg-surface-raised p-3 rounded"><code>&lt;div class="[Match Height] [Custom Class] [lbcc-animate lbcc-fade-up] [lbcc-delay-100] [lbcc-duration-500]" style="padding: [Padding]; margin: [Margin];"&gt;
+    <pre class="bg-surface-raised p-3 rounded" tabindex="0" role="region" aria-label="Component utility markup example"><code>&lt;div class="[Match Height] [Custom Class] [lbcc-animate lbcc-fade-up] [lbcc-delay-100] [lbcc-duration-500]" style="padding: [Padding]; margin: [Margin];"&gt;
   &lt;p&gt;Component code here...&lt;/p&gt;
 &lt;/div&gt;</code></pre>
     <p><strong>Advanced Options</strong></p>

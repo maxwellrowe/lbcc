@@ -51,7 +51,7 @@ $page = lbcc_resolve_page([
 <?php $buttonGroupMarkup = ob_get_clean(); ?>
 <?php
 $heroSupplementalContent = '
-    <div">
+    <div>
         <p class="lead mt-3">Everything you need to stay on track at LBCC.</p>
         <p class="eyebrow mt-5">Quick Access</p>
         <div>' . $buttonGroupMarkup . '</div>
@@ -582,7 +582,7 @@ component_hero(
             </div>
         </div>
     </section>
-    <section class="pt-5">
+    <section class="py-5">
         <div class="container-xxl">
             <div class="card rounded-5 bg-surface-raised border-0 shadow-none">
                 <div class="card-body p-5">

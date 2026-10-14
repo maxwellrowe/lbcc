@@ -69,7 +69,7 @@ $searchResults = array_fill(0, 8, [
                         <a class="text-dark link-underline link-underline-opacity-100 link-underline-primary" href="#"><?php echo lbcc_escape($result['title']); ?></a>
                     </h3>
                     <p class="small text-body-secondary mb-0"><?php echo lbcc_escape($result['excerpt']); ?></p>
-                    <a class="small fw-bold link-underline link-underline-opacity-100 link-underline-primary" href="#"><?php echo lbcc_escape($result['url']); ?></a>
+                    <a class="small fw-bold text-dark link-underline link-underline-opacity-100 link-underline-primary" href="#"><?php echo lbcc_escape($result['url']); ?></a>
                 </article>
                 <?php } ?>
             </div>

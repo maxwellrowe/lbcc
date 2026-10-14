@@ -305,11 +305,10 @@ $styleguideAnchorGroups = array_chunk($styleguideAnchorItems, (int) ceil(count($
                 <div class="row g-4">
                     <?php foreach ($surfaceUtilityClasses as $utility) { ?>
                         <div class="col-sm-6 col-xl-4">
-                            <div class="rounded p-4 <?php echo lbcc_escape(ltrim($utility['class'], '.')); ?> <?php echo !empty($utility['border']) ? 'border' : ''; ?> <?php echo !empty($utility['text']) ? lbcc_escape($utility['text']) : ''; ?>">
-                                <p class="mb-1 fw-semibold"><?php echo lbcc_escape($utility['class']); ?></p>
-                                <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code><?php echo lbcc_escape($utility['sass']); ?></code></p>
-                                <p class="mb-0"><small class="text-body-secondary">CSS Var:</small> <?php if (!empty($utility['css_var'])) { ?><code><?php echo lbcc_escape($utility['css_var']); ?></code><?php } else { ?><span class="text-body-secondary">Not exposed</span><?php } ?></p>
-                            </div>
+                            <div class="rounded border mb-2 <?php echo lbcc_escape(ltrim($utility['class'], '.')); ?>" style="height: 10rem;" aria-hidden="true"></div>
+                            <p class="mb-1 fw-semibold"><?php echo lbcc_escape($utility['class']); ?></p>
+                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code><?php echo lbcc_escape($utility['sass']); ?></code></p>
+                            <p class="mb-0"><small class="text-body-secondary">CSS Var:</small> <?php if (!empty($utility['css_var'])) { ?><code><?php echo lbcc_escape($utility['css_var']); ?></code><?php } else { ?><span class="text-body-secondary">Not exposed</span><?php } ?></p>
                         </div>
                     <?php } ?>
                 </div>
@@ -319,50 +318,44 @@ $styleguideAnchorGroups = array_chunk($styleguideAnchorItems, (int) ceil(count($
                 <h3 class="h4 mb-3">Overlay And Accent Utilities</h3>
                 <div class="row g-4">
                     <div class="col-sm-6 col-xl-4">
-                        <div class="rounded p-4 bg-trans-teal border">
-                            <p class="mb-1 fw-semibold">.bg-trans-teal</p>
-                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-overlay-teal</code></p>
-                            <p class="mb-1"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
-                            <p class="mb-0"><code>rgba(#00CDDB, .48)</code></p>
-                        </div>
+                        <div class="rounded border mb-2 bg-trans-teal" style="height: 10rem;" aria-hidden="true"></div>
+                        <p class="mb-1 fw-semibold">.bg-trans-teal</p>
+                        <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-overlay-teal</code></p>
+                        <p class="mb-1"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
+                        <p class="mb-0"><code>rgba(#00CDDB, .48)</code></p>
                     </div>
                     <div class="col-sm-6 col-xl-4">
-                        <div class="rounded p-4 bg-trans-dark-100 text-white">
-                            <p class="mb-1 fw-semibold">.bg-trans-dark-100</p>
-                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-overlay-dark-100</code></p>
-                            <p class="mb-1"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
-                            <p class="mb-0"><code>rgba(#1E1E1E, .24)</code></p>
-                        </div>
+                        <div class="rounded border mb-2 bg-trans-dark-100" style="height: 10rem;" aria-hidden="true"></div>
+                        <p class="mb-1 fw-semibold">.bg-trans-dark-100</p>
+                        <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-overlay-dark-100</code></p>
+                        <p class="mb-1"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
+                        <p class="mb-0"><code>rgba(#1E1E1E, .24)</code></p>
                     </div>
                     <div class="col-sm-6 col-xl-4">
-                        <div class="rounded p-4 bg-trans-dark-400 text-white">
-                            <p class="mb-1 fw-semibold">.bg-trans-dark-400</p>
-                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-overlay-dark-400</code></p>
-                            <p class="mb-1"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
-                            <p class="mb-0"><code>rgba(#1E1E1E, .48)</code></p>
-                        </div>
+                        <div class="rounded border mb-2 bg-trans-dark-400" style="height: 10rem;" aria-hidden="true"></div>
+                        <p class="mb-1 fw-semibold">.bg-trans-dark-400</p>
+                        <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-overlay-dark-400</code></p>
+                        <p class="mb-1"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
+                        <p class="mb-0"><code>rgba(#1E1E1E, .48)</code></p>
                     </div>
                     <div class="col-sm-6 col-xl-4">
-                        <div class="rounded p-4 bg-trans-dark-900 text-white">
-                            <p class="mb-1 fw-semibold">.bg-trans-dark-900</p>
-                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-overlay-dark-900</code></p>
-                            <p class="mb-1"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
-                            <p class="mb-0"><code>rgba(#1E1E1E, .62)</code></p>
-                        </div>
+                        <div class="rounded border mb-2 bg-trans-dark-900" style="height: 10rem;" aria-hidden="true"></div>
+                        <p class="mb-1 fw-semibold">.bg-trans-dark-900</p>
+                        <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-overlay-dark-900</code></p>
+                        <p class="mb-1"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
+                        <p class="mb-0"><code>rgba(#1E1E1E, .62)</code></p>
                     </div>
                     <div class="col-sm-6 col-xl-4">
-                        <div class="rounded p-4 bg-surface-water border">
-                            <p class="mb-1 fw-semibold">.bg-surface-water</p>
-                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-teal-50</code></p>
-                            <p class="mb-0"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
-                        </div>
+                        <div class="rounded border mb-2 bg-surface-water" style="height: 10rem;" aria-hidden="true"></div>
+                        <p class="mb-1 fw-semibold">.bg-surface-water</p>
+                        <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-teal-50</code></p>
+                        <p class="mb-0"><small class="text-body-secondary">CSS Var:</small> <span class="text-body-secondary">Not exposed</span></p>
                     </div>
                     <div class="col-sm-6 col-xl-4">
-                        <div class="rounded p-4 bg-surface-sun-haze border">
-                            <p class="mb-1 fw-semibold">.bg-surface-sun-haze</p>
-                            <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-sun-haze</code></p>
-                            <p class="mb-0"><small class="text-body-secondary">CSS Var:</small> <code>--color-sun-haze</code></p>
-                        </div>
+                        <div class="rounded border mb-2 bg-surface-sun-haze" style="height: 10rem;" aria-hidden="true"></div>
+                        <p class="mb-1 fw-semibold">.bg-surface-sun-haze</p>
+                        <p class="mb-1"><small class="text-body-secondary">SCSS Var:</small> <code>$color-sun-haze</code></p>
+                        <p class="mb-0"><small class="text-body-secondary">CSS Var:</small> <code>--color-sun-haze</code></p>
                     </div>
                 </div>
             </div>
@@ -419,7 +412,7 @@ $styleguideAnchorGroups = array_chunk($styleguideAnchorItems, (int) ceil(count($
                         </tbody>
                     </table>
                 </div>
-                <div class="bg-surface-subtle rounded p-4">
+                <div class="bg-white rounded p-4">
                     <div class="d-flex flex-column align-items-start gap-3">
                         <a href="https://www.lbcc.edu" target="_blank" rel="noopener noreferrer">Standard target blank link</a>
                         <a href="https://www.lbcc.edu" target="_blank" rel="noopener noreferrer" class="no-target-blank-icon">Target blank link with icon hidden</a>

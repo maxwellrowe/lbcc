@@ -83,7 +83,6 @@ HTML;
         false
     );
     ?>
-</div>
 
 <main id="main-content">
     <section>

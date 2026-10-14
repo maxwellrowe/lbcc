@@ -225,7 +225,7 @@ component_hero(
         <div class="container-xxl">
             <div class="row align-items-md-center mb-4 mb-md-0 gy-5">
                 <div class="col-12 col-md-6 col-xl-6 pe-xl-5">
-                    <h2 class="lbcc-animate lbcc-fade lbcc-duration-500"2>Explore Our Programs</h2>
+                    <h2 class="lbcc-animate lbcc-fade lbcc-duration-500">Explore Our Programs</h2>
                     <p class="lead">With more than 70 academic and career programs, LBCC helps students move forward with purpose.</p>
                     <p class="lead">Whether you’re transferring, building a career, or earning a bachelor’s degree, this is where momentum begins.</p>
                     <p class="lead"><span class="text-primary fw-bold">See how far you can go.</span></p>

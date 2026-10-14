@@ -48,7 +48,6 @@ $supportMatrixData = lbcc_support_matrix_load_data(__DIR__ . '/data/support-matr
         false
     );
     ?>
-</div>
 <?php } ?>
 <main id="main-content" class="support-page">
     <section class="py-5">

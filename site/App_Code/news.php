@@ -49,7 +49,7 @@ $moreNewsItems = lbcc_news_archive_items(5, 4);
             <div class="row g-4 g-xl-5 align-items-start">
                 <div class="col-12 col-lg-6">
                     <article class="d-grid gap-3">
-                        <a href="<?php echo lbcc_escape($featuredItem['url']); ?>" class="d-block text-decoration-none">
+                        <a href="<?php echo lbcc_escape($featuredItem['url']); ?>" class="d-block text-decoration-none" aria-label="<?php echo lbcc_escape($featuredItem['title']); ?>">
                             <div class="ratio ratio-4x3 rounded-3 overflow-hidden bg-surface-subtle">
                                 <img
                                     src="<?php echo lbcc_escape(lbcc_url($featuredItem['image'])); ?>"
@@ -102,7 +102,7 @@ $moreNewsItems = lbcc_news_archive_items(5, 4);
 
                         <nav aria-label="News pagination">
                             <ul class="pagination mb-0">
-                                <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                                <li class="page-item disabled" aria-disabled="true"><span class="page-link">Previous</span></li>
                                 <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
                                 <li class="page-item"><a class="page-link" href="<?php echo lbcc_escape(lbcc_url('/App_Code/news-archive.php')); ?>">2</a></li>
                                 <li class="page-item"><a class="page-link" href="<?php echo lbcc_escape(lbcc_url('/App_Code/news-archive.php')); ?>">Next</a></li>

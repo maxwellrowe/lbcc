@@ -349,11 +349,6 @@
 
 .component-support-matrix__need-icon {
     color: var(--color-teal-600);
-
-    &:hover,
-    &:focus-visible {
-        color: var(--color-teal-800);
-    }
 }
 
 .component-support-matrix__need-icon .fa-sharp {

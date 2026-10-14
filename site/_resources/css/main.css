@@ -88,11 +88,11 @@
   --bs-tertiary-bg: #F1F0ED;
   --bs-tertiary-bg-rgb: 241, 240, 237;
   --bs-heading-color: #1E1E1E;
-  --bs-link-color: #DA2919;
-  --bs-link-color-rgb: 218, 41, 25;
+  --bs-link-color: #A21F13;
+  --bs-link-color-rgb: 162, 31, 19;
   --bs-link-decoration: underline;
-  --bs-link-hover-color: #A21F13;
-  --bs-link-hover-color-rgb: 162, 31, 19;
+  --bs-link-hover-color: #004E54;
+  --bs-link-hover-color-rgb: 0, 78, 84;
   --bs-code-color: #d63384;
   --bs-highlight-color: #1E1E1E;
   --bs-highlight-bg: #fff3cd;
@@ -116,7 +116,7 @@
   --bs-focus-ring-color: rgba(0, 205, 219, 0.4);
   --bs-form-valid-color: #2E7D5B;
   --bs-form-valid-border-color: #2E7D5B;
-  --bs-form-invalid-color: #DA2919;
+  --bs-form-invalid-color: #A21F13;
   --bs-form-invalid-border-color: #DA2919;
 }
 
@@ -3295,7 +3295,7 @@ textarea.form-control-lg {
   --bs-btn-disabled-color: #716F6C;
   --bs-btn-disabled-border-color: transparent;
   --bs-btn-box-shadow: 0 0 0 #000;
-  --bs-btn-focus-shadow-rgb: 224, 73, 60;
+  --bs-btn-focus-shadow-rgb: 176, 65, 54;
   text-decoration: underline;
 }
 .btn-link:focus-visible {
@@ -4866,7 +4866,7 @@ textarea.form-control-lg {
   --bs-pagination-active-color: #FFFFFF;
   --bs-pagination-active-bg: #DA2919;
   --bs-pagination-active-border-color: #DA2919;
-  --bs-pagination-disabled-color: #898683;
+  --bs-pagination-disabled-color: #625E5B;
   --bs-pagination-disabled-bg: #E4E0DA;
   --bs-pagination-disabled-border-color: #E4E0DA;
   display: flex;
@@ -12917,6 +12917,16 @@ textarea.form-control {
   padding-bottom: 5rem;
 }
 
+.site-footer a {
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.site-footer a:not(.btn) {
+  display: inline-flex;
+  align-items: center;
+}
+
 @media (min-width: 1200px) {
   .az-index__nav-wrap {
     position: sticky;
@@ -13720,6 +13730,9 @@ textarea.form-control {
 }
 .section-nav button.btn.collapse-menu-trigger {
   padding-right: 1rem;
+}
+.section-nav button.btn.collapse-menu-trigger .eyebrow-sm {
+  color: var(--bs-dark);
 }
 .section-nav #section-nav__menu {
   position: absolute;
@@ -14677,9 +14690,6 @@ textarea.form-control {
 
 .component-support-matrix__need-icon {
   color: var(--color-teal-600);
-}
-.component-support-matrix__need-icon:hover, .component-support-matrix__need-icon:focus-visible {
-  color: var(--color-teal-800);
 }
 
 .component-support-matrix__need-icon .fa-sharp {

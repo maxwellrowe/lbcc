@@ -578,6 +578,10 @@
     &.btn {
       &.collapse-menu-trigger {
         padding-right: 1rem;
+
+        .eyebrow-sm {
+          color: var(--bs-dark);
+        }
       }
     }
   }

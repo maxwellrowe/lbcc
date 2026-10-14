@@ -26,8 +26,10 @@ $body-bg: $color-white;
 $body-color: $gray-900;
 $headings-color: $gray-900;
 $border-color: $gray-300;
-$link-color: $primary;
-$link-hover-color: $color-red-700;
+$link-color: $color-red-700;
+$link-hover-color: $color-teal-800;
+
+$form-invalid-color: $color-red-700;
 
 $component-active-bg: $secondary;
 $component-active-color: $color-white;
@@ -186,6 +188,6 @@ $pagination-focus-outline: 0;
 $pagination-active-color: $color-white;
 $pagination-active-bg: $primary;
 $pagination-active-border-color: $primary;
-$pagination-disabled-color: $gray-500;
+$pagination-disabled-color: $gray-700;
 $pagination-disabled-bg: $color-gray-200;
 $pagination-disabled-border-color: $color-gray-200;

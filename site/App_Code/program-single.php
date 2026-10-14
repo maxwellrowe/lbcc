@@ -45,9 +45,9 @@ $page = lbcc_resolve_page([
                             <div>
                                 <span class="eyebrow-sm d-block text-muted mb-2">Award Options</span>
                                 <div class="d-flex gap-2">
-                                    <span class="badge text-bg-dark bg-secondary rounded-pill px-2 py-2">AA</span>
-                                    <span class="badge text-bg-dark bg-secondary rounded-pill px-2 py-2">C-ACH</span>
-                                    <span class="badge text-bg-dark bg-secondary rounded-pill px-2 py-2">C-ACC</span>
+                                    <span class="badge bg-teal-800 text-white rounded-pill px-2 py-2">AA</span>
+                                    <span class="badge bg-teal-800 text-white rounded-pill px-2 py-2">C-ACH</span>
+                                    <span class="badge bg-teal-800 text-white rounded-pill px-2 py-2">C-ACC</span>
                                 </div>
                             </div>
                         </div>
@@ -374,7 +374,7 @@ $page = lbcc_resolve_page([
                 <div class="card rounded-0 rounded-bottom-5 bg-surface-subtle shadow-lg border-0">
                     <div class="card-body p-0">
                         <div class="p-4 bg-white">
-                            <h2 class="h4 mb-4">Get Started in <?php echo $pageTitle; ?></h4>
+                            <h2 class="h4 mb-4">Get Started in <?php echo $pageTitle; ?></h2>
                             <?php
                             component_buttons(
                                 [

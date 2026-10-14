@@ -84,6 +84,16 @@
   padding-bottom: 5rem;
 }
 
+.site-footer a {
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.site-footer a:not(.btn) {
+  display: inline-flex;
+  align-items: center;
+}
+
 .az-index__nav-wrap {
   @include media-breakpoint-up(xl) {
     position: sticky;
